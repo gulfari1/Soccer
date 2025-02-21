@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EPL Table - Understat</title>
+    <title>Premier League Table</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
         .table-container { max-width: 800px; margin: 0 auto; }
@@ -39,124 +39,36 @@
     </div>
 
     <script>
-        // CORS proxy to bypass restrictions (replace with your own if needed)
-        const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
-        const UNDERSTAT_URL = "https://understat.com/league/EPL";
+        // Fetch the JSON data
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                const tbody = document.querySelector('#leagueTable tbody');
+                const loading = document.getElementById('loading');
+                loading.style.display = 'none';
 
-        async function fetchData() {
-            try {
-                const response = await fetch(CORS_PROXY + UNDERSTAT_URL);
-                const html = await response.text();
-                
-                // Extract JSON data from page source
-                const dataMatch = html.match(/JSON\.parse\('(.*?)'\)/);
-                if (!dataMatch) throw new Error('Data not found');
-                
-                const decodedData = JSON.parse(dataMatch[1].replace(/\\x22/g, '"'));
-                return decodedData;
-            } catch (error) {
-                console.error('Error fetching data:', error);
-                return null;
-            }
-        }
-
-        function processData(matches) {
-            const teams = {};
-
-            matches.forEach(match => {
-                if (!match.isResult) return;
-
-                const home = match.h.title;
-                const away = match.a.title;
-                const hGoals = parseInt(match.goals.h);
-                const aGoals = parseInt(match.goals.a);
-
-                // Initialize teams if not exists
-                [home, away].forEach(team => {
-                    if (!teams[team]) {
-                        teams[team] = {
-                            matches: 0,
-                            wins: 0,
-                            draws: 0,
-                            losses: 0,
-                            gf: 0,
-                            ga: 0
-                        };
-                    }
+                data.forEach((team, index) => {
+                    const row = `
+                        <tr>
+                            <td>${index + 1}</td>
+                            <td class="team-cell">${team.team}</td>
+                            <td>${team.matches}</td>
+                            <td>${team.wins}</td>
+                            <td>${team.draws}</td>
+                            <td>${team.losses}</td>
+                            <td>${team.gf}</td>
+                            <td>${team.ga}</td>
+                            <td>${team.gd}</td>
+                            <td><strong>${team.points}</strong></td>
+                        </tr>
+                    `;
+                    tbody.insertAdjacentHTML('beforeend', row);
                 });
-
-                // Update home team stats
-                teams[home].matches++;
-                teams[home].gf += hGoals;
-                teams[home].ga += aGoals;
-                
-                // Update away team stats
-                teams[away].matches++;
-                teams[away].gf += aGoals;
-                teams[away].ga += hGoals;
-
-                // Determine result
-                if (hGoals > aGoals) {
-                    teams[home].wins++;
-                    teams[away].losses++;
-                } else if (aGoals > hGoals) {
-                    teams[away].wins++;
-                    teams[home].losses++;
-                } else {
-                    teams[home].draws++;
-                    teams[away].draws++;
-                }
+            })
+            .catch(error => {
+                console.error('Error loading data:', error);
+                document.getElementById('loading').textContent = 'Failed to load data.';
             });
-
-            return Object.entries(teams).map(([team, stats]) => ({
-                team,
-                ...stats,
-                gd: stats.gf - stats.ga,
-                points: (stats.wins * 3) + stats.draws
-            }));
-        }
-
-        function sortStandings(teams) {
-            return teams.sort((a, b) => {
-                if (b.points !== a.points) return b.points - a.points;
-                if (b.gd !== a.gd) return b.gd - a.gd;
-                return b.gf - a.gf;
-            });
-        }
-
-        function updateTable(teams) {
-            const tbody = document.querySelector('#leagueTable tbody');
-            const loading = document.getElementById('loading');
-            loading.style.display = 'none';
-            
-            tbody.innerHTML = teams.map((team, index) => `
-                <tr>
-                    <td>${index + 1}</td>
-                    <td class="team-cell">${team.team}</td>
-                    <td>${team.matches}</td>
-                    <td>${team.wins}</td>
-                    <td>${team.draws}</td>
-                    <td>${team.losses}</td>
-                    <td>${team.gf}</td>
-                    <td>${team.ga}</td>
-                    <td>${team.gd}</td>
-                    <td><strong>${team.points}</strong></td>
-                </tr>
-            `).join('');
-        }
-
-        async function updateStandings() {
-            const data = await fetchData();
-            if (!data) return;
-            
-            const processedData = processData(data);
-            const sortedStandings = sortStandings(processedData);
-            updateTable(sortedStandings);
-        }
-
-        // Initial load and auto-refresh every 5 minutes
-        updateStandings();
-        setInterval(updateStandings, 300000);
     </script>
 </body>
 </html>
