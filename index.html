@@ -9,20 +9,22 @@
         .table-container { max-width: 800px; margin: 0 auto; }
         table { width: 100%; border-collapse: collapse; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.12); }
         th, td { padding: 12px; text-align: center; border-bottom: 1px solid #ddd; }
-        th { background: #2c3e50; color: white; }
+        th { background: #2c3e50; color: white; position: sticky; top: 0; }
         tr:hover { background: #f9f9f9; }
         .team-cell { text-align: left; }
         .loading { text-align: center; padding: 20px; }
+        .error { color: red; text-align: center; }
     </style>
 </head>
 <body>
     <div class="table-container">
         <h1>Premier League Table</h1>
         <div id="loading" class="loading">Loading...</div>
+        <div id="error" class="error" style="display: none;"></div>
         <table id="leagueTable">
             <thead>
                 <tr>
-                    <th>Position</th>
+                    <th>Pos</th>
                     <th>Team</th>
                     <th>MP</th>
                     <th>W</th>
@@ -39,36 +41,43 @@
     </div>
 
     <script>
-        // Fetch the JSON data
-        fetch('data.json')
-            .then(response => response.json())
-            .then(data => {
-                const tbody = document.querySelector('#leagueTable tbody');
-                const loading = document.getElementById('loading');
-                loading.style.display = 'none';
+        function showError(message) {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('error').style.display = 'block';
+            document.getElementById('error').textContent = message;
+        }
 
-                data.forEach((team, index) => {
-                    const row = `
-                        <tr>
-                            <td>${index + 1}</td>
-                            <td class="team-cell">${team.team}</td>
-                            <td>${team.matches}</td>
-                            <td>${team.wins}</td>
-                            <td>${team.draws}</td>
-                            <td>${team.losses}</td>
-                            <td>${team.gf}</td>
-                            <td>${team.ga}</td>
-                            <td>${team.gd}</td>
-                            <td><strong>${team.points}</strong></td>
-                        </tr>
-                    `;
-                    tbody.insertAdjacentHTML('beforeend', row);
-                });
-            })
-            .catch(error => {
-                console.error('Error loading data:', error);
-                document.getElementById('loading').textContent = 'Failed to load data.';
-            });
+        async function loadData() {
+            try {
+                const response = await fetch('data.json');
+                if (!response.ok) throw new Error('Network response was not ok');
+                
+                const data = await response.json();
+                
+                const tbody = document.querySelector('#leagueTable tbody');
+                tbody.innerHTML = data.map((team, index) => `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td class="team-cell">${team.team}</td>
+                        <td>${team.matches}</td>
+                        <td>${team.wins}</td>
+                        <td>${team.draws}</td>
+                        <td>${team.losses}</td>
+                        <td>${team.gf}</td>
+                        <td>${team.ga}</td>
+                        <td>${team.gd}</td>
+                        <td><strong>${team.points}</strong></td>
+                    </tr>
+                `).join('');
+                
+                document.getElementById('loading').style.display = 'none';
+            } catch (error) {
+                showError(`Error loading data: ${error.message}`);
+            }
+        }
+
+        // Load data when page loads
+        loadData();
     </script>
 </body>
 </html>
