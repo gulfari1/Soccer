@@ -3,176 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premier League Stats</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>EPL Table - Understat</title>
     <style>
-        body { background-color: #f8f9fa; padding: 20px; }
-        .card { margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .table thead { background-color: #37003c; color: white; }
-        .match-card { border-left: 4px solid #00ff87; }
-        .badge { background-color: #00ff87; color: #37003c; }
-        .score { font-weight: 500; color: #37003c; }
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .table-container { max-width: 800px; margin: 0 auto; }
+        table { width: 100%; border-collapse: collapse; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.12); }
+        th, td { padding: 12px; text-align: center; border-bottom: 1px solid #ddd; }
+        th { background: #2c3e50; color: white; }
+        tr:hover { background: #f9f9f9; }
+        .team-cell { text-align: left; }
+        .loading { text-align: center; padding: 20px; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="text-center mb-4" style="color: #37003c;">Premier League Stats</h1>
-        
-        <!-- League Table -->
-        <div class="card">
-            <div class="card-header">
-                <h3>Current Standings</h3>
-            </div>
-            <div class="card-body table-responsive">
-                <table class="table table-hover" id="leagueTable">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Team</th>
-                            <th>MP</th>
-                            <th>W</th>
-                            <th>D</th>
-                            <th>L</th>
-                            <th>GF</th>
-                            <th>GA</th>
-                            <th>GD</th>
-                            <th>Pts</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tableBody"></tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Results & Fixtures -->
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Recent Results</h3>
-                    </div>
-                    <div class="card-body" id="recentResults"></div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Upcoming Fixtures</h3>
-                    </div>
-                    <div class="card-body" id="upcomingFixtures"></div>
-                </div>
-            </div>
-        </div>
+    <div class="table-container">
+        <h1>Premier League Table</h1>
+        <div id="loading" class="loading">Loading...</div>
+        <table id="leagueTable">
+            <thead>
+                <tr>
+                    <th>Position</th>
+                    <th>Team</th>
+                    <th>MP</th>
+                    <th>W</th>
+                    <th>D</th>
+                    <th>L</th>
+                    <th>GF</th>
+                    <th>GA</th>
+                    <th>GD</th>
+                    <th>Pts</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
     </div>
 
     <script>
-        async function fetchUnderstatData() {
+        // CORS proxy to bypass restrictions (replace with your own if needed)
+        const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
+        const UNDERSTAT_URL = "https://understat.com/league/EPL";
+
+        async function fetchData() {
             try {
-                const proxyUrl = 'https://api.allorigins.win/get?url=' + 
-                    encodeURIComponent('https://understat.com/league/EPL');
-                const response = await fetch(proxyUrl);
-                const data = await response.json();
-                return new DOMParser().parseFromString(data.contents, "text/html");
+                const response = await fetch(CORS_PROXY + UNDERSTAT_URL);
+                const html = await response.text();
+                
+                // Extract JSON data from page source
+                const dataMatch = html.match(/JSON\.parse\('(.*?)'\)/);
+                if (!dataMatch) throw new Error('Data not found');
+                
+                const decodedData = JSON.parse(dataMatch[1].replace(/\\x22/g, '"'));
+                return decodedData;
             } catch (error) {
                 console.error('Error fetching data:', error);
                 return null;
             }
         }
 
-        function extractJSONData(html, variableName) {
-            const scriptContent = Array.from(html.querySelectorAll('script'))
-                .find(script => script.textContent.includes(variableName))?.textContent;
-            
-            if (!scriptContent) return null;
-            
-            const jsonString = scriptContent.match(
-                new RegExp(`${variableName}\\s*=\\s*JSON\\.parse\\('(.*?)'\\)`)
-            )?.[1];
-            
-            return jsonString ? JSON.parse(JSON.parse(`"${jsonString}"`)) : null;
-        }
+        function processData(matches) {
+            const teams = {};
 
-        async function updateLeagueTable() {
-            const html = await fetchUnderstatData();
-            if (!html) return;
+            matches.forEach(match => {
+                if (!match.isResult) return;
 
-            const teamsData = extractJSONData(html, 'teamsData');
-            if (!teamsData) return;
+                const home = match.h.title;
+                const away = match.a.title;
+                const hGoals = parseInt(match.goals.h);
+                const aGoals = parseInt(match.goals.a);
 
-            const tableBody = document.getElementById('tableBody');
-            tableBody.innerHTML = '';
+                // Initialize teams if not exists
+                [home, away].forEach(team => {
+                    if (!teams[team]) {
+                        teams[team] = {
+                            matches: 0,
+                            wins: 0,
+                            draws: 0,
+                            losses: 0,
+                            gf: 0,
+                            ga: 0
+                        };
+                    }
+                });
 
-            Object.values(teamsData).forEach((team, index) => {
-                const row = `
-                    <tr>
-                        <td>${index + 1}</td>
-                        <td>${team.title}</td>
-                        <td>${team.games}</td>
-                        <td>${team.wins}</td>
-                        <td>${team.draws}</td>
-                        <td>${team.loses}</td>
-                        <td>${team.scored}</td>
-                        <td>${team.missed}</td>
-                        <td>${team.goals_diff}</td>
-                        <td><strong>${team.pts}</strong></td>
-                    </tr>
-                `;
-                tableBody.innerHTML += row;
-            });
-        }
-
-        async function updateMatches() {
-            const html = await fetchUnderstatData();
-            if (!html) return;
-
-            const matchesData = extractJSONData(html, 'datesData');
-            if (!matchesData) return;
-
-            const now = new Date();
-            const recentResults = document.getElementById('recentResults');
-            const upcomingFixtures = document.getElementById('upcomingFixtures');
-            recentResults.innerHTML = '';
-            upcomingFixtures.innerHTML = '';
-
-            matchesData.forEach(match => {
-                const matchDate = new Date(match.time);
-                const isPast = matchDate < now;
+                // Update home team stats
+                teams[home].matches++;
+                teams[home].gf += hGoals;
+                teams[home].ga += aGoals;
                 
-                const matchElement = `
-                    <div class="match-card mb-2 p-3">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <small>${matchDate.toLocaleDateString()}</small>
-                                <div class="fw-bold">
-                                    ${match.h} vs ${match.a}
-                                </div>
-                            </div>
-                            ${isPast ? `
-                                <div class="score">
-                                    ${match.goals.h} - ${match.goals.a}
-                                </div>
-                            ` : '<span class="badge">VS</span>'}
-                        </div>
-                    </div>
-                `;
+                // Update away team stats
+                teams[away].matches++;
+                teams[away].gf += aGoals;
+                teams[away].ga += hGoals;
 
-                if (isPast) {
-                    recentResults.innerHTML += matchElement;
+                // Determine result
+                if (hGoals > aGoals) {
+                    teams[home].wins++;
+                    teams[away].losses++;
+                } else if (aGoals > hGoals) {
+                    teams[away].wins++;
+                    teams[home].losses++;
                 } else {
-                    upcomingFixtures.innerHTML += matchElement;
+                    teams[home].draws++;
+                    teams[away].draws++;
                 }
             });
+
+            return Object.entries(teams).map(([team, stats]) => ({
+                team,
+                ...stats,
+                gd: stats.gf - stats.ga,
+                points: (stats.wins * 3) + stats.draws
+            }));
         }
 
-        async function updateAllData() {
-            await updateLeagueTable();
-            await updateMatches();
+        function sortStandings(teams) {
+            return teams.sort((a, b) => {
+                if (b.points !== a.points) return b.points - a.points;
+                if (b.gd !== a.gd) return b.gd - a.gd;
+                return b.gf - a.gf;
+            });
         }
 
-        // Initial load
-        updateAllData();
-        // Update every 15 minutes
-        setInterval(updateAllData, 900000);
+        function updateTable(teams) {
+            const tbody = document.querySelector('#leagueTable tbody');
+            const loading = document.getElementById('loading');
+            loading.style.display = 'none';
+            
+            tbody.innerHTML = teams.map((team, index) => `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td class="team-cell">${team.team}</td>
+                    <td>${team.matches}</td>
+                    <td>${team.wins}</td>
+                    <td>${team.draws}</td>
+                    <td>${team.losses}</td>
+                    <td>${team.gf}</td>
+                    <td>${team.ga}</td>
+                    <td>${team.gd}</td>
+                    <td><strong>${team.points}</strong></td>
+                </tr>
+            `).join('');
+        }
+
+        async function updateStandings() {
+            const data = await fetchData();
+            if (!data) return;
+            
+            const processedData = processData(data);
+            const sortedStandings = sortStandings(processedData);
+            updateTable(sortedStandings);
+        }
+
+        // Initial load and auto-refresh every 5 minutes
+        updateStandings();
+        setInterval(updateStandings, 300000);
     </script>
 </body>
 </html>
