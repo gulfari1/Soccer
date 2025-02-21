@@ -3,35 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premier League Table</title>
+    <title>Premier League Stats</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { padding: 20px; background-color: #f0f2f5; }
-        .card { margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        body { background-color: #f8f9fa; padding: 20px; }
+        .card { margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .table thead { background-color: #37003c; color: white; }
-        .match { padding: 10px; border-bottom: 1px solid #eee; }
+        .match-card { border-left: 4px solid #00ff87; }
         .badge { background-color: #00ff87; color: #37003c; }
+        .score { font-weight: 500; color: #37003c; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="text-center mb-4" style="color: #37003c;">Premier League Tracker</h1>
+        <h1 class="text-center mb-4" style="color: #37003c;">Premier League Stats</h1>
         
         <!-- League Table -->
         <div class="card">
             <div class="card-header">
                 <h3>Current Standings</h3>
             </div>
-            <div class="card-body">
-                <table class="table" id="leagueTable">
+            <div class="card-body table-responsive">
+                <table class="table table-hover" id="leagueTable">
                     <thead>
                         <tr>
-                            <th>Pos</th>
+                            <th>#</th>
                             <th>Team</th>
-                            <th>GP</th>
+                            <th>MP</th>
                             <th>W</th>
                             <th>D</th>
                             <th>L</th>
+                            <th>GF</th>
+                            <th>GA</th>
                             <th>GD</th>
                             <th>Pts</th>
                         </tr>
@@ -41,7 +44,7 @@
             </div>
         </div>
 
-        <!-- Matches Section -->
+        <!-- Results & Fixtures -->
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
@@ -63,84 +66,113 @@
     </div>
 
     <script>
-        async function fetchWithProxy(url) {
+        async function fetchUnderstatData() {
             try {
-                const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
+                const proxyUrl = 'https://api.allorigins.win/get?url=' + 
+                    encodeURIComponent('https://understat.com/league/EPL');
                 const response = await fetch(proxyUrl);
                 const data = await response.json();
                 return new DOMParser().parseFromString(data.contents, "text/html");
             } catch (error) {
-                console.error('Error:', error);
+                console.error('Error fetching data:', error);
                 return null;
             }
         }
 
+        function extractJSONData(html, variableName) {
+            const scriptContent = Array.from(html.querySelectorAll('script'))
+                .find(script => script.textContent.includes(variableName))?.textContent;
+            
+            if (!scriptContent) return null;
+            
+            const jsonString = scriptContent.match(
+                new RegExp(`${variableName}\\s*=\\s*JSON\\.parse\\('(.*?)'\\)`)
+            )?.[1];
+            
+            return jsonString ? JSON.parse(JSON.parse(`"${jsonString}"`)) : null;
+        }
+
         async function updateLeagueTable() {
-            const html = await fetchWithProxy('https://www.premierleague.com/tables');
+            const html = await fetchUnderstatData();
             if (!html) return;
+
+            const teamsData = extractJSONData(html, 'teamsData');
+            if (!teamsData) return;
 
             const tableBody = document.getElementById('tableBody');
             tableBody.innerHTML = '';
 
-            const rows = html.querySelectorAll('.table-row-container:not(.expandable)');
-            rows.forEach(row => {
-                const cells = row.querySelectorAll('td');
-                const team = row.querySelector('.team').textContent.trim();
-                
-                const rowHTML = `
+            Object.values(teamsData).forEach((team, index) => {
+                const row = `
                     <tr>
-                        <td>${cells[1].textContent}</td>
-                        <td>${team}</td>
-                        <td>${cells[2].textContent}</td>
-                        <td>${cells[3].textContent}</td>
-                        <td>${cells[4].textContent}</td>
-                        <td>${cells[5].textContent}</td>
-                        <td>${cells[9].textContent}</td>
-                        <td><strong>${cells[10].textContent}</strong></td>
+                        <td>${index + 1}</td>
+                        <td>${team.title}</td>
+                        <td>${team.games}</td>
+                        <td>${team.wins}</td>
+                        <td>${team.draws}</td>
+                        <td>${team.loses}</td>
+                        <td>${team.scored}</td>
+                        <td>${team.missed}</td>
+                        <td>${team.goals_diff}</td>
+                        <td><strong>${team.pts}</strong></td>
                     </tr>
                 `;
-                tableBody.innerHTML += rowHTML;
+                tableBody.innerHTML += row;
             });
         }
 
-        async function updateMatches(section, elementId) {
-            const html = await fetchWithProxy('https://www.premierleague.com/results');
+        async function updateMatches() {
+            const html = await fetchUnderstatData();
             if (!html) return;
 
-            const container = document.getElementById(elementId);
-            container.innerHTML = '';
+            const matchesData = extractJSONData(html, 'datesData');
+            if (!matchesData) return;
 
-            const matches = html.querySelectorAll('.matchList');
-            matches.forEach(match => {
-                const date = match.querySelector('.date').textContent;
-                const teams = match.querySelectorAll('.team');
-                const score = match.querySelector('.score')?.textContent || '<span class="badge">vs</span>';
+            const now = new Date();
+            const recentResults = document.getElementById('recentResults');
+            const upcomingFixtures = document.getElementById('upcomingFixtures');
+            recentResults.innerHTML = '';
+            upcomingFixtures.innerHTML = '';
 
-                const matchHTML = `
-                    <div class="match">
-                        <div class="d-flex justify-content-between">
+            matchesData.forEach(match => {
+                const matchDate = new Date(match.time);
+                const isPast = matchDate < now;
+                
+                const matchElement = `
+                    <div class="match-card mb-2 p-3">
+                        <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <small>${date}</small><br>
-                                ${teams[0].textContent} vs ${teams[1].textContent}
+                                <small>${matchDate.toLocaleDateString()}</small>
+                                <div class="fw-bold">
+                                    ${match.h} vs ${match.a}
+                                </div>
                             </div>
-                            <div class="score">${score}</div>
+                            ${isPast ? `
+                                <div class="score">
+                                    ${match.goals.h} - ${match.goals.a}
+                                </div>
+                            ` : '<span class="badge">VS</span>'}
                         </div>
                     </div>
                 `;
-                container.innerHTML += matchHTML;
+
+                if (isPast) {
+                    recentResults.innerHTML += matchElement;
+                } else {
+                    upcomingFixtures.innerHTML += matchElement;
+                }
             });
         }
 
         async function updateAllData() {
             await updateLeagueTable();
-            await updateMatches('results', 'recentResults');
-            await updateMatches('fixtures', 'upcomingFixtures');
+            await updateMatches();
         }
 
         // Initial load
         updateAllData();
-        // Update every 10 minutes
-        setInterval(updateAllData, 600000);
+        // Update every 15 minutes
+        setInterval(updateAllData, 900000);
     </script>
 </body>
 </html>
