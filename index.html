@@ -6,34 +6,35 @@
     <title>Premier League Table</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
-        .table-container { max-width: 800px; margin: 0 auto; }
+        .table-container { 
+            max-width: 800px; 
+            margin: 0 auto;
+        }
         table { 
             width: 100%; 
             border-collapse: collapse; 
             background: white; 
             box-shadow: 0 1px 3px rgba(0,0,0,0.12);
-            table-layout: fixed; /* Ensures consistent column widths */
         }
-        th, td { padding: 8px; text-align: center; border-bottom: 1px solid #ddd; }
+        th, td { padding: 12px; text-align: center; border-bottom: 1px solid #ddd; }
         th { background: #2c3e50; color: white; position: sticky; top: 0; }
         tr:hover { background: #f9f9f9; }
         .team-cell { 
             text-align: left; 
             display: flex; 
-            align-items: center;
-            gap: 4px; /* Reduced gap between elements */
-            padding-left: 4px;
-            overflow: hidden;
+            align-items: center; 
+            max-width: 120px;
         }
         .team-logo-container { 
-            width: 24px; 
-            height: 24px; 
-            flex-shrink: 0;
+            width: 30px; 
+            height: 30px; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
+            margin-right: 8px; 
             border-radius: 50%; 
             overflow: hidden; 
+            flex-shrink: 0;
         }
         .team-logo { max-width: 100%; max-height: 100%; }
         .loading { text-align: center; padding: 20px; }
@@ -44,31 +45,25 @@
             text-overflow: ellipsis;
         }
 
-        /* Column Widths */
-        th:nth-child(1) { width: 8%; } /* Pos */
-        th:nth-child(2) { width: 35%; } /* Team */
-        th:nth-child(3) { width: 10%; } /* MP */
-        th:nth-child(10) { width: 10%; } /* Pts */
-
         /* Mobile Styles */
         @media (max-width: 600px) {
             body { margin: 10px; }
-            th, td { padding: 6px; font-size: 12px; }
-            h1 { font-size: 20px; margin: 12px 0; }
-            
-            /* Adjust column widths for mobile */
-            th:nth-child(1) { width: 10%; } /* Pos */
-            th:nth-child(2) { width: 45%; } /* Team */
-            th:nth-child(3) { width: 12%; } /* MP */
-            th:nth-child(10) { width: 12%; } /* Pts */
-
-            /* Hide additional columns on mobile */
-            .mobile-hide { display: none; }
-            
+            th, td { padding: 6px; font-size: 11px; }
+            h1 { font-size: 18px; margin: 10px 0; }
             .team-logo-container { 
-                width: 20px;
+                width: 20px; 
                 height: 20px;
+                margin-right: 4px;
             }
+            .mobile-hide { display: none; }
+            .table-container { padding: 0 5px; }
+            .team-cell { max-width: 100px; }
+            
+            /* Adjust column widths */
+            th:nth-child(1), td:nth-child(1) { width: 8%; } /* Pos */
+            th:nth-child(3), td:nth-child(3) { width: 10%; } /* MP */
+            th:nth-child(9), td:nth-child(9) { width: 10%; } /* GD */
+            th:nth-child(10), td:nth-child(10) { width: 10%; } /* Pts */
         }
     </style>
 </head>
@@ -137,7 +132,6 @@
             }
         }
 
-        // Load data when page loads
         loadData();
     </script>
 </body>
