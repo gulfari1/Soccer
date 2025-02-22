@@ -74,7 +74,7 @@ standings = []
 for team, stats in teams.items():
     standings.append({
         'team': team,
-        'logo': team_logos.get(team, "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Default_team_logo.svg/1200px-Default_team_logo.svg.png"),  # Default logo
+        'logo': team_logos.get(team),  # Default logo
         **stats,
         'gd': stats['gf'] - stats['ga'],
         'points': (stats['wins'] * 3) + stats['draws']
