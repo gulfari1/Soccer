@@ -1,7 +1,7 @@
 [
   {
     "team": "Liverpool",
-    "logo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/5pqbkK17JBIe7kMzOPSdr.png",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Liverpool_FC.svg/1200px-Liverpool_FC.svg.png",
     "matches": 26,
     "wins": 18,
     "draws": 7,
@@ -14,13 +14,13 @@
   {
     "team": "Arsenal",
     "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Arsenal_FC.svg/1200px-Arsenal_FC.svg.png",
-    "matches": 25,
+    "matches": 26,
     "wins": 15,
     "draws": 8,
-    "losses": 2,
+    "losses": 3,
     "gf": 51,
-    "ga": 22,
-    "gd": 29,
+    "ga": 23,
+    "gd": 28,
     "points": 53
   },
   {
@@ -50,13 +50,13 @@
   {
     "team": "Bournemouth",
     "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e5/AFC_Bournemouth_%282013%29.svg/1200px-AFC_Bournemouth_%282013%29.svg.png",
-    "matches": 25,
+    "matches": 26,
     "wins": 12,
     "draws": 7,
-    "losses": 6,
+    "losses": 7,
     "gf": 44,
-    "ga": 29,
-    "gd": 15,
+    "ga": 30,
+    "gd": 14,
     "points": 43
   },
   {
@@ -84,20 +84,32 @@
     "points": 41
   },
   {
+    "team": "Brighton",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Brighton_%26_Hove_Albion_logo.svg/1200px-Brighton_%26_Hove_Albion_logo.svg.png",
+    "matches": 26,
+    "wins": 10,
+    "draws": 10,
+    "losses": 6,
+    "gf": 42,
+    "ga": 38,
+    "gd": 4,
+    "points": 40
+  },
+  {
     "team": "Fulham",
     "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Fulham_FC_%28shield%29.svg/1200px-Fulham_FC_%28shield%29.svg.png",
-    "matches": 25,
+    "matches": 26,
     "wins": 10,
     "draws": 9,
-    "losses": 6,
+    "losses": 7,
     "gf": 38,
-    "ga": 33,
-    "gd": 5,
+    "ga": 35,
+    "gd": 3,
     "points": 39
   },
   {
     "team": "Aston Villa",
-    "logo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/qgf3Tx9R3nphdWIS9SgyB.png",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f9/Aston_Villa_FC_crest_%282016%29.svg/1200px-Aston_Villa_FC_crest_%282016%29.svg.png",
     "matches": 26,
     "wins": 10,
     "draws": 9,
@@ -120,16 +132,28 @@
     "points": 37
   },
   {
-    "team": "Brighton",
-    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Brighton_%26_Hove_Albion_logo.svg/1200px-Brighton_%26_Hove_Albion_logo.svg.png",
-    "matches": 25,
-    "wins": 9,
-    "draws": 10,
-    "losses": 6,
-    "gf": 38,
+    "team": "Tottenham",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Default_team_logo.svg/1200px-Default_team_logo.svg.png",
+    "matches": 26,
+    "wins": 10,
+    "draws": 3,
+    "losses": 13,
+    "gf": 53,
     "ga": 38,
-    "gd": 0,
-    "points": 37
+    "gd": 15,
+    "points": 33
+  },
+  {
+    "team": "Crystal Palace",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/Crystal_Palace_FC_logo_%282022%29.svg/1200px-Crystal_Palace_FC_logo_%282022%29.svg.png",
+    "matches": 26,
+    "wins": 8,
+    "draws": 9,
+    "losses": 9,
+    "gf": 31,
+    "ga": 32,
+    "gd": -1,
+    "points": 33
   },
   {
     "team": "Everton",
@@ -142,30 +166,6 @@
     "ga": 33,
     "gd": -4,
     "points": 31
-  },
-  {
-    "team": "Tottenham",
-    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Default_team_logo.svg/1200px-Default_team_logo.svg.png",
-    "matches": 25,
-    "wins": 9,
-    "draws": 3,
-    "losses": 13,
-    "gf": 49,
-    "ga": 37,
-    "gd": 12,
-    "points": 30
-  },
-  {
-    "team": "Crystal Palace",
-    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/Crystal_Palace_FC_logo_%282022%29.svg/1200px-Crystal_Palace_FC_logo_%282022%29.svg.png",
-    "matches": 25,
-    "wins": 7,
-    "draws": 9,
-    "losses": 9,
-    "gf": 29,
-    "ga": 32,
-    "gd": -3,
-    "points": 30
   },
   {
     "team": "Manchester United",
@@ -182,37 +182,37 @@
   {
     "team": "West Ham",
     "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Default_team_logo.svg/1200px-Default_team_logo.svg.png",
-    "matches": 25,
-    "wins": 7,
+    "matches": 26,
+    "wins": 8,
     "draws": 6,
     "losses": 12,
-    "gf": 29,
+    "gf": 30,
     "ga": 47,
-    "gd": -18,
-    "points": 27
+    "gd": -17,
+    "points": 30
   },
   {
     "team": "Wolverhampton Wanderers",
     "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fc/Wolverhampton_Wanderers.svg/1200px-Wolverhampton_Wanderers.svg.png",
-    "matches": 25,
-    "wins": 5,
+    "matches": 26,
+    "wins": 6,
     "draws": 4,
     "losses": 16,
-    "gf": 35,
+    "gf": 36,
     "ga": 54,
-    "gd": -19,
-    "points": 19
+    "gd": -18,
+    "points": 22
   },
   {
     "team": "Ipswich",
     "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Default_team_logo.svg/1200px-Default_team_logo.svg.png",
-    "matches": 25,
+    "matches": 26,
     "wins": 3,
     "draws": 8,
-    "losses": 14,
-    "gf": 23,
-    "ga": 50,
-    "gd": -27,
+    "losses": 15,
+    "gf": 24,
+    "ga": 54,
+    "gd": -30,
     "points": 17
   },
   {
@@ -230,13 +230,13 @@
   {
     "team": "Southampton",
     "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c9/FC_Southampton.svg/1200px-FC_Southampton.svg.png",
-    "matches": 25,
+    "matches": 26,
     "wins": 2,
     "draws": 3,
-    "losses": 20,
+    "losses": 21,
     "gf": 19,
-    "ga": 57,
-    "gd": -38,
+    "ga": 61,
+    "gd": -42,
     "points": 9
   }
 ]
