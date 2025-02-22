@@ -1,5 +1,5 @@
 name: Update Data
-   on:
+           on:
      schedule:
        - cron: '0 0 * * *'  # Daily at midnight UTC
      workflow_dispatch:
