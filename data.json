@@ -1,7 +1,7 @@
 [
   {
     "team": "Liverpool",
-    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Liverpool_FC.svg/1200px-Liverpool_FC.svg.png",
+    "logo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/5pqbkK17JBIe7kMzOPSdr.png",
     "matches": 26,
     "wins": 18,
     "draws": 7,
@@ -132,6 +132,18 @@
     "points": 37
   },
   {
+    "team": "Everton",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/7/7c/Everton_FC_logo.svg/1200px-Everton_FC_logo.svg.png",
+    "matches": 26,
+    "wins": 7,
+    "draws": 10,
+    "losses": 9,
+    "gf": 29,
+    "ga": 33,
+    "gd": -4,
+    "points": 31
+  },
+  {
     "team": "Tottenham",
     "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Default_team_logo.svg/1200px-Default_team_logo.svg.png",
     "matches": 25,
@@ -156,28 +168,16 @@
     "points": 30
   },
   {
-    "team": "Everton",
-    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/7/7c/Everton_FC_logo.svg/1200px-Everton_FC_logo.svg.png",
-    "matches": 25,
-    "wins": 7,
-    "draws": 9,
-    "losses": 9,
-    "gf": 27,
-    "ga": 31,
-    "gd": -4,
-    "points": 30
-  },
-  {
     "team": "Manchester United",
     "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Manchester_United_FC_crest.svg/1200px-Manchester_United_FC_crest.svg.png",
-    "matches": 25,
+    "matches": 26,
     "wins": 8,
-    "draws": 5,
+    "draws": 6,
     "losses": 12,
-    "gf": 28,
-    "ga": 35,
+    "gf": 30,
+    "ga": 37,
     "gd": -7,
-    "points": 29
+    "points": 30
   },
   {
     "team": "West Ham",
