@@ -1,6 +1,7 @@
 [
   {
     "team": "Liverpool",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Liverpool_FC.svg/1200px-Liverpool_FC.svg.png",
     "matches": 26,
     "wins": 18,
     "draws": 7,
@@ -12,6 +13,7 @@
   },
   {
     "team": "Arsenal",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Arsenal_FC.svg/1200px-Arsenal_FC.svg.png",
     "matches": 25,
     "wins": 15,
     "draws": 8,
@@ -23,6 +25,7 @@
   },
   {
     "team": "Nottingham Forest",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e5/Nottingham_Forest_F.C._logo.svg/1200px-Nottingham_Forest_F.C._logo.svg.png",
     "matches": 25,
     "wins": 14,
     "draws": 5,
@@ -34,6 +37,7 @@
   },
   {
     "team": "Manchester City",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Manchester_City_FC_badge.svg/1200px-Manchester_City_FC_badge.svg.png",
     "matches": 25,
     "wins": 13,
     "draws": 5,
@@ -45,6 +49,7 @@
   },
   {
     "team": "Bournemouth",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e5/AFC_Bournemouth_%282013%29.svg/1200px-AFC_Bournemouth_%282013%29.svg.png",
     "matches": 25,
     "wins": 12,
     "draws": 7,
@@ -56,6 +61,7 @@
   },
   {
     "team": "Chelsea",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/c/cc/Chelsea_FC.svg/1200px-Chelsea_FC.svg.png",
     "matches": 25,
     "wins": 12,
     "draws": 7,
@@ -67,6 +73,7 @@
   },
   {
     "team": "Newcastle United",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Newcastle_United_Logo.svg/1200px-Newcastle_United_Logo.svg.png",
     "matches": 25,
     "wins": 12,
     "draws": 5,
@@ -78,6 +85,7 @@
   },
   {
     "team": "Fulham",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Fulham_FC_%28shield%29.svg/1200px-Fulham_FC_%28shield%29.svg.png",
     "matches": 25,
     "wins": 10,
     "draws": 9,
@@ -89,6 +97,7 @@
   },
   {
     "team": "Aston Villa",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f9/Aston_Villa_FC_crest_%282016%29.svg/1200px-Aston_Villa_FC_crest_%282016%29.svg.png",
     "matches": 26,
     "wins": 10,
     "draws": 9,
@@ -100,6 +109,7 @@
   },
   {
     "team": "Brentford",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/Brentford_FC_crest.svg/1200px-Brentford_FC_crest.svg.png",
     "matches": 26,
     "wins": 11,
     "draws": 4,
@@ -111,6 +121,7 @@
   },
   {
     "team": "Brighton",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Brighton_%26_Hove_Albion_logo.svg/1200px-Brighton_%26_Hove_Albion_logo.svg.png",
     "matches": 25,
     "wins": 9,
     "draws": 10,
@@ -122,6 +133,7 @@
   },
   {
     "team": "Tottenham",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Default_team_logo.svg/1200px-Default_team_logo.svg.png",
     "matches": 25,
     "wins": 9,
     "draws": 3,
@@ -133,6 +145,7 @@
   },
   {
     "team": "Crystal Palace",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/Crystal_Palace_FC_logo_%282022%29.svg/1200px-Crystal_Palace_FC_logo_%282022%29.svg.png",
     "matches": 25,
     "wins": 7,
     "draws": 9,
@@ -144,6 +157,7 @@
   },
   {
     "team": "Everton",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/7/7c/Everton_FC_logo.svg/1200px-Everton_FC_logo.svg.png",
     "matches": 25,
     "wins": 7,
     "draws": 9,
@@ -155,6 +169,7 @@
   },
   {
     "team": "Manchester United",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Manchester_United_FC_crest.svg/1200px-Manchester_United_FC_crest.svg.png",
     "matches": 25,
     "wins": 8,
     "draws": 5,
@@ -166,6 +181,7 @@
   },
   {
     "team": "West Ham",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Default_team_logo.svg/1200px-Default_team_logo.svg.png",
     "matches": 25,
     "wins": 7,
     "draws": 6,
@@ -177,6 +193,7 @@
   },
   {
     "team": "Wolverhampton Wanderers",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fc/Wolverhampton_Wanderers.svg/1200px-Wolverhampton_Wanderers.svg.png",
     "matches": 25,
     "wins": 5,
     "draws": 4,
@@ -188,6 +205,7 @@
   },
   {
     "team": "Ipswich",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Default_team_logo.svg/1200px-Default_team_logo.svg.png",
     "matches": 25,
     "wins": 3,
     "draws": 8,
@@ -199,6 +217,7 @@
   },
   {
     "team": "Leicester",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Default_team_logo.svg/1200px-Default_team_logo.svg.png",
     "matches": 26,
     "wins": 4,
     "draws": 5,
@@ -210,6 +229,7 @@
   },
   {
     "team": "Southampton",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c9/FC_Southampton.svg/1200px-FC_Southampton.svg.png",
     "matches": 25,
     "wins": 2,
     "draws": 3,
