@@ -99,6 +99,17 @@
     "points": 39
   },
   {
+    "team": "Brentford",
+    "matches": 26,
+    "wins": 11,
+    "draws": 4,
+    "losses": 11,
+    "gf": 47,
+    "ga": 42,
+    "gd": 5,
+    "points": 37
+  },
+  {
     "team": "Brighton",
     "matches": 25,
     "wins": 9,
@@ -108,17 +119,6 @@
     "ga": 38,
     "gd": 0,
     "points": 37
-  },
-  {
-    "team": "Brentford",
-    "matches": 25,
-    "wins": 10,
-    "draws": 4,
-    "losses": 11,
-    "gf": 43,
-    "ga": 42,
-    "gd": 1,
-    "points": 34
   },
   {
     "team": "Tottenham",
@@ -199,13 +199,13 @@
   },
   {
     "team": "Leicester",
-    "matches": 25,
+    "matches": 26,
     "wins": 4,
     "draws": 5,
-    "losses": 16,
+    "losses": 17,
     "gf": 25,
-    "ga": 55,
-    "gd": -30,
+    "ga": 59,
+    "gd": -34,
     "points": 17
   },
   {
