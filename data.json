@@ -1,7 +1,7 @@
 [
   {
     "team": "Liverpool",
-    "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/liverpool.0d2ced3f9a.svg",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Liverpool_FC.svg/1200px-Liverpool_FC.svg.png",
     "matches": 26,
     "wins": 18,
     "draws": 7,
@@ -73,7 +73,7 @@
   },
   {
     "team": "Aston Villa",
-    "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/aston-villa.7462c0d498.svg",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f9/Aston_Villa_FC_crest_%282016%29.svg/1200px-Aston_Villa_FC_crest_%282016%29.svg.png",
     "matches": 27,
     "wins": 11,
     "draws": 9,
