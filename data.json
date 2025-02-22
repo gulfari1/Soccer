@@ -133,7 +133,7 @@
   },
   {
     "team": "Tottenham",
-    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Default_team_logo.svg/1200px-Default_team_logo.svg.png",
+    "logo": null,
     "matches": 26,
     "wins": 10,
     "draws": 3,
@@ -181,7 +181,7 @@
   },
   {
     "team": "West Ham",
-    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Default_team_logo.svg/1200px-Default_team_logo.svg.png",
+    "logo": null,
     "matches": 26,
     "wins": 8,
     "draws": 6,
@@ -205,7 +205,7 @@
   },
   {
     "team": "Ipswich",
-    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Default_team_logo.svg/1200px-Default_team_logo.svg.png",
+    "logo": null,
     "matches": 26,
     "wins": 3,
     "draws": 8,
@@ -217,7 +217,7 @@
   },
   {
     "team": "Leicester",
-    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Default_team_logo.svg/1200px-Default_team_logo.svg.png",
+    "logo": null,
     "matches": 26,
     "wins": 4,
     "draws": 5,
