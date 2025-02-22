@@ -133,7 +133,7 @@
   },
   {
     "team": "Tottenham",
-    "logo": null,
+    "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/tottenham-hotspur.0bfa51c9f1.svg",
     "matches": 26,
     "wins": 10,
     "draws": 3,
@@ -181,7 +181,7 @@
   },
   {
     "team": "West Ham",
-    "logo": null,
+    "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/west-ham-united.8031b8c4c7.svg",
     "matches": 26,
     "wins": 8,
     "draws": 6,
@@ -205,7 +205,7 @@
   },
   {
     "team": "Ipswich",
-    "logo": null,
+    "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/ipswich-town.932422801d.svg",
     "matches": 26,
     "wins": 3,
     "draws": 8,
@@ -217,7 +217,7 @@
   },
   {
     "team": "Leicester",
-    "logo": null,
+    "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leicester-city.84a92b176c.svg",
     "matches": 26,
     "wins": 4,
     "draws": 5,
