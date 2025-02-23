@@ -29,10 +29,18 @@ team_logos = {
 # Team name mapping to ensure consistency
 team_name_mapping = {
     "Nottm Forest": "Nottingham Forest",
+    "Man City": "Manchester City",
     "Man Utd": "Manchester United",
+    "Newcastle": "Newcastle United",
     "Wolves": "Wolverhampton Wanderers",
-    "West Ham United": "West Ham",
     "Spurs": "Tottenham",
+    "West Ham United": "West Ham",
+    "Nott'm Forest": "Nottingham Forest",  # Alternative spelling
+    "Nottingham F...": "Nottingham Forest",  # Handle truncated names
+    "Manchester C...": "Manchester City",
+    "Wolverhampt...": "Wolverhampton Wanderers",
+    "Manchester U...": "Manchester United",
+    "Newcastle Un...": "Newcastle United"
 }
 
 # Scrape data from Understat
