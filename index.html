@@ -29,10 +29,10 @@
             color: white;
             position: sticky;
             top: 0;
-            border-bottom: 2px solid #1a2634; /* Thicker border for header */
+            border-bottom: 2px solid #1a2634;
         }
         tr {
-            border-bottom: 1px solid #ddd; /* Consistent row border */
+            border-bottom: 1px solid #ddd;
         }
         tr:hover {
             background: #f9f9f9;
@@ -71,7 +71,9 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-
+        .separator-row {
+            border-bottom: 2px solid #1a2634 !important;
+        }
 
         /* Mobile Styles */
         @media (max-width: 600px) {
@@ -100,12 +102,6 @@
             .team-cell {
                 max-width: 100px;
             }
-
-            /* Adjust column widths */
-            th:nth-child(1), td:nth-child(1) { width: 8%; } /* Pos */
-            th:nth-child(3), td:nth-child(3) { width: 10%; } /* MP */
-            th:nth-child(9), td:nth-child(9) { width: 10%; } /* GD */
-            th:nth-child(10), td:nth-child(10) { width: 10%; } /* Pts */
         }
     </style>
 </head>
@@ -131,12 +127,6 @@
             </thead>
             <tbody></tbody>
         </table>
-        <div class="key-positions" style="margin-top: 20px; font-size: 0.9em;">
-            <p><strong>Key</strong></p>
-            <p>Position 1-4: UEFA Champions League</p>
-            <p>Position 5: UEFA Europa League</p>
-            <p>Position 18-20 : Relegation</p>
-        </div>
     </div>
 
     <script>
@@ -150,32 +140,30 @@
             try {
                 const response = await fetch('data.json');
                 if (!response.ok) throw new Error('Network response was not ok');
-
+                
                 const data = await response.json();
-
+                
                 const tbody = document.querySelector('#leagueTable tbody');
-                tbody.innerHTML = data.map((team, index) => {
-                    return `
-                        <tr>
-                            <td>${index + 1}</td>
-                            <td class="team-cell">
-                                <div class="team-logo-container">
-                                    <img src="${team.logo}" alt="${team.team}" class="team-logo">
-                                </div>
-                                <span class="team-name">${team.team}</span>
-                            </td>
-                            <td>${team.matches}</td>
-                            <td class="mobile-hide">${team.wins}</td>
-                            <td class="mobile-hide">${team.draws}</td>
-                            <td class="mobile-hide">${team.losses}</td>
-                            <td class="mobile-hide">${team.gf}</td>
-                            <td class="mobile-hide">${team.ga}</td>
-                            <td>${team.gd}</td>
-                            <td><strong>${team.points}</strong></td>
-                        </tr>
-                    `
-                }).join('');
-
+                tbody.innerHTML = data.map((team, index) => `
+                    <tr class="${[3, 4, 16].includes(index) ? 'separator-row' : ''}">
+                        <td>${index + 1}</td>
+                        <td class="team-cell">
+                            <div class="team-logo-container">
+                                <img src="${team.logo}" alt="${team.team}" class="team-logo">
+                            </div>
+                            <span class="team-name">${team.team}</span>
+                        </td>
+                        <td>${team.matches}</td>
+                        <td class="mobile-hide">${team.wins}</td>
+                        <td class="mobile-hide">${team.draws}</td>
+                        <td class="mobile-hide">${team.losses}</td>
+                        <td class="mobile-hide">${team.gf}</td>
+                        <td class="mobile-hide">${team.ga}</td>
+                        <td>${team.gd}</td>
+                        <td><strong>${team.points}</strong></td>
+                    </tr>
+                `).join('');
+                
                 document.getElementById('loading').style.display = 'none';
             } catch (error) {
                 showError(`Error loading data: ${error.message}`);
