@@ -15,32 +15,32 @@ team_logos = {
     "Fulham": "https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Fulham_FC_%28shield%29.svg/1200px-Fulham_FC_%28shield%29.svg.png",
     "Liverpool": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/liverpool.0d2ced3f9a.svg",
     "Leicester": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leicester-city.84a92b176c.svg",
-    "Manchester City": "https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Manchester_City_FC_badge.svg/1200px-Manchester_City_FC_badge.svg.png",
-    "Manchester United": "https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Manchester_United_FC_crest.svg/1200px-Manchester_United_FC_crest.svg.png",
-    "Newcastle United": "https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Newcastle_United_Logo.svg/1200px-Newcastle_United_Logo.svg.png",
-    "Nottingham Forest": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e5/Nottingham_Forest_F.C._logo.svg/1200px-Nottingham_Forest_F.C._logo.svg.png",
+    "Man City": "https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Manchester_City_FC_badge.svg/1200px-Manchester_City_FC_badge.svg.png",
+    "Man Utd": "https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Manchester_United_FC_crest.svg/1200px-Manchester_United_FC_crest.svg.png",
+    "Newcastle": "https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Newcastle_United_Logo.svg/1200px-Newcastle_United_Logo.svg.png",
+    "Nottm Forest": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e5/Nottingham_Forest_F.C._logo.svg/1200px-Nottingham_Forest_F.C._logo.svg.png",
     "Southampton": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c9/FC_Southampton.svg/1200px-FC_Southampton.svg.png",
     "Ipswich": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/ipswich-town.932422801d.svg",
     "Tottenham": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/tottenham-hotspur.0bfa51c9f1.svg",
     "West Ham": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/west-ham-united.8031b8c4c7.svg",
-    "Wolverhampton Wanderers": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fc/Wolverhampton_Wanderers.svg/1200px-Wolverhampton_Wanderers.svg.png",
+    "Wolves": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fc/Wolverhampton_Wanderers.svg/1200px-Wolverhampton_Wanderers.svg.png",
 }
 
 # Team name mapping to ensure consistency
 team_name_mapping = {
-    "Nottm Forest": "Nottingham Forest",
-    "Man City": "Manchester City",
-    "Man Utd": "Manchester United",
-    "Newcastle": "Newcastle United",
-    "Wolves": "Wolverhampton Wanderers",
-    "Spurs": "Tottenham",
+    "Nottingham Forest": "Nottm Forest",
+    "Manchester City": "Man City",
+    "Manchester United": "Man Utd",
+    "Newcastle United": "Newcastle",
+    "Wolverhampton Wanderers": "Wolves",
+    "Tottenham Hotspur": "Tottenham",
     "West Ham United": "West Ham",
-    "Nott'm Forest": "Nottingham Forest",  # Alternative spelling
-    "Nottingham F...": "Nottingham Forest",  # Handle truncated names
-    "Manchester C...": "Manchester City",
-    "Wolverhampt...": "Wolverhampton Wanderers",
-    "Manchester U...": "Manchester United",
-    "Newcastle Un...": "Newcastle United"
+    "Nott'm Forest": "Nottm Forest",  # Alternative spelling
+    "Nottingham F...": "Nottm Forest",  # Handle truncated names
+    "Manchester C...": "Man City",
+    "Wolverhampt...": "Wolves",
+    "Manchester U...": "Man Utd",
+    "Newcastle Un...": "Newcastle"
 }
 
 # Scrape data from Understat
