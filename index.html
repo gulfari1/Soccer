@@ -5,66 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premier League Table</title>
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            margin: 20px; 
-            background: #f5f5f5; 
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
         }
-        .table-container { 
-            max-width: 800px; 
+        .table-container {
+            max-width: 800px;
             margin: 0 auto;
         }
-        table { 
-            width: 100%; 
-            border-collapse: collapse; 
-            background: white; 
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
             box-shadow: 0 1px 3px rgba(0,0,0,0.12);
         }
-        th, td { 
-            padding: 12px; 
-            text-align: center; 
+        th, td {
+            padding: 12px;
+            text-align: center;
         }
-        th { 
-            background: #2c3e50; 
-            color: white; 
-            position: sticky; 
-            top: 0; 
+        th {
+            background: #2c3e50;
+            color: white;
+            position: sticky;
+            top: 0;
             border-bottom: 2px solid #1a2634; /* Thicker border for header */
         }
         tr {
             border-bottom: 1px solid #ddd; /* Consistent row border */
         }
-        tr:hover { 
-            background: #f9f9f9; 
+        tr:hover {
+            background: #f9f9f9;
         }
-        .team-cell { 
-            text-align: left; 
-            display: flex; 
-            align-items: center; 
+        .team-cell {
+            text-align: left;
+            display: flex;
+            align-items: center;
             max-width: 120px;
         }
-        .team-logo-container { 
-            width: 30px; 
-            height: 30px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            margin-right: 8px; 
-            border-radius: 50%; 
-            overflow: hidden; 
+        .team-logo-container {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+            border-radius: 50%;
+            overflow: hidden;
             flex-shrink: 0;
         }
-        .team-logo { 
-            max-width: 80%; 
-            max-height: 80%; 
+        .team-logo {
+            max-width: 80%;
+            max-height: 80%;
         }
-        .loading { 
-            text-align: center; 
-            padding: 20px; 
+        .loading {
+            text-align: center;
+            padding: 20px;
         }
-        .error { 
-            color: red; 
-            text-align: center; 
+        .error {
+            color: red;
+            text-align: center;
         }
         .team-name {
             white-space: nowrap;
@@ -72,34 +72,35 @@
             text-overflow: ellipsis;
         }
 
+
         /* Mobile Styles */
         @media (max-width: 600px) {
-            body { 
-                margin: 10px; 
+            body {
+                margin: 10px;
             }
-            th, td { 
-                padding: 6px; 
-                font-size: 11px; 
+            th, td {
+                padding: 6px;
+                font-size: 11px;
             }
-            h1 { 
-                font-size: 18px; 
-                margin: 10px 0; 
+            h1 {
+                font-size: 18px;
+                margin: 10px 0;
             }
-            .team-logo-container { 
-                width: 20px; 
+            .team-logo-container {
+                width: 20px;
                 height: 20px;
                 margin-right: 4px;
             }
-            .mobile-hide { 
-                display: none; 
+            .mobile-hide {
+                display: none;
             }
-            .table-container { 
-                padding: 0 5px; 
+            .table-container {
+                padding: 0 5px;
             }
-            .team-cell { 
-                max-width: 100px; 
+            .team-cell {
+                max-width: 100px;
             }
-            
+
             /* Adjust column widths */
             th:nth-child(1), td:nth-child(1) { width: 8%; } /* Pos */
             th:nth-child(3), td:nth-child(3) { width: 10%; } /* MP */
@@ -130,6 +131,12 @@
             </thead>
             <tbody></tbody>
         </table>
+        <div class="key-positions" style="margin-top: 20px; font-size: 0.9em;">
+            <p><strong>Key</strong></p>
+            <p>Position 1-4: UEFA Champions League</p>
+            <p>Position 5: UEFA Europa League</p>
+            <p>Position 18-20 : Relegation</p>
+        </div>
     </div>
 
     <script>
@@ -143,30 +150,32 @@
             try {
                 const response = await fetch('data.json');
                 if (!response.ok) throw new Error('Network response was not ok');
-                
+
                 const data = await response.json();
-                
+
                 const tbody = document.querySelector('#leagueTable tbody');
-                tbody.innerHTML = data.map((team, index) => `
-                    <tr>
-                        <td>${index + 1}</td>
-                        <td class="team-cell">
-                            <div class="team-logo-container">
-                                <img src="${team.logo}" alt="${team.team}" class="team-logo">
-                            </div>
-                            <span class="team-name">${team.team}</span>
-                        </td>
-                        <td>${team.matches}</td>
-                        <td class="mobile-hide">${team.wins}</td>
-                        <td class="mobile-hide">${team.draws}</td>
-                        <td class="mobile-hide">${team.losses}</td>
-                        <td class="mobile-hide">${team.gf}</td>
-                        <td class="mobile-hide">${team.ga}</td>
-                        <td>${team.gd}</td>
-                        <td><strong>${team.points}</strong></td>
-                    </tr>
-                `).join('');
-                
+                tbody.innerHTML = data.map((team, index) => {
+                    return `
+                        <tr>
+                            <td>${index + 1}</td>
+                            <td class="team-cell">
+                                <div class="team-logo-container">
+                                    <img src="${team.logo}" alt="${team.team}" class="team-logo">
+                                </div>
+                                <span class="team-name">${team.team}</span>
+                            </td>
+                            <td>${team.matches}</td>
+                            <td class="mobile-hide">${team.wins}</td>
+                            <td class="mobile-hide">${team.draws}</td>
+                            <td class="mobile-hide">${team.losses}</td>
+                            <td class="mobile-hide">${team.gf}</td>
+                            <td class="mobile-hide">${team.ga}</td>
+                            <td>${team.gd}</td>
+                            <td><strong>${team.points}</strong></td>
+                        </tr>
+                    `
+                }).join('');
+
                 document.getElementById('loading').style.display = 'none';
             } catch (error) {
                 showError(`Error loading data: ${error.message}`);
