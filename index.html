@@ -41,7 +41,7 @@
             text-align: left;
             display: flex;
             align-items: center;
-            max-width: 120px;
+            max-width: 180px;
         }
         .team-logo-container {
             width: 30px;
@@ -67,9 +67,9 @@
             text-align: center;
         }
         .team-name {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            white-space: normal;
+            overflow: visible;
+            text-overflow: clip;
         }
         .separator-row {
             border-bottom: 2px solid #1a2634 !important;
@@ -130,6 +130,15 @@
     </div>
 
     <script>
+        // Client-side team name mappings
+        const clientSideMappings = {
+            "Nottingham F...": "Nottingham Forest",
+            "Manchester C...": "Manchester City",
+            "Wolverhampt...": "Wolverhampton Wanderers",
+            "Manchester U...": "Manchester United",
+            "Newcastle Un...": "Newcastle United"
+        };
+
         function showError(message) {
             document.getElementById('loading').style.display = 'none';
             document.getElementById('error').style.display = 'block';
@@ -151,7 +160,7 @@
                             <div class="team-logo-container">
                                 <img src="${team.logo}" alt="${team.team}" class="team-logo">
                             </div>
-                            <span class="team-name">${team.team}</span>
+                            <span class="team-name">${clientSideMappings[team.team] || team.team}</span>
                         </td>
                         <td>${team.matches}</td>
                         <td class="mobile-hide">${team.wins}</td>
