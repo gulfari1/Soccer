@@ -29,10 +29,10 @@
             color: white; 
             position: sticky; 
             top: 0; 
-            border-bottom: 2px solid #1a2634;
+            border-bottom: 2px solid #1a2634; /* Thicker border for header */
         }
         tr {
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #ddd; /* Consistent row border */
         }
         tr:hover { 
             background: #f9f9f9; 
@@ -72,25 +72,6 @@
             text-overflow: ellipsis;
         }
 
-        /* Key Position Styles */
-        .ucl { background-color: #e3f2fd; }
-        .uel { background-color: #e8f5e9; }
-        .relegation { background-color: #ffebee; }
-
-        .key {
-            margin-top: 20px;
-            display: flex;
-            gap: 20px;
-            font-size: 14px;
-        }
-        .key-color {
-            display: inline-block;
-            width: 15px;
-            height: 15px;
-            border-radius: 3px;
-            margin-right: 8px;
-        }
-
         /* Mobile Styles */
         @media (max-width: 600px) {
             body { 
@@ -120,10 +101,10 @@
             }
             
             /* Adjust column widths */
-            th:nth-child(1), td:nth-child(1) { width: 8%; }
-            th:nth-child(3), td:nth-child(3) { width: 10%; }
-            th:nth-child(9), td:nth-child(9) { width: 10%; }
-            th:nth-child(10), td:nth-child(10) { width: 10%; }
+            th:nth-child(1), td:nth-child(1) { width: 8%; } /* Pos */
+            th:nth-child(3), td:nth-child(3) { width: 10%; } /* MP */
+            th:nth-child(9), td:nth-child(9) { width: 10%; } /* GD */
+            th:nth-child(10), td:nth-child(10) { width: 10%; } /* Pts */
         }
     </style>
 </head>
@@ -149,12 +130,6 @@
             </thead>
             <tbody></tbody>
         </table>
-        <!-- Key Legend -->
-        <div class="key">
-            <div><span class="key-color ucl"></span>Champions League</div>
-            <div><span class="key-color uel"></span>UEFA Europa League</div>
-            <div><span class="key-color relegation"></span>Relegation</div>
-        </div>
     </div>
 
     <script>
@@ -173,7 +148,7 @@
                 
                 const tbody = document.querySelector('#leagueTable tbody');
                 tbody.innerHTML = data.map((team, index) => `
-                    <tr class="${index < 4 ? 'ucl' : index >= 4 && index < 6 ? 'uel' : index >= 17 ? 'relegation' : ''}">
+                    <tr>
                         <td>${index + 1}</td>
                         <td class="team-cell">
                             <div class="team-logo-container">
