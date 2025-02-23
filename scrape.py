@@ -26,6 +26,15 @@ team_logos = {
     "Wolverhampton Wanderers": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fc/Wolverhampton_Wanderers.svg/1200px-Wolverhampton_Wanderers.svg.png",
 }
 
+# Team name mapping to ensure consistency
+team_name_mapping = {
+    "Nottm Forest": "Nottingham Forest",
+    "Man Utd": "Manchester United",
+    "Wolves": "Wolverhampton Wanderers",
+    "West Ham United": "West Ham",
+    "Spurs": "Tottenham",
+}
+
 # Scrape data from Understat
 url = "https://understat.com/league/EPL"
 response = requests.get(url)
@@ -43,8 +52,8 @@ for script in soup.find_all('script'):
 teams = {}
 for match in data:
     if match['isResult']:
-        home = match['h']['title']
-        away = match['a']['title']
+        home = team_name_mapping.get(match['h']['title'], match['h']['title'])
+        away = team_name_mapping.get(match['a']['title'], match['a']['title'])
         h_goals = int(match['goals']['h'])
         a_goals = int(match['goals']['a'])
 
