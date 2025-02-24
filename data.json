@@ -2,14 +2,14 @@
   {
     "team": "Liverpool",
     "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/liverpool.0d2ced3f9a.svg",
-    "matches": 26,
-    "wins": 18,
+    "matches": 27,
+    "wins": 19,
     "draws": 7,
     "losses": 1,
-    "gf": 62,
+    "gf": 64,
     "ga": 26,
-    "gd": 36,
-    "points": 61
+    "gd": 38,
+    "points": 64
   },
   {
     "team": "Arsenal",
@@ -24,27 +24,39 @@
     "points": 53
   },
   {
-    "team": "Nottingham Forest",
+    "team": "Nottm Forest",
     "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e5/Nottingham_Forest_F.C._logo.svg/1200px-Nottingham_Forest_F.C._logo.svg.png",
-    "matches": 25,
+    "matches": 26,
     "wins": 14,
     "draws": 5,
-    "losses": 6,
-    "gf": 41,
-    "ga": 29,
-    "gd": 12,
+    "losses": 7,
+    "gf": 44,
+    "ga": 33,
+    "gd": 11,
     "points": 47
   },
   {
-    "team": "Manchester City",
+    "team": "Man City",
     "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Manchester_City_FC_badge.svg/1200px-Manchester_City_FC_badge.svg.png",
-    "matches": 25,
+    "matches": 26,
     "wins": 13,
     "draws": 5,
-    "losses": 7,
+    "losses": 8,
     "gf": 52,
-    "ga": 35,
-    "gd": 17,
+    "ga": 37,
+    "gd": 15,
+    "points": 44
+  },
+  {
+    "team": "Newcastle",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Newcastle_United_Logo.svg/1200px-Newcastle_United_Logo.svg.png",
+    "matches": 26,
+    "wins": 13,
+    "draws": 5,
+    "losses": 8,
+    "gf": 46,
+    "ga": 36,
+    "gd": 10,
     "points": 44
   },
   {
@@ -82,18 +94,6 @@
     "ga": 41,
     "gd": -2,
     "points": 42
-  },
-  {
-    "team": "Newcastle United",
-    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Newcastle_United_Logo.svg/1200px-Newcastle_United_Logo.svg.png",
-    "matches": 25,
-    "wins": 12,
-    "draws": 5,
-    "losses": 8,
-    "gf": 42,
-    "ga": 33,
-    "gd": 9,
-    "points": 41
   },
   {
     "team": "Brighton",
@@ -168,7 +168,7 @@
     "points": 31
   },
   {
-    "team": "Manchester United",
+    "team": "Man Utd",
     "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Manchester_United_FC_crest.svg/1200px-Manchester_United_FC_crest.svg.png",
     "matches": 26,
     "wins": 8,
@@ -192,7 +192,7 @@
     "points": 30
   },
   {
-    "team": "Wolverhampton Wanderers",
+    "team": "Wolves",
     "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fc/Wolverhampton_Wanderers.svg/1200px-Wolverhampton_Wanderers.svg.png",
     "matches": 26,
     "wins": 6,
