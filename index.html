@@ -74,6 +74,12 @@
         .separator-row {
             border-bottom: 2px solid #1a2634 !important;
         }
+        .form-cell {
+            font-weight: bold;
+        }
+        .full-name {
+            display: none;
+        }
 
         /* Key Container Styles */
         .key-container {
@@ -119,6 +125,16 @@
             color: #666;
             font-size: 0.9em;
             max-width: 800px;
+        }
+
+        /* Desktop Styles */
+        @media (min-width: 601px) {
+            .full-name {
+                display: inline;
+            }
+            .short-name {
+                display: none;
+            }
         }
 
         /* Mobile Styles */
@@ -183,6 +199,7 @@
                     <th class="mobile-hide">GF</th>
                     <th class="mobile-hide">GA</th>
                     <th>GD</th>
+                    <th>Form</th>
                     <th>Pts</th>
                 </tr>
             </thead>
@@ -204,7 +221,6 @@
     </div>
 
     <script>
-        // Client-side team name mappings
         const clientSideMappings = {
             "Nottingham Forest": "Nottm Forest",
             "Manchester City": "Man City",
@@ -212,17 +228,18 @@
             "Newcastle United": "Newcastle",
             "Wolverhampton Wanderers": "Wolves",
             "Tottenham Hotspur": "Tottenham",
-            "West Ham United": "West Ham"
+            "West Ham United": "West Ham",
+            "AFC Bournemouth": "Bournemouth",
+            "Brighton & Hove Albion": "Brighton",
+            "Leicester City": "Leicester"
         };
 
-        // Function to format the date with ordinal suffix
         function getOrdinal(n) {
             const s = ["th", "st", "nd", "rd"];
             const v = n % 100;
             return (s[(v - 20) % 10] || s[v] || s[0]);
         }
 
-        // Function to format the date and time
         function formatDateTime(date) {
             const day = date.getDate();
             const month = date.toLocaleString('default', { month: 'long' });
@@ -232,31 +249,24 @@
             return `${day}${getOrdinal(day)} ${month} ${year} at ${hours}:${minutes}`;
         }
 
-        // Function to show error messages
         function showError(message) {
             document.getElementById('loading').style.display = 'none';
             document.getElementById('error').style.display = 'block';
             document.getElementById('error').textContent = message;
         }
 
-        // Function to load data and update the table
         async function loadData() {
             try {
                 const response = await fetch('data.json');
                 if (!response.ok) throw new Error('Network response was not ok');
 
-                // Get the last modified date from the response headers
                 const lastModified = response.headers.get('last-modified');
                 const updateDate = lastModified ? new Date(lastModified) : new Date();
-
-                // Update the last updated time
-                const lastUpdatedDiv = document.querySelector('.last-updated');
-                lastUpdatedDiv.textContent = `Last Updated ${formatDateTime(updateDate)}`;
+                document.querySelector('.last-updated').textContent = `Last Updated ${formatDateTime(updateDate)}`;
 
                 const data = await response.json();
-
-                // Populate the table
                 const tbody = document.querySelector('#leagueTable tbody');
+                
                 tbody.innerHTML = data.map((team, index) => `
                     <tr class="${[3, 4, 16].includes(index) ? 'separator-row' : ''}">
                         <td>${index + 1}</td>
@@ -264,7 +274,10 @@
                             <div class="team-logo-container">
                                 <img src="${team.logo}" alt="${team.team}" class="team-logo">
                             </div>
-                            <span class="team-name">${clientSideMappings[team.team] || team.team}</span>
+                            <strong>
+                                <span class="full-name">${team.team}</span>
+                                <span class="short-name">${clientSideMappings[team.team] || team.team}</span>
+                            </strong>
                         </td>
                         <td>${team.matches}</td>
                         <td class="mobile-hide">${team.wins}</td>
@@ -273,6 +286,7 @@
                         <td class="mobile-hide">${team.gf}</td>
                         <td class="mobile-hide">${team.ga}</td>
                         <td>${team.gd}</td>
+                        <td class="form-cell">${team.form.join(' ')}</td>
                         <td><strong>${team.points}</strong></td>
                     </tr>
                 `).join('');
@@ -283,7 +297,6 @@
             }
         }
 
-        // Load data when the page loads
         loadData();
     </script>
 </body>
