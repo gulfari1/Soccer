@@ -61,7 +61,7 @@
   },
   {
     "team": "Bournemouth",
-    "logo": null,
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e5/AFC_Bournemouth_%282013%29.svg/1200px-AFC_Bournemouth_%282013%29.svg.png",
     "matches": 26,
     "wins": 12,
     "draws": 7,
@@ -97,7 +97,7 @@
   },
   {
     "team": "Brighton",
-    "logo": null,
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Brighton_%26_Hove_Albion_logo.svg/1200px-Brighton_%26_Hove_Albion_logo.svg.png",
     "matches": 26,
     "wins": 10,
     "draws": 10,
@@ -205,7 +205,7 @@
   },
   {
     "team": "Ipswich",
-    "logo": null,
+    "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/ipswich-town.932422801d.svg",
     "matches": 26,
     "wins": 3,
     "draws": 8,
@@ -217,7 +217,7 @@
   },
   {
     "team": "Leicester",
-    "logo": null,
+    "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leicester-city.84a92b176c.svg",
     "matches": 26,
     "wins": 4,
     "draws": 5,
