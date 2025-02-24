@@ -24,7 +24,7 @@
     "points": 53
   },
   {
-    "team": "Nottm Forest",
+    "team": "Nottingham Forest",
     "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e5/Nottingham_Forest_F.C._logo.svg/1200px-Nottingham_Forest_F.C._logo.svg.png",
     "matches": 26,
     "wins": 14,
@@ -36,7 +36,7 @@
     "points": 47
   },
   {
-    "team": "Man City",
+    "team": "Manchester City",
     "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Manchester_City_FC_badge.svg/1200px-Manchester_City_FC_badge.svg.png",
     "matches": 26,
     "wins": 13,
@@ -48,7 +48,7 @@
     "points": 44
   },
   {
-    "team": "Newcastle",
+    "team": "Newcastle United",
     "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Newcastle_United_Logo.svg/1200px-Newcastle_United_Logo.svg.png",
     "matches": 26,
     "wins": 13,
@@ -132,7 +132,7 @@
     "points": 37
   },
   {
-    "team": "Tottenham",
+    "team": "Tottenham Hotspur",
     "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/tottenham-hotspur.0bfa51c9f1.svg",
     "matches": 26,
     "wins": 10,
@@ -168,7 +168,7 @@
     "points": 31
   },
   {
-    "team": "Man Utd",
+    "team": "Manchester United",
     "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Manchester_United_FC_crest.svg/1200px-Manchester_United_FC_crest.svg.png",
     "matches": 26,
     "wins": 8,
@@ -180,7 +180,7 @@
     "points": 30
   },
   {
-    "team": "West Ham",
+    "team": "West Ham United",
     "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/west-ham-united.8031b8c4c7.svg",
     "matches": 26,
     "wins": 8,
@@ -192,7 +192,7 @@
     "points": 30
   },
   {
-    "team": "Wolves",
+    "team": "Wolverhampton Wanderers",
     "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fc/Wolverhampton_Wanderers.svg/1200px-Wolverhampton_Wanderers.svg.png",
     "matches": 26,
     "wins": 6,
