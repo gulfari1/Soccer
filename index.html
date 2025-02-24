@@ -41,7 +41,7 @@
             text-align: left;
             display: flex;
             align-items: center;
-            max-width: 180px; /* Reduced max-width for better alignment */
+            max-width: 180px;
         }
         .team-logo-container {
             width: 30px;
@@ -100,14 +100,8 @@
                 padding: 0 5px;
             }
             .team-cell {
-                max-width: 125px; /* Reduced max-width for mobile too */
+                max-width: 125px;
             }
-        }
-
-        /* Modified Style for Team Header Alignment */
-        #leagueTable thead th:nth-child(2) {
-            text-align: left; /* Align Team header to the left */
-            padding-left: 27px; /* Add padding to align with team names start after logo */
         }
     </style>
 </head>
@@ -157,9 +151,9 @@
             try {
                 const response = await fetch('data.json');
                 if (!response.ok) throw new Error('Network response was not ok');
-
+                
                 const data = await response.json();
-
+                
                 const tbody = document.querySelector('#leagueTable tbody');
                 tbody.innerHTML = data.map((team, index) => `
                     <tr class="${[3, 4, 16].includes(index) ? 'separator-row' : ''}">
@@ -180,7 +174,7 @@
                         <td><strong>${team.points}</strong></td>
                     </tr>
                 `).join('');
-
+                
                 document.getElementById('loading').style.display = 'none';
             } catch (error) {
                 showError(`Error loading data: ${error.message}`);
@@ -189,273 +183,6 @@
 
         // Load data when page loads
         loadData();
-    </script>
-     <script>
-        // Dummy data for data.json (Place this in a separate file named "data.json" in the same directory as your html file)
-        // Or just paste it within script tags here for testing.
-
-        const jsonData = [
-            {
-                "team": "Liverpool",
-                "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Liverpool_FC.svg/1200px-Liverpool_FC.svg.png",
-                "matches": 26,
-                "wins": 19,
-                "draws": 4,
-                "losses": 3,
-                "gf": 63,
-                "ga": 27,
-                "gd": 36,
-                "points": 61
-            },
-            {
-                "team": "Arsenal",
-                "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Arsenal_FC.svg/1200px-Arsenal_FC.svg.png",
-                "matches": 26,
-                "wins": 17,
-                "draws": 2,
-                "losses": 7,
-                "gf": 62,
-                "ga": 34,
-                "gd": 28,
-                "points": 53
-            },
-            {
-                "team": "Nottingham Forest",
-                "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e5/Nottingham_Forest_F.C._logo.svg/1200px-Nottingham_Forest_F.C._logo.svg.png",
-                "matches": 25,
-                "wins": 13,
-                "draws": 8,
-                "losses": 4,
-                "gf": 40,
-                "ga": 28,
-                "gd": 12,
-                "points": 47
-            },
-            {
-                "team": "Manchester City",
-                "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Manchester_City_FC_badge.svg/1200px-Manchester_City_FC_badge.svg.png",
-                "matches": 25,
-                "wins": 13,
-                "draws": 5,
-                "losses": 7,
-                "gf": 57,
-                "ga": 40,
-                "gd": 17,
-                "points": 44
-            },
-            {
-                "team": "Bournemouth",
-                "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/9/93/AFC_Bournemouth.svg/1200px-AFC_Bournemouth.svg.png",
-                "matches": 26,
-                "wins": 12,
-                "draws": 7,
-                "losses": 7,
-                "gf": 41,
-                "ga": 27,
-                "gd": 14,
-                "points": 43
-            },
-            {
-                "team": "Chelsea",
-                "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/c/cc/Chelsea_FC.svg/1200px-Chelsea_FC.svg.png",
-                "matches": 26,
-                "wins": 12,
-                "draws": 7,
-                "losses": 7,
-                "gf": 45,
-                "ga": 33,
-                "gd": 12,
-                "points": 43
-            },
-            {
-                "team": "Aston Villa",
-                "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f9/Aston_Villa_FC_logo_%282016%29.svg/1200px-Aston_Villa_FC_logo_%282016%29.svg.png",
-                "matches": 27,
-                "wins": 13,
-                "draws": 3,
-                "losses": 11,
-                "gf": 43,
-                "ga": 45,
-                "gd": -2,
-                "points": 42
-            },
-            {
-                "team": "Newcastle United",
-                "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/5/5c/Newcastle_United_Logo.svg/1200px-Newcastle_United_Logo.svg.png",
-                "matches": 25,
-                "wins": 12,
-                "draws": 5,
-                "losses": 8,
-                "gf": 49,
-                "ga": 40,
-                "gd": 9,
-                "points": 41
-            },
-            {
-                "team": "Brighton & Hove Albion",
-                "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/0/02/Brighton_%26_Hove_Albion_logo.svg/1200px-Brighton_%26_Hove_Albion_logo.svg.png",
-                "matches": 26,
-                "wins": 10,
-                "draws": 10,
-                "losses": 6,
-                "gf": 42,
-                "ga": 38,
-                "gd": 4,
-                "points": 40
-            },
-            {
-                "team": "Fulham",
-                "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/FC_Fulham_Logo.svg/1200px-FC_Fulham_Logo.svg.png",
-                "matches": 26,
-                "wins": 11,
-                "draws": 6,
-                "losses": 9,
-                "gf": 39,
-                "ga": 36,
-                "gd": 3,
-                "points": 39
-            },
-            {
-                "team": "Brentford",
-                "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/2/28/Brentford_FC_badge.svg/1200px-Brentford_FC_badge.svg.png",
-                "matches": 26,
-                "wins": 9,
-                "draws": 10,
-                "losses": 7,
-                "gf": 40,
-                "ga": 35,
-                "gd": 5,
-                "points": 37
-            },
-            {
-                "team": "Tottenham Hotspur",
-                "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/Tottenham_Hotspur.svg/1200px-Tottenham_Hotspur.svg.png",
-                "matches": 26,
-                "wins": 10,
-                "draws": 3,
-                "losses": 13,
-                "gf": 49,
-                "ga": 34,
-                "gd": 15,
-                "points": 33
-            },
-            {
-                "team": "Crystal Palace",
-                "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Crystal_Palace_FC_logo.svg/1200px-Crystal_Palace_FC_logo.svg.png",
-                "matches": 26,
-                "wins": 8,
-                "draws": 9,
-                "losses": 9,
-                "gf": 31,
-                "ga": 32,
-                "gd": -1,
-                "points": 33
-            },
-            {
-                "team": "Everton",
-                "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f9/Everton_FC_logo.svg/1200px-Everton_FC_logo.svg.png",
-                "matches": 26,
-                "wins": 9,
-                "draws": 4,
-                "losses": 13,
-                "gf": 29,
-                "ga": 33,
-                "gd": -4,
-                "points": 31
-            },
-            {
-                "team": "Manchester United",
-                "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Manchester_United_FC_crest.svg/1200px-Manchester_United_FC_crest.svg.png",
-                "matches": 26,
-                "wins": 9,
-                "draws": 3,
-                "losses": 14,
-                "gf": 36,
-                "ga": 43,
-                "gd": -7,
-                "points": 30
-            },
-            {
-                "team": "West Ham United",
-                "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fc/West_Ham_United_FC_logo.svg/1200px-West_Ham_United_FC_logo.svg.png",
-                "matches": 26,
-                "wins": 8,
-                "draws": 6,
-                "losses": 12,
-                "gf": 34,
-                "ga": 51,
-                "gd": -17,
-                "points": 30
-            },
-            {
-                "team": "Wolverhampton Wanderers",
-                "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fc/Wolverhampton_Wanderers.svg/1200px-Wolverhampton_Wanderers.svg.png",
-                "matches": 26,
-                "wins": 6,
-                "draws": 4,
-                "losses": 16,
-                "gf": 30,
-                "ga": 48,
-                "gd": -18,
-                "points": 22
-            },
-             {
-                "team": "Ipswich",
-                "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Ipswich_Town_logo.svg/800px-Ipswich_Town_logo.svg.png",
-                "matches": 26,
-                "wins": 4,
-                "draws": 5,
-                "losses": 17,
-                "gf": 24,
-                "ga": 54,
-                "gd": -30,
-                "points": 17
-            }
-        ];
-
-        // To use local json data instead of fetching from 'data.json'
-        document.addEventListener('DOMContentLoaded', function() {
-            const loadingDiv = document.getElementById('loading');
-            if (loadingDiv) {
-                loadingDiv.style.display = 'none'; // Hide loading div
-            }
-            const errorDiv = document.getElementById('error');
-            if (errorDiv) {
-                errorDiv.style.display = 'none'; // Hide error div
-            }
-            loadDataFromJson(jsonData);
-        });
-
-        async function loadDataFromJson(data) {
-            try {
-                const tbody = document.querySelector('#leagueTable tbody');
-                tbody.innerHTML = data.map((team, index) => `
-                    <tr class="${[3, 4, 16].includes(index) ? 'separator-row' : ''}">
-                        <td>${index + 1}</td>
-                        <td class="team-cell">
-                            <div class="team-logo-container">
-                                <img src="${team.logo}" alt="${team.team}" class="team-logo">
-                            </div>
-                            <span class="team-name">${clientSideMappings[team.team] || team.team}</span>
-                        </td>
-                        <td>${team.matches}</td>
-                        <td class="mobile-hide">${team.wins}</td>
-                        <td class="mobile-hide">${team.draws}</td>
-                        <td class="mobile-hide">${team.losses}</td>
-                        <td class="mobile-hide">${team.gf}</td>
-                        <td class="mobile-hide">${team.ga}</td>
-                        <td>${team.gd}</td>
-                        <td><strong>${team.points}</strong></td>
-                    </tr>
-                `).join('');
-
-
-            } catch (error) {
-                showError(`Error loading data: ${error.message}`);
-            }
-        }
-
-
     </script>
 </body>
 </html>
