@@ -75,18 +75,6 @@
             border-bottom: 2px solid #1a2634 !important;
         }
 
-        /* Team Name Styling */
-        .team-name .full-name,
-        .team-name .short-name {
-            font-weight: bold;
-        }
-        .team-name .full-name {
-            display: none;
-        }
-        .team-name .short-name {
-            display: inline;
-        }
-
         /* Key Container Styles */
         .key-container {
             background: white;
@@ -174,16 +162,6 @@
             }
             .last-updated {
                 font-size: 13px;
-            }
-        }
-
-        /* Desktop Styles (MUST come after mobile styles) */
-        @media (min-width: 601px) {
-            .team-name .full-name {
-                display: inline !important;
-            }
-            .team-name .short-name {
-                display: none !important;
             }
         }
     </style>
@@ -286,10 +264,7 @@
                             <div class="team-logo-container">
                                 <img src="${team.logo}" alt="${team.team}" class="team-logo">
                             </div>
-                            <span class="team-name">
-                                <span class="full-name">${team.team}</span>
-                                <span class="short-name">${clientSideMappings[team.team] || team.team}</span>
-                            </span>
+                            <span class="team-name">${clientSideMappings[team.team] || team.team}</span>
                         </td>
                         <td>${team.matches}</td>
                         <td class="mobile-hide">${team.wins}</td>
