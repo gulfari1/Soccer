@@ -11,7 +11,7 @@
             background: white;
         }
         .table-container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
         }
         table {
@@ -41,7 +41,8 @@
             text-align: left;
             display: flex;
             align-items: center;
-            max-width: 180px;
+            min-width: 200px; /* Ensure enough space for full names */
+            max-width: none; /* Allow full expansion */
         }
         .team-logo-container {
             width: 30px;
@@ -67,9 +68,9 @@
             text-align: center;
         }
         .team-name {
-            white-space: nowrap; /* Prevent line breaks */
-            overflow: hidden;
-            text-overflow: ellipsis;
+            white-space: nowrap; /* Keep names in a single line */
+            overflow: visible; /* Disable overflow */
+            text-overflow: clip; /* Remove ellipsis */
             font-weight: bold;
         }
         .team-name.short { display: none; }
@@ -149,7 +150,8 @@
                 padding: 0 5px;
             }
             .team-cell {
-                max-width: 140px; /* Increased for better spacing */
+                max-width: 140px; /* Adjusted for mobile */
+                min-width: unset; /* Reset min-width */
             }
             .key-container {
                 padding: 8px;
@@ -171,7 +173,6 @@
             .team-name {
                 white-space: normal; /* Allow wrapping on mobile */
                 overflow: visible;
-                text-overflow: clip;
             }
         }
     </style>
