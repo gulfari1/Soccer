@@ -67,10 +67,10 @@
             text-align: center;
         }
         .team-name {
-            white-space: normal;
-            overflow: visible;
-            text-overflow: clip;
-            font-weight: bold; /* Bold team names */
+            white-space: nowrap; /* Prevent line breaks */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: bold;
         }
         .team-name.short { display: none; }
         .team-name.full { display: inline; }
@@ -149,7 +149,7 @@
                 padding: 0 5px;
             }
             .team-cell {
-                max-width: 125px;
+                max-width: 140px; /* Increased for better spacing */
             }
             .key-container {
                 padding: 8px;
@@ -168,6 +168,11 @@
             }
             .team-name.short { display: inline; }
             .team-name.full { display: none; }
+            .team-name {
+                white-space: normal; /* Allow wrapping on mobile */
+                overflow: visible;
+                text-overflow: clip;
+            }
         }
     </style>
 </head>
