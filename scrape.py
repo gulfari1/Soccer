@@ -41,7 +41,6 @@ team_name_mapping = {
     "Wolverhampt...": "Wolverhampton Wanderers",
     "Manchester U...": "Manchester United",
     "Newcastle Un...": "Newcastle United"
-    "Leicester": "Leicester City",
 }
 
 # Scrape data from Understat
