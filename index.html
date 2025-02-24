@@ -70,7 +70,10 @@
             white-space: normal;
             overflow: visible;
             text-overflow: clip;
+            font-weight: bold; /* Bold team names */
         }
+        .team-name.short { display: none; }
+        .team-name.full { display: inline; }
         .separator-row {
             border-bottom: 2px solid #1a2634 !important;
         }
@@ -163,6 +166,8 @@
             .last-updated {
                 font-size: 13px;
             }
+            .team-name.short { display: inline; }
+            .team-name.full { display: none; }
         }
     </style>
 </head>
@@ -264,7 +269,8 @@
                             <div class="team-logo-container">
                                 <img src="${team.logo}" alt="${team.team}" class="team-logo">
                             </div>
-                            <span class="team-name">${clientSideMappings[team.team] || team.team}</span>
+                            <span class="team-name full">${team.team}</span>
+                            <span class="team-name short">${clientSideMappings[team.team] || team.team}</span>
                         </td>
                         <td>${team.matches}</td>
                         <td class="mobile-hide">${team.wins}</td>
