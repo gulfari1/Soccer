@@ -77,7 +77,7 @@
 
         /* Key Container Styles */
         .key-container {
-            background: #f5f5f5;
+            background: white;
             box-shadow: 0 1px 3px rgba(0,0,0,0.12);
             padding: 12px;
             margin-top: 20px;
@@ -111,10 +111,14 @@
             font-size: 1.2em;
             line-height: 1;
         }
+
+        /* Last Updated Styles */
         .last-updated {
-            margin-top: 15px;
+            text-align: center;
+            margin: 15px auto;
             color: #666;
             font-size: 0.9em;
+            max-width: 800px;
         }
 
         /* Mobile Styles */
@@ -193,8 +197,10 @@
                 <li>Position 5 : UEFA Europa League</li>
                 <li>Position 18 - 20 : Relegation</li>
             </ul>
-            <div class="last-updated">Last Updated 24th February 2025 at 01:14</div>
         </div>
+
+        <!-- Last Updated Time -->
+        <div class="last-updated"></div>
     </div>
 
     <script>
@@ -209,19 +215,47 @@
             "West Ham United": "West Ham"
         };
 
+        // Function to format the date with ordinal suffix
+        function getOrdinal(n) {
+            const s = ["th", "st", "nd", "rd"];
+            const v = n % 100;
+            return (s[(v - 20) % 10] || s[v] || s[0]);
+        }
+
+        // Function to format the date and time
+        function formatDateTime(date) {
+            const day = date.getDate();
+            const month = date.toLocaleString('default', { month: 'long' });
+            const year = date.getFullYear();
+            const hours = date.getHours().toString().padStart(2, '0');
+            const minutes = date.getMinutes().toString().padStart(2, '0');
+            return `${day}${getOrdinal(day)} ${month} ${year} at ${hours}:${minutes}`;
+        }
+
+        // Function to show error messages
         function showError(message) {
             document.getElementById('loading').style.display = 'none';
             document.getElementById('error').style.display = 'block';
             document.getElementById('error').textContent = message;
         }
 
+        // Function to load data and update the table
         async function loadData() {
             try {
                 const response = await fetch('data.json');
                 if (!response.ok) throw new Error('Network response was not ok');
-                
+
+                // Get the last modified date from the response headers
+                const lastModified = response.headers.get('last-modified');
+                const updateDate = lastModified ? new Date(lastModified) : new Date();
+
+                // Update the last updated time
+                const lastUpdatedDiv = document.querySelector('.last-updated');
+                lastUpdatedDiv.textContent = `Last Updated ${formatDateTime(updateDate)}`;
+
                 const data = await response.json();
-                
+
+                // Populate the table
                 const tbody = document.querySelector('#leagueTable tbody');
                 tbody.innerHTML = data.map((team, index) => `
                     <tr class="${[3, 4, 16].includes(index) ? 'separator-row' : ''}">
@@ -242,14 +276,14 @@
                         <td><strong>${team.points}</strong></td>
                     </tr>
                 `).join('');
-                
+
                 document.getElementById('loading').style.display = 'none';
             } catch (error) {
                 showError(`Error loading data: ${error.message}`);
             }
         }
 
-        // Load data when page loads
+        // Load data when the page loads
         loadData();
     </script>
 </body>
