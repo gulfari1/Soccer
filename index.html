@@ -2,36 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premier League Table</title>
     <style>
-        /* Box-sizing reset */
-        html {
-            box-sizing: border-box;
-            overflow-x: hidden;
-        }
-        *, *:before, *:after {
-            box-sizing: inherit;
-        }
-
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
+            margin: 20px;
             background: white;
-            overflow-x: hidden;
         }
         .table-container {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 20px 12px;
-            width: 100%;
         }
         table {
             width: 100%;
             border-collapse: collapse;
             background: white;
             box-shadow: 0 1px 3px rgba(0,0,0,0.12);
-            table-layout: fixed;
         }
         th, td {
             padding: 12px;
@@ -170,9 +157,6 @@
             body {
                 margin: 5px;
             }
-            .table-container {
-                padding: 0 5px;
-            }
             th, td {
                 padding: 6px;
                 font-size: 15px;
@@ -193,14 +177,12 @@
             .mobile-hide {
                 display: none;
             }
+            .table-container {
+                padding: 0 5px;
+            }
             .team-cell {
                 max-width: 140px; /* Adjusted for mobile */
-                min-width: 120px; /* Reduced from 200px */
-            }
-            .team-name {
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
+                min-width: unset; /* Reset min-width */
             }
             .key-container {
                 padding: 8px;
@@ -219,20 +201,14 @@
             }
             .team-name.short { display: inline; }
             .team-name.full { display: none; }
+            .team-name {
+                white-space: normal; /* Allow wrapping on mobile */
+                overflow: visible;
+            }
             .form-item {
                 width: 18px;
                 height: 18px;
                 font-size: 0.65rem;
-            }
-        }
-
-        /* Extra small screens */
-        @media (max-width: 400px) {
-            .team-logo-container {
-                display: none;
-            }
-            .team-cell {
-                min-width: 100px !important;
             }
         }
     </style>
