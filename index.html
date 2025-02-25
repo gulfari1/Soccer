@@ -83,6 +83,39 @@
             border-bottom: 2px solid #1a2634 !important;
         }
 
+        /* Form Styling */
+        .form-container {
+            display: flex;
+            gap: 3px;
+            position: relative;
+            max-width: 120px;
+            overflow: hidden;
+        }
+        .form-container::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 20px;
+            background: linear-gradient(to left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+            pointer-events: none;
+        }
+        .form-item {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .form-win { background: #4CAF50; color: white; }
+        .form-draw { background: #757575; color: white; }
+        .form-loss { background: #f44336; color: white; }
+
         /* Key Container Styles */
         .key-container {
             background: white;
@@ -181,6 +214,14 @@
             .team-name {
                 white-space: normal; /* Allow wrapping on mobile */
                 overflow: visible;
+            }
+            .form-item {
+                width: 18px;
+                height: 18px;
+                font-size: 0.65rem;
+            }
+            .form-container {
+                max-width: 100px;
             }
         }
     </style>
@@ -299,7 +340,15 @@
                         <td class="mobile-hide">${team.ga}</td>
                         <td>${team.gd}</td>
                         <td><strong>${team.points}</strong></td>
-                        <td class="mobile-hide">${team.form}</td>
+                        <td class="mobile-hide">
+                            <div class="form-container">
+                                ${team.form.split(' ').map(match => `
+                                    <div class="form-item ${match === 'W' ? 'form-win' : match === 'D' ? 'form-draw' : 'form-loss'}">
+                                        ${match}
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </td>
                     </tr>
                 `).join('');
 
