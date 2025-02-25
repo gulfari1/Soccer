@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premier League Table</title>
     <style>
+        /* Box-sizing reset */
+        html {
+            box-sizing: border-box;
+        }
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
@@ -13,6 +21,7 @@
         .table-container {
             max-width: 1000px;
             margin: 0 auto;
+            padding: 0 12px; /* Match key container padding */
         }
         table {
             width: 100%;
@@ -157,6 +166,9 @@
             body {
                 margin: 5px;
             }
+            .table-container {
+                padding: 0 5px;
+            }
             th, td {
                 padding: 6px;
                 font-size: 15px;
@@ -176,9 +188,6 @@
             }
             .mobile-hide {
                 display: none;
-            }
-            .table-container {
-                padding: 0 5px;
             }
             .team-cell {
                 max-width: 140px; /* Adjusted for mobile */
