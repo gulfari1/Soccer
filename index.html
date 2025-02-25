@@ -201,7 +201,10 @@
                     <th class="mobile-hide">L</th>
                     <th class="mobile-hide">GF</th>
                     <th class="mobile-hide">GA</th>
+                    <th class="mobile-hide">xG</th>
+                    <th class="mobile-hide">xGA</th>
                     <th>GD</th>
+                    <th class="mobile-hide">Last 5</th>
                     <th>Pts</th>
                 </tr>
             </thead>
@@ -296,7 +299,10 @@
                         <td class="mobile-hide">${team.losses}</td>
                         <td class="mobile-hide">${team.gf}</td>
                         <td class="mobile-hide">${team.ga}</td>
+                        <td class="mobile-hide">${team.xg.toFixed(2)}</td>
+                        <td class="mobile-hide">${team.xga.toFixed(2)}</td>
                         <td>${team.gd}</td>
+                        <td class="mobile-hide">${team.last_5}</td>
                         <td><strong>${team.points}</strong></td>
                     </tr>
                 `).join('');
