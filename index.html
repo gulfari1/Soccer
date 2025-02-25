@@ -88,18 +88,6 @@
             display: flex;
             gap: 3px;
             position: relative;
-            max-width: 120px;
-            overflow: hidden;
-        }
-        .form-container::after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            width: 20px;
-            background: linear-gradient(to left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-            pointer-events: none;
         }
         .form-item {
             width: 22px;
@@ -111,6 +99,8 @@
             font-size: 0.75rem;
             font-weight: bold;
             flex-shrink: 0;
+            /* Progressive opacity for older matches */
+            opacity: calc(1 - (0.2 * var(--index)));
         }
         .form-win { background: #4CAF50; color: white; }
         .form-draw { background: #757575; color: white; }
@@ -219,9 +209,6 @@
                 width: 18px;
                 height: 18px;
                 font-size: 0.65rem;
-            }
-            .form-container {
-                max-width: 100px;
             }
         }
     </style>
@@ -342,8 +329,9 @@
                         <td><strong>${team.points}</strong></td>
                         <td class="mobile-hide">
                             <div class="form-container">
-                                ${team.form.split(' ').map(match => `
-                                    <div class="form-item ${match === 'W' ? 'form-win' : match === 'D' ? 'form-draw' : 'form-loss'}">
+                                ${team.form.split(' ').map((match, index) => `
+                                    <div class="form-item ${match === 'W' ? 'form-win' : match === 'D' ? 'form-draw' : 'form-loss'}" 
+                                         style="--index: ${index}">
                                         ${match}
                                     </div>
                                 `).join('')}
