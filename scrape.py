@@ -51,66 +51,47 @@ team_name_mapping = {
     "Ipswich Tow...": "Ipswich Town"
 }
 
-# Scrape data from Understat
-url = "https://understat.com/league/EPL"
-response = requests.get(url)
+# Fetch data from FBref
+url = "https://fbref.com/en/comps/9/Premier-League-Stats"
+headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
+
+try:
+    response = requests.get(url, headers=headers)
+    response.raise_for_status()
+except requests.exceptions.RequestException as e:
+    print(f"Error fetching data: {e}")
+    exit()
+
 soup = BeautifulSoup(response.content, 'html.parser')
+table = soup.find('table', id='results2024-202591_overall')
 
-# Extract JSON data
-for script in soup.find_all('script'):
-    if 'JSON.parse' in script.text:
-        json_str = script.text.split("JSON.parse('")[1].split("')")[0]
-        decoded_data = json_str.encode().decode('unicode_escape')
-        data = json.loads(decoded_data)
-        break
-
-# Process data
-teams = {}
-for match in data:
-    if match['isResult']:
-        # Map scraped names to full names
-        home = team_name_mapping.get(match['h']['title'], match['h']['title'])
-        away = team_name_mapping.get(match['a']['title'], match['a']['title'])
-        h_goals = int(match['goals']['h'])
-        a_goals = int(match['goals']['a'])
-
-        # Initialize teams
-        teams.setdefault(home, {'matches': 0, 'wins': 0, 'draws': 0, 'losses': 0, 'gf': 0, 'ga': 0})
-        teams.setdefault(away, {'matches': 0, 'wins': 0, 'draws': 0, 'losses': 0, 'gf': 0, 'ga': 0})
-
-        # Update stats
-        for team, goals_for, goals_against in [(home, h_goals, a_goals), (away, a_goals, h_goals)]:
-            teams[team]['matches'] += 1
-            teams[team]['gf'] += goals_for
-            teams[team]['ga'] += goals_against
-
-        # Update wins/losses/draws
-        if h_goals > a_goals:
-            teams[home]['wins'] += 1
-            teams[away]['losses'] += 1
-        elif a_goals > h_goals:
-            teams[away]['wins'] += 1
-            teams[home]['losses'] += 1
-        else:
-            teams[home]['draws'] += 1
-            teams[away]['draws'] += 1
-
-# Add calculated fields and logos
-standings = []
-for team, stats in teams.items():
-    standings.append({
-        'team': team,  # Already mapped to full name
-        'logo': team_logos.get(team),  # Use full name to fetch logo
-        **stats,
-        'gd': stats['gf'] - stats['ga'],
-        'points': (stats['wins'] * 3) + stats['draws']
+teams = []
+for row in table.find('tbody').find_all('tr'):
+    # Extract and map team name
+    team_cell = row.find('td', {'data-stat': 'team'})
+    if not team_cell: continue
+    team = team_name_mapping.get(team_cell.text.strip(), team_cell.text.strip())
+    
+    # Extract stats
+    teams.append({
+        'team': team,
+        'logo': team_logos.get(team, ''),
+        'matches': int(row.find('td', {'data-stat': 'games'}).text),
+        'wins': int(row.find('td', {'data-stat': 'wins'}).text),
+        'draws': int(row.find('td', {'data-stat': 'ties'}).text),
+        'losses': int(row.find('td', {'data-stat': 'losses'}).text),
+        'gf': int(row.find('td', {'data-stat': 'goals_for'}).text),
+        'ga': int(row.find('td', {'data-stat': 'goals_against'}).text),
+        'gd': int(row.find('td', {'data-stat': 'goal_diff'}).text),
+        'points': int(row.find('td', {'data-stat': 'points'}).text),
+        'xg': float(row.find('td', {'data-stat': 'xg_for'}).text),
+        'xga': float(row.find('td', {'data-stat': 'xg_against'}).text),
+        'last_5': ' '.join([div.text.strip() for div in row.find('td', {'data-stat': 'last_5'}).find_all('div', class_='poptip')])
     })
 
-# Sort standings by points, goal difference, and goals scored
-standings.sort(key=lambda x: (-x['points'], -x['gd'], -x['gf']))
-
-# Save to JSON
+# Sort and save
+teams.sort(key=lambda x: (-x['points'], -x['gd'], -x['gf']))
 with open('data.json', 'w') as f:
-    json.dump(standings, f, indent=2)
+    json.dump(teams, f, indent=2)
 
-print("Data saved to data.json")
+print("Data successfully saved to data.json")
