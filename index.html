@@ -99,8 +99,8 @@
             font-size: 0.75rem;
             font-weight: bold;
             flex-shrink: 0;
-            /* Progressive opacity for older matches */
-            opacity: calc(1 - (0.2 * var(--index)));
+            /* Reverse opacity for older matches */
+            opacity: calc(0.4 + (0.15 * var(--index)));
         }
         .form-win { background: #4CAF50; color: white; }
         .form-draw { background: #757575; color: white; }
