@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 
+# Team logo URLs (using FULL team names as keys)
 team_logos = {
     "Arsenal": "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Arsenal_FC.svg/1200px-Arsenal_FC.svg.png",
     "Aston Villa": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/aston-villa.7462c0d498.svg",
@@ -25,7 +26,9 @@ team_logos = {
     "Wolverhampton Wanderers": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fc/Wolverhampton_Wanderers.svg/1200px-Wolverhampton_Wanderers.svg.png",
 }
 
+# Team name mapping to ensure consistency (scraped names → full names)
 team_name_mapping = {
+    # Understat mappings
     "Nottm Forest": "Nottingham Forest",
     "Man City": "Manchester City",
     "Man Utd": "Manchester United",
@@ -33,27 +36,34 @@ team_name_mapping = {
     "Wolves": "Wolverhampton Wanderers",
     "Tottenham": "Tottenham Hotspur",
     "West Ham": "West Ham United",
+    "Leicester": "Leicester City",
+    "Bournemouth": "AFC Bournemouth",
+    "Brighton": "Brighton & Hove Albion",
+    "Ipswich": "Ipswich Town",
+
+    # FBRef-specific mappings
+    "Nott'ham Forest": "Nottingham Forest",
+    "Newcastle Utd": "Newcastle United",
+    "Manchester Utd": "Manchester United",
     "Nott'm Forest": "Nottingham Forest",
     "Nottingham F...": "Nottingham Forest",
     "Manchester C...": "Manchester City",
     "Wolverhampt...": "Wolverhampton Wanderers",
     "Manchester U...": "Manchester United",
     "Newcastle Un...": "Newcastle United",
-    "Leicester": "Leicester City",
-    "Bournemouth": "AFC Bournemouth",
-    "Brighton": "Brighton & Hove Albion",
-    "Ipswich": "Ipswich Town",
     "Leicester C...": "Leicester City",
     "Brighton &...": "Brighton & Hove Albion",
     "AFC Bournem...": "AFC Bournemouth",
-    "Ipswich Tow...": "Ipswich Town"
+    "Ipswich Tow...": "Ipswich Town",
+    "Tottenham H...": "Tottenham Hotspur",
 }
 
-# Scrape Understat data
+# Scrape data from Understat
 url_understat = "https://understat.com/league/EPL"
 response = requests.get(url_understat)
 soup = BeautifulSoup(response.content, 'html.parser')
 
+# Extract JSON data from Understat
 for script in soup.find_all('script'):
     if 'JSON.parse' in script.text:
         json_str = script.text.split("JSON.parse('")[1].split("')")[0]
@@ -61,22 +71,27 @@ for script in soup.find_all('script'):
         data_understat = json.loads(decoded_data)
         break
 
+# Process Understat data
 teams = {}
 for match in data_understat:
     if match['isResult']:
+        # Map scraped names to full names
         home = team_name_mapping.get(match['h']['title'], match['h']['title'])
         away = team_name_mapping.get(match['a']['title'], match['a']['title'])
         h_goals = int(match['goals']['h'])
         a_goals = int(match['goals']['a'])
 
+        # Initialize teams
         teams.setdefault(home, {'matches': 0, 'wins': 0, 'draws': 0, 'losses': 0, 'gf': 0, 'ga': 0})
         teams.setdefault(away, {'matches': 0, 'wins': 0, 'draws': 0, 'losses': 0, 'gf': 0, 'ga': 0})
 
+        # Update stats
         for team, goals_for, goals_against in [(home, h_goals, a_goals), (away, a_goals, h_goals)]:
             teams[team]['matches'] += 1
             teams[team]['gf'] += goals_for
             teams[team]['ga'] += goals_against
 
+        # Update wins/losses/draws
         if h_goals > a_goals:
             teams[home]['wins'] += 1
             teams[away]['losses'] += 1
@@ -99,6 +114,7 @@ table_fbref = soup_fbref.find('table', id='results2024-202591_overall')
 if table_fbref:
     for row in table_fbref.find('tbody').find_all('tr'):
         squad = row.find('td', {'data-stat': 'team'}).find('a').text.strip()
+        # Map FBRef team names to full names
         full_name = team_name_mapping.get(squad, squad)
         last_5_cell = row.find('td', {'data-stat': 'last_5'})
         if last_5_cell:
@@ -109,16 +125,18 @@ if table_fbref:
 standings = []
 for team, stats in teams.items():
     standings.append({
-        'team': team,
-        'logo': team_logos.get(team),
+        'team': team,  # Already mapped to full name
+        'logo': team_logos.get(team),  # Use full name to fetch logo
         **stats,
         'gd': stats['gf'] - stats['ga'],
         'points': (stats['wins'] * 3) + stats['draws'],
-        'form': form_data.get(team, '')
+        'form': form_data.get(team, '')  # Add Form data
     })
 
+# Sort standings by points, goal difference, and goals scored
 standings.sort(key=lambda x: (-x['points'], -x['gd'], -x['gf']))
 
+# Save to JSON
 with open('data.json', 'w') as f:
     json.dump(standings, f, indent=2)
 
