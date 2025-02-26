@@ -600,3 +600,15 @@
                         </td>
                     </tr>
                 `).join('');
+
+                document.getElementById('loading').style.display = 'none';
+            } catch (error) {
+                showError(`Error loading data: ${error.message}`);
+            }
+        }
+
+        // Load data when the page loads
+        loadData();
+    </script>
+</body>
+</html>
