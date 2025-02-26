@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premier League Table</title>
+    <style>
+        /* ====== New Navigation Styles ====== */
+        .nav-container {
+            background: white;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .main-nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link.active {
+            color: #d0021b;
+        }
+
+        .sub-nav {
+            border-bottom: 1px solid #e5e5e5;
+            background: #f8f8f8;
+        }
+
+        .sub-nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .sub-nav-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 12px 0;
+            position: relative;
+        }
+
+        .sub-nav-link.active {
+            color: #d0021b;
+            font-weight: 500;
+        }
+
+        .sub-nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #d0021b;
+        }
+
+        /* ====== Responsive Navigation ====== */
+        @media (max-width: 768px) {
+            .main-nav {
+                padding: 10px 15px;
+            }
+            
+            .nav-logo {
+                font-size: 1.3rem;
+            }
+            
+            .nav-links {
+                gap: 20px;
+            }
+            
+            .nav-link {
+                font-size: 0.9rem;
+            }
+            
+            .sub-nav-container {
+                padding: 0 15px;
+                gap: 20px;
+                justify-content: center;
+            }
+            
+            .sub-nav-link {
+                font-size: 0.85rem;
+                padding: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                padding: 10px;
+            }
+            
+            .nav-links {
+                width: 100%;
+                justify-content: space-between;
+                gap: 10px;
+            }
+            
+            .sub-nav-container {
+                flex-wrap: wrap;
+                gap: 15px;
+                justify-content: space-around;
+            }
+        }
+
+        /* ====== Existing Styles ====== */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            background: white;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h1 {
+            font-weight: 700;
+            color: #1a2634;
+            margin: 1.5rem 0;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .table-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            background: #f8f9fa;
+            color: #2c3e50;
+            border-bottom: 3px solid #1a2634;
+            padding: 14px 12px;
+            position: sticky;
+            top: 0;
+        }
+
+        tr {
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.2s ease;
+        }
+
+        tr:hover {
+            background-color: #f1f3f5 !important;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .team-cell {
+            text-align: left;
+            display: flex;
+            align-items: center;
+            min-width: 220px;
+            max-width: none;
+        }
+
+        .team-logo-container {
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .team-logo {
+            max-width: 80%;
+            max-height: 80%;
+        }
+
+        .team-name {
+            white-space: nowrap;
+            overflow: visible;
+            text-overflow: clip;
+            font-weight: bold;
+            font-size: 1.05rem;
+            letter-spacing: -0.02em;
+        }
+
+        .team-name.short { display: none; }
+        .team-name.full { display: inline; }
+
+        .separator-row {
+            border-bottom: 2px solid #1a2634 !important;
+        }
+
+        .form-container {
+            display: flex;
+            gap: 4px;
+            position: relative;
+            padding-right: 8px;
+        }
+
+        .form-item {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            flex-shrink: 0;
+            opacity: calc(0.4 + (0.15 * var(--index)));
+            transition: transform 0.2s ease;
+        }
+
+        .form-item:hover {
+            transform: scale(1.1);
+            z-index: 1;
+            position: relative;
+        }
+
+        .form-win { background: #4CAF50; color: white; }
+        .form-draw { background: #757575; color: white; }
+        .form-loss { background: #f44336; color: white; }
+
+        .key-container {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+            padding: 12px;
+            margin-top: 20px;
+            max-width: 1000px;
+            margin: 20px auto 0;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+
+        .key-container h2 {
+            background: #f5f5f5;
+            color: #2c3e50;
+            padding: 12px;
+            margin: -12px -12px 12px -12px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .key-container ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .key-container li {
+            margin-bottom: 8px;
+            font-size: 0.95em;
+            position: relative;
+            padding-left: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .key-container li::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+            background: currentColor;
+            position: absolute;
+            left: 0;
+        }
+
+        .last-updated {
+            text-align: center;
+            margin: 15px auto;
+            color: #6c757d;
+            font-size: 0.85rem;
+            font-weight: 500;
+            max-width: 1000px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            font-size: 1.2rem;
+            color: #6c757d;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1 }
+            50% { opacity: 0.5 }
+            100% { opacity: 1 }
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+        }
+
+        @media (max-width: 900px) and (orientation: landscape) {
+            .table-container {
+                max-width: 95vw;
+            }
+            
+            th, td {
+                padding: 8px 6px;
+                font-size: 0.9rem;
+            }
+            
+            .team-logo-container {
+                width: 28px;
+                height: 28px;
+            }
+            
+            .team-name {
+                font-size: 0.95rem;
+            }
+            
+            .form-item {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                margin: 5px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+                margin: 1rem 0;
+            }
+            
+            th, td {
+                padding: 10px 6px;
+                font-size: 15px;
+            }
+            
+            th:nth-child(2) {
+                text-align: left;
+                padding-left: 27.5px;
+            }
+            
+            .team-logo-container {
+                width: 20px;
+                height: 20px;
+                margin-right: 4px;
+            }
+            
+            .mobile-hide {
+                display: none;
+            }
+            
+            .table-container {
+                padding: 0 5px;
+            }
+            
+            .team-cell {
+                max-width: 140px;
+                min-width: unset;
+            }
+            
+            .key-container {
+                padding: 8px;
+                margin-top: 15px;
+            }
+            
+            .key-container h2 {
+                padding: 8px;
+                margin: -8px -8px 8px -8px;
+                font-size: 1em;
+            }
+            
+            .key-container li {
+                font-size: 14px;
+            }
+            
+            .last-updated {
+                font-size: 13px;
+            }
+            
+            .team-name.short { display: inline; }
+            .team-name.full { display: none; }
+            .team-name {
+                white-space: normal;
+                overflow: visible;
+            }
+            
+            .form-item {
+                width: 18px;
+                height: 18px;
+                font-size: 0.65rem;
+            }
+        }
+
+        td:nth-child(10) {
+            font-weight: 700;
+            color: #1a2634;
+            font-size: 1.05rem;
+        }
+
+        td:nth-child(9) {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <!-- New Navigation -->
+    <div class="nav-container">
+        <nav class="main-nav">
+            <a href="#" class="nav-logo">The Athletic</a>
+            <div class="nav-links">
+                <a href="#" class="nav-link active">EPL</a>
+                <a href="#" class="nav-link">Teams</a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Sub Navigation -->
+    <div class="sub-nav">
+        <div class="sub-nav-container">
+            <a href="#" class="sub-nav-link active">Tables</a>
+            <a href="#" class="sub-nav-link">Scores & Schedule</a>
+        </div>
+    </div>
+
+    <!-- Existing Table Container -->
+    <div class="table-container">
+        <h1>Premier League Table</h1>
+        <div id="loading" class="loading">Loading...</div>
+        <div id="error" class="error" style="display: none;"></div>
+        <table id="leagueTable">
+            <thead>
+                <tr>
+                    <th>Pos</th>
+                    <th>Team</th>
+                    <th>MP</th>
+                    <th class="mobile-hide">W</th>
+                    <th class="mobile-hide">D</th>
+                    <th class="mobile-hide">L</th>
+                    <th class="mobile-hide">GF</th>
+                    <th class="mobile-hide">GA</th>
+                    <th>GD</th>
+                    <th>Pts</th>
+                    <th class="mobile-hide">Form</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <!-- Key Container -->
+        <div class="key-container">
+            <h2>Key</h2>
+            <ul>
+                <li>Position 1 - 4 : UEFA Champions League</li>
+                <li>Position 5 : UEFA Europa League</li>
+                <li>Position 18 - 20 : Relegation</li>
+            </ul>
+        </div>
+
+        <!-- Last Updated Time -->
+        <div class="last-updated"></div>
+    </div>
+
+    <script>
+        // Client-side team name mappings (for mobile view)
+        const clientSideMappings = {
+            "Manchester United": "Man Utd",
+            "Manchester City": "Man City",
+            "Newcastle United": "Newcastle",
+            "Wolverhampton Wanderers": "Wolves",
+            "Tottenham Hotspur": "Tottenham",
+            "West Ham United": "West Ham",
+            "Nottingham Forest": "Nottm Forest",
+            "Leicester City": "Leicester",
+            "Brighton & Hove Albion": "Brighton",
+            "AFC Bournemouth": "Bournemouth",
+            "Ipswich Town": "Ipswich"
+        };
+
+        // Function to format the date with ordinal suffix
+        function getOrdinal(n) {
+            const s = ["th", "st", "nd", "rd"];
+            const v = n % 100;
+            return (s[(v - 20) % 10] || s[v] || s[0]);
+        }
+
+        // Function to format the date and time
+        function formatDateTime(date) {
+            const day = date.getDate();
+            const month = date.toLocaleString('default', { month: 'long' });
+            const year = date.getFullYear();
+            const hours = date.getHours().toString().padStart(2, '0');
+            const minutes = date.getMinutes().toString().padStart(2, '0');
+            return `${day}${getOrdinal(day)} ${month} ${year} at ${hours}:${minutes}`;
+        }
+
+        // Function to show error messages
+        function showError(message) {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('error').style.display = 'block';
+            document.getElementById('error').textContent = message;
+        }
+
+        // Function to load data and update the table
+        async function loadData() {
+            try {
+                const response = await fetch('data.json');
+                if (!response.ok) throw new Error('Network response was not ok');
+
+                // Get the last modified date from the response headers
+                const lastModified = response.headers.get('last-modified');
+                const updateDate = lastModified ? new Date(lastModified) : new Date();
+
+                // Update the last updated time
+                const lastUpdatedDiv = document.querySelector('.last-updated');
+                lastUpdatedDiv.textContent = `Last Updated ${formatDateTime(updateDate)}`;
+
+                const data = await response.json();
+
+                // Populate the table
+                const tbody = document.querySelector('#leagueTable tbody');
+                tbody.innerHTML = data.map((team, index) => `
+                    <tr class="${[3, 4, 16].includes(index) ? 'separator-row' : ''}">
+                        <td>${index + 1}</td>
+                        <td class="team-cell">
+                            <div class="team-logo-container">
+                                <img src="${team.logo}" alt="${team.team}" class="team-logo">
+                            </div>
+                            <span class="team-name full">${team.team}</span>
+                            <span class="team-name short">${clientSideMappings[team.team] || team.team}</span>
+                        </td>
+                        <td>${team.matches}</td>
+                        <td class="mobile-hide">${team.wins}</td>
+                        <td class="mobile-hide">${team.draws}</td>
+                        <td class="mobile-hide">${team.losses}</td>
+                        <td class="mobile-hide">${team.gf}</td>
+                        <td class="mobile-hide">${team.ga}</td>
+                        <td>${team.gd}</td>
+                        <td><strong>${team.points}</strong></td>
+                        <td class="mobile-hide">
+                            <div class="form-container">
+                                ${team.form.split(' ').map((match, index) => `
+                                    <div class="form-item ${match === 'W' ? 'form-win' : match === 'D' ? 'form-draw' : 'form-loss'}" 
+                                         style="--index: ${index}">
+                                        ${match}
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </td>
+                    </tr>
+                `).join('');
