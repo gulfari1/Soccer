@@ -5,59 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premier League Table</title>
     <style>
-        /* General Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
             background: white;
-            color: #333;
-            line-height: 1.6;
         }
-
         .table-container {
             max-width: 1000px;
             margin: 0 auto;
         }
-
         table {
             width: 100%;
             border-collapse: collapse;
             background: white;
             box-shadow: 0 1px 3px rgba(0,0,0,0.12);
         }
-
         th, td {
             padding: 12px;
             text-align: center;
         }
-
+        th:nth-child(2) {
+            text-align: left;
+            padding-left: 47.5px; /* Align "Team" header with team names */
+        }
         th {
             background: #f5f5f5;
             color: black;
             position: sticky;
             top: 0;
             border-bottom: 2px solid #1a2634;
-            cursor: pointer;
         }
-
         tr {
             border-bottom: 1px solid #ddd;
-            transition: all 0.2s ease;
         }
-
         tr:hover {
-            transform: scale(1.01);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background: #f9f9f9;
         }
-
         .team-cell {
             text-align: left;
             display: flex;
             align-items: center;
-            min-width: 200px;
-            max-width: none;
+            min-width: 200px; /* Ensure enough space for full names */
+            max-width: none; /* Allow full expansion */
         }
-
         .team-logo-container {
             width: 30px;
             height: 30px;
@@ -69,46 +59,100 @@
             overflow: hidden;
             flex-shrink: 0;
         }
-
         .team-logo {
             max-width: 80%;
             max-height: 80%;
         }
-
         .loading {
             text-align: center;
             padding: 20px;
         }
-
         .error {
             color: red;
             text-align: center;
         }
-
         .team-name {
-            white-space: nowrap;
-            overflow: visible;
-            text-overflow: clip;
+            white-space: nowrap; /* Keep names in a single line */
+            overflow: visible; /* Disable overflow */
+            text-overflow: clip; /* Remove ellipsis */
             font-weight: bold;
         }
-
         .team-name.short { display: none; }
         .team-name.full { display: inline; }
-
         .separator-row {
             border-bottom: 2px solid #1a2634 !important;
         }
 
-        /* Advanced Stats Toggle */
-        .advanced-stats {
-            display: none;
+        /* Form Styling */
+        .form-container {
+            display: flex;
+            gap: 3px;
+            position: relative;
+        }
+        .form-item {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+            flex-shrink: 0;
+            /* Reverse opacity for older matches */
+            opacity: calc(0.4 + (0.15 * var(--index)));
+        }
+        .form-win { background: #4CAF50; color: white; }
+        .form-draw { background: #757575; color: white; }
+        .form-loss { background: #f44336; color: white; }
+
+        /* Key Container Styles */
+        .key-container {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+            padding: 12px;
+            margin-top: 20px;
+            max-width: 1000px;
+            margin: 20px auto 0;
+        }
+        .key-container h2 {
+            background: #f5f5f5;
+            color: black;
+            padding: 12px;
+            margin: -12px -12px 12px -12px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .key-container ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .key-container li {
+            margin-bottom: 8px;
+            font-size: 0.95em;
+            position: relative;
+            padding-left: 20px;
+        }
+        .key-container li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1a2634;
+            font-size: 1.2em;
+            line-height: 1;
         }
 
-        .advanced-stats.visible {
-            display: table-cell;
+        /* Last Updated Styles */
+        .last-updated {
+            text-align: center;
+            margin: 15px auto;
+            color: #666;
+            font-size: 0.9em;
+            max-width: 1000px;
         }
 
-        /* Responsive Mobile View */
+        /* Mobile Styles */
         @media (max-width: 600px) {
             body {
                 margin: 5px;
@@ -119,7 +163,7 @@
             }
             th:nth-child(2) {
                 text-align: left;
-                padding-left: 27.5px;
+                padding-left: 27.5px; /* Align "Team" header for mobile */
             }
             h1 {
                 font-size: 18px;
@@ -130,39 +174,41 @@
                 height: 20px;
                 margin-right: 4px;
             }
-            .mobile-collapse {
+            .mobile-hide {
                 display: none;
             }
             .table-container {
                 padding: 0 5px;
             }
             .team-cell {
-                max-width: 140px;
-                min-width: unset;
+                max-width: 140px; /* Adjusted for mobile */
+                min-width: unset; /* Reset min-width */
+            }
+            .key-container {
+                padding: 8px;
+                margin-top: 15px;
+            }
+            .key-container h2 {
+                padding: 8px;
+                margin: -8px -8px 8px -8px;
+                font-size: 1em;
+            }
+            .key-container li {
+                font-size: 14px;
+            }
+            .last-updated {
+                font-size: 13px;
             }
             .team-name.short { display: inline; }
             .team-name.full { display: none; }
             .team-name {
-                white-space: normal;
+                white-space: normal; /* Allow wrapping on mobile */
                 overflow: visible;
             }
-        }
-
-        /* Dark Mode */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background: #121212;
-                color: #fff;
-            }
-            table {
-                background: #1e1e1e;
-            }
-            th {
-                background: #333;
-                color: #fff;
-            }
-            tr:hover {
-                background: #2c2c2c;
+            .form-item {
+                width: 18px;
+                height: 18px;
+                font-size: 0.65rem;
             }
         }
     </style>
@@ -170,24 +216,22 @@
 <body>
     <div class="table-container">
         <h1>Premier League Table</h1>
-        <button id="advancedToggle">Show Advanced Stats</button>
         <div id="loading" class="loading">Loading...</div>
         <div id="error" class="error" style="display: none;"></div>
-        <table id="leagueTable" role="grid" aria-label="Premier League Table">
+        <table id="leagueTable">
             <thead>
                 <tr>
                     <th>Pos</th>
                     <th>Team</th>
                     <th>MP</th>
-                    <th class="mobile-collapse">W</th>
-                    <th class="mobile-collapse">D</th>
-                    <th class="mobile-collapse">L</th>
-                    <th class="mobile-collapse">GF</th>
-                    <th class="mobile-collapse">GA</th>
+                    <th class="mobile-hide">W</th>
+                    <th class="mobile-hide">D</th>
+                    <th class="mobile-hide">L</th>
+                    <th class="mobile-hide">GF</th>
+                    <th class="mobile-hide">GA</th>
                     <th>GD</th>
                     <th>Pts</th>
-                    <th class="advanced-stats">xG</th>
-                    <th class="advanced-stats">xGA</th>
+                    <th class="mobile-hide">Form</th>
                 </tr>
             </thead>
             <tbody></tbody>
@@ -276,15 +320,23 @@
                             <span class="team-name short">${clientSideMappings[team.team] || team.team}</span>
                         </td>
                         <td>${team.matches}</td>
-                        <td class="mobile-collapse">${team.wins}</td>
-                        <td class="mobile-collapse">${team.draws}</td>
-                        <td class="mobile-collapse">${team.losses}</td>
-                        <td class="mobile-collapse">${team.gf}</td>
-                        <td class="mobile-collapse">${team.ga}</td>
+                        <td class="mobile-hide">${team.wins}</td>
+                        <td class="mobile-hide">${team.draws}</td>
+                        <td class="mobile-hide">${team.losses}</td>
+                        <td class="mobile-hide">${team.gf}</td>
+                        <td class="mobile-hide">${team.ga}</td>
                         <td>${team.gd}</td>
                         <td><strong>${team.points}</strong></td>
-                        <td class="advanced-stats">${team.xg || '-'}</td>
-                        <td class="advanced-stats">${team.xga || '-'}</td>
+                        <td class="mobile-hide">
+                            <div class="form-container">
+                                ${team.form.split(' ').map((match, index) => `
+                                    <div class="form-item ${match === 'W' ? 'form-win' : match === 'D' ? 'form-draw' : 'form-loss'}" 
+                                         style="--index: ${index}">
+                                        ${match}
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </td>
                     </tr>
                 `).join('');
 
@@ -293,30 +345,6 @@
                 showError(`Error loading data: ${error.message}`);
             }
         }
-
-        // Sorting Functionality
-        document.querySelectorAll('th').forEach(header => {
-            header.addEventListener('click', () => {
-                const column = header.cellIndex;
-                const rows = Array.from(document.querySelectorAll('tbody tr'));
-                const isAscending = header.classList.toggle('asc');
-                rows.sort((a, b) => {
-                    const aVal = a.children[column].textContent.trim();
-                    const bVal = b.children[column].textContent.trim();
-                    return isAscending ? aVal.localeCompare(bVal, undefined, { numeric: true }) : bVal.localeCompare(aVal, undefined, { numeric: true });
-                });
-                document.querySelector('tbody').innerHTML = rows.map(row => row.outerHTML).join('');
-            });
-        });
-
-        // Advanced Stats Toggle
-        document.getElementById('advancedToggle').addEventListener('click', () => {
-            document.querySelectorAll('.advanced-stats').forEach(col => {
-                col.classList.toggle('visible');
-            });
-            const button = document.getElementById('advancedToggle');
-            button.textContent = button.textContent === 'Show Advanced Stats' ? 'Hide Advanced Stats' : 'Show Advanced Stats';
-        });
 
         // Load data when the page loads
         loadData();
