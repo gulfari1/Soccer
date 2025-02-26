@@ -5,30 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premier League Table</title>
     <style>
-        /* ====== New Navigation Styles ====== */
-        .nav-container {
+        /* ====== Global Styles ====== */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
             background: white;
-            border-bottom: 1px solid #e5e5e5;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            color: #333;
+            line-height: 1.6;
         }
 
-        .main-nav {
-            max-width: 1200px;
+        /* ====== Navigation Bars ====== */
+        .global-nav {
+            background: #1A2634;
+            color: white;
+            padding: 0 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 12px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .nav-logo {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: #1a1a1a;
-            text-decoration: none;
+            height: 60px;
         }
 
         .nav-links {
@@ -38,111 +40,90 @@
         }
 
         .nav-link {
-            color: #1a1a1a;
+            color: white;
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 500;
-            transition: color 0.2s ease;
+            transition: opacity 0.2s;
         }
 
-        .nav-link.active {
-            color: #d0021b;
+        .nav-link:hover {
+            opacity: 0.8;
         }
 
         .sub-nav {
-            border-bottom: 1px solid #e5e5e5;
-            background: #f8f8f8;
+            background: #FFFFFF;
+            border-bottom: 1px solid #E0E0E0;
+            padding: 0 20px;
         }
 
         .sub-nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
             display: flex;
-            gap: 30px;
+            gap: 25px;
         }
 
         .sub-nav-link {
-            color: #666;
+            color: #1A2634;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            font-weight: 600;
             padding: 12px 0;
-            position: relative;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
         }
 
-        .sub-nav-link.active {
-            color: #d0021b;
-            font-weight: 500;
+        .sub-nav-link.active,
+        .sub-nav-link:hover {
+            border-bottom-color: #1A2634;
         }
 
-        .sub-nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: #d0021b;
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
         }
 
-        /* ====== Responsive Navigation ====== */
+        /* ====== Responsive Styles ====== */
         @media (max-width: 768px) {
-            .main-nav {
-                padding: 10px 15px;
-            }
-            
-            .nav-logo {
-                font-size: 1.3rem;
-            }
-            
             .nav-links {
-                gap: 20px;
+                display: none;
             }
             
-            .nav-link {
-                font-size: 0.9rem;
+            .mobile-menu-btn {
+                display: block;
             }
             
             .sub-nav-container {
+                overflow-x: auto;
                 padding: 0 15px;
-                gap: 20px;
-                justify-content: center;
+                -ms-overflow-style: none;
+                scrollbar-width: none;
             }
             
-            .sub-nav-link {
-                font-size: 0.85rem;
-                padding: 10px 0;
+            .sub-nav-container::-webkit-scrollbar {
+                display: none;
             }
         }
 
         @media (max-width: 480px) {
-            .main-nav {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-                padding: 10px;
+            .global-nav {
+                padding: 0 15px;
             }
             
-            .nav-links {
-                width: 100%;
-                justify-content: space-between;
-                gap: 10px;
-            }
-            
-            .sub-nav-container {
-                flex-wrap: wrap;
-                gap: 15px;
-                justify-content: space-around;
+            .nav-container {
+                height: 50px;
             }
         }
 
-        /* ====== Existing Styles ====== */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
-            margin: 0;
-            background: white;
-            color: #333;
-            line-height: 1.6;
+        /* ====== Table Container ====== */
+        .table-container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 20px;
         }
 
         h1 {
@@ -151,12 +132,6 @@
             margin: 1.5rem 0;
             font-size: 2rem;
             text-align: center;
-        }
-
-        .table-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
         }
 
         table {
@@ -239,6 +214,7 @@
             border-bottom: 2px solid #1a2634 !important;
         }
 
+        /* ====== Form Styling ====== */
         .form-container {
             display: flex;
             gap: 4px;
@@ -270,6 +246,7 @@
         .form-draw { background: #757575; color: white; }
         .form-loss { background: #f44336; color: white; }
 
+        /* ====== Key Container ====== */
         .key-container {
             background: white;
             box-shadow: 0 1px 3px rgba(0,0,0,0.12);
@@ -317,6 +294,7 @@
             left: 0;
         }
 
+        /* ====== Last Updated ====== */
         .last-updated {
             text-align: center;
             margin: 15px auto;
@@ -326,6 +304,7 @@
             max-width: 1000px;
         }
 
+        /* ====== Loading and Error States ====== */
         .loading {
             text-align: center;
             padding: 20px;
@@ -345,31 +324,7 @@
             text-align: center;
         }
 
-        @media (max-width: 900px) and (orientation: landscape) {
-            .table-container {
-                max-width: 95vw;
-            }
-            
-            th, td {
-                padding: 8px 6px;
-                font-size: 0.9rem;
-            }
-            
-            .team-logo-container {
-                width: 28px;
-                height: 28px;
-            }
-            
-            .team-name {
-                font-size: 0.95rem;
-            }
-            
-            .form-item {
-                width: 20px;
-                height: 20px;
-            }
-        }
-
+        /* ====== Mobile Styles ====== */
         @media (max-width: 600px) {
             body {
                 margin: 5px;
@@ -383,11 +338,6 @@
             th, td {
                 padding: 10px 6px;
                 font-size: 15px;
-            }
-            
-            th:nth-child(2) {
-                text-align: left;
-                padding-left: 27.5px;
             }
             
             .team-logo-container {
@@ -441,40 +391,33 @@
                 font-size: 0.65rem;
             }
         }
-
-        td:nth-child(10) {
-            font-weight: 700;
-            color: #1a2634;
-            font-size: 1.05rem;
-        }
-
-        td:nth-child(9) {
-            font-weight: 500;
-            color: #2c3e50;
-        }
     </style>
 </head>
 <body>
-    <!-- New Navigation -->
-    <div class="nav-container">
-        <nav class="main-nav">
-            <a href="#" class="nav-logo">The Athletic</a>
-            <div class="nav-links">
-                <a href="#" class="nav-link active">EPL</a>
-                <a href="#" class="nav-link">Teams</a>
+    <!-- Navigation Bars -->
+    <nav class="global-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>The Athletic</span>
             </div>
-        </nav>
-    </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link">Log in</a>
+                <a href="#" class="nav-link">Subscribe Now</a>
+            </div>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
 
-    <!-- Sub Navigation -->
-    <div class="sub-nav">
+    <nav class="sub-nav">
         <div class="sub-nav-container">
             <a href="#" class="sub-nav-link active">Tables</a>
             <a href="#" class="sub-nav-link">Scores & Schedule</a>
+            <a href="#" class="sub-nav-link">Teams</a>
+            <a href="#" class="sub-nav-link">Fantasy</a>
         </div>
-    </div>
+    </nav>
 
-    <!-- Existing Table Container -->
+    <!-- Table Container -->
     <div class="table-container">
         <h1>Premier League Table</h1>
         <div id="loading" class="loading">Loading...</div>
