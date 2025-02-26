@@ -10,20 +10,16 @@
             margin: 20px;
             background: white;
         }
-        .table-container,
-        .key-container {
+        .table-container, .key-container, .last-updated {
+            width: 100%;
             max-width: 1000px;
-            margin: 0 auto;
-            box-sizing: border-box;
-            padding: 0 12px;
+            margin: 0 auto; /* Center align containers */
         }
         table {
             width: 100%;
             border-collapse: collapse;
             background: white;
             box-shadow: 0 1px 3px rgba(0,0,0,0.12);
-            max-width: 100%;
-            overflow-x: auto;
         }
         th, td {
             padding: 12px;
@@ -152,17 +148,12 @@
             margin: 15px auto;
             color: #666;
             font-size: 0.9em;
-            max-width: 1000px;
         }
 
         /* Mobile Styles */
         @media (max-width: 600px) {
             body {
                 margin: 5px;
-            }
-            .table-container,
-            .key-container {
-                padding: 0 8px;
             }
             th, td {
                 padding: 6px;
@@ -216,21 +207,6 @@
                 width: 18px;
                 height: 18px;
                 font-size: 0.65rem;
-            }
-
-            /* Landscape-specific adjustments */
-            @media (orientation: landscape) {
-                .table-container {
-                    max-width: 100%;
-                    padding: 0 10px;
-                }
-                table {
-                    font-size: 14px;
-                }
-                .form-item {
-                    width: 16px;
-                    height: 16px;
-                }
             }
         }
     </style>
