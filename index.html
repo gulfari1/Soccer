@@ -5,108 +5,142 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premier League Table</title>
     <style>
+        /* ====== Global Styles ====== */
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
             margin: 20px;
             background: white;
+            color: #333;
+            line-height: 1.6;
         }
+
+        h1 {
+            font-weight: 700;
+            color: #1a2634;
+            margin: 1.5rem 0;
+            font-size: 2rem;
+            text-align: center;
+        }
+
         .table-container {
             max-width: 1000px;
             margin: 0 auto;
         }
+
+        /* ====== Table Enhancements ====== */
         table {
             width: 100%;
             border-collapse: collapse;
             background: white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            font-size: 0.95rem;
         }
+
         th, td {
             padding: 12px;
             text-align: center;
         }
-        th:nth-child(2) {
-            text-align: left;
-            padding-left: 47.5px; /* Align "Team" header with team names */
-        }
+
         th {
-            background: #f5f5f5;
-            color: black;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            background: #f8f9fa;
+            color: #2c3e50;
+            border-bottom: 3px solid #1a2634;
+            padding: 14px 12px;
             position: sticky;
             top: 0;
-            border-bottom: 2px solid #1a2634;
         }
+
         tr {
             border-bottom: 1px solid #ddd;
+            transition: background-color 0.2s ease;
         }
+
         tr:hover {
-            background: #f9f9f9;
+            background-color: #f1f3f5 !important;
         }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
         .team-cell {
             text-align: left;
             display: flex;
             align-items: center;
-            min-width: 200px; /* Ensure enough space for full names */
-            max-width: none; /* Allow full expansion */
+            min-width: 220px;
+            max-width: none;
         }
+
         .team-logo-container {
-            width: 30px;
-            height: 30px;
+            width: 34px;
+            height: 34px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 8px;
+            margin-right: 12px;
             border-radius: 50%;
             overflow: hidden;
             flex-shrink: 0;
+            background: #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
+
         .team-logo {
             max-width: 80%;
             max-height: 80%;
         }
-        .loading {
-            text-align: center;
-            padding: 20px;
-        }
-        .error {
-            color: red;
-            text-align: center;
-        }
+
         .team-name {
-            white-space: nowrap; /* Keep names in a single line */
-            overflow: visible; /* Disable overflow */
-            text-overflow: clip; /* Remove ellipsis */
+            white-space: nowrap;
+            overflow: visible;
+            text-overflow: clip;
             font-weight: bold;
+            font-size: 1.05rem;
+            letter-spacing: -0.02em;
         }
+
         .team-name.short { display: none; }
         .team-name.full { display: inline; }
+
         .separator-row {
             border-bottom: 2px solid #1a2634 !important;
         }
 
-        /* Form Styling */
+        /* ====== Form Styling ====== */
         .form-container {
             display: flex;
-            gap: 3px;
+            gap: 4px;
             position: relative;
+            padding-right: 8px;
         }
+
         .form-item {
-            width: 22px;
-            height: 22px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: bold;
             flex-shrink: 0;
-            /* Reverse opacity for older matches */
             opacity: calc(0.4 + (0.15 * var(--index)));
+            transition: transform 0.2s ease;
         }
+
+        .form-item:hover {
+            transform: scale(1.1);
+            z-index: 1;
+            position: relative;
+        }
+
         .form-win { background: #4CAF50; color: white; }
         .form-draw { background: #757575; color: white; }
         .form-loss { background: #f44336; color: white; }
 
-        /* Key Container Styles */
+        /* ====== Key Container ====== */
         .key-container {
             background: white;
             box-shadow: 0 1px 3px rgba(0,0,0,0.12);
@@ -114,102 +148,186 @@
             margin-top: 20px;
             max-width: 1000px;
             margin: 20px auto 0;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
         }
+
         .key-container h2 {
             background: #f5f5f5;
-            color: black;
+            color: #2c3e50;
             padding: 12px;
             margin: -12px -12px 12px -12px;
             font-size: 1.2em;
             font-weight: bold;
+            border-radius: 8px 8px 0 0;
         }
+
         .key-container ul {
             list-style: none;
             padding: 0;
             margin: 0;
         }
+
         .key-container li {
             margin-bottom: 8px;
             font-size: 0.95em;
             position: relative;
             padding-left: 20px;
-        }
-        .key-container li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #1a2634;
-            font-size: 1.2em;
-            line-height: 1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        /* Last Updated Styles */
+        .key-container li::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+            background: currentColor;
+            position: absolute;
+            left: 0;
+        }
+
+        /* ====== Last Updated ====== */
         .last-updated {
             text-align: center;
             margin: 15px auto;
-            color: #666;
-            font-size: 0.9em;
+            color: #6c757d;
+            font-size: 0.85rem;
+            font-weight: 500;
             max-width: 1000px;
         }
 
-        /* Mobile Styles */
+        /* ====== Loading and Error States ====== */
+        .loading {
+            text-align: center;
+            padding: 20px;
+            font-size: 1.2rem;
+            color: #6c757d;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1 }
+            50% { opacity: 0.5 }
+            100% { opacity: 1 }
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+        }
+
+        /* ====== Mobile Landscape Optimizations ====== */
+        @media (max-width: 900px) and (orientation: landscape) {
+            .table-container {
+                max-width: 95vw;
+            }
+            
+            th, td {
+                padding: 8px 6px;
+                font-size: 0.9rem;
+            }
+            
+            .team-logo-container {
+                width: 28px;
+                height: 28px;
+            }
+            
+            .team-name {
+                font-size: 0.95rem;
+            }
+            
+            .form-item {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        /* ====== Mobile Styles ====== */
         @media (max-width: 600px) {
             body {
                 margin: 5px;
             }
+            
+            h1 {
+                font-size: 1.5rem;
+                margin: 1rem 0;
+            }
+            
             th, td {
-                padding: 6px;
+                padding: 10px 6px;
                 font-size: 15px;
             }
+            
             th:nth-child(2) {
                 text-align: left;
-                padding-left: 27.5px; /* Align "Team" header for mobile */
+                padding-left: 27.5px;
             }
-            h1 {
-                font-size: 18px;
-                margin: 10px 0;
-            }
+            
             .team-logo-container {
                 width: 20px;
                 height: 20px;
                 margin-right: 4px;
             }
+            
             .mobile-hide {
                 display: none;
             }
+            
             .table-container {
                 padding: 0 5px;
             }
+            
             .team-cell {
-                max-width: 140px; /* Adjusted for mobile */
-                min-width: unset; /* Reset min-width */
+                max-width: 140px;
+                min-width: unset;
             }
+            
             .key-container {
                 padding: 8px;
                 margin-top: 15px;
             }
+            
             .key-container h2 {
                 padding: 8px;
                 margin: -8px -8px 8px -8px;
                 font-size: 1em;
             }
+            
             .key-container li {
                 font-size: 14px;
             }
+            
             .last-updated {
                 font-size: 13px;
             }
+            
             .team-name.short { display: inline; }
             .team-name.full { display: none; }
             .team-name {
-                white-space: normal; /* Allow wrapping on mobile */
+                white-space: normal;
                 overflow: visible;
             }
+            
             .form-item {
                 width: 18px;
                 height: 18px;
                 font-size: 0.65rem;
             }
+        }
+
+        /* ====== Points Column Emphasis ====== */
+        td:nth-child(10) {
+            font-weight: 700;
+            color: #1a2634;
+            font-size: 1.05rem;
+        }
+
+        /* ====== GD Coloring ====== */
+        td:nth-child(9) {
+            font-weight: 500;
+            color: #2c3e50;
         }
     </style>
 </head>
