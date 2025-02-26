@@ -7,15 +7,12 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
+            margin: 20px;
             background: white;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
-        .table-container, .key-container, .last-updated {
-            width: 100%;
-            margin: 0 auto; /* Center align containers */
-            box-sizing: border-box; /* Ensure padding is included in width */
+        .table-container {
+            max-width: 1000px;
+            margin: 0 auto;
         }
         table {
             width: 100%;
@@ -26,11 +23,10 @@
         th, td {
             padding: 12px;
             text-align: center;
-            white-space: nowrap; /* Prevent text wrapping */
         }
         th:nth-child(2) {
             text-align: left;
-            padding-left: 12px; /* Align "Team" header with team names */
+            padding-left: 47.5px; /* Align "Team" header with team names */
         }
         th {
             background: #f5f5f5;
@@ -49,11 +45,12 @@
             text-align: left;
             display: flex;
             align-items: center;
-            min-width: 120px; /* Ensure enough space for team names */
+            min-width: 200px; /* Ensure enough space for full names */
+            max-width: none; /* Allow full expansion */
         }
         .team-logo-container {
-            width: 24px;
-            height: 24px;
+            width: 30px;
+            height: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -76,8 +73,8 @@
         }
         .team-name {
             white-space: nowrap; /* Keep names in a single line */
-            overflow: hidden; /* Hide overflow */
-            text-overflow: ellipsis; /* Add ellipsis for overflow */
+            overflow: visible; /* Disable overflow */
+            text-overflow: clip; /* Remove ellipsis */
             font-weight: bold;
         }
         .team-name.short { display: none; }
@@ -93,8 +90,8 @@
             position: relative;
         }
         .form-item {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -115,6 +112,8 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.12);
             padding: 12px;
             margin-top: 20px;
+            max-width: 1000px;
+            margin: 20px auto 0;
         }
         .key-container h2 {
             background: #f5f5f5;
@@ -150,19 +149,21 @@
             margin: 15px auto;
             color: #666;
             font-size: 0.9em;
+            max-width: 1000px;
         }
 
         /* Mobile Styles */
         @media (max-width: 600px) {
             body {
-                padding: 10px;
+                margin: 5px;
             }
             th, td {
                 padding: 6px;
-                font-size: 14px;
+                font-size: 15px;
             }
             th:nth-child(2) {
-                padding-left: 8px; /* Align "Team" header for mobile */
+                text-align: left;
+                padding-left: 27.5px; /* Align "Team" header for mobile */
             }
             h1 {
                 font-size: 18px;
@@ -176,8 +177,12 @@
             .mobile-hide {
                 display: none;
             }
+            .table-container {
+                padding: 0 5px;
+            }
             .team-cell {
-                min-width: 100px; /* Adjusted for mobile */
+                max-width: 140px; /* Adjusted for mobile */
+                min-width: unset; /* Reset min-width */
             }
             .key-container {
                 padding: 8px;
@@ -197,9 +202,8 @@
             .team-name.short { display: inline; }
             .team-name.full { display: none; }
             .team-name {
-                white-space: nowrap; /* Keep names in a single line */
-                overflow: hidden; /* Hide overflow */
-                text-overflow: ellipsis; /* Add ellipsis for overflow */
+                white-space: normal; /* Allow wrapping on mobile */
+                overflow: visible;
             }
             .form-item {
                 width: 18px;
