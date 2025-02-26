@@ -8,7 +8,8 @@
         /* ====== Global Styles ====== */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
-            margin: 20px;
+            margin: 0;
+            padding-top: 120px; /* Space for fixed navigation */
             background: white;
             color: #333;
             line-height: 1.6;
@@ -22,9 +23,88 @@
             text-align: center;
         }
 
+        /* ====== Navigation Styles ====== */
+        .main-nav {
+            background: #1a2634;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: white;
+        }
+
+        .sub-nav {
+            background: #2c3e50;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            position: fixed;
+            top: 56px; /* Height of main nav */
+            left: 0;
+            right: 0;
+            z-index: 999;
+        }
+
+        .league-title {
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .sub-nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .sub-nav-link {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .sub-nav-link.active {
+            color: white;
+            border-bottom: 2px solid white;
+        }
+
+        .sub-nav-link:hover {
+            color: white;
+        }
+
+        /* ====== Table Container ====== */
         .table-container {
             max-width: 1000px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
         /* ====== Table Enhancements ====== */
@@ -41,11 +121,6 @@
             text-align: center;
         }
 
-        th:nth-child(2) {
-                text-align: left;
-                padding-left: 55.5px;
-        }
-        
         th {
             font-weight: 600;
             letter-spacing: 0.05em;
@@ -54,7 +129,7 @@
             border-bottom: 3px solid #1a2634;
             padding: 14px 12px;
             position: sticky;
-            top: 0;
+            top: 120px; /* Height of both nav bars */
         }
 
         tr {
@@ -250,75 +325,58 @@
         }
 
         /* ====== Mobile Styles ====== */
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             body {
-                margin: 5px;
+                padding-top: 100px;
+            }
+
+            .main-nav {
+                padding: 1rem;
             }
             
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .sub-nav {
+                padding: 0.8rem 1rem;
+                top: 48px;
+            }
+            
+            .league-title {
+                display: none;
+            }
+            
+            .sub-nav-links {
+                width: 100%;
+                justify-content: space-around;
+            }
+            
+            .table-container {
+                margin-top: 0;
+            }
+
             h1 {
                 font-size: 1.5rem;
                 margin: 1rem 0;
             }
             
+            .team-cell {
+                min-width: auto;
+                max-width: 160px;
+            }
+            
+            .team-name.short {
+                font-size: 0.95rem;
+            }
+            
             th, td {
                 padding: 10px 6px;
-                font-size: 15px;
             }
             
-            th:nth-child(2) {
-                text-align: left;
-                padding-left: 27.5px;
-            }
-            
-            .team-logo-container {
-                width: 20px;
-                height: 20px;
-                margin-right: 4px;
-            }
-            
-            .mobile-hide {
-                display: none;
-            }
-            
-            .table-container {
-                padding: 0 5px;
-            }
-            
-            .team-cell {
-                max-width: 140px;
-                min-width: unset;
-            }
-            
-            .key-container {
-                padding: 8px;
-                margin-top: 15px;
-            }
-            
-            .key-container h2 {
-                padding: 8px;
-                margin: -8px -8px 8px -8px;
-                font-size: 1em;
-            }
-            
-            .key-container li {
-                font-size: 14px;
-            }
-            
-            .last-updated {
-                font-size: 13px;
-            }
-            
-            .team-name.short { display: inline; }
-            .team-name.full { display: none; }
-            .team-name {
-                white-space: normal;
-                overflow: visible;
-            }
-            
-            .form-item {
-                width: 18px;
-                height: 18px;
-                font-size: 0.65rem;
+            td:first-child {
+                font-weight: 600;
+                color: #1a2634;
             }
         }
 
@@ -337,6 +395,25 @@
     </style>
 </head>
 <body>
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <a href="#" class="nav-logo">The Athletic</a>
+        <div class="nav-links">
+            <a href="#" class="nav-link">Teams</a>
+            <a href="#" class="nav-link">Scores & Schedule</a>
+        </div>
+    </nav>
+
+    <!-- Sub Navigation -->
+    <nav class="sub-nav">
+        <div class="league-title">Premier League</div>
+        <div class="sub-nav-links">
+            <a href="#" class="sub-nav-link active">Tables</a>
+            <a href="#" class="sub-nav-link">Scores & Schedule</a>
+        </div>
+    </nav>
+
+    <!-- Table Container -->
     <div class="table-container">
         <h1>Premier League Table</h1>
         <div id="loading" class="loading">Loading...</div>
