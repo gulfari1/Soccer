@@ -324,6 +324,32 @@
             text-align: center;
         }
 
+        /* ====== Mobile Landscape Optimizations ====== */
+        @media (max-width: 900px) and (orientation: landscape) {
+            .table-container {
+                max-width: 95vw;
+            }
+            
+            th, td {
+                padding: 8px 6px;
+                font-size: 0.9rem;
+            }
+            
+            .team-logo-container {
+                width: 28px;
+                height: 28px;
+            }
+            
+            .team-name {
+                font-size: 0.95rem;
+            }
+            
+            .form-item {
+                width: 20px;
+                height: 20px;
+            }
+        }
+        
         /* ====== Mobile Styles ====== */
         @media (max-width: 600px) {
             body {
