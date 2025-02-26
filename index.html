@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premier League Table</title>
     <style>
+        /* General Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
@@ -12,20 +13,24 @@
             color: #333;
             line-height: 1.6;
         }
+
         .table-container {
             max-width: 1000px;
             margin: 0 auto;
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
             background: white;
             box-shadow: 0 1px 3px rgba(0,0,0,0.12);
         }
+
         th, td {
             padding: 12px;
             text-align: center;
         }
+
         th {
             background: #f5f5f5;
             color: black;
@@ -34,17 +39,17 @@
             border-bottom: 2px solid #1a2634;
             cursor: pointer;
         }
-        th:hover {
-            background: #e0e0e0;
-        }
+
         tr {
             border-bottom: 1px solid #ddd;
             transition: all 0.2s ease;
         }
+
         tr:hover {
             transform: scale(1.01);
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
+
         .team-cell {
             text-align: left;
             display: flex;
@@ -52,6 +57,7 @@
             min-width: 200px;
             max-width: none;
         }
+
         .team-logo-container {
             width: 30px;
             height: 30px;
@@ -63,104 +69,46 @@
             overflow: hidden;
             flex-shrink: 0;
         }
+
         .team-logo {
             max-width: 80%;
             max-height: 80%;
         }
+
         .loading {
             text-align: center;
             padding: 20px;
         }
+
         .error {
             color: red;
             text-align: center;
         }
+
         .team-name {
             white-space: nowrap;
             overflow: visible;
             text-overflow: clip;
             font-weight: bold;
         }
+
         .team-name.short { display: none; }
         .team-name.full { display: inline; }
+
         .separator-row {
             border-bottom: 2px solid #1a2634 !important;
         }
 
-        /* Visual Zone Highlighting */
-        tr:nth-child(-n+4) { background: #e3f2fd; } /* Champions League */
-        tr:nth-child(5) { background: #f0f4c3; } /* Europa League */
-        tr:nth-last-child(-n+3) { background: #ffcdd2; } /* Relegation */
-
-        /* Form Visualization */
-        .form-container {
-            display: flex;
-            gap: 3px;
-            position: relative;
-        }
-        .form-item {
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.75rem;
-            font-weight: bold;
-            flex-shrink: 0;
-            opacity: calc(0.4 + (0.15 * var(--index)));
-        }
-        .form-win { background: #4CAF50; color: white; }
-        .form-draw { background: #757575; color: white; }
-        .form-loss { background: #f44336; color: white; }
-
-        /* Key Container Styles */
-        .key-container {
-            background: white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
-            padding: 12px;
-            margin-top: 20px;
-            max-width: 1000px;
-            margin: 20px auto 0;
-        }
-        .key-container h2 {
-            background: #f5f5f5;
-            color: black;
-            padding: 12px;
-            margin: -12px -12px 12px -12px;
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-        .key-container ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .key-container li {
-            margin-bottom: 8px;
-            font-size: 0.95em;
-            position: relative;
-            padding-left: 20px;
-        }
-        .key-container li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #1a2634;
-            font-size: 1.2em;
-            line-height: 1;
+        /* Advanced Stats Toggle */
+        .advanced-stats {
+            display: none;
         }
 
-        /* Last Updated Styles */
-        .last-updated {
-            text-align: center;
-            margin: 15px auto;
-            color: #666;
-            font-size: 0.9em;
-            max-width: 1000px;
+        .advanced-stats.visible {
+            display: table-cell;
         }
 
-        /* Mobile Styles */
+        /* Responsive Mobile View */
         @media (max-width: 600px) {
             body {
                 margin: 5px;
@@ -182,7 +130,7 @@
                 height: 20px;
                 margin-right: 4px;
             }
-            .mobile-hide {
+            .mobile-collapse {
                 display: none;
             }
             .table-container {
@@ -192,31 +140,11 @@
                 max-width: 140px;
                 min-width: unset;
             }
-            .key-container {
-                padding: 8px;
-                margin-top: 15px;
-            }
-            .key-container h2 {
-                padding: 8px;
-                margin: -8px -8px 8px -8px;
-                font-size: 1em;
-            }
-            .key-container li {
-                font-size: 14px;
-            }
-            .last-updated {
-                font-size: 13px;
-            }
             .team-name.short { display: inline; }
             .team-name.full { display: none; }
             .team-name {
                 white-space: normal;
                 overflow: visible;
-            }
-            .form-item {
-                width: 18px;
-                height: 18px;
-                font-size: 0.65rem;
             }
         }
 
@@ -234,15 +162,7 @@
                 color: #fff;
             }
             tr:hover {
-                background: #333;
-            }
-            .key-container {
-                background: #1e1e1e;
-                color: #fff;
-            }
-            .key-container h2 {
-                background: #333;
-                color: #fff;
+                background: #2c2c2c;
             }
         }
     </style>
@@ -250,6 +170,7 @@
 <body>
     <div class="table-container">
         <h1>Premier League Table</h1>
+        <button id="advancedToggle">Show Advanced Stats</button>
         <div id="loading" class="loading">Loading...</div>
         <div id="error" class="error" style="display: none;"></div>
         <table id="leagueTable" role="grid" aria-label="Premier League Table">
@@ -258,14 +179,15 @@
                     <th>Pos</th>
                     <th>Team</th>
                     <th>MP</th>
-                    <th class="mobile-hide">W</th>
-                    <th class="mobile-hide">D</th>
-                    <th class="mobile-hide">L</th>
-                    <th class="mobile-hide">GF</th>
-                    <th class="mobile-hide">GA</th>
+                    <th class="mobile-collapse">W</th>
+                    <th class="mobile-collapse">D</th>
+                    <th class="mobile-collapse">L</th>
+                    <th class="mobile-collapse">GF</th>
+                    <th class="mobile-collapse">GA</th>
                     <th>GD</th>
                     <th>Pts</th>
-                    <th class="mobile-hide">Form</th>
+                    <th class="advanced-stats">xG</th>
+                    <th class="advanced-stats">xGA</th>
                 </tr>
             </thead>
             <tbody></tbody>
@@ -354,23 +276,15 @@
                             <span class="team-name short">${clientSideMappings[team.team] || team.team}</span>
                         </td>
                         <td>${team.matches}</td>
-                        <td class="mobile-hide">${team.wins}</td>
-                        <td class="mobile-hide">${team.draws}</td>
-                        <td class="mobile-hide">${team.losses}</td>
-                        <td class="mobile-hide">${team.gf}</td>
-                        <td class="mobile-hide">${team.ga}</td>
+                        <td class="mobile-collapse">${team.wins}</td>
+                        <td class="mobile-collapse">${team.draws}</td>
+                        <td class="mobile-collapse">${team.losses}</td>
+                        <td class="mobile-collapse">${team.gf}</td>
+                        <td class="mobile-collapse">${team.ga}</td>
                         <td>${team.gd}</td>
                         <td><strong>${team.points}</strong></td>
-                        <td class="mobile-hide">
-                            <div class="form-container">
-                                ${team.form.split(' ').map((match, index) => `
-                                    <div class="form-item ${match === 'W' ? 'form-win' : match === 'D' ? 'form-draw' : 'form-loss'}" 
-                                         style="--index: ${index}">
-                                        ${match}
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </td>
+                        <td class="advanced-stats">${team.xg || '-'}</td>
+                        <td class="advanced-stats">${team.xga || '-'}</td>
                     </tr>
                 `).join('');
 
@@ -379,6 +293,30 @@
                 showError(`Error loading data: ${error.message}`);
             }
         }
+
+        // Sorting Functionality
+        document.querySelectorAll('th').forEach(header => {
+            header.addEventListener('click', () => {
+                const column = header.cellIndex;
+                const rows = Array.from(document.querySelectorAll('tbody tr'));
+                const isAscending = header.classList.toggle('asc');
+                rows.sort((a, b) => {
+                    const aVal = a.children[column].textContent.trim();
+                    const bVal = b.children[column].textContent.trim();
+                    return isAscending ? aVal.localeCompare(bVal, undefined, { numeric: true }) : bVal.localeCompare(aVal, undefined, { numeric: true });
+                });
+                document.querySelector('tbody').innerHTML = rows.map(row => row.outerHTML).join('');
+            });
+        });
+
+        // Advanced Stats Toggle
+        document.getElementById('advancedToggle').addEventListener('click', () => {
+            document.querySelectorAll('.advanced-stats').forEach(col => {
+                col.classList.toggle('visible');
+            });
+            const button = document.getElementById('advancedToggle');
+            button.textContent = button.textContent === 'Show Advanced Stats' ? 'Hide Advanced Stats' : 'Show Advanced Stats';
+        });
 
         // Load data when the page loads
         loadData();
