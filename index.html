@@ -16,66 +16,103 @@
 
         /* ====== Navigation Bars ====== */
         .global-nav {
-            background: #1A2634;
-            color: white;
-            padding: 0 20px;
-            top: 0;
+            background: #121212;
+            padding: 0 16px;
+            position: relative;
             z-index: 1000;
+            border-bottom: 1px solid #000;
         }
 
         .nav-container {
-            max-width: 1400px;
+            max-width: 1248px;
             margin: 0 auto;
+            height: 47px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            height: 20px;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            min-width: 127px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-logo img {
+            width: 126px;
+            margin-right: 6px;
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 24px;
             align-items: center;
+            height: 100%;
         }
 
         .nav-link {
-            color: white;
+            color: rgba(255,255,255,0.7);
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0.25px;
+            white-space: nowrap;
+            padding: 0 10px;
+            height: 100%;
+            display: flex;
+            align-items: center;
             transition: opacity 0.2s;
+            background: none;
+            border: none;
+            cursor: pointer;
         }
 
         .nav-link:hover {
-            opacity: 0.8;
+            opacity: 0.9;
+            background-image: linear-gradient(to right, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
         }
 
         .sub-nav {
-            background: white;
-            border-bottom: 1px solid #E0E0E0;
-            padding: 0 20px;
+            background: #1a1a1a;
+            border-bottom: 1px solid #000;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .sub-nav-container {
-            max-width: 1400px;
+            max-width: 1248px;
             margin: 0 auto;
+            padding: 0 16px;
             display: flex;
-            gap: 25px;
+            height: 40px;
+            align-items: center;
         }
 
         .sub-nav-link {
-            color: #1A2634;
+            color: rgba(255,255,255,0.7);
             text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 600;
-            padding: 12px 0;
-            border-bottom: 2px solid transparent;
-            transition: border-color 0.2s;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 0 12px;
+            white-space: nowrap;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            border-left: 3px solid transparent;
+            transition: all 0.2s ease;
         }
 
-        .sub-nav-link.active,
+        .sub-nav-link.active {
+            color: #fff;
+            border-left-color: #497AB8;
+            background-color: rgba(255,255,255,0.05);
+        }
+
         .sub-nav-link:hover {
-            border-bottom-color: #1A2634;
+            color: #fff;
+            background-color: rgba(255,255,255,0.03);
         }
 
         .mobile-menu-btn {
@@ -83,11 +120,36 @@
             background: none;
             border: none;
             color: white;
-            font-size: 1.5rem;
+            padding: 8px;
+            margin-right: 12px;
         }
 
         /* ====== Responsive Styles ====== */
+        @media (max-width: 1000px) {
+            .nav-links {
+                gap: 12px;
+            }
+            
+            .nav-link {
+                font-size: 11px;
+                padding: 0 8px;
+            }
+            
+            .sub-nav-container {
+                padding: 0 12px;
+            }
+            
+            .sub-nav-link {
+                font-size: 13px;
+                padding: 0 10px;
+            }
+        }
+
         @media (max-width: 768px) {
+            .global-nav {
+                padding: 0 12px;
+            }
+            
             .nav-links {
                 display: none;
             }
@@ -97,24 +159,58 @@
             }
             
             .sub-nav-container {
-                overflow-x: auto;
-                padding: 0 15px;
-                -ms-overflow-style: none;
-                scrollbar-width: none;
+                padding: 0 8px;
             }
             
-            .sub-nav-container::-webkit-scrollbar {
-                display: none;
+            .sub-nav-link {
+                font-size: 12px;
+                padding: 0 8px;
             }
         }
 
         @media (max-width: 480px) {
+            .nav-container {
+                height: 44px;
+            }
+            
+            .nav-logo img {
+                width: 111px;
+            }
+            
+            .sub-nav {
+                height: 36px;
+            }
+            
+            .sub-nav-link {
+                font-size: 11px;
+                padding: 0 6px;
+            }
+        }
+
+        /* Landscape mobile optimization */
+        @media (max-width: 900px) and (orientation: landscape) {
             .global-nav {
-                padding: 0 15px;
+                padding: 0 8px;
             }
             
             .nav-container {
-                height: 50px;
+                height: 40px;
+            }
+            
+            .nav-logo img {
+                width: 100px;
+            }
+            
+            .sub-nav {
+                height: 34px;
+            }
+            
+            .sub-nav-link {
+                font-size: 11px;
+            }
+            
+            .mobile-menu-btn {
+                padding: 4px;
             }
         }
 
@@ -423,6 +519,7 @@
     <nav class="global-nav">
         <div class="nav-container">
             <div class="nav-logo">
+                <img src="https://cdn-league-logos.theathletic.com/league-6-color@2x.png" alt="The Athletic Logo">
                 <span>The Athletic</span>
             </div>
             <div class="nav-links">
