@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premier League Scores & Fixtures</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            background: white;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bars */
+        .global-nav {
+            background: #121212;
+            padding: 0 16px;
+            position: relative;
+            z-index: 1000;
+            border-bottom: 1px solid #000;
+        }
+
+        .nav-container {
+            max-width: 1248px;
+            margin: 0 auto;
+            height: 47px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .sub-nav {
+            background: #1a1a1a;
+            border-bottom: 1px solid #000;
+            overflow-x: hidden;
+        }
+
+        .sub-nav-container {
+            max-width: 1248px;
+            margin: 0 auto;
+            padding: 0 16px;
+            display: flex;
+            height: 40px;
+            align-items: center;
+        }
+
+        .sub-nav-link {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+            font-size: 10.5px;
+            font-weight: 400;
+            padding: 0 12px;
+            white-space: nowrap;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            border-left: 3px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .sub-nav-link.active {
+            color: #fff;
+            background-color: rgba(255,255,255,0.05);
+        }
+
+        .sub-nav-link:hover {
+            color: #fff;
+            background-color: rgba(255,255,255,0.03);
+        }
+
+        /* Fixtures Container */
+        .fixtures-container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-weight: 700;
+            color: #1a2634;
+            margin: 1.5rem 0;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .gameweek-section {
+            margin-bottom: 30px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .gameweek-header {
+            background: #f8f9fa;
+            padding: 12px 16px;
+            border-bottom: 1px solid #e0e0e0;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .match-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .match-item {
+            padding: 16px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .match-item:last-child {
+            border-bottom: none;
+        }
+
+        .team-container {
+            display: flex;
+            align-items: center;
+            width: 40%;
+        }
+
+        .home-team { justify-content: flex-end; }
+        .away-team { justify-content: flex-start; }
+
+        .team-name {
+            margin: 0 12px;
+            font-weight: 500;
+        }
+
+        .score-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .score {
+            font-weight: 600;
+            background: #f8f9fa;
+            padding: 4px 12px;
+            border-radius: 4px;
+        }
+
+        .match-time {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .match-status {
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            .team-name {
+                font-size: 0.9em;
+                margin: 0 8px;
+            }
+            
+            .score {
+                padding: 2px 8px;
+            }
+            
+            .match-item {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bars -->
+    <nav class="global-nav">
+        <div class="nav-container">
+            <button class="mobile-menu-btn">
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <nav class="sub-nav">
+        <div class="sub-nav-container">
+            <a href="index.html" class="sub-nav-link">Tables</a>
+            <a href="scores.html" class="sub-nav-link active">Scores & Schedule</a>
+        </div>
+    </nav>
+
+    <!-- Fixtures Container -->
+    <div class="fixtures-container">
+        <h1>Premier League Scores & Fixtures</h1>
+        <div id="loading" class="loading">Loading...</div>
+        <div id="error" class="error" style="display: none;"></div>
+        <div id="fixtures-list"></div>
+    </div>
+
+    <script>
+        async function loadFixtures() {
+            try {
+                const response = await fetch('scores_fixtures.json');
+                if (!response.ok) throw new Error('Network response was not ok');
+                
+                const fixtures = await response.json();
+                const grouped = groupByGameweek(fixtures);
+                
+                renderFixtures(grouped);
+                document.getElementById('loading').style.display = 'none';
+            } catch (error) {
+                showError(`Error loading fixtures: ${error.message}`);
+            }
+        }
+
+        function groupByGameweek(fixtures) {
+            return fixtures.reduce((acc, fixture) => {
+                const week = fixture.Wk;
+                if (!acc[week]) acc[week] = [];
+                acc[week].push(fixture);
+                return acc;
+            }, {});
+        }
+
+        function renderFixtures(grouped) {
+            const container = document.getElementById('fixtures-list');
+            
+            Object.entries(grouped).forEach(([week, matches]) => {
+                const section = document.createElement('div');
+                section.className = 'gameweek-section';
+                
+                const header = document.createElement('div');
+                header.className = 'gameweek-header';
+                header.textContent = `Gameweek ${week}`;
+                
+                const list = document.createElement('ul');
+                list.className = 'match-list';
+                
+                matches.forEach(match => {
+                    const li = document.createElement('li');
+                    li.className = 'match-item';
+                    
+                    const isCompleted = match.Score.includes('-');
+                    
+                    li.innerHTML = `
+                        <div class="team-container home-team">
+                            <span class="team-name">${match.Home}</span>
+                        </div>
+                        
+                        <div class="score-container">
+                            ${isCompleted ? 
+                                `<div class="score">${match.Score}</div>` :
+                                `<div class="match-time">${match.Time}</div>`
+                            }
+                        </div>
+                        
+                        <div class="team-container away-team">
+                            <span class="team-name">${match.Away}</span>
+                        </div>
+                    `;
+                    
+                    list.appendChild(li);
+                });
+                
+                section.appendChild(header);
+                section.appendChild(list);
+                container.appendChild(section);
+            });
+        }
+
+        function showError(message) {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('error').style.display = 'block';
+            document.getElementById('error').textContent = message;
+        }
+
+        loadFixtures();
+    </script>
+</body>
+</html>
