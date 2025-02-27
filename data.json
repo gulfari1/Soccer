@@ -2,15 +2,15 @@
   {
     "team": "Liverpool",
     "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/liverpool.0d2ced3f9a.svg",
-    "matches": 27,
-    "wins": 19,
+    "matches": 28,
+    "wins": 20,
     "draws": 7,
     "losses": 1,
-    "gf": 64,
+    "gf": 66,
     "ga": 26,
-    "gd": 38,
-    "points": 64,
-    "form": "W D W D W"
+    "gd": 40,
+    "points": 67,
+    "form": "D W D W W"
   },
   {
     "team": "Arsenal",
@@ -23,7 +23,7 @@
     "ga": 23,
     "gd": 28,
     "points": 54,
-    "form": "D W W W L"
+    "form": "W W W L D"
   },
   {
     "team": "Nottingham Forest",
@@ -36,7 +36,7 @@
     "ga": 33,
     "gd": 11,
     "points": 48,
-    "form": "W L W L L"
+    "form": "L W L L D"
   },
   {
     "team": "Manchester City",
@@ -49,7 +49,7 @@
     "ga": 37,
     "gd": 16,
     "points": 47,
-    "form": "W W L W L"
+    "form": "W L W L W"
   },
   {
     "team": "Chelsea",
@@ -67,15 +67,15 @@
   {
     "team": "Newcastle United",
     "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Newcastle_United_Logo.svg/1200px-Newcastle_United_Logo.svg.png",
-    "matches": 26,
+    "matches": 27,
     "wins": 13,
     "draws": 5,
-    "losses": 8,
+    "losses": 9,
     "gf": 46,
-    "ga": 36,
-    "gd": 10,
+    "ga": 38,
+    "gd": 8,
     "points": 44,
-    "form": "L W L L W"
+    "form": "W L L W L"
   },
   {
     "team": "AFC Bournemouth",
@@ -140,7 +140,7 @@
     "ga": 43,
     "gd": 5,
     "points": 38,
-    "form": "L W L W W"
+    "form": "W L W W D"
   },
   {
     "team": "Crystal Palace",
@@ -166,7 +166,7 @@
     "ga": 39,
     "gd": 14,
     "points": 33,
-    "form": "L L W W W"
+    "form": "L W W W L"
   },
   {
     "team": "Manchester United",
@@ -179,7 +179,7 @@
     "ga": 39,
     "gd": -6,
     "points": 33,
-    "form": "L W L L D"
+    "form": "W L L D W"
   },
   {
     "team": "Everton",
@@ -192,7 +192,7 @@
     "ga": 34,
     "gd": -4,
     "points": 32,
-    "form": "W W D W D"
+    "form": "W D W D D"
   },
   {
     "team": "West Ham United",
@@ -231,7 +231,7 @@
     "ga": 57,
     "gd": -31,
     "points": 17,
-    "form": "L L L D L"
+    "form": "L L D L L"
   },
   {
     "team": "Leicester City",
