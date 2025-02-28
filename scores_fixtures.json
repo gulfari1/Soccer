@@ -1,4562 +1,3042 @@
 [
   {
-    "Wk": "1",
-    "Day": "Fri",
+    "Wk": 1,
     "Date": "2024-08-16",
     "Time": "20:00",
     "Home": "Manchester Utd",
-    "Home xG": "2.4",
-    "Score": "1–0",
-    "Away xG": "0.4",
-    "Away": "Fulham",
-    "Venue": "Old Trafford"
+    "Score": "1-0",
+    "Away": "Fulham"
   },
   {
-    "Wk": "1",
-    "Day": "Sat",
+    "Wk": 1,
     "Date": "2024-08-17",
     "Time": "12:30",
     "Home": "Ipswich Town",
-    "Home xG": "0.5",
-    "Score": "0–2",
-    "Away xG": "2.6",
-    "Away": "Liverpool",
-    "Venue": "Portman Road Stadium"
+    "Score": "0-2",
+    "Away": "Liverpool"
   },
   {
-    "Wk": "1",
-    "Day": "Sat",
+    "Wk": 1,
     "Date": "2024-08-17",
     "Time": "15:00",
     "Home": "Newcastle Utd",
-    "Home xG": "0.3",
-    "Score": "1–0",
-    "Away xG": "1.8",
-    "Away": "Southampton",
-    "Venue": "St James' Park"
+    "Score": "1-0",
+    "Away": "Southampton"
   },
   {
-    "Wk": "1",
-    "Day": "Sat",
+    "Wk": 1,
     "Date": "2024-08-17",
     "Time": "15:00",
     "Home": "Nott'ham Forest",
-    "Home xG": "1.3",
-    "Score": "1–1",
-    "Away xG": "1.2",
-    "Away": "Bournemouth",
-    "Venue": "The City Ground"
+    "Score": "1-1",
+    "Away": "Bournemouth"
   },
   {
-    "Wk": "1",
-    "Day": "Sat",
+    "Wk": 1,
     "Date": "2024-08-17",
     "Time": "15:00",
     "Home": "Everton",
-    "Home xG": "0.5",
-    "Score": "0–3",
-    "Away xG": "1.4",
-    "Away": "Brighton",
-    "Venue": "Goodison Park"
+    "Score": "0-3",
+    "Away": "Brighton"
   },
   {
-    "Wk": "1",
-    "Day": "Sat",
+    "Wk": 1,
     "Date": "2024-08-17",
     "Time": "15:00",
     "Home": "Arsenal",
-    "Home xG": "1.2",
-    "Score": "2–0",
-    "Away xG": "0.5",
-    "Away": "Wolves",
-    "Venue": "Emirates Stadium"
+    "Score": "2-0",
+    "Away": "Wolves"
   },
   {
-    "Wk": "1",
-    "Day": "Sat",
+    "Wk": 1,
     "Date": "2024-08-17",
     "Time": "17:30",
     "Home": "West Ham",
-    "Home xG": "2.3",
-    "Score": "1–2",
-    "Away xG": "2.0",
-    "Away": "Aston Villa",
-    "Venue": "London Stadium"
+    "Score": "1-2",
+    "Away": "Aston Villa"
   },
   {
-    "Wk": "1",
-    "Day": "Sun",
+    "Wk": 1,
     "Date": "2024-08-18",
     "Time": "14:00",
     "Home": "Brentford",
-    "Home xG": "1.6",
-    "Score": "2–1",
-    "Away xG": "1.2",
-    "Away": "Crystal Palace",
-    "Venue": "Gtech Community Stadium"
+    "Score": "2-1",
+    "Away": "Crystal Palace"
   },
   {
-    "Wk": "1",
-    "Day": "Sun",
+    "Wk": 1,
     "Date": "2024-08-18",
     "Time": "16:30",
     "Home": "Chelsea",
-    "Home xG": "1.0",
-    "Score": "0–2",
-    "Away xG": "0.8",
-    "Away": "Manchester City",
-    "Venue": "Stamford Bridge"
+    "Score": "0-2",
+    "Away": "Manchester City"
   },
   {
-    "Wk": "1",
-    "Day": "Mon",
+    "Wk": 1,
     "Date": "2024-08-19",
     "Time": "20:00",
     "Home": "Leicester City",
-    "Home xG": "1.0",
-    "Score": "1–1",
-    "Away xG": "1.2",
-    "Away": "Tottenham",
-    "Venue": "King Power Stadium"
+    "Score": "1-1",
+    "Away": "Tottenham"
   },
   {
-    "Wk": "2",
-    "Day": "Sat",
+    "Wk": 2,
     "Date": "2024-08-24",
     "Time": "12:30",
     "Home": "Brighton",
-    "Home xG": "2.1",
-    "Score": "2–1",
-    "Away xG": "1.4",
-    "Away": "Manchester Utd",
-    "Venue": "The American Express Stadium"
+    "Score": "2-1",
+    "Away": "Manchester Utd"
   },
   {
-    "Wk": "2",
-    "Day": "Sat",
+    "Wk": 2,
     "Date": "2024-08-24",
     "Time": "15:00",
     "Home": "Tottenham",
-    "Home xG": "2.4",
-    "Score": "4–0",
-    "Away xG": "1.0",
-    "Away": "Everton",
-    "Venue": "Tottenham Hotspur Stadium"
+    "Score": "4-0",
+    "Away": "Everton"
   },
   {
-    "Wk": "2",
-    "Day": "Sat",
+    "Wk": 2,
     "Date": "2024-08-24",
     "Time": "15:00",
     "Home": "Fulham",
-    "Home xG": "1.8",
-    "Score": "2–1",
-    "Away xG": "0.6",
-    "Away": "Leicester City",
-    "Venue": "Craven Cottage"
+    "Score": "2-1",
+    "Away": "Leicester City"
   },
   {
-    "Wk": "2",
-    "Day": "Sat",
+    "Wk": 2,
     "Date": "2024-08-24",
     "Time": "15:00",
     "Home": "Crystal Palace",
-    "Home xG": "1.3",
-    "Score": "0–2",
-    "Away xG": "1.4",
-    "Away": "West Ham",
-    "Venue": "Selhurst Park"
+    "Score": "0-2",
+    "Away": "West Ham"
   },
   {
-    "Wk": "2",
-    "Day": "Sat",
+    "Wk": 2,
     "Date": "2024-08-24",
     "Time": "15:00",
     "Home": "Manchester City",
-    "Home xG": "3.3",
-    "Score": "4–1",
-    "Away xG": "0.3",
-    "Away": "Ipswich Town",
-    "Venue": "Etihad Stadium"
+    "Score": "4-1",
+    "Away": "Ipswich Town"
   },
   {
-    "Wk": "2",
-    "Day": "Sat",
+    "Wk": 2,
     "Date": "2024-08-24",
     "Time": "15:00",
     "Home": "Southampton",
-    "Home xG": "0.1",
-    "Score": "0–1",
-    "Away xG": "2.2",
-    "Away": "Nott'ham Forest",
-    "Venue": "St Mary's Stadium"
+    "Score": "0-1",
+    "Away": "Nott'ham Forest"
   },
   {
-    "Wk": "2",
-    "Day": "Sat",
+    "Wk": 2,
     "Date": "2024-08-24",
     "Time": "17:30",
     "Home": "Aston Villa",
-    "Home xG": "1.2",
-    "Score": "0–2",
-    "Away xG": "0.9",
-    "Away": "Arsenal",
-    "Venue": "Villa Park"
+    "Score": "0-2",
+    "Away": "Arsenal"
   },
   {
-    "Wk": "2",
-    "Day": "Sun",
+    "Wk": 2,
     "Date": "2024-08-25",
     "Time": "14:00",
     "Home": "Bournemouth",
-    "Home xG": "2.2",
-    "Score": "1–1",
-    "Away xG": "1.6",
-    "Away": "Newcastle Utd",
-    "Venue": "Vitality Stadium"
+    "Score": "1-1",
+    "Away": "Newcastle Utd"
   },
   {
-    "Wk": "2",
-    "Day": "Sun",
+    "Wk": 2,
     "Date": "2024-08-25",
     "Time": "14:00",
     "Home": "Wolves",
-    "Home xG": "1.9",
-    "Score": "2–6",
-    "Away xG": "1.6",
-    "Away": "Chelsea",
-    "Venue": "Molineux Stadium"
+    "Score": "2-6",
+    "Away": "Chelsea"
   },
   {
-    "Wk": "2",
-    "Day": "Sun",
+    "Wk": 2,
     "Date": "2024-08-25",
     "Time": "16:30",
     "Home": "Liverpool",
-    "Home xG": "2.5",
-    "Score": "2–0",
-    "Away xG": "0.5",
-    "Away": "Brentford",
-    "Venue": "Anfield"
+    "Score": "2-0",
+    "Away": "Brentford"
   },
   {
-    "Wk": "3",
-    "Day": "Sat",
+    "Wk": 3,
     "Date": "2024-08-31",
     "Time": "12:30",
     "Home": "Arsenal",
-    "Home xG": "2.1",
-    "Score": "1–1",
-    "Away xG": "1.7",
-    "Away": "Brighton",
-    "Venue": "Emirates Stadium"
+    "Score": "1-1",
+    "Away": "Brighton"
   },
   {
-    "Wk": "3",
-    "Day": "Sat",
+    "Wk": 3,
     "Date": "2024-08-31",
     "Time": "15:00",
     "Home": "Everton",
-    "Home xG": "1.8",
-    "Score": "2–3",
-    "Away xG": "2.4",
-    "Away": "Bournemouth",
-    "Venue": "Goodison Park"
+    "Score": "2-3",
+    "Away": "Bournemouth"
   },
   {
-    "Wk": "3",
-    "Day": "Sat",
+    "Wk": 3,
     "Date": "2024-08-31",
     "Time": "15:00",
     "Home": "Leicester City",
-    "Home xG": "0.4",
-    "Score": "1–2",
-    "Away xG": "1.4",
-    "Away": "Aston Villa",
-    "Venue": "King Power Stadium"
+    "Score": "1-2",
+    "Away": "Aston Villa"
   },
   {
-    "Wk": "3",
-    "Day": "Sat",
+    "Wk": 3,
     "Date": "2024-08-31",
     "Time": "15:00",
     "Home": "Nott'ham Forest",
-    "Home xG": "1.0",
-    "Score": "1–1",
-    "Away xG": "0.7",
-    "Away": "Wolves",
-    "Venue": "The City Ground"
+    "Score": "1-1",
+    "Away": "Wolves"
   },
   {
-    "Wk": "3",
-    "Day": "Sat",
+    "Wk": 3,
     "Date": "2024-08-31",
     "Time": "15:00",
     "Home": "Ipswich Town",
-    "Home xG": "0.4",
-    "Score": "1–1",
-    "Away xG": "0.9",
-    "Away": "Fulham",
-    "Venue": "Portman Road Stadium"
+    "Score": "1-1",
+    "Away": "Fulham"
   },
   {
-    "Wk": "3",
-    "Day": "Sat",
+    "Wk": 3,
     "Date": "2024-08-31",
     "Time": "15:00",
     "Home": "Brentford",
-    "Home xG": "2.8",
-    "Score": "3–1",
-    "Away xG": "1.5",
-    "Away": "Southampton",
-    "Venue": "Gtech Community Stadium"
+    "Score": "3-1",
+    "Away": "Southampton"
   },
   {
-    "Wk": "3",
-    "Day": "Sat",
+    "Wk": 3,
     "Date": "2024-08-31",
     "Time": "17:30",
     "Home": "West Ham",
-    "Home xG": "0.7",
-    "Score": "1–3",
-    "Away xG": "3.0",
-    "Away": "Manchester City",
-    "Venue": "London Stadium"
+    "Score": "1-3",
+    "Away": "Manchester City"
   },
   {
-    "Wk": "3",
-    "Day": "Sun",
+    "Wk": 3,
     "Date": "2024-09-01",
     "Time": "13:30",
     "Home": "Newcastle Utd",
-    "Home xG": "1.8",
-    "Score": "2–1",
-    "Away xG": "1.2",
-    "Away": "Tottenham",
-    "Venue": "St James' Park"
+    "Score": "2-1",
+    "Away": "Tottenham"
   },
   {
-    "Wk": "3",
-    "Day": "Sun",
+    "Wk": 3,
     "Date": "2024-09-01",
     "Time": "13:30",
     "Home": "Chelsea",
-    "Home xG": "2.4",
-    "Score": "1–1",
-    "Away xG": "0.5",
-    "Away": "Crystal Palace",
-    "Venue": "Stamford Bridge"
+    "Score": "1-1",
+    "Away": "Crystal Palace"
   },
   {
-    "Wk": "3",
-    "Day": "Sun",
+    "Wk": 3,
     "Date": "2024-09-01",
     "Time": "16:00",
     "Home": "Manchester Utd",
-    "Home xG": "1.4",
-    "Score": "0–3",
-    "Away xG": "1.8",
-    "Away": "Liverpool",
-    "Venue": "Old Trafford"
+    "Score": "0-3",
+    "Away": "Liverpool"
   },
   {
-    "Wk": "4",
-    "Day": "Sat",
+    "Wk": 4,
     "Date": "2024-09-14",
     "Time": "12:30",
     "Home": "Southampton",
-    "Home xG": "1.1",
-    "Score": "0–3",
-    "Away xG": "2.6",
-    "Away": "Manchester Utd",
-    "Venue": "St Mary's Stadium"
+    "Score": "0-3",
+    "Away": "Manchester Utd"
   },
   {
-    "Wk": "4",
-    "Day": "Sat",
+    "Wk": 4,
     "Date": "2024-09-14",
     "Time": "15:00",
     "Home": "Brighton",
-    "Home xG": "1.6",
-    "Score": "0–0",
-    "Away xG": "0.3",
-    "Away": "Ipswich Town",
-    "Venue": "The American Express Stadium"
+    "Score": "0-0",
+    "Away": "Ipswich Town"
   },
   {
-    "Wk": "4",
-    "Day": "Sat",
+    "Wk": 4,
     "Date": "2024-09-14",
     "Time": "15:00",
     "Home": "Crystal Palace",
-    "Home xG": "2.5",
-    "Score": "2–2",
-    "Away xG": "1.2",
-    "Away": "Leicester City",
-    "Venue": "Selhurst Park"
+    "Score": "2-2",
+    "Away": "Leicester City"
   },
   {
-    "Wk": "4",
-    "Day": "Sat",
+    "Wk": 4,
     "Date": "2024-09-14",
     "Time": "15:00",
     "Home": "Manchester City",
-    "Home xG": "2.1",
-    "Score": "2–1",
-    "Away xG": "1.0",
-    "Away": "Brentford",
-    "Venue": "Etihad Stadium"
+    "Score": "2-1",
+    "Away": "Brentford"
   },
   {
-    "Wk": "4",
-    "Day": "Sat",
+    "Wk": 4,
     "Date": "2024-09-14",
     "Time": "15:00",
     "Home": "Liverpool",
-    "Home xG": "0.9",
-    "Score": "0–1",
-    "Away xG": "0.4",
-    "Away": "Nott'ham Forest",
-    "Venue": "Anfield"
+    "Score": "0-1",
+    "Away": "Nott'ham Forest"
   },
   {
-    "Wk": "4",
-    "Day": "Sat",
+    "Wk": 4,
     "Date": "2024-09-14",
     "Time": "15:00",
     "Home": "Fulham",
-    "Home xG": "1.5",
-    "Score": "1–1",
-    "Away xG": "0.8",
-    "Away": "West Ham",
-    "Venue": "Craven Cottage"
+    "Score": "1-1",
+    "Away": "West Ham"
   },
   {
-    "Wk": "4",
-    "Day": "Sat",
+    "Wk": 4,
     "Date": "2024-09-14",
     "Time": "17:30",
     "Home": "Aston Villa",
-    "Home xG": "2.1",
-    "Score": "3–2",
-    "Away xG": "0.9",
-    "Away": "Everton",
-    "Venue": "Villa Park"
+    "Score": "3-2",
+    "Away": "Everton"
   },
   {
-    "Wk": "4",
-    "Day": "Sat",
+    "Wk": 4,
     "Date": "2024-09-14",
     "Time": "20:00",
     "Home": "Bournemouth",
-    "Home xG": "1.7",
-    "Score": "0–1",
-    "Away xG": "0.8",
-    "Away": "Chelsea",
-    "Venue": "Vitality Stadium"
+    "Score": "0-1",
+    "Away": "Chelsea"
   },
   {
-    "Wk": "4",
-    "Day": "Sun",
+    "Wk": 4,
     "Date": "2024-09-15",
     "Time": "14:00",
     "Home": "Tottenham",
-    "Home xG": "0.7",
-    "Score": "0–1",
-    "Away xG": "0.7",
-    "Away": "Arsenal",
-    "Venue": "Tottenham Hotspur Stadium"
+    "Score": "0-1",
+    "Away": "Arsenal"
   },
   {
-    "Wk": "4",
-    "Day": "Sun",
+    "Wk": 4,
     "Date": "2024-09-15",
     "Time": "16:30",
     "Home": "Wolves",
-    "Home xG": "1.2",
-    "Score": "1–2",
-    "Away xG": "1.5",
-    "Away": "Newcastle Utd",
-    "Venue": "Molineux Stadium"
+    "Score": "1-2",
+    "Away": "Newcastle Utd"
   },
   {
-    "Wk": "5",
-    "Day": "Sat",
+    "Wk": 5,
     "Date": "2024-09-21",
     "Time": "12:30",
     "Home": "West Ham",
-    "Home xG": "0.9",
-    "Score": "0–3",
-    "Away xG": "2.2",
-    "Away": "Chelsea",
-    "Venue": "London Stadium"
+    "Score": "0-3",
+    "Away": "Chelsea"
   },
   {
-    "Wk": "5",
-    "Day": "Sat",
+    "Wk": 5,
     "Date": "2024-09-21",
     "Time": "15:00",
     "Home": "Liverpool",
-    "Home xG": "2.0",
-    "Score": "3–0",
-    "Away xG": "1.1",
-    "Away": "Bournemouth",
-    "Venue": "Anfield"
+    "Score": "3-0",
+    "Away": "Bournemouth"
   },
   {
-    "Wk": "5",
-    "Day": "Sat",
+    "Wk": 5,
     "Date": "2024-09-21",
     "Time": "15:00",
     "Home": "Leicester City",
-    "Home xG": "0.7",
-    "Score": "1–1",
-    "Away xG": "1.1",
-    "Away": "Everton",
-    "Venue": "King Power Stadium"
+    "Score": "1-1",
+    "Away": "Everton"
   },
   {
-    "Wk": "5",
-    "Day": "Sat",
+    "Wk": 5,
     "Date": "2024-09-21",
     "Time": "15:00",
     "Home": "Southampton",
-    "Home xG": "2.4",
-    "Score": "1–1",
-    "Away xG": "1.6",
-    "Away": "Ipswich Town",
-    "Venue": "St Mary's Stadium"
+    "Score": "1-1",
+    "Away": "Ipswich Town"
   },
   {
-    "Wk": "5",
-    "Day": "Sat",
+    "Wk": 5,
     "Date": "2024-09-21",
     "Time": "15:00",
     "Home": "Tottenham",
-    "Home xG": "3.5",
-    "Score": "3–1",
-    "Away xG": "0.8",
-    "Away": "Brentford",
-    "Venue": "Tottenham Hotspur Stadium"
+    "Score": "3-1",
+    "Away": "Brentford"
   },
   {
-    "Wk": "5",
-    "Day": "Sat",
+    "Wk": 5,
     "Date": "2024-09-21",
     "Time": "15:00",
     "Home": "Fulham",
-    "Home xG": "2.2",
-    "Score": "3–1",
-    "Away xG": "1.5",
-    "Away": "Newcastle Utd",
-    "Venue": "Craven Cottage"
+    "Score": "3-1",
+    "Away": "Newcastle Utd"
   },
   {
-    "Wk": "5",
-    "Day": "Sat",
+    "Wk": 5,
     "Date": "2024-09-21",
     "Time": "15:00",
     "Home": "Aston Villa",
-    "Home xG": "1.7",
-    "Score": "3–1",
-    "Away xG": "0.5",
-    "Away": "Wolves",
-    "Venue": "Villa Park"
+    "Score": "3-1",
+    "Away": "Wolves"
   },
   {
-    "Wk": "5",
-    "Day": "Sat",
+    "Wk": 5,
     "Date": "2024-09-21",
     "Time": "17:30",
     "Home": "Crystal Palace",
-    "Home xG": "1.0",
-    "Score": "0–0",
-    "Away xG": "1.6",
-    "Away": "Manchester Utd",
-    "Venue": "Selhurst Park"
+    "Score": "0-0",
+    "Away": "Manchester Utd"
   },
   {
-    "Wk": "5",
-    "Day": "Sun",
+    "Wk": 5,
     "Date": "2024-09-22",
     "Time": "14:00",
     "Home": "Brighton",
-    "Home xG": "1.0",
-    "Score": "2–2",
-    "Away xG": "1.4",
-    "Away": "Nott'ham Forest",
-    "Venue": "The American Express Stadium"
+    "Score": "2-2",
+    "Away": "Nott'ham Forest"
   },
   {
-    "Wk": "5",
-    "Day": "Sun",
+    "Wk": 5,
     "Date": "2024-09-22",
     "Time": "16:30",
     "Home": "Manchester City",
-    "Home xG": "2.1",
-    "Score": "2–2",
-    "Away xG": "0.7",
-    "Away": "Arsenal",
-    "Venue": "Etihad Stadium"
+    "Score": "2-2",
+    "Away": "Arsenal"
   },
   {
-    "Wk": "6",
-    "Day": "Sat",
+    "Wk": 6,
     "Date": "2024-09-28",
     "Time": "12:30",
     "Home": "Newcastle Utd",
-    "Home xG": "1.6",
-    "Score": "1–1",
-    "Away xG": "0.9",
-    "Away": "Manchester City",
-    "Venue": "St James' Park"
+    "Score": "1-1",
+    "Away": "Manchester City"
   },
   {
-    "Wk": "6",
-    "Day": "Sat",
+    "Wk": 6,
     "Date": "2024-09-28",
     "Time": "15:00",
     "Home": "Chelsea",
-    "Home xG": "4.2",
-    "Score": "4–2",
-    "Away xG": "1.1",
-    "Away": "Brighton",
-    "Venue": "Stamford Bridge"
+    "Score": "4-2",
+    "Away": "Brighton"
   },
   {
-    "Wk": "6",
-    "Day": "Sat",
+    "Wk": 6,
     "Date": "2024-09-28",
     "Time": "15:00",
     "Home": "Arsenal",
-    "Home xG": "4.4",
-    "Score": "4–2",
-    "Away xG": "0.3",
-    "Away": "Leicester City",
-    "Venue": "Emirates Stadium"
+    "Score": "4-2",
+    "Away": "Leicester City"
   },
   {
-    "Wk": "6",
-    "Day": "Sat",
+    "Wk": 6,
     "Date": "2024-09-28",
     "Time": "15:00",
     "Home": "Brentford",
-    "Home xG": "0.4",
-    "Score": "1–1",
-    "Away xG": "1.0",
-    "Away": "West Ham",
-    "Venue": "Gtech Community Stadium"
+    "Score": "1-1",
+    "Away": "West Ham"
   },
   {
-    "Wk": "6",
-    "Day": "Sat",
+    "Wk": 6,
     "Date": "2024-09-28",
     "Time": "15:00",
     "Home": "Everton",
-    "Home xG": "0.9",
-    "Score": "2–1",
-    "Away xG": "0.9",
-    "Away": "Crystal Palace",
-    "Venue": "Goodison Park"
+    "Score": "2-1",
+    "Away": "Crystal Palace"
   },
   {
-    "Wk": "6",
-    "Day": "Sat",
+    "Wk": 6,
     "Date": "2024-09-28",
     "Time": "15:00",
     "Home": "Nott'ham Forest",
-    "Home xG": "0.8",
-    "Score": "0–1",
-    "Away xG": "1.3",
-    "Away": "Fulham",
-    "Venue": "The City Ground"
+    "Score": "0-1",
+    "Away": "Fulham"
   },
   {
-    "Wk": "6",
-    "Day": "Sat",
+    "Wk": 6,
     "Date": "2024-09-28",
     "Time": "17:30",
     "Home": "Wolves",
-    "Home xG": "0.6",
-    "Score": "1–2",
-    "Away xG": "2.5",
-    "Away": "Liverpool",
-    "Venue": "Molineux Stadium"
+    "Score": "1-2",
+    "Away": "Liverpool"
   },
   {
-    "Wk": "6",
-    "Day": "Sun",
+    "Wk": 6,
     "Date": "2024-09-29",
     "Time": "14:00",
     "Home": "Ipswich Town",
-    "Home xG": "1.2",
-    "Score": "2–2",
-    "Away xG": "0.8",
-    "Away": "Aston Villa",
-    "Venue": "Portman Road Stadium"
+    "Score": "2-2",
+    "Away": "Aston Villa"
   },
   {
-    "Wk": "6",
-    "Day": "Sun",
+    "Wk": 6,
     "Date": "2024-09-29",
     "Time": "16:30",
     "Home": "Manchester Utd",
-    "Home xG": "1.0",
-    "Score": "0–3",
-    "Away xG": "4.4",
-    "Away": "Tottenham",
-    "Venue": "Old Trafford"
+    "Score": "0-3",
+    "Away": "Tottenham"
   },
   {
-    "Wk": "6",
-    "Day": "Mon",
+    "Wk": 6,
     "Date": "2024-09-30",
     "Time": "20:00",
     "Home": "Bournemouth",
-    "Home xG": "1.3",
-    "Score": "3–1",
-    "Away xG": "0.6",
-    "Away": "Southampton",
-    "Venue": "Vitality Stadium"
+    "Score": "3-1",
+    "Away": "Southampton"
   },
   {
-    "Wk": "7",
-    "Day": "Sat",
+    "Wk": 7,
     "Date": "2024-10-05",
     "Time": "12:30",
     "Home": "Crystal Palace",
-    "Home xG": "0.6",
-    "Score": "0–1",
-    "Away xG": "1.4",
-    "Away": "Liverpool",
-    "Venue": "Selhurst Park"
+    "Score": "0-1",
+    "Away": "Liverpool"
   },
   {
-    "Wk": "7",
-    "Day": "Sat",
+    "Wk": 7,
     "Date": "2024-10-05",
     "Time": "15:00",
     "Home": "Manchester City",
-    "Home xG": "1.6",
-    "Score": "3–2",
-    "Away xG": "2.6",
-    "Away": "Fulham",
-    "Venue": "Etihad Stadium"
+    "Score": "3-2",
+    "Away": "Fulham"
   },
   {
-    "Wk": "7",
-    "Day": "Sat",
+    "Wk": 7,
     "Date": "2024-10-05",
     "Time": "15:00",
     "Home": "Brentford",
-    "Home xG": "4.2",
-    "Score": "5–3",
-    "Away xG": "1.0",
-    "Away": "Wolves",
-    "Venue": "Gtech Community Stadium"
+    "Score": "5-3",
+    "Away": "Wolves"
   },
   {
-    "Wk": "7",
-    "Day": "Sat",
+    "Wk": 7,
     "Date": "2024-10-05",
     "Time": "15:00",
     "Home": "West Ham",
-    "Home xG": "3.6",
-    "Score": "4–1",
-    "Away xG": "0.6",
-    "Away": "Ipswich Town",
-    "Venue": "London Stadium"
+    "Score": "4-1",
+    "Away": "Ipswich Town"
   },
   {
-    "Wk": "7",
-    "Day": "Sat",
+    "Wk": 7,
     "Date": "2024-10-05",
     "Time": "15:00",
     "Home": "Arsenal",
-    "Home xG": "2.8",
-    "Score": "3–1",
-    "Away xG": "0.6",
-    "Away": "Southampton",
-    "Venue": "Emirates Stadium"
+    "Score": "3-1",
+    "Away": "Southampton"
   },
   {
-    "Wk": "7",
-    "Day": "Sat",
+    "Wk": 7,
     "Date": "2024-10-05",
     "Time": "15:00",
     "Home": "Leicester City",
-    "Home xG": "0.8",
-    "Score": "1–0",
-    "Away xG": "2.1",
-    "Away": "Bournemouth",
-    "Venue": "King Power Stadium"
+    "Score": "1-0",
+    "Away": "Bournemouth"
   },
   {
-    "Wk": "7",
-    "Day": "Sat",
+    "Wk": 7,
     "Date": "2024-10-05",
     "Time": "17:30",
     "Home": "Everton",
-    "Home xG": "0.7",
-    "Score": "0–0",
-    "Away xG": "2.1",
-    "Away": "Newcastle Utd",
-    "Venue": "Goodison Park"
+    "Score": "0-0",
+    "Away": "Newcastle Utd"
   },
   {
-    "Wk": "7",
-    "Day": "Sun",
+    "Wk": 7,
     "Date": "2024-10-06",
     "Time": "14:00",
     "Home": "Aston Villa",
-    "Home xG": "0.5",
-    "Score": "0–0",
-    "Away xG": "0.6",
-    "Away": "Manchester Utd",
-    "Venue": "Villa Park"
+    "Score": "0-0",
+    "Away": "Manchester Utd"
   },
   {
-    "Wk": "7",
-    "Day": "Sun",
+    "Wk": 7,
     "Date": "2024-10-06",
     "Time": "14:00",
     "Home": "Chelsea",
-    "Home xG": "2.3",
-    "Score": "1–1",
-    "Away xG": "0.9",
-    "Away": "Nott'ham Forest",
-    "Venue": "Stamford Bridge"
+    "Score": "1-1",
+    "Away": "Nott'ham Forest"
   },
   {
-    "Wk": "7",
-    "Day": "Sun",
+    "Wk": 7,
     "Date": "2024-10-06",
     "Time": "16:30",
     "Home": "Brighton",
-    "Home xG": "1.8",
-    "Score": "3–2",
-    "Away xG": "1.3",
-    "Away": "Tottenham",
-    "Venue": "The American Express Stadium"
+    "Score": "3-2",
+    "Away": "Tottenham"
   },
   {
-    "Wk": "8",
-    "Day": "Sat",
+    "Wk": 8,
     "Date": "2024-10-19",
     "Time": "12:30",
     "Home": "Tottenham",
-    "Home xG": "1.9",
-    "Score": "4–1",
-    "Away xG": "0.8",
-    "Away": "West Ham",
-    "Venue": "Tottenham Hotspur Stadium"
+    "Score": "4-1",
+    "Away": "West Ham"
   },
   {
-    "Wk": "8",
-    "Day": "Sat",
+    "Wk": 8,
     "Date": "2024-10-19",
     "Time": "15:00",
     "Home": "Southampton",
-    "Home xG": "2.1",
-    "Score": "2–3",
-    "Away xG": "3.1",
-    "Away": "Leicester City",
-    "Venue": "St Mary's Stadium"
+    "Score": "2-3",
+    "Away": "Leicester City"
   },
   {
-    "Wk": "8",
-    "Day": "Sat",
+    "Wk": 8,
     "Date": "2024-10-19",
     "Time": "15:00",
     "Home": "Ipswich Town",
-    "Home xG": "1.3",
-    "Score": "0–2",
-    "Away xG": "1.7",
-    "Away": "Everton",
-    "Venue": "Portman Road Stadium"
+    "Score": "0-2",
+    "Away": "Everton"
   },
   {
-    "Wk": "8",
-    "Day": "Sat",
+    "Wk": 8,
     "Date": "2024-10-19",
     "Time": "15:00",
     "Home": "Newcastle Utd",
-    "Home xG": "2.0",
-    "Score": "0–1",
-    "Away xG": "1.1",
-    "Away": "Brighton",
-    "Venue": "St James' Park"
+    "Score": "0-1",
+    "Away": "Brighton"
   },
   {
-    "Wk": "8",
-    "Day": "Sat",
+    "Wk": 8,
     "Date": "2024-10-19",
     "Time": "15:00",
     "Home": "Fulham",
-    "Home xG": "1.8",
-    "Score": "1–3",
-    "Away xG": "1.6",
-    "Away": "Aston Villa",
-    "Venue": "Craven Cottage"
+    "Score": "1-3",
+    "Away": "Aston Villa"
   },
   {
-    "Wk": "8",
-    "Day": "Sat",
+    "Wk": 8,
     "Date": "2024-10-19",
     "Time": "15:00",
     "Home": "Manchester Utd",
-    "Home xG": "1.3",
-    "Score": "2–1",
-    "Away xG": "0.9",
-    "Away": "Brentford",
-    "Venue": "Old Trafford"
+    "Score": "2-1",
+    "Away": "Brentford"
   },
   {
-    "Wk": "8",
-    "Day": "Sat",
+    "Wk": 8,
     "Date": "2024-10-19",
     "Time": "17:30",
     "Home": "Bournemouth",
-    "Home xG": "1.8",
-    "Score": "2–0",
-    "Away xG": "0.7",
-    "Away": "Arsenal",
-    "Venue": "Vitality Stadium"
+    "Score": "2-0",
+    "Away": "Arsenal"
   },
   {
-    "Wk": "8",
-    "Day": "Sun",
+    "Wk": 8,
     "Date": "2024-10-20",
     "Time": "14:00",
     "Home": "Wolves",
-    "Home xG": "0.8",
-    "Score": "1–2",
-    "Away xG": "1.6",
-    "Away": "Manchester City",
-    "Venue": "Molineux Stadium"
+    "Score": "1-2",
+    "Away": "Manchester City"
   },
   {
-    "Wk": "8",
-    "Day": "Sun",
+    "Wk": 8,
     "Date": "2024-10-20",
     "Time": "16:30",
     "Home": "Liverpool",
-    "Home xG": "1.9",
-    "Score": "2–1",
-    "Away xG": "1.0",
-    "Away": "Chelsea",
-    "Venue": "Anfield"
+    "Score": "2-1",
+    "Away": "Chelsea"
   },
   {
-    "Wk": "8",
-    "Day": "Mon",
+    "Wk": 8,
     "Date": "2024-10-21",
     "Time": "20:00",
     "Home": "Nott'ham Forest",
-    "Home xG": "1.7",
-    "Score": "1–0",
-    "Away xG": "1.0",
-    "Away": "Crystal Palace",
-    "Venue": "The City Ground"
+    "Score": "1-0",
+    "Away": "Crystal Palace"
   },
   {
-    "Wk": "9",
-    "Day": "Fri",
+    "Wk": 9,
     "Date": "2024-10-25",
     "Time": "20:00",
     "Home": "Leicester City",
-    "Home xG": "0.8",
-    "Score": "1–3",
-    "Away xG": "1.7",
-    "Away": "Nott'ham Forest",
-    "Venue": "King Power Stadium"
+    "Score": "1-3",
+    "Away": "Nott'ham Forest"
   },
   {
-    "Wk": "9",
-    "Day": "Sat",
+    "Wk": 9,
     "Date": "2024-10-26",
     "Time": "15:00",
     "Home": "Brentford",
-    "Home xG": "4.0",
-    "Score": "4–3",
-    "Away xG": "1.3",
-    "Away": "Ipswich Town",
-    "Venue": "Gtech Community Stadium"
+    "Score": "4-3",
+    "Away": "Ipswich Town"
   },
   {
-    "Wk": "9",
-    "Day": "Sat",
+    "Wk": 9,
     "Date": "2024-10-26",
     "Time": "15:00",
     "Home": "Brighton",
-    "Home xG": "1.3",
-    "Score": "2–2",
-    "Away xG": "1.3",
-    "Away": "Wolves",
-    "Venue": "The American Express Stadium"
+    "Score": "2-2",
+    "Away": "Wolves"
   },
   {
-    "Wk": "9",
-    "Day": "Sat",
+    "Wk": 9,
     "Date": "2024-10-26",
     "Time": "15:00",
     "Home": "Manchester City",
-    "Home xG": "2.9",
-    "Score": "1–0",
-    "Away xG": "0.2",
-    "Away": "Southampton",
-    "Venue": "Etihad Stadium"
+    "Score": "1-0",
+    "Away": "Southampton"
   },
   {
-    "Wk": "9",
-    "Day": "Sat",
+    "Wk": 9,
     "Date": "2024-10-26",
     "Time": "15:00",
     "Home": "Aston Villa",
-    "Home xG": "1.8",
-    "Score": "1–1",
-    "Away xG": "0.3",
-    "Away": "Bournemouth",
-    "Venue": "Villa Park"
+    "Score": "1-1",
+    "Away": "Bournemouth"
   },
   {
-    "Wk": "9",
-    "Day": "Sat",
+    "Wk": 9,
     "Date": "2024-10-26",
     "Time": "17:30",
     "Home": "Everton",
-    "Home xG": "0.8",
-    "Score": "1–1",
-    "Away xG": "1.2",
-    "Away": "Fulham",
-    "Venue": "Goodison Park"
+    "Score": "1-1",
+    "Away": "Fulham"
   },
   {
-    "Wk": "9",
-    "Day": "Sun",
+    "Wk": 9,
     "Date": "2024-10-27",
     "Time": "14:00",
     "Home": "Chelsea",
-    "Home xG": "1.6",
-    "Score": "2–1",
-    "Away xG": "1.8",
-    "Away": "Newcastle Utd",
-    "Venue": "Stamford Bridge"
+    "Score": "2-1",
+    "Away": "Newcastle Utd"
   },
   {
-    "Wk": "9",
-    "Day": "Sun",
+    "Wk": 9,
     "Date": "2024-10-27",
     "Time": "14:00",
     "Home": "West Ham",
-    "Home xG": "2.8",
-    "Score": "2–1",
-    "Away xG": "2.3",
-    "Away": "Manchester Utd",
-    "Venue": "London Stadium"
+    "Score": "2-1",
+    "Away": "Manchester Utd"
   },
   {
-    "Wk": "9",
-    "Day": "Sun",
+    "Wk": 9,
     "Date": "2024-10-27",
     "Time": "14:00",
     "Home": "Crystal Palace",
-    "Home xG": "0.8",
-    "Score": "1–0",
-    "Away xG": "0.7",
-    "Away": "Tottenham",
-    "Venue": "Selhurst Park"
+    "Score": "1-0",
+    "Away": "Tottenham"
   },
   {
-    "Wk": "9",
-    "Day": "Sun",
+    "Wk": 9,
     "Date": "2024-10-27",
     "Time": "16:30",
     "Home": "Arsenal",
-    "Home xG": "0.9",
-    "Score": "2–2",
-    "Away xG": "0.8",
-    "Away": "Liverpool",
-    "Venue": "Emirates Stadium"
+    "Score": "2-2",
+    "Away": "Liverpool"
   },
   {
-    "Wk": "10",
-    "Day": "Sat",
+    "Wk": 10,
     "Date": "2024-11-02",
     "Time": "12:30",
     "Home": "Newcastle Utd",
-    "Home xG": "0.5",
-    "Score": "1–0",
-    "Away xG": "1.1",
-    "Away": "Arsenal",
-    "Venue": "St James' Park"
+    "Score": "1-0",
+    "Away": "Arsenal"
   },
   {
-    "Wk": "10",
-    "Day": "Sat",
+    "Wk": 10,
     "Date": "2024-11-02",
     "Time": "15:00",
     "Home": "Southampton",
-    "Home xG": "0.7",
-    "Score": "1–0",
-    "Away xG": "1.6",
-    "Away": "Everton",
-    "Venue": "St Mary's Stadium"
+    "Score": "1-0",
+    "Away": "Everton"
   },
   {
-    "Wk": "10",
-    "Day": "Sat",
+    "Wk": 10,
     "Date": "2024-11-02",
     "Time": "15:00",
     "Home": "Liverpool",
-    "Home xG": "1.6",
-    "Score": "2–1",
-    "Away xG": "1.0",
-    "Away": "Brighton",
-    "Venue": "Anfield"
+    "Score": "2-1",
+    "Away": "Brighton"
   },
   {
-    "Wk": "10",
-    "Day": "Sat",
+    "Wk": 10,
     "Date": "2024-11-02",
     "Time": "15:00",
     "Home": "Nott'ham Forest",
-    "Home xG": "2.2",
-    "Score": "3–0",
-    "Away xG": "0.1",
-    "Away": "West Ham",
-    "Venue": "The City Ground"
+    "Score": "3-0",
+    "Away": "West Ham"
   },
   {
-    "Wk": "10",
-    "Day": "Sat",
+    "Wk": 10,
     "Date": "2024-11-02",
     "Time": "15:00",
     "Home": "Ipswich Town",
-    "Home xG": "1.0",
-    "Score": "1–1",
-    "Away xG": "1.5",
-    "Away": "Leicester City",
-    "Venue": "Portman Road Stadium"
+    "Score": "1-1",
+    "Away": "Leicester City"
   },
   {
-    "Wk": "10",
-    "Day": "Sat",
+    "Wk": 10,
     "Date": "2024-11-02",
     "Time": "15:00",
     "Home": "Bournemouth",
-    "Home xG": "2.0",
-    "Score": "2–1",
-    "Away xG": "1.6",
-    "Away": "Manchester City",
-    "Venue": "Vitality Stadium"
+    "Score": "2-1",
+    "Away": "Manchester City"
   },
   {
-    "Wk": "10",
-    "Day": "Sat",
+    "Wk": 10,
     "Date": "2024-11-02",
     "Time": "17:30",
     "Home": "Wolves",
-    "Home xG": "1.5",
-    "Score": "2–2",
-    "Away xG": "2.4",
-    "Away": "Crystal Palace",
-    "Venue": "Molineux Stadium"
+    "Score": "2-2",
+    "Away": "Crystal Palace"
   },
   {
-    "Wk": "10",
-    "Day": "Sun",
+    "Wk": 10,
     "Date": "2024-11-03",
     "Time": "14:00",
     "Home": "Tottenham",
-    "Home xG": "2.4",
-    "Score": "4–1",
-    "Away xG": "1.8",
-    "Away": "Aston Villa",
-    "Venue": "Tottenham Hotspur Stadium"
+    "Score": "4-1",
+    "Away": "Aston Villa"
   },
   {
-    "Wk": "10",
-    "Day": "Sun",
+    "Wk": 10,
     "Date": "2024-11-03",
     "Time": "16:30",
     "Home": "Manchester Utd",
-    "Home xG": "2.0",
-    "Score": "1–1",
-    "Away xG": "1.1",
-    "Away": "Chelsea",
-    "Venue": "Old Trafford"
+    "Score": "1-1",
+    "Away": "Chelsea"
   },
   {
-    "Wk": "10",
-    "Day": "Mon",
+    "Wk": 10,
     "Date": "2024-11-04",
     "Time": "20:00",
     "Home": "Fulham",
-    "Home xG": "1.3",
-    "Score": "2–1",
-    "Away xG": "0.6",
-    "Away": "Brentford",
-    "Venue": "Craven Cottage"
+    "Score": "2-1",
+    "Away": "Brentford"
   },
   {
-    "Wk": "11",
-    "Day": "Sat",
+    "Wk": 11,
     "Date": "2024-11-09",
     "Time": "15:00",
     "Home": "Brentford",
-    "Home xG": "1.5",
-    "Score": "3–2",
-    "Away xG": "2.6",
-    "Away": "Bournemouth",
-    "Venue": "Gtech Community Stadium"
+    "Score": "3-2",
+    "Away": "Bournemouth"
   },
   {
-    "Wk": "11",
-    "Day": "Sat",
+    "Wk": 11,
     "Date": "2024-11-09",
     "Time": "15:00",
     "Home": "West Ham",
-    "Home xG": "0.8",
-    "Score": "0–0",
-    "Away xG": "1.1",
-    "Away": "Everton",
-    "Venue": "London Stadium"
+    "Score": "0-0",
+    "Away": "Everton"
   },
   {
-    "Wk": "11",
-    "Day": "Sat",
+    "Wk": 11,
     "Date": "2024-11-09",
     "Time": "15:00",
     "Home": "Crystal Palace",
-    "Home xG": "1.5",
-    "Score": "0–2",
-    "Away xG": "1.8",
-    "Away": "Fulham",
-    "Venue": "Selhurst Park"
+    "Score": "0-2",
+    "Away": "Fulham"
   },
   {
-    "Wk": "11",
-    "Day": "Sat",
+    "Wk": 11,
     "Date": "2024-11-09",
     "Time": "15:00",
     "Home": "Wolves",
-    "Home xG": "1.3",
-    "Score": "2–0",
-    "Away xG": "0.6",
-    "Away": "Southampton",
-    "Venue": "Molineux Stadium"
+    "Score": "2-0",
+    "Away": "Southampton"
   },
   {
-    "Wk": "11",
-    "Day": "Sat",
+    "Wk": 11,
     "Date": "2024-11-09",
     "Time": "17:30",
     "Home": "Brighton",
-    "Home xG": "2.3",
-    "Score": "2–1",
-    "Away xG": "2.1",
-    "Away": "Manchester City",
-    "Venue": "The American Express Stadium"
+    "Score": "2-1",
+    "Away": "Manchester City"
   },
   {
-    "Wk": "11",
-    "Day": "Sat",
+    "Wk": 11,
     "Date": "2024-11-09",
     "Time": "20:00",
     "Home": "Liverpool",
-    "Home xG": "2.0",
-    "Score": "2–0",
-    "Away xG": "1.2",
-    "Away": "Aston Villa",
-    "Venue": "Anfield"
+    "Score": "2-0",
+    "Away": "Aston Villa"
   },
   {
-    "Wk": "11",
-    "Day": "Sun",
+    "Wk": 11,
     "Date": "2024-11-10",
     "Time": "14:00",
     "Home": "Manchester Utd",
-    "Home xG": "0.8",
-    "Score": "3–0",
-    "Away xG": "0.6",
-    "Away": "Leicester City",
-    "Venue": "Old Trafford"
+    "Score": "3-0",
+    "Away": "Leicester City"
   },
   {
-    "Wk": "11",
-    "Day": "Sun",
+    "Wk": 11,
     "Date": "2024-11-10",
     "Time": "14:00",
     "Home": "Nott'ham Forest",
-    "Home xG": "0.6",
-    "Score": "1–3",
-    "Away xG": "1.6",
-    "Away": "Newcastle Utd",
-    "Venue": "The City Ground"
+    "Score": "1-3",
+    "Away": "Newcastle Utd"
   },
   {
-    "Wk": "11",
-    "Day": "Sun",
+    "Wk": 11,
     "Date": "2024-11-10",
     "Time": "14:00",
     "Home": "Tottenham",
-    "Home xG": "1.5",
-    "Score": "1–2",
-    "Away xG": "1.6",
-    "Away": "Ipswich Town",
-    "Venue": "Tottenham Hotspur Stadium"
+    "Score": "1-2",
+    "Away": "Ipswich Town"
   },
   {
-    "Wk": "11",
-    "Day": "Sun",
+    "Wk": 11,
     "Date": "2024-11-10",
     "Time": "16:30",
     "Home": "Chelsea",
-    "Home xG": "1.5",
-    "Score": "1–1",
-    "Away xG": "1.5",
-    "Away": "Arsenal",
-    "Venue": "Stamford Bridge"
+    "Score": "1-1",
+    "Away": "Arsenal"
   },
   {
-    "Wk": "12",
-    "Day": "Sat",
+    "Wk": 12,
     "Date": "2024-11-23",
     "Time": "12:30",
     "Home": "Leicester City",
-    "Home xG": "1.1",
-    "Score": "1–2",
-    "Away xG": "2.7",
-    "Away": "Chelsea",
-    "Venue": "King Power Stadium"
+    "Score": "1-2",
+    "Away": "Chelsea"
   },
   {
-    "Wk": "12",
-    "Day": "Sat",
+    "Wk": 12,
     "Date": "2024-11-23",
     "Time": "15:00",
     "Home": "Arsenal",
-    "Home xG": "1.2",
-    "Score": "3–0",
-    "Away xG": "0.3",
-    "Away": "Nott'ham Forest",
-    "Venue": "Emirates Stadium"
+    "Score": "3-0",
+    "Away": "Nott'ham Forest"
   },
   {
-    "Wk": "12",
-    "Day": "Sat",
+    "Wk": 12,
     "Date": "2024-11-23",
     "Time": "15:00",
     "Home": "Bournemouth",
-    "Home xG": "1.6",
-    "Score": "1–2",
-    "Away xG": "0.9",
-    "Away": "Brighton",
-    "Venue": "Vitality Stadium"
+    "Score": "1-2",
+    "Away": "Brighton"
   },
   {
-    "Wk": "12",
-    "Day": "Sat",
+    "Wk": 12,
     "Date": "2024-11-23",
     "Time": "15:00",
     "Home": "Aston Villa",
-    "Home xG": "3.0",
-    "Score": "2–2",
-    "Away xG": "1.3",
-    "Away": "Crystal Palace",
-    "Venue": "Villa Park"
+    "Score": "2-2",
+    "Away": "Crystal Palace"
   },
   {
-    "Wk": "12",
-    "Day": "Sat",
+    "Wk": 12,
     "Date": "2024-11-23",
     "Time": "15:00",
     "Home": "Everton",
-    "Home xG": "1.2",
-    "Score": "0–0",
-    "Away xG": "1.1",
-    "Away": "Brentford",
-    "Venue": "Goodison Park"
+    "Score": "0-0",
+    "Away": "Brentford"
   },
   {
-    "Wk": "12",
-    "Day": "Sat",
+    "Wk": 12,
     "Date": "2024-11-23",
     "Time": "15:00",
     "Home": "Fulham",
-    "Home xG": "1.0",
-    "Score": "1–4",
-    "Away xG": "1.3",
-    "Away": "Wolves",
-    "Venue": "Craven Cottage"
+    "Score": "1-4",
+    "Away": "Wolves"
   },
   {
-    "Wk": "12",
-    "Day": "Sat",
+    "Wk": 12,
     "Date": "2024-11-23",
     "Time": "17:30",
     "Home": "Manchester City",
-    "Home xG": "2.1",
-    "Score": "0–4",
-    "Away xG": "2.5",
-    "Away": "Tottenham",
-    "Venue": "Etihad Stadium"
+    "Score": "0-4",
+    "Away": "Tottenham"
   },
   {
-    "Wk": "12",
-    "Day": "Sun",
+    "Wk": 12,
     "Date": "2024-11-24",
     "Time": "14:00",
     "Home": "Southampton",
-    "Home xG": "1.3",
-    "Score": "2–3",
-    "Away xG": "3.1",
-    "Away": "Liverpool",
-    "Venue": "St Mary's Stadium"
+    "Score": "2-3",
+    "Away": "Liverpool"
   },
   {
-    "Wk": "12",
-    "Day": "Sun",
+    "Wk": 12,
     "Date": "2024-11-24",
     "Time": "16:30",
     "Home": "Ipswich Town",
-    "Home xG": "1.6",
-    "Score": "1–1",
-    "Away xG": "0.8",
-    "Away": "Manchester Utd",
-    "Venue": "Portman Road Stadium"
+    "Score": "1-1",
+    "Away": "Manchester Utd"
   },
   {
-    "Wk": "12",
-    "Day": "Mon",
+    "Wk": 12,
     "Date": "2024-11-25",
     "Time": "20:00",
     "Home": "Newcastle Utd",
-    "Home xG": "1.6",
-    "Score": "0–2",
-    "Away xG": "0.9",
-    "Away": "West Ham",
-    "Venue": "St James' Park"
+    "Score": "0-2",
+    "Away": "West Ham"
   },
   {
-    "Wk": "13",
-    "Day": "Fri",
+    "Wk": 13,
     "Date": "2024-11-29",
     "Time": "20:00",
     "Home": "Brighton",
-    "Home xG": "1.7",
-    "Score": "1–1",
-    "Away xG": "1.0",
-    "Away": "Southampton",
-    "Venue": "The American Express Stadium"
+    "Score": "1-1",
+    "Away": "Southampton"
   },
   {
-    "Wk": "13",
-    "Day": "Sat",
+    "Wk": 13,
     "Date": "2024-11-30",
     "Time": "15:00",
     "Home": "Crystal Palace",
-    "Home xG": "1.7",
-    "Score": "1–1",
-    "Away xG": "0.0",
-    "Away": "Newcastle Utd",
-    "Venue": "Selhurst Park"
+    "Score": "1-1",
+    "Away": "Newcastle Utd"
   },
   {
-    "Wk": "13",
-    "Day": "Sat",
+    "Wk": 13,
     "Date": "2024-11-30",
     "Time": "15:00",
     "Home": "Wolves",
-    "Home xG": "0.5",
-    "Score": "2–4",
-    "Away xG": "3.3",
-    "Away": "Bournemouth",
-    "Venue": "Molineux Stadium"
+    "Score": "2-4",
+    "Away": "Bournemouth"
   },
   {
-    "Wk": "13",
-    "Day": "Sat",
+    "Wk": 13,
     "Date": "2024-11-30",
     "Time": "15:00",
     "Home": "Nott'ham Forest",
-    "Home xG": "1.6",
-    "Score": "1–0",
-    "Away xG": "0.6",
-    "Away": "Ipswich Town",
-    "Venue": "The City Ground"
+    "Score": "1-0",
+    "Away": "Ipswich Town"
   },
   {
-    "Wk": "13",
-    "Day": "Sat",
+    "Wk": 13,
     "Date": "2024-11-30",
     "Time": "15:00",
     "Home": "Brentford",
-    "Home xG": "2.4",
-    "Score": "4–1",
-    "Away xG": "1.1",
-    "Away": "Leicester City",
-    "Venue": "Gtech Community Stadium"
+    "Score": "4-1",
+    "Away": "Leicester City"
   },
   {
-    "Wk": "13",
-    "Day": "Sat",
+    "Wk": 13,
     "Date": "2024-11-30",
     "Time": "17:30",
     "Home": "West Ham",
-    "Home xG": "1.5",
-    "Score": "2–5",
-    "Away xG": "3.5",
-    "Away": "Arsenal",
-    "Venue": "London Stadium"
+    "Score": "2-5",
+    "Away": "Arsenal"
   },
   {
-    "Wk": "13",
-    "Day": "Sun",
+    "Wk": 13,
     "Date": "2024-12-01",
     "Time": "13:30",
     "Home": "Chelsea",
-    "Home xG": "1.6",
-    "Score": "3–0",
-    "Away xG": "1.2",
-    "Away": "Aston Villa",
-    "Venue": "Stamford Bridge"
+    "Score": "3-0",
+    "Away": "Aston Villa"
   },
   {
-    "Wk": "13",
-    "Day": "Sun",
+    "Wk": 13,
     "Date": "2024-12-01",
     "Time": "13:30",
     "Home": "Tottenham",
-    "Home xG": "0.8",
-    "Score": "1–1",
-    "Away xG": "1.5",
-    "Away": "Fulham",
-    "Venue": "Tottenham Hotspur Stadium"
+    "Score": "1-1",
+    "Away": "Fulham"
   },
   {
-    "Wk": "13",
-    "Day": "Sun",
+    "Wk": 13,
     "Date": "2024-12-01",
     "Time": "13:30",
     "Home": "Manchester Utd",
-    "Home xG": "1.1",
-    "Score": "4–0",
-    "Away xG": "0.6",
-    "Away": "Everton",
-    "Venue": "Old Trafford"
+    "Score": "4-0",
+    "Away": "Everton"
   },
   {
-    "Wk": "13",
-    "Day": "Sun",
+    "Wk": 13,
     "Date": "2024-12-01",
     "Time": "16:00",
     "Home": "Liverpool",
-    "Home xG": "3.4",
-    "Score": "2–0",
-    "Away xG": "0.8",
-    "Away": "Manchester City",
-    "Venue": "Anfield"
+    "Score": "2-0",
+    "Away": "Manchester City"
   },
   {
-    "Wk": "14",
-    "Day": "Tue",
+    "Wk": 14,
     "Date": "2024-12-03",
     "Time": "19:30",
     "Home": "Ipswich Town",
-    "Home xG": "0.5",
-    "Score": "0–1",
-    "Away xG": "1.6",
-    "Away": "Crystal Palace",
-    "Venue": "Portman Road Stadium"
+    "Score": "0-1",
+    "Away": "Crystal Palace"
   },
   {
-    "Wk": "14",
-    "Day": "Tue",
+    "Wk": 14,
     "Date": "2024-12-03",
     "Time": "20:15",
     "Home": "Leicester City",
-    "Home xG": "1.7",
-    "Score": "3–1",
-    "Away xG": "3.0",
-    "Away": "West Ham",
-    "Venue": "King Power Stadium"
+    "Score": "3-1",
+    "Away": "West Ham"
   },
   {
-    "Wk": "14",
-    "Day": "Wed",
+    "Wk": 14,
     "Date": "2024-12-04",
     "Time": "19:30",
     "Home": "Everton",
-    "Home xG": "1.0",
-    "Score": "4–0",
-    "Away xG": "0.8",
-    "Away": "Wolves",
-    "Venue": "Goodison Park"
+    "Score": "4-0",
+    "Away": "Wolves"
   },
   {
-    "Wk": "14",
-    "Day": "Wed",
+    "Wk": 14,
     "Date": "2024-12-04",
     "Time": "19:30",
     "Home": "Newcastle Utd",
-    "Home xG": "2.1",
-    "Score": "3–3",
-    "Away xG": "1.9",
-    "Away": "Liverpool",
-    "Venue": "St James' Park"
+    "Score": "3-3",
+    "Away": "Liverpool"
   },
   {
-    "Wk": "14",
-    "Day": "Wed",
+    "Wk": 14,
     "Date": "2024-12-04",
     "Time": "19:30",
     "Home": "Manchester City",
-    "Home xG": "2.4",
-    "Score": "3–0",
-    "Away xG": "1.0",
-    "Away": "Nott'ham Forest",
-    "Venue": "Etihad Stadium"
+    "Score": "3-0",
+    "Away": "Nott'ham Forest"
   },
   {
-    "Wk": "14",
-    "Day": "Wed",
+    "Wk": 14,
     "Date": "2024-12-04",
     "Time": "19:30",
     "Home": "Southampton",
-    "Home xG": "1.6",
-    "Score": "1–5",
-    "Away xG": "5.2",
-    "Away": "Chelsea",
-    "Venue": "St Mary's Stadium"
+    "Score": "1-5",
+    "Away": "Chelsea"
   },
   {
-    "Wk": "14",
-    "Day": "Wed",
+    "Wk": 14,
     "Date": "2024-12-04",
     "Time": "20:15",
     "Home": "Arsenal",
-    "Home xG": "2.1",
-    "Score": "2–0",
-    "Away xG": "0.2",
-    "Away": "Manchester Utd",
-    "Venue": "Emirates Stadium"
+    "Score": "2-0",
+    "Away": "Manchester Utd"
   },
   {
-    "Wk": "14",
-    "Day": "Wed",
+    "Wk": 14,
     "Date": "2024-12-04",
     "Time": "20:15",
     "Home": "Aston Villa",
-    "Home xG": "2.4",
-    "Score": "3–1",
-    "Away xG": "0.9",
-    "Away": "Brentford",
-    "Venue": "Villa Park"
+    "Score": "3-1",
+    "Away": "Brentford"
   },
   {
-    "Wk": "14",
-    "Day": "Thu",
+    "Wk": 14,
     "Date": "2024-12-05",
     "Time": "19:30",
     "Home": "Fulham",
-    "Home xG": "1.1",
-    "Score": "3–1",
-    "Away xG": "1.4",
-    "Away": "Brighton",
-    "Venue": "Craven Cottage"
+    "Score": "3-1",
+    "Away": "Brighton"
   },
   {
-    "Wk": "14",
-    "Day": "Thu",
+    "Wk": 14,
     "Date": "2024-12-05",
     "Time": "20:15",
     "Home": "Bournemouth",
-    "Home xG": "3.5",
-    "Score": "1–0",
-    "Away xG": "0.9",
-    "Away": "Tottenham",
-    "Venue": "Vitality Stadium"
+    "Score": "1-0",
+    "Away": "Tottenham"
   },
   {
-    "Wk": "15",
-    "Day": "Sat",
+    "Wk": 15,
     "Date": "2024-12-07",
     "Time": "15:00",
     "Home": "Brentford",
-    "Home xG": "1.2",
-    "Score": "4–2",
-    "Away xG": "1.5",
-    "Away": "Newcastle Utd",
-    "Venue": "Gtech Community Stadium"
+    "Score": "4-2",
+    "Away": "Newcastle Utd"
   },
   {
-    "Wk": "15",
-    "Day": "Sat",
+    "Wk": 15,
     "Date": "2024-12-07",
     "Time": "15:00",
     "Home": "Crystal Palace",
-    "Home xG": "1.3",
-    "Score": "2–2",
-    "Away xG": "1.4",
-    "Away": "Manchester City",
-    "Venue": "Selhurst Park"
+    "Score": "2-2",
+    "Away": "Manchester City"
   },
   {
-    "Wk": "15",
-    "Day": "Sat",
+    "Wk": 15,
     "Date": "2024-12-07",
     "Time": "15:00",
     "Home": "Aston Villa",
-    "Home xG": "2.3",
-    "Score": "1–0",
-    "Away xG": "0.3",
-    "Away": "Southampton",
-    "Venue": "Villa Park"
+    "Score": "1-0",
+    "Away": "Southampton"
   },
   {
-    "Wk": "15",
-    "Day": "Sat",
+    "Wk": 15,
     "Date": "2024-12-07",
     "Time": "17:30",
     "Home": "Manchester Utd",
-    "Home xG": "1.6",
-    "Score": "2–3",
-    "Away xG": "0.8",
-    "Away": "Nott'ham Forest",
-    "Venue": "Old Trafford"
+    "Score": "2-3",
+    "Away": "Nott'ham Forest"
   },
   {
-    "Wk": "15",
-    "Day": "Sun",
+    "Wk": 15,
     "Date": "2024-12-08",
     "Time": "14:00",
     "Home": "Fulham",
-    "Home xG": "0.2",
-    "Score": "1–1",
-    "Away xG": "1.8",
-    "Away": "Arsenal",
-    "Venue": "Craven Cottage"
+    "Score": "1-1",
+    "Away": "Arsenal"
   },
   {
-    "Wk": "15",
-    "Day": "Sun",
+    "Wk": 15,
     "Date": "2024-12-08",
     "Time": "14:00",
     "Home": "Ipswich Town",
-    "Home xG": "1.3",
-    "Score": "1–2",
-    "Away xG": "3.2",
-    "Away": "Bournemouth",
-    "Venue": "Portman Road Stadium"
+    "Score": "1-2",
+    "Away": "Bournemouth"
   },
   {
-    "Wk": "15",
-    "Day": "Sun",
+    "Wk": 15,
     "Date": "2024-12-08",
     "Time": "14:00",
     "Home": "Leicester City",
-    "Home xG": "1.3",
-    "Score": "2–2",
-    "Away xG": "1.5",
-    "Away": "Brighton",
-    "Venue": "King Power Stadium"
+    "Score": "2-2",
+    "Away": "Brighton"
   },
   {
-    "Wk": "15",
-    "Day": "Sun",
+    "Wk": 15,
     "Date": "2024-12-08",
     "Time": "16:30",
     "Home": "Tottenham",
-    "Home xG": "2.8",
-    "Score": "3–4",
-    "Away xG": "2.8",
-    "Away": "Chelsea",
-    "Venue": "Tottenham Hotspur Stadium"
+    "Score": "3-4",
+    "Away": "Chelsea"
   },
   {
-    "Wk": "15",
-    "Day": "Mon",
+    "Wk": 15,
     "Date": "2024-12-09",
     "Time": "20:00",
     "Home": "West Ham",
-    "Home xG": "1.0",
-    "Score": "2–1",
-    "Away xG": "1.4",
-    "Away": "Wolves",
-    "Venue": "London Stadium"
+    "Score": "2-1",
+    "Away": "Wolves"
   },
   {
-    "Wk": "16",
-    "Day": "Sat",
+    "Wk": 16,
     "Date": "2024-12-14",
     "Time": "15:00",
     "Home": "Newcastle Utd",
-    "Home xG": "3.8",
-    "Score": "4–0",
-    "Away xG": "0.2",
-    "Away": "Leicester City",
-    "Venue": "St James' Park"
+    "Score": "4-0",
+    "Away": "Leicester City"
   },
   {
-    "Wk": "16",
-    "Day": "Sat",
+    "Wk": 16,
     "Date": "2024-12-14",
     "Time": "15:00",
     "Home": "Arsenal",
-    "Home xG": "1.2",
-    "Score": "0–0",
-    "Away xG": "0.1",
-    "Away": "Everton",
-    "Venue": "Emirates Stadium"
+    "Score": "0-0",
+    "Away": "Everton"
   },
   {
-    "Wk": "16",
-    "Day": "Sat",
+    "Wk": 16,
     "Date": "2024-12-14",
     "Time": "15:00",
     "Home": "Wolves",
-    "Home xG": "1.3",
-    "Score": "1–2",
-    "Away xG": "1.1",
-    "Away": "Ipswich Town",
-    "Venue": "Molineux Stadium"
+    "Score": "1-2",
+    "Away": "Ipswich Town"
   },
   {
-    "Wk": "16",
-    "Day": "Sat",
+    "Wk": 16,
     "Date": "2024-12-14",
     "Time": "15:00",
     "Home": "Liverpool",
-    "Home xG": "2.1",
-    "Score": "2–2",
-    "Away xG": "1.2",
-    "Away": "Fulham",
-    "Venue": "Anfield"
+    "Score": "2-2",
+    "Away": "Fulham"
   },
   {
-    "Wk": "16",
-    "Day": "Sat",
+    "Wk": 16,
     "Date": "2024-12-14",
     "Time": "17:30",
     "Home": "Nott'ham Forest",
-    "Home xG": "1.7",
-    "Score": "2–1",
-    "Away xG": "0.4",
-    "Away": "Aston Villa",
-    "Venue": "The City Ground"
+    "Score": "2-1",
+    "Away": "Aston Villa"
   },
   {
-    "Wk": "16",
-    "Day": "Sun",
+    "Wk": 16,
     "Date": "2024-12-15",
     "Time": "14:00",
     "Home": "Brighton",
-    "Home xG": "1.0",
-    "Score": "1–3",
-    "Away xG": "2.2",
-    "Away": "Crystal Palace",
-    "Venue": "The American Express Stadium"
+    "Score": "1-3",
+    "Away": "Crystal Palace"
   },
   {
-    "Wk": "16",
-    "Day": "Sun",
+    "Wk": 16,
     "Date": "2024-12-15",
     "Time": "16:30",
     "Home": "Manchester City",
-    "Home xG": "0.9",
-    "Score": "1–2",
-    "Away xG": "2.1",
-    "Away": "Manchester Utd",
-    "Venue": "Etihad Stadium"
+    "Score": "1-2",
+    "Away": "Manchester Utd"
   },
   {
-    "Wk": "16",
-    "Day": "Sun",
+    "Wk": 16,
     "Date": "2024-12-15",
     "Time": "19:00",
     "Home": "Southampton",
-    "Home xG": "0.8",
-    "Score": "0–5",
-    "Away xG": "2.3",
-    "Away": "Tottenham",
-    "Venue": "St Mary's Stadium"
+    "Score": "0-5",
+    "Away": "Tottenham"
   },
   {
-    "Wk": "16",
-    "Day": "Sun",
+    "Wk": 16,
     "Date": "2024-12-15",
     "Time": "19:00",
     "Home": "Chelsea",
-    "Home xG": "2.2",
-    "Score": "2–1",
-    "Away xG": "1.6",
-    "Away": "Brentford",
-    "Venue": "Stamford Bridge"
+    "Score": "2-1",
+    "Away": "Brentford"
   },
   {
-    "Wk": "16",
-    "Day": "Mon",
+    "Wk": 16,
     "Date": "2024-12-16",
     "Time": "20:00",
     "Home": "Bournemouth",
-    "Home xG": "1.9",
-    "Score": "1–1",
-    "Away xG": "2.1",
-    "Away": "West Ham",
-    "Venue": "Vitality Stadium"
+    "Score": "1-1",
+    "Away": "West Ham"
   },
   {
-    "Wk": "17",
-    "Day": "Sat",
+    "Wk": 17,
     "Date": "2024-12-21",
     "Time": "12:30",
     "Home": "Aston Villa",
-    "Home xG": "1.6",
-    "Score": "2–1",
-    "Away xG": "1.0",
-    "Away": "Manchester City",
-    "Venue": "Villa Park"
+    "Score": "2-1",
+    "Away": "Manchester City"
   },
   {
-    "Wk": "17",
-    "Day": "Sat",
+    "Wk": 17,
     "Date": "2024-12-21",
     "Time": "15:00",
     "Home": "West Ham",
-    "Home xG": "1.2",
-    "Score": "1–1",
-    "Away xG": "0.9",
-    "Away": "Brighton",
-    "Venue": "London Stadium"
+    "Score": "1-1",
+    "Away": "Brighton"
   },
   {
-    "Wk": "17",
-    "Day": "Sat",
+    "Wk": 17,
     "Date": "2024-12-21",
     "Time": "15:00",
     "Home": "Brentford",
-    "Home xG": "0.7",
-    "Score": "0–2",
-    "Away xG": "0.9",
-    "Away": "Nott'ham Forest",
-    "Venue": "Gtech Community Stadium"
+    "Score": "0-2",
+    "Away": "Nott'ham Forest"
   },
   {
-    "Wk": "17",
-    "Day": "Sat",
+    "Wk": 17,
     "Date": "2024-12-21",
     "Time": "15:00",
     "Home": "Ipswich Town",
-    "Home xG": "0.7",
-    "Score": "0–4",
-    "Away xG": "2.3",
-    "Away": "Newcastle Utd",
-    "Venue": "Portman Road Stadium"
+    "Score": "0-4",
+    "Away": "Newcastle Utd"
   },
   {
-    "Wk": "17",
-    "Day": "Sat",
+    "Wk": 17,
     "Date": "2024-12-21",
     "Time": "17:30",
     "Home": "Crystal Palace",
-    "Home xG": "1.6",
-    "Score": "1–5",
-    "Away xG": "2.5",
-    "Away": "Arsenal",
-    "Venue": "Selhurst Park"
+    "Score": "1-5",
+    "Away": "Arsenal"
   },
   {
-    "Wk": "17",
-    "Day": "Sun",
+    "Wk": 17,
     "Date": "2024-12-22",
     "Time": "14:00",
     "Home": "Manchester Utd",
-    "Home xG": "2.2",
-    "Score": "0–3",
-    "Away xG": "1.6",
-    "Away": "Bournemouth",
-    "Venue": "Old Trafford"
+    "Score": "0-3",
+    "Away": "Bournemouth"
   },
   {
-    "Wk": "17",
-    "Day": "Sun",
+    "Wk": 17,
     "Date": "2024-12-22",
     "Time": "14:00",
     "Home": "Fulham",
-    "Home xG": "0.9",
-    "Score": "0–0",
-    "Away xG": "0.3",
-    "Away": "Southampton",
-    "Venue": "Craven Cottage"
+    "Score": "0-0",
+    "Away": "Southampton"
   },
   {
-    "Wk": "17",
-    "Day": "Sun",
+    "Wk": 17,
     "Date": "2024-12-22",
     "Time": "14:00",
     "Home": "Everton",
-    "Home xG": "1.0",
-    "Score": "0–0",
-    "Away xG": "1.2",
-    "Away": "Chelsea",
-    "Venue": "Goodison Park"
+    "Score": "0-0",
+    "Away": "Chelsea"
   },
   {
-    "Wk": "17",
-    "Day": "Sun",
+    "Wk": 17,
     "Date": "2024-12-22",
     "Time": "14:00",
     "Home": "Leicester City",
-    "Home xG": "0.8",
-    "Score": "0–3",
-    "Away xG": "1.1",
-    "Away": "Wolves",
-    "Venue": "King Power Stadium"
+    "Score": "0-3",
+    "Away": "Wolves"
   },
   {
-    "Wk": "17",
-    "Day": "Sun",
+    "Wk": 17,
     "Date": "2024-12-22",
     "Time": "16:30",
     "Home": "Tottenham",
-    "Home xG": "1.3",
-    "Score": "3–6",
-    "Away xG": "5.6",
-    "Away": "Liverpool",
-    "Venue": "Tottenham Hotspur Stadium"
+    "Score": "3-6",
+    "Away": "Liverpool"
   },
   {
-    "Wk": "18",
-    "Day": "Thu",
+    "Wk": 18,
     "Date": "2024-12-26",
     "Time": "12:30",
     "Home": "Manchester City",
-    "Home xG": "2.1",
-    "Score": "1–1",
-    "Away xG": "0.7",
-    "Away": "Everton",
-    "Venue": "Etihad Stadium"
+    "Score": "1-1",
+    "Away": "Everton"
   },
   {
-    "Wk": "18",
-    "Day": "Thu",
+    "Wk": 18,
     "Date": "2024-12-26",
     "Time": "15:00",
     "Home": "Chelsea",
-    "Home xG": "1.1",
-    "Score": "1–2",
-    "Away xG": "1.8",
-    "Away": "Fulham",
-    "Venue": "Stamford Bridge"
+    "Score": "1-2",
+    "Away": "Fulham"
   },
   {
-    "Wk": "18",
-    "Day": "Thu",
+    "Wk": 18,
     "Date": "2024-12-26",
     "Time": "15:00",
     "Home": "Southampton",
-    "Home xG": "1.4",
-    "Score": "0–1",
-    "Away xG": "1.7",
-    "Away": "West Ham",
-    "Venue": "St Mary's Stadium"
+    "Score": "0-1",
+    "Away": "West Ham"
   },
   {
-    "Wk": "18",
-    "Day": "Thu",
+    "Wk": 18,
     "Date": "2024-12-26",
     "Time": "15:00",
     "Home": "Bournemouth",
-    "Home xG": "1.4",
-    "Score": "0–0",
-    "Away xG": "0.4",
-    "Away": "Crystal Palace",
-    "Venue": "Vitality Stadium"
+    "Score": "0-0",
+    "Away": "Crystal Palace"
   },
   {
-    "Wk": "18",
-    "Day": "Thu",
+    "Wk": 18,
     "Date": "2024-12-26",
     "Time": "15:00",
     "Home": "Newcastle Utd",
-    "Home xG": "2.7",
-    "Score": "3–0",
-    "Away xG": "0.3",
-    "Away": "Aston Villa",
-    "Venue": "St James' Park"
+    "Score": "3-0",
+    "Away": "Aston Villa"
   },
   {
-    "Wk": "18",
-    "Day": "Thu",
+    "Wk": 18,
     "Date": "2024-12-26",
     "Time": "15:00",
     "Home": "Nott'ham Forest",
-    "Home xG": "1.1",
-    "Score": "1–0",
-    "Away xG": "0.9",
-    "Away": "Tottenham",
-    "Venue": "The City Ground"
+    "Score": "1-0",
+    "Away": "Tottenham"
   },
   {
-    "Wk": "18",
-    "Day": "Thu",
+    "Wk": 18,
     "Date": "2024-12-26",
     "Time": "17:30",
     "Home": "Wolves",
-    "Home xG": "0.9",
-    "Score": "2–0",
-    "Away xG": "0.4",
-    "Away": "Manchester Utd",
-    "Venue": "Molineux Stadium"
+    "Score": "2-0",
+    "Away": "Manchester Utd"
   },
   {
-    "Wk": "18",
-    "Day": "Thu",
+    "Wk": 18,
     "Date": "2024-12-26",
     "Time": "20:00",
     "Home": "Liverpool",
-    "Home xG": "2.0",
-    "Score": "3–1",
-    "Away xG": "0.3",
-    "Away": "Leicester City",
-    "Venue": "Anfield"
+    "Score": "3-1",
+    "Away": "Leicester City"
   },
   {
-    "Wk": "18",
-    "Day": "Fri",
+    "Wk": 18,
     "Date": "2024-12-27",
     "Time": "19:30",
     "Home": "Brighton",
-    "Home xG": "1.3",
-    "Score": "0–0",
-    "Away xG": "1.1",
-    "Away": "Brentford",
-    "Venue": "The American Express Stadium"
+    "Score": "0-0",
+    "Away": "Brentford"
   },
   {
-    "Wk": "18",
-    "Day": "Fri",
+    "Wk": 18,
     "Date": "2024-12-27",
     "Time": "20:15",
     "Home": "Arsenal",
-    "Home xG": "1.8",
-    "Score": "1–0",
-    "Away xG": "0.2",
-    "Away": "Ipswich Town",
-    "Venue": "Emirates Stadium"
+    "Score": "1-0",
+    "Away": "Ipswich Town"
   },
   {
-    "Wk": "19",
-    "Day": "Sun",
+    "Wk": 19,
     "Date": "2024-12-29",
     "Time": "14:30",
     "Home": "Leicester City",
-    "Home xG": "1.3",
-    "Score": "0–2",
-    "Away xG": "1.3",
-    "Away": "Manchester City",
-    "Venue": "King Power Stadium"
+    "Score": "0-2",
+    "Away": "Manchester City"
   },
   {
-    "Wk": "19",
-    "Day": "Sun",
+    "Wk": 19,
     "Date": "2024-12-29",
     "Time": "15:00",
     "Home": "Tottenham",
-    "Home xG": "2.2",
-    "Score": "2–2",
-    "Away xG": "0.7",
-    "Away": "Wolves",
-    "Venue": "Tottenham Hotspur Stadium"
+    "Score": "2-2",
+    "Away": "Wolves"
   },
   {
-    "Wk": "19",
-    "Day": "Sun",
+    "Wk": 19,
     "Date": "2024-12-29",
     "Time": "15:00",
     "Home": "Fulham",
-    "Home xG": "1.1",
-    "Score": "2–2",
-    "Away xG": "2.0",
-    "Away": "Bournemouth",
-    "Venue": "Craven Cottage"
+    "Score": "2-2",
+    "Away": "Bournemouth"
   },
   {
-    "Wk": "19",
-    "Day": "Sun",
+    "Wk": 19,
     "Date": "2024-12-29",
     "Time": "15:00",
     "Home": "Everton",
-    "Home xG": "0.9",
-    "Score": "0–2",
-    "Away xG": "1.5",
-    "Away": "Nott'ham Forest",
-    "Venue": "Goodison Park"
+    "Score": "0-2",
+    "Away": "Nott'ham Forest"
   },
   {
-    "Wk": "19",
-    "Day": "Sun",
+    "Wk": 19,
     "Date": "2024-12-29",
     "Time": "15:00",
     "Home": "Crystal Palace",
-    "Home xG": "2.0",
-    "Score": "2–1",
-    "Away xG": "0.9",
-    "Away": "Southampton",
-    "Venue": "Selhurst Park"
+    "Score": "2-1",
+    "Away": "Southampton"
   },
   {
-    "Wk": "19",
-    "Day": "Sun",
+    "Wk": 19,
     "Date": "2024-12-29",
     "Time": "17:15",
     "Home": "West Ham",
-    "Home xG": "0.4",
-    "Score": "0–5",
-    "Away xG": "3.1",
-    "Away": "Liverpool",
-    "Venue": "London Stadium"
+    "Score": "0-5",
+    "Away": "Liverpool"
   },
   {
-    "Wk": "19",
-    "Day": "Mon",
+    "Wk": 19,
     "Date": "2024-12-30",
     "Time": "19:45",
     "Home": "Aston Villa",
-    "Home xG": "1.8",
-    "Score": "2–2",
-    "Away xG": "1.1",
-    "Away": "Brighton",
-    "Venue": "Villa Park"
+    "Score": "2-2",
+    "Away": "Brighton"
   },
   {
-    "Wk": "19",
-    "Day": "Mon",
+    "Wk": 19,
     "Date": "2024-12-30",
     "Time": "19:45",
     "Home": "Ipswich Town",
-    "Home xG": "1.6",
-    "Score": "2–0",
-    "Away xG": "2.0",
-    "Away": "Chelsea",
-    "Venue": "Portman Road Stadium"
+    "Score": "2-0",
+    "Away": "Chelsea"
   },
   {
-    "Wk": "19",
-    "Day": "Mon",
+    "Wk": 19,
     "Date": "2024-12-30",
     "Time": "20:00",
     "Home": "Manchester Utd",
-    "Home xG": "0.8",
-    "Score": "0–2",
-    "Away xG": "1.9",
-    "Away": "Newcastle Utd",
-    "Venue": "Old Trafford"
+    "Score": "0-2",
+    "Away": "Newcastle Utd"
   },
   {
-    "Wk": "19",
-    "Day": "Wed",
+    "Wk": 19,
     "Date": "2025-01-01",
     "Time": "17:30",
     "Home": "Brentford",
-    "Home xG": "0.3",
-    "Score": "1–3",
-    "Away xG": "1.9",
-    "Away": "Arsenal",
-    "Venue": "Gtech Community Stadium"
+    "Score": "1-3",
+    "Away": "Arsenal"
   },
   {
-    "Wk": "20",
-    "Day": "Sat",
+    "Wk": 20,
     "Date": "2025-01-04",
     "Time": "12:30",
     "Home": "Tottenham",
-    "Home xG": "0.9",
-    "Score": "1–2",
-    "Away xG": "2.5",
-    "Away": "Newcastle Utd",
-    "Venue": "Tottenham Hotspur Stadium"
+    "Score": "1-2",
+    "Away": "Newcastle Utd"
   },
   {
-    "Wk": "20",
-    "Day": "Sat",
+    "Wk": 20,
     "Date": "2025-01-04",
     "Time": "15:00",
     "Home": "Southampton",
-    "Home xG": "0.3",
-    "Score": "0–5",
-    "Away xG": "4.4",
-    "Away": "Brentford",
-    "Venue": "St Mary's Stadium"
+    "Score": "0-5",
+    "Away": "Brentford"
   },
   {
-    "Wk": "20",
-    "Day": "Sat",
+    "Wk": 20,
     "Date": "2025-01-04",
     "Time": "15:00",
     "Home": "Bournemouth",
-    "Home xG": "1.8",
-    "Score": "1–0",
-    "Away xG": "0.7",
-    "Away": "Everton",
-    "Venue": "Vitality Stadium"
+    "Score": "1-0",
+    "Away": "Everton"
   },
   {
-    "Wk": "20",
-    "Day": "Sat",
+    "Wk": 20,
     "Date": "2025-01-04",
     "Time": "15:00",
     "Home": "Crystal Palace",
-    "Home xG": "1.1",
-    "Score": "1–1",
-    "Away xG": "1.2",
-    "Away": "Chelsea",
-    "Venue": "Selhurst Park"
+    "Score": "1-1",
+    "Away": "Chelsea"
   },
   {
-    "Wk": "20",
-    "Day": "Sat",
+    "Wk": 20,
     "Date": "2025-01-04",
     "Time": "15:00",
     "Home": "Manchester City",
-    "Home xG": "1.9",
-    "Score": "4–1",
-    "Away xG": "1.4",
-    "Away": "West Ham",
-    "Venue": "Etihad Stadium"
+    "Score": "4-1",
+    "Away": "West Ham"
   },
   {
-    "Wk": "20",
-    "Day": "Sat",
+    "Wk": 20,
     "Date": "2025-01-04",
     "Time": "15:00",
     "Home": "Aston Villa",
-    "Home xG": "1.4",
-    "Score": "2–1",
-    "Away xG": "0.4",
-    "Away": "Leicester City",
-    "Venue": "Villa Park"
+    "Score": "2-1",
+    "Away": "Leicester City"
   },
   {
-    "Wk": "20",
-    "Day": "Sat",
+    "Wk": 20,
     "Date": "2025-01-04",
     "Time": "17:30",
     "Home": "Brighton",
-    "Home xG": "1.5",
-    "Score": "1–1",
-    "Away xG": "0.9",
-    "Away": "Arsenal",
-    "Venue": "The American Express Stadium"
+    "Score": "1-1",
+    "Away": "Arsenal"
   },
   {
-    "Wk": "20",
-    "Day": "Sun",
+    "Wk": 20,
     "Date": "2025-01-05",
     "Time": "14:00",
     "Home": "Fulham",
-    "Home xG": "2.2",
-    "Score": "2–2",
-    "Away xG": "1.5",
-    "Away": "Ipswich Town",
-    "Venue": "Craven Cottage"
+    "Score": "2-2",
+    "Away": "Ipswich Town"
   },
   {
-    "Wk": "20",
-    "Day": "Sun",
+    "Wk": 20,
     "Date": "2025-01-05",
     "Time": "16:30",
     "Home": "Liverpool",
-    "Home xG": "2.7",
-    "Score": "2–2",
-    "Away xG": "1.0",
-    "Away": "Manchester Utd",
-    "Venue": "Anfield"
+    "Score": "2-2",
+    "Away": "Manchester Utd"
   },
   {
-    "Wk": "20",
-    "Day": "Mon",
+    "Wk": 20,
     "Date": "2025-01-06",
     "Time": "20:00",
     "Home": "Wolves",
-    "Home xG": "1.5",
-    "Score": "0–3",
-    "Away xG": "2.1",
-    "Away": "Nott'ham Forest",
-    "Venue": "Molineux Stadium"
+    "Score": "0-3",
+    "Away": "Nott'ham Forest"
   },
   {
-    "Wk": "21",
-    "Day": "Tue",
+    "Wk": 21,
     "Date": "2025-01-14",
     "Time": "19:30",
     "Home": "Brentford",
-    "Home xG": "2.5",
-    "Score": "2–2",
-    "Away xG": "2.2",
-    "Away": "Manchester City",
-    "Venue": "Gtech Community Stadium"
+    "Score": "2-2",
+    "Away": "Manchester City"
   },
   {
-    "Wk": "21",
-    "Day": "Tue",
+    "Wk": 21,
     "Date": "2025-01-14",
     "Time": "19:30",
     "Home": "West Ham",
-    "Home xG": "1.0",
-    "Score": "3–2",
-    "Away xG": "1.7",
-    "Away": "Fulham",
-    "Venue": "London Stadium"
+    "Score": "3-2",
+    "Away": "Fulham"
   },
   {
-    "Wk": "21",
-    "Day": "Tue",
+    "Wk": 21,
     "Date": "2025-01-14",
     "Time": "19:30",
     "Home": "Chelsea",
-    "Home xG": "2.5",
-    "Score": "2–2",
-    "Away xG": "1.2",
-    "Away": "Bournemouth",
-    "Venue": "Stamford Bridge"
+    "Score": "2-2",
+    "Away": "Bournemouth"
   },
   {
-    "Wk": "21",
-    "Day": "Tue",
+    "Wk": 21,
     "Date": "2025-01-14",
     "Time": "20:00",
     "Home": "Nott'ham Forest",
-    "Home xG": "0.3",
-    "Score": "1–1",
-    "Away xG": "2.0",
-    "Away": "Liverpool",
-    "Venue": "The City Ground"
+    "Score": "1-1",
+    "Away": "Liverpool"
   },
   {
-    "Wk": "21",
-    "Day": "Wed",
+    "Wk": 21,
     "Date": "2025-01-15",
     "Time": "19:30",
     "Home": "Everton",
-    "Home xG": "1.1",
-    "Score": "0–1",
-    "Away xG": "1.2",
-    "Away": "Aston Villa",
-    "Venue": "Goodison Park"
+    "Score": "0-1",
+    "Away": "Aston Villa"
   },
   {
-    "Wk": "21",
-    "Day": "Wed",
+    "Wk": 21,
     "Date": "2025-01-15",
     "Time": "19:30",
     "Home": "Newcastle Utd",
-    "Home xG": "2.1",
-    "Score": "3–0",
-    "Away xG": "1.6",
-    "Away": "Wolves",
-    "Venue": "St James' Park"
+    "Score": "3-0",
+    "Away": "Wolves"
   },
   {
-    "Wk": "21",
-    "Day": "Wed",
+    "Wk": 21,
     "Date": "2025-01-15",
     "Time": "19:30",
     "Home": "Leicester City",
-    "Home xG": "1.7",
-    "Score": "0–2",
-    "Away xG": "1.8",
-    "Away": "Crystal Palace",
-    "Venue": "King Power Stadium"
+    "Score": "0-2",
+    "Away": "Crystal Palace"
   },
   {
-    "Wk": "21",
-    "Day": "Wed",
+    "Wk": 21,
     "Date": "2025-01-15",
     "Time": "20:00",
     "Home": "Arsenal",
-    "Home xG": "1.4",
-    "Score": "2–1",
-    "Away xG": "0.8",
-    "Away": "Tottenham",
-    "Venue": "Emirates Stadium"
+    "Score": "2-1",
+    "Away": "Tottenham"
   },
   {
-    "Wk": "21",
-    "Day": "Thu",
+    "Wk": 21,
     "Date": "2025-01-16",
     "Time": "19:30",
     "Home": "Ipswich Town",
-    "Home xG": "0.3",
-    "Score": "0–2",
-    "Away xG": "1.0",
-    "Away": "Brighton",
-    "Venue": "Portman Road Stadium"
+    "Score": "0-2",
+    "Away": "Brighton"
   },
   {
-    "Wk": "21",
-    "Day": "Thu",
+    "Wk": 21,
     "Date": "2025-01-16",
     "Time": "20:00",
     "Home": "Manchester Utd",
-    "Home xG": "3.4",
-    "Score": "3–1",
-    "Away xG": "1.4",
-    "Away": "Southampton",
-    "Venue": "Old Trafford"
+    "Score": "3-1",
+    "Away": "Southampton"
   },
   {
-    "Wk": "22",
-    "Day": "Sat",
+    "Wk": 22,
     "Date": "2025-01-18",
     "Time": "12:30",
     "Home": "Newcastle Utd",
-    "Home xG": "0.8",
-    "Score": "1–4",
-    "Away xG": "2.0",
-    "Away": "Bournemouth",
-    "Venue": "St James' Park"
+    "Score": "1-4",
+    "Away": "Bournemouth"
   },
   {
-    "Wk": "22",
-    "Day": "Sat",
+    "Wk": 22,
     "Date": "2025-01-18",
     "Time": "15:00",
     "Home": "West Ham",
-    "Home xG": "0.3",
-    "Score": "0–2",
-    "Away xG": "1.3",
-    "Away": "Crystal Palace",
-    "Venue": "London Stadium"
+    "Score": "0-2",
+    "Away": "Crystal Palace"
   },
   {
-    "Wk": "22",
-    "Day": "Sat",
+    "Wk": 22,
     "Date": "2025-01-18",
     "Time": "15:00",
     "Home": "Brentford",
-    "Home xG": "0.7",
-    "Score": "0–2",
-    "Away xG": "3.4",
-    "Away": "Liverpool",
-    "Venue": "Gtech Community Stadium"
+    "Score": "0-2",
+    "Away": "Liverpool"
   },
   {
-    "Wk": "22",
-    "Day": "Sat",
+    "Wk": 22,
     "Date": "2025-01-18",
     "Time": "15:00",
     "Home": "Leicester City",
-    "Home xG": "0.6",
-    "Score": "0–2",
-    "Away xG": "2.0",
-    "Away": "Fulham",
-    "Venue": "King Power Stadium"
+    "Score": "0-2",
+    "Away": "Fulham"
   },
   {
-    "Wk": "22",
-    "Day": "Sat",
+    "Wk": 22,
     "Date": "2025-01-18",
     "Time": "17:30",
     "Home": "Arsenal",
-    "Home xG": "1.3",
-    "Score": "2–2",
-    "Away xG": "1.0",
-    "Away": "Aston Villa",
-    "Venue": "Emirates Stadium"
+    "Score": "2-2",
+    "Away": "Aston Villa"
   },
   {
-    "Wk": "22",
-    "Day": "Sun",
+    "Wk": 22,
     "Date": "2025-01-19",
     "Time": "14:00",
     "Home": "Manchester Utd",
-    "Home xG": "1.5",
-    "Score": "1–3",
-    "Away xG": "1.9",
-    "Away": "Brighton",
-    "Venue": "Old Trafford"
+    "Score": "1-3",
+    "Away": "Brighton"
   },
   {
-    "Wk": "22",
-    "Day": "Sun",
+    "Wk": 22,
     "Date": "2025-01-19",
     "Time": "14:00",
     "Home": "Nott'ham Forest",
-    "Home xG": "1.8",
-    "Score": "3–2",
-    "Away xG": "0.9",
-    "Away": "Southampton",
-    "Venue": "The City Ground"
+    "Score": "3-2",
+    "Away": "Southampton"
   },
   {
-    "Wk": "22",
-    "Day": "Sun",
+    "Wk": 22,
     "Date": "2025-01-19",
     "Time": "14:00",
     "Home": "Everton",
-    "Home xG": "1.8",
-    "Score": "3–2",
-    "Away xG": "1.1",
-    "Away": "Tottenham",
-    "Venue": "Goodison Park"
+    "Score": "3-2",
+    "Away": "Tottenham"
   },
   {
-    "Wk": "22",
-    "Day": "Sun",
+    "Wk": 22,
     "Date": "2025-01-19",
     "Time": "16:30",
     "Home": "Ipswich Town",
-    "Home xG": "0.5",
-    "Score": "0–6",
-    "Away xG": "3.0",
-    "Away": "Manchester City",
-    "Venue": "Portman Road Stadium"
+    "Score": "0-6",
+    "Away": "Manchester City"
   },
   {
-    "Wk": "22",
-    "Day": "Mon",
+    "Wk": 22,
     "Date": "2025-01-20",
     "Time": "20:00",
     "Home": "Chelsea",
-    "Home xG": "3.1",
-    "Score": "3–1",
-    "Away xG": "0.8",
-    "Away": "Wolves",
-    "Venue": "Stamford Bridge"
+    "Score": "3-1",
+    "Away": "Wolves"
   },
   {
-    "Wk": "23",
-    "Day": "Sat",
+    "Wk": 23,
     "Date": "2025-01-25",
     "Time": "15:00",
     "Home": "Wolves",
-    "Home xG": "0.7",
-    "Score": "0–1",
-    "Away xG": "1.0",
-    "Away": "Arsenal",
-    "Venue": "Molineux Stadium"
+    "Score": "0-1",
+    "Away": "Arsenal"
   },
   {
-    "Wk": "23",
-    "Day": "Sat",
+    "Wk": 23,
     "Date": "2025-01-25",
     "Time": "15:00",
     "Home": "Southampton",
-    "Home xG": "0.8",
-    "Score": "1–3",
-    "Away xG": "2.9",
-    "Away": "Newcastle Utd",
-    "Venue": "St Mary's Stadium"
+    "Score": "1-3",
+    "Away": "Newcastle Utd"
   },
   {
-    "Wk": "23",
-    "Day": "Sat",
+    "Wk": 23,
     "Date": "2025-01-25",
     "Time": "15:00",
     "Home": "Brighton",
-    "Home xG": "0.7",
-    "Score": "0–1",
-    "Away xG": "0.8",
-    "Away": "Everton",
-    "Venue": "The American Express Stadium"
+    "Score": "0-1",
+    "Away": "Everton"
   },
   {
-    "Wk": "23",
-    "Day": "Sat",
+    "Wk": 23,
     "Date": "2025-01-25",
     "Time": "15:00",
     "Home": "Liverpool",
-    "Home xG": "2.0",
-    "Score": "4–1",
-    "Away xG": "0.5",
-    "Away": "Ipswich Town",
-    "Venue": "Anfield"
+    "Score": "4-1",
+    "Away": "Ipswich Town"
   },
   {
-    "Wk": "23",
-    "Day": "Sat",
+    "Wk": 23,
     "Date": "2025-01-25",
     "Time": "15:00",
     "Home": "Bournemouth",
-    "Home xG": "1.7",
-    "Score": "5–0",
-    "Away xG": "1.0",
-    "Away": "Nott'ham Forest",
-    "Venue": "Vitality Stadium"
+    "Score": "5-0",
+    "Away": "Nott'ham Forest"
   },
   {
-    "Wk": "23",
-    "Day": "Sat",
+    "Wk": 23,
     "Date": "2025-01-25",
     "Time": "17:30",
     "Home": "Manchester City",
-    "Home xG": "2.2",
-    "Score": "3–1",
-    "Away xG": "1.8",
-    "Away": "Chelsea",
-    "Venue": "Etihad Stadium"
+    "Score": "3-1",
+    "Away": "Chelsea"
   },
   {
-    "Wk": "23",
-    "Day": "Sun",
+    "Wk": 23,
     "Date": "2025-01-26",
     "Time": "14:00",
     "Home": "Crystal Palace",
-    "Home xG": "1.1",
-    "Score": "1–2",
-    "Away xG": "1.3",
-    "Away": "Brentford",
-    "Venue": "Selhurst Park"
+    "Score": "1-2",
+    "Away": "Brentford"
   },
   {
-    "Wk": "23",
-    "Day": "Sun",
+    "Wk": 23,
     "Date": "2025-01-26",
     "Time": "14:00",
     "Home": "Tottenham",
-    "Home xG": "1.0",
-    "Score": "1–2",
-    "Away xG": "1.6",
-    "Away": "Leicester City",
-    "Venue": "Tottenham Hotspur Stadium"
+    "Score": "1-2",
+    "Away": "Leicester City"
   },
   {
-    "Wk": "23",
-    "Day": "Sun",
+    "Wk": 23,
     "Date": "2025-01-26",
     "Time": "16:30",
     "Home": "Aston Villa",
-    "Home xG": "0.9",
-    "Score": "1–1",
-    "Away xG": "1.3",
-    "Away": "West Ham",
-    "Venue": "Villa Park"
+    "Score": "1-1",
+    "Away": "West Ham"
   },
   {
-    "Wk": "23",
-    "Day": "Sun",
+    "Wk": 23,
     "Date": "2025-01-26",
     "Time": "19:00",
     "Home": "Fulham",
-    "Home xG": "0.7",
-    "Score": "0–1",
-    "Away xG": "0.3",
-    "Away": "Manchester Utd",
-    "Venue": "Craven Cottage"
+    "Score": "0-1",
+    "Away": "Manchester Utd"
   },
   {
-    "Wk": "24",
-    "Day": "Sat",
+    "Wk": 24,
     "Date": "2025-02-01",
     "Time": "12:30",
     "Home": "Nott'ham Forest",
-    "Home xG": "3.3",
-    "Score": "7–0",
-    "Away xG": "0.9",
-    "Away": "Brighton",
-    "Venue": "The City Ground"
+    "Score": "7-0",
+    "Away": "Brighton"
   },
   {
-    "Wk": "24",
-    "Day": "Sat",
+    "Wk": 24,
     "Date": "2025-02-01",
     "Time": "15:00",
     "Home": "Ipswich Town",
-    "Home xG": "1.8",
-    "Score": "1–2",
-    "Away xG": "0.9",
-    "Away": "Southampton",
-    "Venue": "Portman Road Stadium"
+    "Score": "1-2",
+    "Away": "Southampton"
   },
   {
-    "Wk": "24",
-    "Day": "Sat",
+    "Wk": 24,
     "Date": "2025-02-01",
     "Time": "15:00",
     "Home": "Everton",
-    "Home xG": "2.5",
-    "Score": "4–0",
-    "Away xG": "0.3",
-    "Away": "Leicester City",
-    "Venue": "Goodison Park"
+    "Score": "4-0",
+    "Away": "Leicester City"
   },
   {
-    "Wk": "24",
-    "Day": "Sat",
+    "Wk": 24,
     "Date": "2025-02-01",
     "Time": "15:00",
     "Home": "Newcastle Utd",
-    "Home xG": "0.8",
-    "Score": "1–2",
-    "Away xG": "1.6",
-    "Away": "Fulham",
-    "Venue": "St James' Park"
+    "Score": "1-2",
+    "Away": "Fulham"
   },
   {
-    "Wk": "24",
-    "Day": "Sat",
+    "Wk": 24,
     "Date": "2025-02-01",
     "Time": "15:00",
     "Home": "Bournemouth",
-    "Home xG": "1.6",
-    "Score": "0–2",
-    "Away xG": "2.5",
-    "Away": "Liverpool",
-    "Venue": "Vitality Stadium"
+    "Score": "0-2",
+    "Away": "Liverpool"
   },
   {
-    "Wk": "24",
-    "Day": "Sat",
+    "Wk": 24,
     "Date": "2025-02-01",
     "Time": "17:30",
     "Home": "Wolves",
-    "Home xG": "1.6",
-    "Score": "2–0",
-    "Away xG": "0.4",
-    "Away": "Aston Villa",
-    "Venue": "Molineux Stadium"
+    "Score": "2-0",
+    "Away": "Aston Villa"
   },
   {
-    "Wk": "24",
-    "Day": "Sun",
+    "Wk": 24,
     "Date": "2025-02-02",
     "Time": "14:00",
     "Home": "Brentford",
-    "Home xG": "2.1",
-    "Score": "0–2",
-    "Away xG": "0.8",
-    "Away": "Tottenham",
-    "Venue": "Gtech Community Stadium"
+    "Score": "0-2",
+    "Away": "Tottenham"
   },
   {
-    "Wk": "24",
-    "Day": "Sun",
+    "Wk": 24,
     "Date": "2025-02-02",
     "Time": "14:00",
     "Home": "Manchester Utd",
-    "Home xG": "1.1",
-    "Score": "0–2",
-    "Away xG": "2.6",
-    "Away": "Crystal Palace",
-    "Venue": "Old Trafford"
+    "Score": "0-2",
+    "Away": "Crystal Palace"
   },
   {
-    "Wk": "24",
-    "Day": "Sun",
+    "Wk": 24,
     "Date": "2025-02-02",
     "Time": "16:30",
     "Home": "Arsenal",
-    "Home xG": "1.0",
-    "Score": "5–1",
-    "Away xG": "0.8",
-    "Away": "Manchester City",
-    "Venue": "Emirates Stadium"
+    "Score": "5-1",
+    "Away": "Manchester City"
   },
   {
-    "Wk": "24",
-    "Day": "Mon",
+    "Wk": 24,
     "Date": "2025-02-03",
     "Time": "20:00",
     "Home": "Chelsea",
-    "Home xG": "1.6",
-    "Score": "2–1",
-    "Away xG": "1.2",
-    "Away": "West Ham",
-    "Venue": "Stamford Bridge"
+    "Score": "2-1",
+    "Away": "West Ham"
   },
   {
-    "Wk": "15",
-    "Day": "Wed",
+    "Wk": 15,
     "Date": "2025-02-12",
     "Time": "19:30",
     "Home": "Everton",
-    "Home xG": "1.0",
-    "Score": "2–2",
-    "Away xG": "0.6",
-    "Away": "Liverpool",
-    "Venue": "Goodison Park"
+    "Score": "2-2",
+    "Away": "Liverpool"
   },
   {
-    "Wk": "25",
-    "Day": "Fri",
+    "Wk": 25,
     "Date": "2025-02-14",
     "Time": "20:00",
     "Home": "Brighton",
-    "Home xG": "1.4",
-    "Score": "3–0",
-    "Away xG": "0.5",
-    "Away": "Chelsea",
-    "Venue": "The American Express Stadium"
+    "Score": "3-0",
+    "Away": "Chelsea"
   },
   {
-    "Wk": "25",
-    "Day": "Sat",
+    "Wk": 25,
     "Date": "2025-02-15",
     "Time": "12:30",
     "Home": "Leicester City",
-    "Home xG": "0.2",
-    "Score": "0–2",
-    "Away xG": "1.4",
-    "Away": "Arsenal",
-    "Venue": "King Power Stadium"
+    "Score": "0-2",
+    "Away": "Arsenal"
   },
   {
-    "Wk": "25",
-    "Day": "Sat",
+    "Wk": 25,
     "Date": "2025-02-15",
     "Time": "15:00",
     "Home": "Aston Villa",
-    "Home xG": "2.4",
-    "Score": "1–1",
-    "Away xG": "0.4",
-    "Away": "Ipswich Town",
-    "Venue": "Villa Park"
+    "Score": "1-1",
+    "Away": "Ipswich Town"
   },
   {
-    "Wk": "25",
-    "Day": "Sat",
+    "Wk": 25,
     "Date": "2025-02-15",
     "Time": "15:00",
     "Home": "Fulham",
-    "Home xG": "2.1",
-    "Score": "2–1",
-    "Away xG": "0.4",
-    "Away": "Nott'ham Forest",
-    "Venue": "Craven Cottage"
+    "Score": "2-1",
+    "Away": "Nott'ham Forest"
   },
   {
-    "Wk": "25",
-    "Day": "Sat",
+    "Wk": 25,
     "Date": "2025-02-15",
     "Time": "15:00",
     "Home": "West Ham",
-    "Home xG": "0.8",
-    "Score": "0–1",
-    "Away xG": "1.6",
-    "Away": "Brentford",
-    "Venue": "London Stadium"
+    "Score": "0-1",
+    "Away": "Brentford"
   },
   {
-    "Wk": "25",
-    "Day": "Sat",
+    "Wk": 25,
     "Date": "2025-02-15",
     "Time": "15:00",
     "Home": "Manchester City",
-    "Home xG": "1.9",
-    "Score": "4–0",
-    "Away xG": "0.5",
-    "Away": "Newcastle Utd",
-    "Venue": "Etihad Stadium"
+    "Score": "4-0",
+    "Away": "Newcastle Utd"
   },
   {
-    "Wk": "25",
-    "Day": "Sat",
+    "Wk": 25,
     "Date": "2025-02-15",
     "Time": "15:00",
     "Home": "Southampton",
-    "Home xG": "0.8",
-    "Score": "1–3",
-    "Away xG": "1.2",
-    "Away": "Bournemouth",
-    "Venue": "St Mary's Stadium"
+    "Score": "1-3",
+    "Away": "Bournemouth"
   },
   {
-    "Wk": "25",
-    "Day": "Sat",
+    "Wk": 25,
     "Date": "2025-02-15",
     "Time": "17:30",
     "Home": "Crystal Palace",
-    "Home xG": "1.6",
-    "Score": "1–2",
-    "Away xG": "0.9",
-    "Away": "Everton",
-    "Venue": "Selhurst Park"
+    "Score": "1-2",
+    "Away": "Everton"
   },
   {
-    "Wk": "25",
-    "Day": "Sun",
+    "Wk": 25,
     "Date": "2025-02-16",
     "Time": "14:00",
     "Home": "Liverpool",
-    "Home xG": "1.7",
-    "Score": "2–1",
-    "Away xG": "1.5",
-    "Away": "Wolves",
-    "Venue": "Anfield"
+    "Score": "2-1",
+    "Away": "Wolves"
   },
   {
-    "Wk": "25",
-    "Day": "Sun",
+    "Wk": 25,
     "Date": "2025-02-16",
     "Time": "16:30",
     "Home": "Tottenham",
-    "Home xG": "2.2",
-    "Score": "1–0",
-    "Away xG": "1.5",
-    "Away": "Manchester Utd",
-    "Venue": "Tottenham Hotspur Stadium"
+    "Score": "1-0",
+    "Away": "Manchester Utd"
   },
   {
-    "Wk": "29",
-    "Day": "Wed",
+    "Wk": 29,
     "Date": "2025-02-19",
     "Time": "19:30",
     "Home": "Aston Villa",
-    "Home xG": "0.6",
-    "Score": "2–2",
-    "Away xG": "2.5",
-    "Away": "Liverpool",
-    "Venue": "Villa Park"
+    "Score": "2-2",
+    "Away": "Liverpool"
   },
   {
-    "Wk": "26",
-    "Day": "Fri",
+    "Wk": 26,
     "Date": "2025-02-21",
     "Time": "20:00",
     "Home": "Leicester City",
-    "Home xG": "0.5",
-    "Score": "0–4",
-    "Away xG": "1.5",
-    "Away": "Brentford",
-    "Venue": "King Power Stadium"
+    "Score": "0-4",
+    "Away": "Brentford"
   },
   {
-    "Wk": "26",
-    "Day": "Sat",
+    "Wk": 26,
     "Date": "2025-02-22",
     "Time": "12:30",
     "Home": "Everton",
-    "Home xG": "1.6",
-    "Score": "2–2",
-    "Away xG": "0.4",
-    "Away": "Manchester Utd",
-    "Venue": "Goodison Park"
+    "Score": "2-2",
+    "Away": "Manchester Utd"
   },
   {
-    "Wk": "26",
-    "Day": "Sat",
+    "Wk": 26,
     "Date": "2025-02-22",
     "Time": "15:00",
     "Home": "Fulham",
-    "Home xG": "0.2",
-    "Score": "0–2",
-    "Away xG": "1.3",
-    "Away": "Crystal Palace",
-    "Venue": "Craven Cottage"
+    "Score": "0-2",
+    "Away": "Crystal Palace"
   },
   {
-    "Wk": "26",
-    "Day": "Sat",
+    "Wk": 26,
     "Date": "2025-02-22",
     "Time": "15:00",
     "Home": "Ipswich Town",
-    "Home xG": "1.1",
-    "Score": "1–4",
-    "Away xG": "1.7",
-    "Away": "Tottenham",
-    "Venue": "Portman Road Stadium"
+    "Score": "1-4",
+    "Away": "Tottenham"
   },
   {
-    "Wk": "26",
-    "Day": "Sat",
+    "Wk": 26,
     "Date": "2025-02-22",
     "Time": "15:00",
     "Home": "Bournemouth",
-    "Home xG": "0.9",
-    "Score": "0–1",
-    "Away xG": "2.0",
-    "Away": "Wolves",
-    "Venue": "Vitality Stadium"
+    "Score": "0-1",
+    "Away": "Wolves"
   },
   {
-    "Wk": "26",
-    "Day": "Sat",
+    "Wk": 26,
     "Date": "2025-02-22",
     "Time": "15:00",
     "Home": "Arsenal",
-    "Home xG": "1.2",
-    "Score": "0–1",
-    "Away xG": "1.1",
-    "Away": "West Ham",
-    "Venue": "Emirates Stadium"
+    "Score": "0-1",
+    "Away": "West Ham"
   },
   {
-    "Wk": "26",
-    "Day": "Sat",
+    "Wk": 26,
     "Date": "2025-02-22",
     "Time": "15:00",
     "Home": "Southampton",
-    "Home xG": "0.1",
-    "Score": "0–4",
-    "Away xG": "3.9",
-    "Away": "Brighton",
-    "Venue": "St Mary's Stadium"
+    "Score": "0-4",
+    "Away": "Brighton"
   },
   {
-    "Wk": "26",
-    "Day": "Sat",
+    "Wk": 26,
     "Date": "2025-02-22",
     "Time": "17:30",
     "Home": "Aston Villa",
-    "Home xG": "2.3",
-    "Score": "2–1",
-    "Away xG": "2.3",
-    "Away": "Chelsea",
-    "Venue": "Villa Park"
+    "Score": "2-1",
+    "Away": "Chelsea"
   },
   {
-    "Wk": "26",
-    "Day": "Sun",
+    "Wk": 26,
     "Date": "2025-02-23",
     "Time": "14:00",
     "Home": "Newcastle Utd",
-    "Home xG": "2.9",
-    "Score": "4–3",
-    "Away xG": "1.7",
-    "Away": "Nott'ham Forest",
-    "Venue": "St James' Park"
+    "Score": "4-3",
+    "Away": "Nott'ham Forest"
   },
   {
-    "Wk": "26",
-    "Day": "Sun",
+    "Wk": 26,
     "Date": "2025-02-23",
     "Time": "16:30",
     "Home": "Manchester City",
-    "Home xG": "0.6",
-    "Score": "0–2",
-    "Away xG": "0.7",
-    "Away": "Liverpool",
-    "Venue": "Etihad Stadium"
+    "Score": "0-2",
+    "Away": "Liverpool"
   },
   {
-    "Wk": "27",
-    "Day": "Tue",
+    "Wk": 27,
     "Date": "2025-02-25",
     "Time": "19:30",
     "Home": "Crystal Palace",
-    "Home xG": "4.3",
-    "Score": "4–1",
-    "Away xG": "0.4",
-    "Away": "Aston Villa",
-    "Venue": "Selhurst Park"
+    "Score": "4-1",
+    "Away": "Aston Villa"
   },
   {
-    "Wk": "27",
-    "Day": "Tue",
+    "Wk": 27,
     "Date": "2025-02-25",
     "Time": "19:30",
     "Home": "Wolves",
-    "Home xG": "1.3",
-    "Score": "1–2",
-    "Away xG": "1.7",
-    "Away": "Fulham",
-    "Venue": "Molineux Stadium"
+    "Score": "1-2",
+    "Away": "Fulham"
   },
   {
-    "Wk": "27",
-    "Day": "Tue",
+    "Wk": 27,
     "Date": "2025-02-25",
     "Time": "19:30",
     "Home": "Brighton",
-    "Home xG": "2.4",
-    "Score": "2–1",
-    "Away xG": "1.5",
-    "Away": "Bournemouth",
-    "Venue": "The American Express Stadium"
+    "Score": "2-1",
+    "Away": "Bournemouth"
   },
   {
-    "Wk": "27",
-    "Day": "Tue",
+    "Wk": 27,
     "Date": "2025-02-25",
     "Time": "20:15",
     "Home": "Chelsea",
-    "Home xG": "2.4",
-    "Score": "4–0",
-    "Away xG": "0.7",
-    "Away": "Southampton",
-    "Venue": "Stamford Bridge"
+    "Score": "4-0",
+    "Away": "Southampton"
   },
   {
-    "Wk": "27",
-    "Day": "Wed",
+    "Wk": 27,
     "Date": "2025-02-26",
     "Time": "19:30",
     "Home": "Brentford",
-    "Home xG": "1.4",
-    "Score": "1–1",
-    "Away xG": "1.5",
-    "Away": "Everton",
-    "Venue": "Gtech Community Stadium"
+    "Score": "1-1",
+    "Away": "Everton"
   },
   {
-    "Wk": "27",
-    "Day": "Wed",
+    "Wk": 27,
     "Date": "2025-02-26",
     "Time": "19:30",
     "Home": "Tottenham",
-    "Home xG": "1.3",
-    "Score": "0–1",
-    "Away xG": "2.1",
-    "Away": "Manchester City",
-    "Venue": "Tottenham Hotspur Stadium"
+    "Score": "0-1",
+    "Away": "Manchester City"
   },
   {
-    "Wk": "27",
-    "Day": "Wed",
+    "Wk": 27,
     "Date": "2025-02-26",
     "Time": "19:30",
     "Home": "Manchester Utd",
-    "Home xG": "0.7",
-    "Score": "3–2",
-    "Away xG": "1.4",
-    "Away": "Ipswich Town",
-    "Venue": "Old Trafford"
+    "Score": "3-2",
+    "Away": "Ipswich Town"
   },
   {
-    "Wk": "27",
-    "Day": "Wed",
+    "Wk": 27,
     "Date": "2025-02-26",
     "Time": "19:30",
     "Home": "Nott'ham Forest",
-    "Home xG": "0.4",
-    "Score": "0–0",
-    "Away xG": "1.0",
-    "Away": "Arsenal",
-    "Venue": "The City Ground"
+    "Score": "0-0",
+    "Away": "Arsenal"
   },
   {
-    "Wk": "27",
-    "Day": "Wed",
+    "Wk": 27,
     "Date": "2025-02-26",
     "Time": "20:15",
     "Home": "Liverpool",
-    "Home xG": "1.7",
-    "Score": "2–0",
-    "Away xG": "0.2",
-    "Away": "Newcastle Utd",
-    "Venue": "Anfield"
+    "Score": "2-0",
+    "Away": "Newcastle Utd"
   },
   {
-    "Wk": "27",
-    "Day": "Thu",
+    "Wk": 27,
     "Date": "2025-02-27",
     "Time": "20:00",
     "Home": "West Ham",
-    "Home xG": "1.3",
-    "Score": "2–0",
-    "Away xG": "0.4",
-    "Away": "Leicester City",
-    "Venue": "London Stadium"
+    "Score": "2-0",
+    "Away": "Leicester City"
   },
   {
-    "Wk": "28",
-    "Day": "Sat",
+    "Wk": 28,
     "Date": "2025-03-08",
     "Time": "12:30",
     "Home": "Nott'ham Forest",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Manchester City",
-    "Venue": "The City Ground"
+    "Away": "Manchester City"
   },
   {
-    "Wk": "28",
-    "Day": "Sat",
+    "Wk": 28,
     "Date": "2025-03-08",
     "Time": "15:00",
     "Home": "Liverpool",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Southampton",
-    "Venue": "Anfield"
+    "Away": "Southampton"
   },
   {
-    "Wk": "28",
-    "Day": "Sat",
+    "Wk": 28,
     "Date": "2025-03-08",
     "Time": "15:00",
     "Home": "Crystal Palace",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Ipswich Town",
-    "Venue": "Selhurst Park"
+    "Away": "Ipswich Town"
   },
   {
-    "Wk": "28",
-    "Day": "Sat",
+    "Wk": 28,
     "Date": "2025-03-08",
     "Time": "15:00",
     "Home": "Brighton",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Fulham",
-    "Venue": "The American Express Stadium"
+    "Away": "Fulham"
   },
   {
-    "Wk": "28",
-    "Day": "Sat",
+    "Wk": 28,
     "Date": "2025-03-08",
     "Time": "17:30",
     "Home": "Brentford",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Aston Villa",
-    "Venue": "Gtech Community Stadium"
+    "Away": "Aston Villa"
   },
   {
-    "Wk": "28",
-    "Day": "Sat",
+    "Wk": 28,
     "Date": "2025-03-08",
     "Time": "20:00",
     "Home": "Wolves",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Everton",
-    "Venue": "Molineux Stadium"
+    "Away": "Everton"
   },
   {
-    "Wk": "28",
-    "Day": "Sun",
+    "Wk": 28,
     "Date": "2025-03-09",
     "Time": "14:00",
     "Home": "Chelsea",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Leicester City",
-    "Venue": "Stamford Bridge"
+    "Away": "Leicester City"
   },
   {
-    "Wk": "28",
-    "Day": "Sun",
+    "Wk": 28,
     "Date": "2025-03-09",
     "Time": "14:00",
     "Home": "Tottenham",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Bournemouth",
-    "Venue": "Tottenham Hotspur Stadium"
+    "Away": "Bournemouth"
   },
   {
-    "Wk": "28",
-    "Day": "Sun",
+    "Wk": 28,
     "Date": "2025-03-09",
     "Time": "16:30",
     "Home": "Manchester Utd",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Arsenal",
-    "Venue": "Old Trafford"
+    "Away": "Arsenal"
   },
   {
-    "Wk": "28",
-    "Day": "Mon",
+    "Wk": 28,
     "Date": "2025-03-10",
     "Time": "20:00",
     "Home": "West Ham",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Newcastle Utd",
-    "Venue": "London Stadium"
+    "Away": "Newcastle Utd"
   },
   {
-    "Wk": "29",
-    "Day": "Sat",
+    "Wk": 29,
     "Date": "2025-03-15",
     "Time": "15:00",
     "Home": "Manchester City",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Brighton",
-    "Venue": "Etihad Stadium"
+    "Away": "Brighton"
   },
   {
-    "Wk": "29",
-    "Day": "Sat",
+    "Wk": 29,
     "Date": "2025-03-15",
     "Time": "15:00",
     "Home": "Ipswich Town",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Nott'ham Forest",
-    "Venue": "Portman Road Stadium"
+    "Away": "Nott'ham Forest"
   },
   {
-    "Wk": "29",
-    "Day": "Sat",
+    "Wk": 29,
     "Date": "2025-03-15",
     "Time": "15:00",
     "Home": "Everton",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "West Ham",
-    "Venue": "Goodison Park"
+    "Away": "West Ham"
   },
   {
-    "Wk": "29",
-    "Day": "Sat",
+    "Wk": 29,
     "Date": "2025-03-15",
     "Time": "15:00",
     "Home": "Southampton",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Wolves",
-    "Venue": "St Mary's Stadium"
+    "Away": "Wolves"
   },
   {
-    "Wk": "29",
-    "Day": "Sat",
+    "Wk": 29,
     "Date": "2025-03-15",
     "Time": "17:30",
     "Home": "Bournemouth",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Brentford",
-    "Venue": "Vitality Stadium"
+    "Away": "Brentford"
   },
   {
-    "Wk": "29",
-    "Day": "Sun",
+    "Wk": 29,
     "Date": "2025-03-16",
     "Time": "13:30",
     "Home": "Arsenal",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Chelsea",
-    "Venue": "Emirates Stadium"
+    "Away": "Chelsea"
   },
   {
-    "Wk": "29",
-    "Day": "Sun",
+    "Wk": 29,
     "Date": "2025-03-16",
     "Time": "13:30",
     "Home": "Fulham",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Tottenham",
-    "Venue": "Craven Cottage"
+    "Away": "Tottenham"
   },
   {
-    "Wk": "29",
-    "Day": "Sun",
+    "Wk": 29,
     "Date": "2025-03-16",
     "Time": "19:00",
     "Home": "Leicester City",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Manchester Utd",
-    "Venue": "King Power Stadium"
+    "Away": "Manchester Utd"
   },
   {
-    "Wk": "30",
-    "Day": "Tue",
+    "Wk": 30,
     "Date": "2025-04-01",
     "Time": "19:45",
     "Home": "Brighton",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Aston Villa",
-    "Venue": "The American Express Stadium"
+    "Away": "Aston Villa"
   },
   {
-    "Wk": "30",
-    "Day": "Tue",
+    "Wk": 30,
     "Date": "2025-04-01",
     "Time": "19:45",
     "Home": "Bournemouth",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Ipswich Town",
-    "Venue": "Vitality Stadium"
+    "Away": "Ipswich Town"
   },
   {
-    "Wk": "30",
-    "Day": "Tue",
+    "Wk": 30,
     "Date": "2025-04-01",
     "Time": "19:45",
     "Home": "Wolves",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "West Ham",
-    "Venue": "Molineux Stadium"
+    "Away": "West Ham"
   },
   {
-    "Wk": "30",
-    "Day": "Tue",
+    "Wk": 30,
     "Date": "2025-04-01",
     "Time": "19:45",
     "Home": "Arsenal",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Fulham",
-    "Venue": "Emirates Stadium"
+    "Away": "Fulham"
   },
   {
-    "Wk": "30",
-    "Day": "Tue",
+    "Wk": 30,
     "Date": "2025-04-01",
     "Time": "19:45",
     "Home": "Nott'ham Forest",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Manchester Utd",
-    "Venue": "The City Ground"
+    "Away": "Manchester Utd"
   },
   {
-    "Wk": "30",
-    "Day": "Wed",
+    "Wk": 30,
     "Date": "2025-04-02",
     "Time": "19:45",
     "Home": "Southampton",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Crystal Palace",
-    "Venue": "St Mary's Stadium"
+    "Away": "Crystal Palace"
   },
   {
-    "Wk": "30",
-    "Day": "Wed",
+    "Wk": 30,
     "Date": "2025-04-02",
     "Time": "19:45",
     "Home": "Chelsea",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Tottenham",
-    "Venue": "Stamford Bridge"
+    "Away": "Tottenham"
   },
   {
-    "Wk": "30",
-    "Day": "Wed",
+    "Wk": 30,
     "Date": "2025-04-02",
     "Time": "19:45",
     "Home": "Manchester City",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Leicester City",
-    "Venue": "Etihad Stadium"
+    "Away": "Leicester City"
   },
   {
-    "Wk": "30",
-    "Day": "Wed",
+    "Wk": 30,
     "Date": "2025-04-02",
     "Time": "19:45",
     "Home": "Newcastle Utd",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Brentford",
-    "Venue": "St James' Park"
+    "Away": "Brentford"
   },
   {
-    "Wk": "30",
-    "Day": "Wed",
+    "Wk": 30,
     "Date": "2025-04-02",
     "Time": "20:00",
     "Home": "Liverpool",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Everton",
-    "Venue": "Anfield"
+    "Away": "Everton"
   },
   {
-    "Wk": "31",
-    "Day": "Sat",
+    "Wk": 31,
     "Date": "2025-04-05",
     "Time": "15:00",
     "Home": "West Ham",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Bournemouth",
-    "Venue": "London Stadium"
+    "Away": "Bournemouth"
   },
   {
-    "Wk": "31",
-    "Day": "Sat",
+    "Wk": 31,
     "Date": "2025-04-05",
     "Time": "15:00",
     "Home": "Manchester Utd",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Manchester City",
-    "Venue": "Old Trafford"
+    "Away": "Manchester City"
   },
   {
-    "Wk": "31",
-    "Day": "Sat",
+    "Wk": 31,
     "Date": "2025-04-05",
     "Time": "15:00",
     "Home": "Brentford",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Chelsea",
-    "Venue": "Gtech Community Stadium"
+    "Away": "Chelsea"
   },
   {
-    "Wk": "31",
-    "Day": "Sat",
+    "Wk": 31,
     "Date": "2025-04-05",
     "Time": "15:00",
     "Home": "Aston Villa",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Nott'ham Forest",
-    "Venue": "Villa Park"
+    "Away": "Nott'ham Forest"
   },
   {
-    "Wk": "31",
-    "Day": "Sat",
+    "Wk": 31,
     "Date": "2025-04-05",
     "Time": "15:00",
     "Home": "Everton",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Arsenal",
-    "Venue": "Goodison Park"
+    "Away": "Arsenal"
   },
   {
-    "Wk": "31",
-    "Day": "Sat",
+    "Wk": 31,
     "Date": "2025-04-05",
     "Time": "15:00",
     "Home": "Fulham",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Liverpool",
-    "Venue": "Craven Cottage"
+    "Away": "Liverpool"
   },
   {
-    "Wk": "31",
-    "Day": "Sat",
+    "Wk": 31,
     "Date": "2025-04-05",
     "Time": "15:00",
     "Home": "Ipswich Town",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Wolves",
-    "Venue": "Portman Road Stadium"
+    "Away": "Wolves"
   },
   {
-    "Wk": "31",
-    "Day": "Sat",
+    "Wk": 31,
     "Date": "2025-04-05",
     "Time": "15:00",
     "Home": "Leicester City",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Newcastle Utd",
-    "Venue": "King Power Stadium"
+    "Away": "Newcastle Utd"
   },
   {
-    "Wk": "31",
-    "Day": "Sat",
+    "Wk": 31,
     "Date": "2025-04-05",
     "Time": "15:00",
     "Home": "Crystal Palace",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Brighton",
-    "Venue": "Selhurst Park"
+    "Away": "Brighton"
   },
   {
-    "Wk": "31",
-    "Day": "Sat",
+    "Wk": 31,
     "Date": "2025-04-05",
     "Time": "15:00",
     "Home": "Tottenham",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Southampton",
-    "Venue": "Tottenham Hotspur Stadium"
+    "Away": "Southampton"
   },
   {
-    "Wk": "32",
-    "Day": "Sat",
+    "Wk": 32,
     "Date": "2025-04-12",
     "Time": "15:00",
     "Home": "Bournemouth",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Fulham",
-    "Venue": "Vitality Stadium"
+    "Away": "Fulham"
   },
   {
-    "Wk": "32",
-    "Day": "Sat",
+    "Wk": 32,
     "Date": "2025-04-12",
     "Time": "15:00",
     "Home": "Newcastle Utd",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Manchester Utd",
-    "Venue": "St James' Park"
+    "Away": "Manchester Utd"
   },
   {
-    "Wk": "32",
-    "Day": "Sat",
+    "Wk": 32,
     "Date": "2025-04-12",
     "Time": "15:00",
     "Home": "Arsenal",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Brentford",
-    "Venue": "Emirates Stadium"
+    "Away": "Brentford"
   },
   {
-    "Wk": "32",
-    "Day": "Sat",
+    "Wk": 32,
     "Date": "2025-04-12",
     "Time": "15:00",
     "Home": "Liverpool",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "West Ham",
-    "Venue": "Anfield"
+    "Away": "West Ham"
   },
   {
-    "Wk": "32",
-    "Day": "Sat",
+    "Wk": 32,
     "Date": "2025-04-12",
     "Time": "15:00",
     "Home": "Wolves",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Tottenham",
-    "Venue": "Molineux Stadium"
+    "Away": "Tottenham"
   },
   {
-    "Wk": "32",
-    "Day": "Sat",
+    "Wk": 32,
     "Date": "2025-04-12",
     "Time": "15:00",
     "Home": "Brighton",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Leicester City",
-    "Venue": "The American Express Stadium"
+    "Away": "Leicester City"
   },
   {
-    "Wk": "32",
-    "Day": "Sat",
+    "Wk": 32,
     "Date": "2025-04-12",
     "Time": "15:00",
     "Home": "Manchester City",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Crystal Palace",
-    "Venue": "Etihad Stadium"
+    "Away": "Crystal Palace"
   },
   {
-    "Wk": "32",
-    "Day": "Sat",
+    "Wk": 32,
     "Date": "2025-04-12",
     "Time": "15:00",
     "Home": "Nott'ham Forest",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Everton",
-    "Venue": "The City Ground"
+    "Away": "Everton"
   },
   {
-    "Wk": "32",
-    "Day": "Sat",
+    "Wk": 32,
     "Date": "2025-04-12",
     "Time": "15:00",
     "Home": "Chelsea",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Ipswich Town",
-    "Venue": "Stamford Bridge"
+    "Away": "Ipswich Town"
   },
   {
-    "Wk": "32",
-    "Day": "Sat",
+    "Wk": 32,
     "Date": "2025-04-12",
     "Time": "15:00",
     "Home": "Southampton",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Aston Villa",
-    "Venue": "St Mary's Stadium"
+    "Away": "Aston Villa"
   },
   {
-    "Wk": "29",
-    "Day": "Wed",
+    "Wk": 29,
     "Date": "2025-04-16",
     "Time": "19:30",
     "Home": "Newcastle Utd",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Crystal Palace",
-    "Venue": "St James' Park"
+    "Away": "Crystal Palace"
   },
   {
-    "Wk": "33",
-    "Day": "Sat",
+    "Wk": 33,
     "Date": "2025-04-19",
     "Time": "15:00",
     "Home": "Leicester City",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Liverpool",
-    "Venue": "King Power Stadium"
+    "Away": "Liverpool"
   },
   {
-    "Wk": "33",
-    "Day": "Sat",
+    "Wk": 33,
     "Date": "2025-04-19",
     "Time": "15:00",
     "Home": "Ipswich Town",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Arsenal",
-    "Venue": "Portman Road Stadium"
+    "Away": "Arsenal"
   },
   {
-    "Wk": "33",
-    "Day": "Sat",
+    "Wk": 33,
     "Date": "2025-04-19",
     "Time": "15:00",
     "Home": "Brentford",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Brighton",
-    "Venue": "Gtech Community Stadium"
+    "Away": "Brighton"
   },
   {
-    "Wk": "33",
-    "Day": "Sat",
+    "Wk": 33,
     "Date": "2025-04-19",
     "Time": "15:00",
     "Home": "Aston Villa",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Newcastle Utd",
-    "Venue": "Villa Park"
+    "Away": "Newcastle Utd"
   },
   {
-    "Wk": "33",
-    "Day": "Sat",
+    "Wk": 33,
     "Date": "2025-04-19",
     "Time": "15:00",
     "Home": "Tottenham",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Nott'ham Forest",
-    "Venue": "Tottenham Hotspur Stadium"
+    "Away": "Nott'ham Forest"
   },
   {
-    "Wk": "33",
-    "Day": "Sat",
+    "Wk": 33,
     "Date": "2025-04-19",
     "Time": "15:00",
     "Home": "West Ham",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Southampton",
-    "Venue": "London Stadium"
+    "Away": "Southampton"
   },
   {
-    "Wk": "33",
-    "Day": "Sat",
+    "Wk": 33,
     "Date": "2025-04-19",
     "Time": "15:00",
     "Home": "Crystal Palace",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Bournemouth",
-    "Venue": "Selhurst Park"
+    "Away": "Bournemouth"
   },
   {
-    "Wk": "33",
-    "Day": "Sat",
+    "Wk": 33,
     "Date": "2025-04-19",
     "Time": "15:00",
     "Home": "Everton",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Manchester City",
-    "Venue": "Goodison Park"
+    "Away": "Manchester City"
   },
   {
-    "Wk": "33",
-    "Day": "Sat",
+    "Wk": 33,
     "Date": "2025-04-19",
     "Time": "15:00",
     "Home": "Fulham",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Chelsea",
-    "Venue": "Craven Cottage"
+    "Away": "Chelsea"
   },
   {
-    "Wk": "33",
-    "Day": "Sat",
+    "Wk": 33,
     "Date": "2025-04-19",
     "Time": "15:00",
     "Home": "Manchester Utd",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Wolves",
-    "Venue": "Old Trafford"
+    "Away": "Wolves"
   },
   {
-    "Wk": "34",
-    "Day": "Sat",
+    "Wk": 34,
     "Date": "2025-04-26",
     "Time": "15:00",
     "Home": "Chelsea",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Everton",
-    "Venue": "Stamford Bridge"
+    "Away": "Everton"
   },
   {
-    "Wk": "34",
-    "Day": "Sat",
+    "Wk": 34,
     "Date": "2025-04-26",
     "Time": "15:00",
     "Home": "Wolves",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Leicester City",
-    "Venue": "Molineux Stadium"
+    "Away": "Leicester City"
   },
   {
-    "Wk": "34",
-    "Day": "Sat",
+    "Wk": 34,
     "Date": "2025-04-26",
     "Time": "15:00",
     "Home": "Newcastle Utd",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Ipswich Town",
-    "Venue": "St James' Park"
+    "Away": "Ipswich Town"
   },
   {
-    "Wk": "34",
-    "Day": "Sat",
+    "Wk": 34,
     "Date": "2025-04-26",
     "Time": "15:00",
     "Home": "Manchester City",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Aston Villa",
-    "Venue": "Etihad Stadium"
+    "Away": "Aston Villa"
   },
   {
-    "Wk": "34",
-    "Day": "Sat",
+    "Wk": 34,
     "Date": "2025-04-26",
     "Time": "15:00",
     "Home": "Liverpool",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Tottenham",
-    "Venue": "Anfield"
+    "Away": "Tottenham"
   },
   {
-    "Wk": "34",
-    "Day": "Sat",
+    "Wk": 34,
     "Date": "2025-04-26",
     "Time": "15:00",
     "Home": "Arsenal",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Crystal Palace",
-    "Venue": "Emirates Stadium"
+    "Away": "Crystal Palace"
   },
   {
-    "Wk": "34",
-    "Day": "Sat",
+    "Wk": 34,
     "Date": "2025-04-26",
     "Time": "15:00",
     "Home": "Bournemouth",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Manchester Utd",
-    "Venue": "Vitality Stadium"
+    "Away": "Manchester Utd"
   },
   {
-    "Wk": "34",
-    "Day": "Sat",
+    "Wk": 34,
     "Date": "2025-04-26",
     "Time": "15:00",
     "Home": "Southampton",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Fulham",
-    "Venue": "St Mary's Stadium"
+    "Away": "Fulham"
   },
   {
-    "Wk": "34",
-    "Day": "Sat",
+    "Wk": 34,
     "Date": "2025-04-26",
     "Time": "15:00",
     "Home": "Nott'ham Forest",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Brentford",
-    "Venue": "The City Ground"
+    "Away": "Brentford"
   },
   {
-    "Wk": "34",
-    "Day": "Sat",
+    "Wk": 34,
     "Date": "2025-04-26",
     "Time": "15:00",
     "Home": "Brighton",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "West Ham",
-    "Venue": "The American Express Stadium"
+    "Away": "West Ham"
   },
   {
-    "Wk": "35",
-    "Day": "Sat",
+    "Wk": 35,
     "Date": "2025-05-03",
     "Time": "15:00",
     "Home": "Chelsea",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Liverpool",
-    "Venue": "Stamford Bridge"
+    "Away": "Liverpool"
   },
   {
-    "Wk": "35",
-    "Day": "Sat",
+    "Wk": 35,
     "Date": "2025-05-03",
     "Time": "15:00",
     "Home": "Brentford",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Manchester Utd",
-    "Venue": "Gtech Community Stadium"
+    "Away": "Manchester Utd"
   },
   {
-    "Wk": "35",
-    "Day": "Sat",
+    "Wk": 35,
     "Date": "2025-05-03",
     "Time": "15:00",
     "Home": "Manchester City",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Wolves",
-    "Venue": "Etihad Stadium"
+    "Away": "Wolves"
   },
   {
-    "Wk": "35",
-    "Day": "Sat",
+    "Wk": 35,
     "Date": "2025-05-03",
     "Time": "15:00",
     "Home": "West Ham",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Tottenham",
-    "Venue": "London Stadium"
+    "Away": "Tottenham"
   },
   {
-    "Wk": "35",
-    "Day": "Sat",
+    "Wk": 35,
     "Date": "2025-05-03",
     "Time": "15:00",
     "Home": "Crystal Palace",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Nott'ham Forest",
-    "Venue": "Selhurst Park"
+    "Away": "Nott'ham Forest"
   },
   {
-    "Wk": "35",
-    "Day": "Sat",
+    "Wk": 35,
     "Date": "2025-05-03",
     "Time": "15:00",
     "Home": "Arsenal",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Bournemouth",
-    "Venue": "Emirates Stadium"
+    "Away": "Bournemouth"
   },
   {
-    "Wk": "35",
-    "Day": "Sat",
+    "Wk": 35,
     "Date": "2025-05-03",
     "Time": "15:00",
     "Home": "Everton",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Ipswich Town",
-    "Venue": "Goodison Park"
+    "Away": "Ipswich Town"
   },
   {
-    "Wk": "35",
-    "Day": "Sat",
+    "Wk": 35,
     "Date": "2025-05-03",
     "Time": "15:00",
     "Home": "Aston Villa",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Fulham",
-    "Venue": "Villa Park"
+    "Away": "Fulham"
   },
   {
-    "Wk": "35",
-    "Day": "Sat",
+    "Wk": 35,
     "Date": "2025-05-03",
     "Time": "15:00",
     "Home": "Brighton",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Newcastle Utd",
-    "Venue": "The American Express Stadium"
+    "Away": "Newcastle Utd"
   },
   {
-    "Wk": "35",
-    "Day": "Sat",
+    "Wk": 35,
     "Date": "2025-05-03",
     "Time": "15:00",
     "Home": "Leicester City",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Southampton",
-    "Venue": "King Power Stadium"
+    "Away": "Southampton"
   },
   {
-    "Wk": "36",
-    "Day": "Sat",
+    "Wk": 36,
     "Date": "2025-05-10",
     "Time": "15:00",
     "Home": "Liverpool",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Arsenal",
-    "Venue": "Anfield"
+    "Away": "Arsenal"
   },
   {
-    "Wk": "36",
-    "Day": "Sat",
+    "Wk": 36,
     "Date": "2025-05-10",
     "Time": "15:00",
     "Home": "Southampton",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Manchester City",
-    "Venue": "St Mary's Stadium"
+    "Away": "Manchester City"
   },
   {
-    "Wk": "36",
-    "Day": "Sat",
+    "Wk": 36,
     "Date": "2025-05-10",
     "Time": "15:00",
     "Home": "Tottenham",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Crystal Palace",
-    "Venue": "Tottenham Hotspur Stadium"
+    "Away": "Crystal Palace"
   },
   {
-    "Wk": "36",
-    "Day": "Sat",
+    "Wk": 36,
     "Date": "2025-05-10",
     "Time": "15:00",
     "Home": "Fulham",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Everton",
-    "Venue": "Craven Cottage"
+    "Away": "Everton"
   },
   {
-    "Wk": "36",
-    "Day": "Sat",
+    "Wk": 36,
     "Date": "2025-05-10",
     "Time": "15:00",
     "Home": "Newcastle Utd",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Chelsea",
-    "Venue": "St James' Park"
+    "Away": "Chelsea"
   },
   {
-    "Wk": "36",
-    "Day": "Sat",
+    "Wk": 36,
     "Date": "2025-05-10",
     "Time": "15:00",
     "Home": "Nott'ham Forest",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Leicester City",
-    "Venue": "The City Ground"
+    "Away": "Leicester City"
   },
   {
-    "Wk": "36",
-    "Day": "Sat",
+    "Wk": 36,
     "Date": "2025-05-10",
     "Time": "15:00",
     "Home": "Manchester Utd",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "West Ham",
-    "Venue": "Old Trafford"
+    "Away": "West Ham"
   },
   {
-    "Wk": "36",
-    "Day": "Sat",
+    "Wk": 36,
     "Date": "2025-05-10",
     "Time": "15:00",
     "Home": "Bournemouth",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Aston Villa",
-    "Venue": "Vitality Stadium"
+    "Away": "Aston Villa"
   },
   {
-    "Wk": "36",
-    "Day": "Sat",
+    "Wk": 36,
     "Date": "2025-05-10",
     "Time": "15:00",
     "Home": "Ipswich Town",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Brentford",
-    "Venue": "Portman Road Stadium"
+    "Away": "Brentford"
   },
   {
-    "Wk": "36",
-    "Day": "Sat",
+    "Wk": 36,
     "Date": "2025-05-10",
     "Time": "15:00",
     "Home": "Wolves",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Brighton",
-    "Venue": "Molineux Stadium"
+    "Away": "Brighton"
   },
   {
-    "Wk": "37",
-    "Day": "Sun",
+    "Wk": 37,
     "Date": "2025-05-18",
     "Time": "15:00",
     "Home": "Brentford",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Fulham",
-    "Venue": "Gtech Community Stadium"
+    "Away": "Fulham"
   },
   {
-    "Wk": "37",
-    "Day": "Sun",
+    "Wk": 37,
     "Date": "2025-05-18",
     "Time": "15:00",
     "Home": "Arsenal",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Newcastle Utd",
-    "Venue": "Emirates Stadium"
+    "Away": "Newcastle Utd"
   },
   {
-    "Wk": "37",
-    "Day": "Sun",
+    "Wk": 37,
     "Date": "2025-05-18",
     "Time": "15:00",
     "Home": "Brighton",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Liverpool",
-    "Venue": "The American Express Stadium"
+    "Away": "Liverpool"
   },
   {
-    "Wk": "37",
-    "Day": "Sun",
+    "Wk": 37,
     "Date": "2025-05-18",
     "Time": "15:00",
     "Home": "Leicester City",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Ipswich Town",
-    "Venue": "King Power Stadium"
+    "Away": "Ipswich Town"
   },
   {
-    "Wk": "37",
-    "Day": "Sun",
+    "Wk": 37,
     "Date": "2025-05-18",
     "Time": "15:00",
     "Home": "West Ham",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Nott'ham Forest",
-    "Venue": "London Stadium"
+    "Away": "Nott'ham Forest"
   },
   {
-    "Wk": "37",
-    "Day": "Sun",
+    "Wk": 37,
     "Date": "2025-05-18",
     "Time": "15:00",
     "Home": "Everton",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Southampton",
-    "Venue": "Goodison Park"
+    "Away": "Southampton"
   },
   {
-    "Wk": "37",
-    "Day": "Sun",
+    "Wk": 37,
     "Date": "2025-05-18",
     "Time": "15:00",
     "Home": "Aston Villa",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Tottenham",
-    "Venue": "Villa Park"
+    "Away": "Tottenham"
   },
   {
-    "Wk": "37",
-    "Day": "Sun",
+    "Wk": 37,
     "Date": "2025-05-18",
     "Time": "15:00",
     "Home": "Chelsea",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Manchester Utd",
-    "Venue": "Stamford Bridge"
+    "Away": "Manchester Utd"
   },
   {
-    "Wk": "37",
-    "Day": "Sun",
+    "Wk": 37,
     "Date": "2025-05-18",
     "Time": "15:00",
     "Home": "Manchester City",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Bournemouth",
-    "Venue": "Etihad Stadium"
+    "Away": "Bournemouth"
   },
   {
-    "Wk": "37",
-    "Day": "Sun",
+    "Wk": 37,
     "Date": "2025-05-18",
     "Time": "15:00",
     "Home": "Crystal Palace",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Wolves",
-    "Venue": "Selhurst Park"
+    "Away": "Wolves"
   },
   {
-    "Wk": "38",
-    "Day": "Sun",
+    "Wk": 38,
     "Date": "2025-05-25",
     "Time": "16:00",
     "Home": "Southampton",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Arsenal",
-    "Venue": "St Mary's Stadium"
+    "Away": "Arsenal"
   },
   {
-    "Wk": "38",
-    "Day": "Sun",
+    "Wk": 38,
     "Date": "2025-05-25",
     "Time": "16:00",
     "Home": "Liverpool",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Crystal Palace",
-    "Venue": "Anfield"
+    "Away": "Crystal Palace"
   },
   {
-    "Wk": "38",
-    "Day": "Sun",
+    "Wk": 38,
     "Date": "2025-05-25",
     "Time": "16:00",
     "Home": "Ipswich Town",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "West Ham",
-    "Venue": "Portman Road Stadium"
+    "Away": "West Ham"
   },
   {
-    "Wk": "38",
-    "Day": "Sun",
+    "Wk": 38,
     "Date": "2025-05-25",
     "Time": "16:00",
     "Home": "Bournemouth",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Leicester City",
-    "Venue": "Vitality Stadium"
+    "Away": "Leicester City"
   },
   {
-    "Wk": "38",
-    "Day": "Sun",
+    "Wk": 38,
     "Date": "2025-05-25",
     "Time": "16:00",
     "Home": "Newcastle Utd",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Everton",
-    "Venue": "St James' Park"
+    "Away": "Everton"
   },
   {
-    "Wk": "38",
-    "Day": "Sun",
+    "Wk": 38,
     "Date": "2025-05-25",
     "Time": "16:00",
     "Home": "Fulham",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Manchester City",
-    "Venue": "Craven Cottage"
+    "Away": "Manchester City"
   },
   {
-    "Wk": "38",
-    "Day": "Sun",
+    "Wk": 38,
     "Date": "2025-05-25",
     "Time": "16:00",
     "Home": "Nott'ham Forest",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Chelsea",
-    "Venue": "The City Ground"
+    "Away": "Chelsea"
   },
   {
-    "Wk": "38",
-    "Day": "Sun",
+    "Wk": 38,
     "Date": "2025-05-25",
     "Time": "16:00",
     "Home": "Manchester Utd",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Aston Villa",
-    "Venue": "Old Trafford"
+    "Away": "Aston Villa"
   },
   {
-    "Wk": "38",
-    "Day": "Sun",
+    "Wk": 38,
     "Date": "2025-05-25",
     "Time": "16:00",
     "Home": "Wolves",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Brentford",
-    "Venue": "Molineux Stadium"
+    "Away": "Brentford"
   },
   {
-    "Wk": "38",
-    "Day": "Sun",
+    "Wk": 38,
     "Date": "2025-05-25",
     "Time": "16:00",
     "Home": "Tottenham",
-    "Home xG": "",
     "Score": "",
-    "Away xG": "",
-    "Away": "Brighton",
-    "Venue": "Tottenham Hotspur Stadium"
+    "Away": "Brighton"
   }
 ]
