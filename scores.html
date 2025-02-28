@@ -12,6 +12,7 @@
             background: #f8f9fa;
             margin-bottom: 20px;
             border-bottom: 1px solid #e0e0e0;
+            scroll-behavior: smooth; /* Smooth scrolling */
         }
 
         .gameweek-buttons {
@@ -136,6 +137,9 @@
                 renderGameweekButtons(grouped);
                 renderFixtures(grouped);
                 document.getElementById('loading').style.display = 'none';
+
+                // Scroll to the current gameweek button
+                scrollToCurrentGameweek();
             } catch (error) {
                 showError(`Error loading fixtures: ${error.message}`);
             }
@@ -161,7 +165,7 @@
 
         function renderGameweekButtons(grouped) {
             const buttonsContainer = document.getElementById('gameweek-buttons');
-            const gameweeks = Object.keys(grouped).sort((a, b) => a - b);
+            const gameweeks = Object.keys(grouped).sort((a, b) => b - a); // Sort in descending order
 
             gameweeks.forEach(week => {
                 const button = document.createElement('button');
@@ -240,6 +244,13 @@
                 
                 container.appendChild(section);
             });
+        }
+
+        function scrollToCurrentGameweek() {
+            const currentButton = document.querySelector(`.gameweek-button[data-week="${currentGameweek}"]`);
+            if (currentButton) {
+                currentButton.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
         }
 
         function showError(message) {
