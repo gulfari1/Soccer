@@ -173,28 +173,20 @@
             display: flex;
             align-items: center;
             width: 40%;
-            gap: 8px;
         }
 
-        .home-team { justify-content: flex-end; }
-        .away-team { justify-content: flex-start; }
-
-        .team-logo {
-            width: 24px;
-            height: 24px;
-            object-fit: contain;
-        }
+        .home-team { justify-content: flex-start; }
+        .away-team { justify-content: flex-end; }
 
         .team-name {
-            margin: 0;
+            margin: 0 12px;
             font-weight: 500;
         }
 
         .score-container {
             display: flex;
             align-items: center;
-            gap: 12px;
-            min-width: 100px;
+            gap: 8px;
         }
 
         .score {
@@ -214,13 +206,9 @@
         }
 
         @media (max-width: 600px) {
-            .team-logo {
-                width: 20px;
-                height: 20px;
-            }
-            
             .team-name {
-                font-size: 0.85em;
+                font-size: 0.9em;
+                margin: 0 8px;
             }
             
             .score, .match-time {
@@ -255,8 +243,8 @@
             <div class="gameweek-buttons" id="gameweek-buttons"></div>
         </div>
         
-        <div id="loading">Loading...</div>
-        <div id="error" style="display: none;"></div>
+        <div id="loading" class="loading">Loading...</div>
+        <div id="error" class="error" style="display: none;"></div>
         <div id="fixtures-list"></div>
     </div>
 
@@ -362,11 +350,11 @@
                     dateMatches.forEach(match => {
                         const li = document.createElement('li');
                         li.className = 'match-item';
+                        
                         const isCompleted = match.Score && match.Score.includes('-');
                         
                         li.innerHTML = `
                             <div class="team-container home-team">
-                                ${match.HomeLogo ? `<img src="${match.HomeLogo}" class="team-logo" alt="${match.Home}">` : ''}
                                 <span class="team-name">${match.Home}</span>
                             </div>
                             
@@ -379,7 +367,6 @@
                             
                             <div class="team-container away-team">
                                 <span class="team-name">${match.Away}</span>
-                                ${match.AwayLogo ? `<img src="${match.AwayLogo}" class="team-logo" alt="${match.Away}">` : ''}
                             </div>
                         `;
                         
