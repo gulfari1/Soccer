@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import json
+from datetime import datetime
 
 # URL for Premier League scores and fixtures
 url = "https://fbref.com/en/comps/9/schedule/Premier-League-Scores-and-Fixtures"
@@ -29,46 +30,45 @@ if table:
         wk_elem = row.find('th', {'data-stat': 'gameweek'})
         if not wk_elem or not wk_elem.text.strip().isdigit():
             continue
-        wk = wk_elem.text.strip()
-        if int(wk) < 1 or int(wk) > 38:
+        wk = int(wk_elem.text.strip())
+        if wk < 1 or wk > 38:  # Ensure valid gameweek
             continue
 
-        # Extract other columns
-        day = row.find('td', {'data-stat': 'dayofweek'}).text.strip()
-        
-        date_elem = row.find('td', {'data-stat': 'date'}).find('a')
+        # Extract date
+        date_elem = row.find('td', {'data-stat': 'date'})
         date = date_elem.text.strip() if date_elem else ""
-        
+        if date:
+            # Convert date to YYYY-MM-DD format
+            try:
+                date_obj = datetime.strptime(date, '%Y-%m-%d')
+                date = date_obj.strftime('%Y-%m-%d')
+            except ValueError:
+                continue  # Skip invalid dates
+
+        # Extract time
         time_elem = row.find('td', {'data-stat': 'start_time'})
         time = time_elem.text.strip() if time_elem else ""
-        
+
+        # Extract home team
         home_elem = row.find('td', {'data-stat': 'home_team'}).find('a')
         home = home_elem.text.strip() if home_elem else ""
-        
-        home_xg = row.find('td', {'data-stat': 'home_xg'}).text.strip()
-        
+
+        # Extract score
         score_elem = row.find('td', {'data-stat': 'score'}).find('a')
-        score = score_elem.text.strip() if score_elem else ""
-        
-        away_xg = row.find('td', {'data-stat': 'away_xg'}).text.strip()
-        
+        score = score_elem.text.strip().replace('–', '-') if score_elem else ""  # Replace en-dash with hyphen
+
+        # Extract away team
         away_elem = row.find('td', {'data-stat': 'away_team'}).find('a')
         away = away_elem.text.strip() if away_elem else ""
-        
-        venue = row.find('td', {'data-stat': 'venue'}).text.strip()
 
         # Append the match data to the list
         data.append({
             "Wk": wk,
-            "Day": day,
             "Date": date,
             "Time": time,
             "Home": home,
-            "Home xG": home_xg,
             "Score": score,
-            "Away xG": away_xg,
-            "Away": away,
-            "Venue": venue
+            "Away": away
         })
 
 # Save the data to a JSON file
