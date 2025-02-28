@@ -175,8 +175,8 @@
             width: 40%;
         }
 
-        .home-team { justify-content: flex-end; }
-        .away-team { justify-content: flex-start; }
+        .home-team { justify-content: flex-start; }
+        .away-team { justify-content: flex-end; }
 
         .team-name {
             margin: 0 12px;
@@ -259,7 +259,7 @@
         }
 
         function formatDate(dateString) {
-            const date = new Date(dateString);
+            const date = new Date(dateString + 'T00:00:00Z'); // Add UTC time
             const options = { weekday: 'long', day: 'numeric', month: 'long' };
             const parts = date.toLocaleDateString('en-GB', options).split(' ');
             const day = parseInt(parts[1]);
