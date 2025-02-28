@@ -175,26 +175,31 @@
             width: 40%;
         }
 
-        .home-team { 
-            justify-content: flex-start;
-            flex-direction: row;
-        }
+        .home-team { justify-content: flex-start; }
+        .away-team { justify-content: flex-end; }
 
-        .away-team { 
-            justify-content: flex-end;
-            flex-direction: row-reverse;
+        .team-name {
+            margin: 0 12px;
+            font-weight: 500;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 120px;
         }
 
         .team-logo {
             width: 30px;
             height: 30px;
-            margin: 0 8px;
             object-fit: contain;
+            flex-shrink: 0;
         }
 
-        .team-name {
-            margin: 0 12px;
-            font-weight: 500;
+        .home-team .team-logo {
+            margin-left: 8px;
+        }
+
+        .away-team .team-logo {
+            margin-right: 8px;
         }
 
         .score-container {
@@ -223,6 +228,7 @@
             .team-name {
                 font-size: 0.9em;
                 margin: 0 8px;
+                max-width: 90px;
             }
             
             .score, .match-time {
@@ -231,6 +237,11 @@
             
             .match-item {
                 padding: 12px;
+            }
+
+            .team-logo {
+                width: 25px;
+                height: 25px;
             }
         }
     </style>
@@ -369,8 +380,8 @@
                         
                         li.innerHTML = `
                             <div class="team-container home-team">
-                                <img src="logos/${match.HomeLogo}" class="team-logo" alt="${match.Home}">
                                 <span class="team-name">${match.Home}</span>
+                                <img class="team-logo" src="logos/${match.Home.replace(/\s+/g, '_')}.png" alt="${match.Home}">
                             </div>
                             
                             <div class="score-container">
@@ -381,7 +392,7 @@
                             </div>
                             
                             <div class="team-container away-team">
-                                <img src="logos/${match.AwayLogo}" class="team-logo" alt="${match.Away}">
+                                <img class="team-logo" src="logos/${match.Away.replace(/\s+/g, '_')}.png" alt="${match.Away}">
                                 <span class="team-name">${match.Away}</span>
                             </div>
                         `;
