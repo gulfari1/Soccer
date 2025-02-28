@@ -5,88 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premier League Scores & Fixtures</title>
     <style>
-        /* Global Styles */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
-            margin: 0;
-            background: white;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        /* Navigation Bars */
-        .global-nav {
-            background: #121212;
-            padding: 0 16px;
-            position: relative;
-            z-index: 1000;
-            border-bottom: 1px solid #000;
-        }
-
-        .nav-container {
-            max-width: 1248px;
-            margin: 0 auto;
-            height: 47px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-        }
-
-        .sub-nav {
-            background: #1a1a1a;
-            border-bottom: 1px solid #000;
-            overflow-x: hidden;
-        }
-
-        .sub-nav-container {
-            max-width: 1248px;
-            margin: 0 auto;
-            padding: 0 16px;
-            display: flex;
-            height: 40px;
-            align-items: center;
-        }
-
-        .sub-nav-link {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
-            font-size: 10.5px;
-            font-weight: 400;
-            padding: 0 12px;
-            white-space: nowrap;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            border-left: 3px solid transparent;
-            transition: all 0.2s ease;
-        }
-
-        .sub-nav-link.active {
-            color: #fff;
-            background-color: rgba(255,255,255,0.05);
-        }
-
-        .sub-nav-link:hover {
-            color: #fff;
-            background-color: rgba(255,255,255,0.03);
-        }
-
-        /* Fixtures Container */
-        .fixtures-container {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-
-        h1 {
-            font-weight: 700;
-            color: #1a2634;
-            margin: 1.5rem 0;
-            font-size: 2rem;
-            text-align: center;
-        }
-
+        /* Add these new styles */
         .gameweek-nav {
             overflow-x: auto;
             padding: 12px 16px;
@@ -122,6 +41,16 @@
             background: #f0f0f0;
         }
 
+        /* Date formatting styles */
+        .date-header {
+            text-align: center;
+            font-size: 1.1em;
+            padding: 16px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        /* Modify existing styles */
         .gameweek-section {
             display: none;
             margin-bottom: 30px;
@@ -141,88 +70,32 @@
             overflow: hidden;
         }
 
-        .date-header {
-            background: #f8f9fa;
-            padding: 12px 16px;
-            border-bottom: 1px solid #e0e0e0;
-            font-weight: 600;
-            color: #2c3e50;
-        }
-
-        .match-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .match-item {
-            padding: 16px;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .match-item:last-child {
-            border-bottom: none;
-        }
-
-        .team-container {
-            display: flex;
-            align-items: center;
-            width: 40%;
-        }
-
+        /* Keep existing other styles */
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif; margin: 0; background: white; color: #333; line-height: 1.6; }
+        .global-nav { background: #121212; padding: 0 16px; position: relative; z-index: 1000; border-bottom: 1px solid #000; }
+        .nav-container { max-width: 1248px; margin: 0 auto; height: 47px; display: flex; align-items: center; justify-content: flex-start; }
+        .sub-nav { background: #1a1a1a; border-bottom: 1px solid #000; overflow-x: hidden; }
+        .sub-nav-container { max-width: 1248px; margin: 0 auto; padding: 0 16px; display: flex; height: 40px; align-items: center; }
+        .sub-nav-link { color: rgba(255,255,255,0.7); text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif; font-size: 10.5px; font-weight: 400; padding: 0 12px; white-space: nowrap; height: 100%; display: flex; align-items: center; border-left: 3px solid transparent; transition: all 0.2s ease; }
+        .sub-nav-link.active { color: #fff; background-color: rgba(255,255,255,0.05); }
+        .sub-nav-link:hover { color: #fff; background-color: rgba(255,255,255,0.03); }
+        .fixtures-container { max-width: 1000px; margin: 20px auto; padding: 0 20px; }
+        h1 { font-weight: 700; color: #1a2634; margin: 1.5rem 0; font-size: 2rem; text-align: center; }
+        .gameweek-header { background: #f8f9fa; padding: 12px 16px; border-bottom: 1px solid #e0e0e0; font-weight: 600; color: #2c3e50; text-align: center; }
+        .match-list { list-style: none; padding: 0; margin: 0; }
+        .match-item { padding: 16px; border-bottom: 1px solid #eee; display: flex; align-items: center; justify-content: space-between; }
+        .match-item:last-child { border-bottom: none; }
+        .team-container { display: flex; align-items: center; width: 40%; }
         .home-team { justify-content: flex-end; }
         .away-team { justify-content: flex-start; }
-
-        .team-name {
-            margin: 0 12px;
-            font-weight: 500;
-        }
-
-        .score-container {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .score {
-            font-weight: 600;
-            background: #f8f9fa;
-            padding: 4px 12px;
-            border-radius: 4px;
-        }
-
-        .match-time {
-            color: #666;
-            font-size: 0.9em;
-        }
-
-        .match-status {
-            font-size: 0.8em;
-            color: #666;
-            margin-top: 4px;
-        }
-
-        @media (max-width: 600px) {
-            .team-name {
-                font-size: 0.9em;
-                margin: 0 8px;
-            }
-            
-            .score {
-                padding: 2px 8px;
-            }
-            
-            .match-item {
-                padding: 12px;
-            }
-        }
+        .team-name { margin: 0 12px; font-weight: 500; }
+        .score-container { display: flex; align-items: center; gap: 8px; }
+        .score { font-weight: 600; background: #f8f9fa; padding: 4px 12px; border-radius: 4px; }
+        .match-time { color: #666; font-size: 0.9em; }
+        @media (max-width: 600px) { .team-name { font-size: 0.9em; margin: 0 8px; } .score { padding: 2px 8px; } .match-item { padding: 12px; } }
     </style>
 </head>
 <body>
-    <!-- Navigation Bars -->
     <nav class="global-nav">
         <div class="nav-container">
             <button class="mobile-menu-btn">
@@ -238,7 +111,6 @@
         </div>
     </nav>
 
-    <!-- Fixtures Container -->
     <div class="fixtures-container">
         <h1>Premier League Scores & Fixtures</h1>
         <div class="gameweek-nav">
@@ -252,6 +124,26 @@
 
     <script>
         let currentGameweek = 27; // Set this to your current gameweek number
+
+        // Helper function to format date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const options = { weekday: 'long', day: 'numeric', month: 'long' };
+            const formatted = date.toLocaleDateString('en-GB', options);
+            
+            // Add ordinal suffix
+            const day = date.getDate();
+            const ordinal = getOrdinal(day);
+            
+            return formatted.replace(/\d+/, day + ordinal);
+        }
+
+        // Helper function to get ordinal suffix
+        function getOrdinal(n) {
+            const s = ["th", "st", "nd", "rd"];
+            const v = n % 100;
+            return s[(v - 20) % 10] || s[v] || s[0];
+        }
 
         async function loadFixtures() {
             try {
@@ -280,37 +172,18 @@
 
         function groupByDate(fixtures) {
             return fixtures.reduce((acc, fixture) => {
-                const date = fixture.Date;
+                const date = formatDate(fixture.Date);
                 if (!acc[date]) acc[date] = [];
                 acc[date].push(fixture);
                 return acc;
             }, {});
         }
 
-        function scrollToActiveGameweek() {
-            const container = document.querySelector('.gameweek-nav');
-            const activeButton = document.querySelector(`.gameweek-button[data-week="${currentGameweek}"]`);
-            
-            if (activeButton && container) {
-                const containerWidth = container.offsetWidth;
-                const buttonPosition = activeButton.offsetLeft;
-                const buttonWidth = activeButton.offsetWidth;
-                
-                // Calculate scroll position to center the button
-                const scrollPosition = buttonPosition - (containerWidth / 2) + (buttonWidth / 2);
-                
-                container.scrollTo({
-                    left: scrollPosition,
-                    behavior: 'auto'
-                });
-            }
-        }
-
         function renderGameweekButtons(grouped) {
             const buttonsContainer = document.getElementById('gameweek-buttons');
             const gameweeks = Object.keys(grouped).sort((a, b) => a - b);
 
-            buttonsContainer.innerHTML = ''; // Clear existing buttons
+            buttonsContainer.innerHTML = '';
 
             gameweeks.forEach(week => {
                 const button = document.createElement('button');
@@ -329,10 +202,27 @@
                 buttonsContainer.appendChild(button);
             });
 
-            // Scroll to active gameweek after buttons are rendered
             requestAnimationFrame(() => {
                 scrollToActiveGameweek();
             });
+        }
+
+        function scrollToActiveGameweek() {
+            const container = document.querySelector('.gameweek-nav');
+            const activeButton = document.querySelector(`.gameweek-button[data-week="${currentGameweek}"]`);
+            
+            if (activeButton && container) {
+                const containerWidth = container.offsetWidth;
+                const buttonPosition = activeButton.offsetLeft;
+                const buttonWidth = activeButton.offsetWidth;
+                
+                const scrollPosition = buttonPosition - (containerWidth / 2) + (buttonWidth / 2);
+                
+                container.scrollTo({
+                    left: scrollPosition,
+                    behavior: 'auto'
+                });
+            }
         }
 
         function renderFixtures(grouped) {
