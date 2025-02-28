@@ -87,9 +87,7 @@
             text-align: center;
         }
 
-        /* Gameweek Navigation */
         .gameweek-nav {
-            scroll-behavior: smooth;
             overflow-x: auto;
             padding: 12px 16px;
             background: #f8f9fa;
@@ -124,7 +122,6 @@
             background: #f0f0f0;
         }
 
-        /* Gameweek and Date Sections */
         .gameweek-section {
             display: none;
             margin-bottom: 30px;
@@ -202,7 +199,12 @@
             font-size: 0.9em;
         }
 
-        /* Responsive Styles */
+        .match-status {
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 4px;
+        }
+
         @media (max-width: 600px) {
             .team-name {
                 font-size: 0.9em;
@@ -251,18 +253,6 @@
     <script>
         let currentGameweek = 27; // Set this to your current gameweek number
 
-        // Function to scroll to the current gameweek button
-        function scrollToCurrentGameweek() {
-            const currentButton = document.querySelector(`.gameweek-button[data-week="${currentGameweek}"]`);
-            if (currentButton) {
-                currentButton.scrollIntoView({
-                    behavior: 'auto',
-                    block: 'nearest',
-                    inline: 'center'
-                });
-            }
-        }
-
         async function loadFixtures() {
             try {
                 const response = await fetch('scores_fixtures.json');
@@ -273,9 +263,6 @@
                 
                 renderGameweekButtons(grouped);
                 renderFixtures(grouped);
-                
-                // Scroll to the current gameweek after rendering
-                scrollToCurrentGameweek();
                 document.getElementById('loading').style.display = 'none';
             } catch (error) {
                 showError(`Error loading fixtures: ${error.message}`);
@@ -300,9 +287,30 @@
             }, {});
         }
 
+        function scrollToActiveGameweek() {
+            const container = document.querySelector('.gameweek-nav');
+            const activeButton = document.querySelector(`.gameweek-button[data-week="${currentGameweek}"]`);
+            
+            if (activeButton && container) {
+                const containerWidth = container.offsetWidth;
+                const buttonPosition = activeButton.offsetLeft;
+                const buttonWidth = activeButton.offsetWidth;
+                
+                // Calculate scroll position to center the button
+                const scrollPosition = buttonPosition - (containerWidth / 2) + (buttonWidth / 2);
+                
+                container.scrollTo({
+                    left: scrollPosition,
+                    behavior: 'auto'
+                });
+            }
+        }
+
         function renderGameweekButtons(grouped) {
             const buttonsContainer = document.getElementById('gameweek-buttons');
             const gameweeks = Object.keys(grouped).sort((a, b) => a - b);
+
+            buttonsContainer.innerHTML = ''; // Clear existing buttons
 
             gameweeks.forEach(week => {
                 const button = document.createElement('button');
@@ -319,6 +327,11 @@
                 });
 
                 buttonsContainer.appendChild(button);
+            });
+
+            // Scroll to active gameweek after buttons are rendered
+            requestAnimationFrame(() => {
+                scrollToActiveGameweek();
             });
         }
 
