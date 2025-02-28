@@ -175,8 +175,22 @@
             width: 40%;
         }
 
-        .home-team { justify-content: flex-start; }
-        .away-team { justify-content: flex-end; }
+        .home-team { 
+            justify-content: flex-start;
+            flex-direction: row;
+        }
+
+        .away-team { 
+            justify-content: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .team-logo {
+            width: 30px;
+            height: 30px;
+            margin: 0 8px;
+            object-fit: contain;
+        }
 
         .team-name {
             margin: 0 12px;
@@ -355,6 +369,7 @@
                         
                         li.innerHTML = `
                             <div class="team-container home-team">
+                                <img src="logos/${match.HomeLogo}" class="team-logo" alt="${match.Home}">
                                 <span class="team-name">${match.Home}</span>
                             </div>
                             
@@ -366,6 +381,7 @@
                             </div>
                             
                             <div class="team-container away-team">
+                                <img src="logos/${match.AwayLogo}" class="team-logo" alt="${match.Away}">
                                 <span class="team-name">${match.Away}</span>
                             </div>
                         `;
