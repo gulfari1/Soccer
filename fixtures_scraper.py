@@ -66,9 +66,9 @@ if table:
             "Wk": wk,
             "Date": date,
             "Time": time,
-            "Home": home,
+            "Home": home.replace(' ', '_'),
             "Score": score,
-            "Away": away
+            "Away": away.replace(' ', '_')
         })
 
 # Save the data to a JSON file
