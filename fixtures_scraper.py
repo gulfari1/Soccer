@@ -9,6 +9,21 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
 }
 
+# Team abbreviation mapping
+TEAM_ABBREVIATIONS = {
+    'Nottingham Forest': 'NFO',
+    'Manchester City': 'MCI',
+    'Liverpool': 'LIV',
+    'Southampton': 'SOU',
+    'Crystal Palace': 'CRY',
+    'Ipswich Town': 'IPS',
+    'Brighton': 'BHA',
+    'Fulham': 'FUL',
+    'Brentford': 'BRE',
+    'Aston Villa': 'AVL',
+    # Add more teams as needed
+}
+
 # Fetch the page content
 response = requests.get(url, headers=headers)
 soup = BeautifulSoup(response.content, 'html.parser')
@@ -66,9 +81,9 @@ if table:
             "Wk": wk,
             "Date": date,
             "Time": time,
-            "Home": home.replace(' ', '_'),
+            "Home": TEAM_ABBREVIATIONS.get(home, home),
             "Score": score,
-            "Away": away.replace(' ', '_')
+            "Away": TEAM_ABBREVIATIONS.get(away, away)
         })
 
 # Save the data to a JSON file
