@@ -182,6 +182,19 @@
     "form": "W L L D W"
   },
   {
+    "team": "West Ham United",
+    "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/west-ham-united.8031b8c4c7.svg",
+    "matches": 27,
+    "wins": 9,
+    "draws": 6,
+    "losses": 12,
+    "gf": 32,
+    "ga": 47,
+    "gd": -15,
+    "points": 33,
+    "form": "L D L L W"
+  },
+  {
     "team": "Everton",
     "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/7/7c/Everton_FC_logo.svg/1200px-Everton_FC_logo.svg.png",
     "matches": 27,
@@ -193,19 +206,6 @@
     "gd": -4,
     "points": 32,
     "form": "W D W D D"
-  },
-  {
-    "team": "West Ham United",
-    "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/west-ham-united.8031b8c4c7.svg",
-    "matches": 26,
-    "wins": 8,
-    "draws": 6,
-    "losses": 12,
-    "gf": 30,
-    "ga": 47,
-    "gd": -17,
-    "points": 30,
-    "form": "L D L L W"
   },
   {
     "team": "Wolverhampton Wanderers",
@@ -236,13 +236,13 @@
   {
     "team": "Leicester City",
     "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leicester-city.84a92b176c.svg",
-    "matches": 26,
+    "matches": 27,
     "wins": 4,
     "draws": 5,
-    "losses": 17,
+    "losses": 18,
     "gf": 25,
-    "ga": 59,
-    "gd": -34,
+    "ga": 61,
+    "gd": -36,
     "points": 17,
     "form": "L W L L L"
   },
