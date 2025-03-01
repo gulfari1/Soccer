@@ -163,6 +163,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 12px;
         }
 
         .match-item:last-child {
@@ -172,59 +173,80 @@
         .team-container {
             display: flex;
             align-items: center;
-            width: 40%;
-            gap: 8px;
+            flex: 1;
+            min-width: 0;
         }
 
-        .home-team { justify-content: flex-start; }
-        .away-team { justify-content: flex-end; }
+        .home-team { justify-content: flex-end; }
+        .away-team { justify-content: flex-start; }
+
+        .team-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            max-width: 160px;
+        }
+
+        .home-team .team-content {
+            flex-direction: row-reverse;
+        }
 
         .team-name {
-            margin: 0 12px;
             font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-width: 38px;
+            text-align: center;
         }
 
         .team-logo {
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
             object-fit: contain;
-            margin: 0 8px;
+            flex-shrink: 0;
         }
 
         .score-container {
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: center;
+            min-width: 100px;
         }
 
         .score {
             font-weight: 600;
             background: #f8f9fa;
-            padding: 4px 12px;
+            padding: 6px 16px;
             border-radius: 4px;
-            min-width: 60px;
             text-align: center;
         }
 
         .match-time {
             color: #666;
             font-size: 0.9em;
-            min-width: 60px;
             text-align: center;
         }
 
         @media (max-width: 600px) {
-            .team-name {
-                font-size: 0.9em;
-                margin: 0 8px;
-            }
-            
-            .score, .match-time {
-                padding: 2px 8px;
-            }
-            
             .match-item {
                 padding: 12px;
+                gap: 8px;
+            }
+            
+            .team-content {
+                gap: 8px;
+                max-width: 140px;
+            }
+            
+            .team-logo {
+                width: 28px;
+                height: 28px;
+            }
+            
+            .score {
+                padding: 4px 12px;
             }
         }
     </style>
@@ -257,9 +279,8 @@
     </div>
 
     <script>
-        let currentGameweek = 27; // Set to current gameweek
+        let currentGameweek = 27;
 
-        // Date formatting functions
         function getOrdinal(n) {
             const s = ["th", "st", "nd", "rd"];
             const v = n % 100;
@@ -267,7 +288,7 @@
         }
 
         function formatDate(dateString) {
-            const date = new Date(dateString + 'T00:00:00Z'); // Add UTC time
+            const date = new Date(dateString + 'T00:00:00Z');
             const options = { weekday: 'long', day: 'numeric', month: 'long' };
             const parts = date.toLocaleDateString('en-GB', options).split(' ');
             const day = parseInt(parts[1]);
@@ -363,8 +384,10 @@
                         
                         li.innerHTML = `
                             <div class="team-container home-team">
-                                <span class="team-name">${match.HomeCode}</span>
-                                <img class="team-logo" src="logos/${match.HomeCode}.png" alt="${match.Home}">
+                                <div class="team-content">
+                                    <span class="team-name">${match.HomeCode}</span>
+                                    <img class="team-logo" src="logos/${match.HomeCode}.png" alt="${match.Home}">
+                                </div>
                             </div>
                             
                             <div class="score-container">
@@ -375,8 +398,10 @@
                             </div>
                             
                             <div class="team-container away-team">
-                                <img class="team-logo" src="logos/${match.AwayCode}.png" alt="${match.Away}">
-                                <span class="team-name">${match.AwayCode}</span>
+                                <div class="team-content">
+                                    <img class="team-logo" src="logos/${match.AwayCode}.png" alt="${match.Away}">
+                                    <span class="team-name">${match.AwayCode}</span>
+                                </div>
                             </div>
                         `;
                         
