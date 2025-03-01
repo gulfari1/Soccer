@@ -162,8 +162,8 @@
             border-bottom: 1px solid #eee;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 12px;
+            justify-content: center;
+            gap: 20px;
         }
 
         .match-item:last-child {
@@ -173,52 +173,36 @@
         .team-container {
             display: flex;
             align-items: center;
-            flex: 1;
-            min-width: 0;
-        }
-
-        .home-team { justify-content: flex-end; }
-        .away-team { justify-content: flex-start; }
-
-        .team-content {
-            display: flex;
-            align-items: center;
             gap: 12px;
-            width: 100%;
-            max-width: 160px;
+            flex: 1;
         }
 
-        .home-team .team-content {
-            flex-direction: row-reverse;
+        .home-container {
+            justify-content: flex-end;
         }
 
-        .team-name {
-            font-weight: 500;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            min-width: 38px;
-            text-align: center;
+        .away-container {
+            justify-content: flex-start;
         }
 
         .team-logo {
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             object-fit: contain;
-            flex-shrink: 0;
         }
 
         .score-container {
             display: flex;
             align-items: center;
+            gap: 8px;
+            min-width: 90px;
             justify-content: center;
-            min-width: 100px;
         }
 
         .score {
             font-weight: 600;
             background: #f8f9fa;
-            padding: 6px 16px;
+            padding: 6px 18px;
             border-radius: 4px;
             text-align: center;
         }
@@ -226,18 +210,12 @@
         .match-time {
             color: #666;
             font-size: 0.9em;
-            text-align: center;
         }
 
         @media (max-width: 600px) {
             .match-item {
                 padding: 12px;
-                gap: 8px;
-            }
-            
-            .team-content {
-                gap: 8px;
-                max-width: 140px;
+                gap: 12px;
             }
             
             .team-logo {
@@ -383,11 +361,9 @@
                         const isCompleted = match.Score && match.Score.includes('-');
                         
                         li.innerHTML = `
-                            <div class="team-container home-team">
-                                <div class="team-content">
-                                    <span class="team-name">${match.HomeCode}</span>
-                                    <img class="team-logo" src="logos/${match.HomeCode}.png" alt="${match.Home}">
-                                </div>
+                            <div class="team-container home-container">
+                                <span class="team-code">${match.HomeCode}</span>
+                                <img class="team-logo" src="logos/${match.HomeCode}.png" alt="${match.Home}">
                             </div>
                             
                             <div class="score-container">
@@ -397,11 +373,9 @@
                                 }
                             </div>
                             
-                            <div class="team-container away-team">
-                                <div class="team-content">
-                                    <img class="team-logo" src="logos/${match.AwayCode}.png" alt="${match.Away}">
-                                    <span class="team-name">${match.AwayCode}</span>
-                                </div>
+                            <div class="team-container away-container">
+                                <img class="team-logo" src="logos/${match.AwayCode}.png" alt="${match.Away}">
+                                <span class="team-code">${match.AwayCode}</span>
                             </div>
                         `;
                         
