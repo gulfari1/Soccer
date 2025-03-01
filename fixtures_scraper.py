@@ -14,6 +14,8 @@ TEAM_CODES = {
     "Nott'ham Forest": "NFO",
     "Manchester City": "MCI",
     "Liverpool": "LIV",
+    "Newcastle Utd": "NEW",
+    "West Ham": "WHU",
     "Southampton": "SOU",
     "Brighton": "BHA",
     "Fulham": "FUL",
