@@ -23,7 +23,7 @@ TEAM_CODES = {
     "Ipswich Town": "IPS",
     "Brentford": "BRE",
     "Aston Villa": "AVL",
-    "Wolverhampton Wanderers": "WOL",
+    "Wolves": "WOL",
     "Everton": "EVE",
     "Tottenham": "TOT",
     "Bournemouth": "BOU",
