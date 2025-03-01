@@ -11,7 +11,7 @@ headers = {
 
 # Team code mapping
 TEAM_CODES = {
-    "Nottingham Forest": "NFO",
+    "Nott'ham Forest": "NFO",
     "Manchester City": "MCI",
     "Liverpool": "LIV",
     "Southampton": "SOU",
@@ -23,11 +23,11 @@ TEAM_CODES = {
     "Aston Villa": "AVL",
     "Wolverhampton Wanderers": "WOL",
     "Everton": "EVE",
-    "Tottenham Hotspur": "TOT",
+    "Tottenham": "TOT",
     "Bournemouth": "BOU",
     "Chelsea": "CHE",
     "Leicester City": "LEI",
-    "Manchester United": "MUN",
+    "Manchester Utd": "MUN",
     "Arsenal": "ARS"
 }
 
