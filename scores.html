@@ -253,6 +253,19 @@
             font-size: 0.9em;
         }
 
+        /* New styles for team names */
+        .team-code {
+            font-weight: bold;
+        }
+
+        .winner {
+            color: #000;
+        }
+
+        .loser {
+            color: #666;
+        }
+
         @media (max-width: 768px) {
             .match-item {
                 padding: 12px;
@@ -400,10 +413,29 @@
                         li.className = 'match-item';
                         
                         const isCompleted = match.Score && match.Score.includes('-');
-                        
+                        let homeClass = '';
+                        let awayClass = '';
+
+                        if (isCompleted) {
+                            const scores = match.Score.split('-').map(Number);
+                            const homeGoals = scores[0];
+                            const awayGoals = scores[1];
+
+                            if (homeGoals > awayGoals) {
+                                homeClass = 'winner';
+                                awayClass = 'loser';
+                            } else if (awayGoals > homeGoals) {
+                                homeClass = 'loser';
+                                awayClass = 'winner';
+                            } else {
+                                homeClass = 'winner';
+                                awayClass = 'winner';
+                            }
+                        }
+
                         li.innerHTML = `
                             <div class="team-container home-container">
-                                <span class="team-code">${match.HomeCode}</span>
+                                <span class="team-code ${homeClass}">${match.HomeCode}</span>
                                 <img class="team-logo" src="logos/${match.HomeCode}.png" alt="${match.Home}">
                             </div>
                             
@@ -416,7 +448,7 @@
                             
                             <div class="team-container away-container">
                                 <img class="team-logo" src="logos/${match.AwayCode}.png" alt="${match.Away}">
-                                <span class="team-code">${match.AwayCode}</span>
+                                <span class="team-code ${awayClass}">${match.AwayCode}</span>
                             </div>
                         `;
                         
