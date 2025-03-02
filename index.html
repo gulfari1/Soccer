@@ -14,9 +14,10 @@
             line-height: 1.6;
         }
 
-        /* ====== Navigation Bars ====== */
+        /* ====== Enhanced Navigation Bars ====== */
         .global-nav {
             background: #121212;
+            padding: 0 16px;
             position: relative;
             z-index: 1000;
             border-bottom: 1px solid #000;
@@ -25,16 +26,17 @@
         .nav-container {
             max-width: 1248px;
             margin: 0 auto;
-            height: 47px;
+            height: 56px;
             display: flex;
             align-items: center;
-            justify-content: flex-start;
-            padding: 0 16px;
+            justify-content: space-between;
         }
 
         .sub-nav {
             background: #1a1a1a;
             border-bottom: 1px solid #000;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .sub-nav-container {
@@ -42,34 +44,37 @@
             margin: 0 auto;
             padding: 0 16px;
             display: flex;
-            height: 40px;
+            height: 48px;
             align-items: center;
-            overflow-x: auto;
+            gap: 8px;
         }
 
         .sub-nav-link {
             color: rgba(255,255,255,0.7);
             text-decoration: none;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
-            font-size: 10.5px;
-            font-weight: 400;
-            padding: 0 12px;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 0 16px;
             white-space: nowrap;
             height: 100%;
             display: flex;
             align-items: center;
             border-left: 3px solid transparent;
             transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .sub-nav-link.active {
             color: #fff;
-            background-color: rgba(255,255,255,0.05);
+            background-color: rgba(255,255,255,0.08);
+            border-left-color: #00ff88;
         }
 
         .sub-nav-link:hover {
             color: #fff;
-            background-color: rgba(255,255,255,0.03);
+            background-color: rgba(255,255,255,0.05);
         }
 
         .mobile-menu-btn {
@@ -77,70 +82,117 @@
             background: none;
             border: none;
             color: white;
-            padding: 5px;
+            padding: 8px;
             margin-right: 12px;
-            order: -1;
             position: relative;
-            width: 15px;
-            height: 14px;
-        }
-
-        .mobile-menu-btn::before,
-        .mobile-menu-btn::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: white;
-        }
-
-        .mobile-menu-btn::before {
-            top: 0;
-        }
-
-        .mobile-menu-btn::after {
-            bottom: 0;
+            width: 24px;
+            height: 24px;
         }
 
         .mobile-menu-btn span {
             position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
             height: 2px;
-            background-color: white;
+            width: 20px;
+            background: white;
+            left: 2px;
+            transition: all 0.3s ease;
         }
 
-        /* ====== Mobile Optimization ====== */
+        .mobile-menu-btn span:first-child {
+            top: 6px;
+        }
+
+        .mobile-menu-btn span:nth-child(2) {
+            top: 11px;
+        }
+
+        .mobile-menu-btn span:last-child {
+            top: 16px;
+        }
+
+        /* ====== Responsive Navigation ====== */
+        @media (max-width: 1024px) {
+            .sub-nav-link {
+                font-size: 12px;
+                padding: 0 12px;
+            }
+        }
+
         @media (max-width: 768px) {
             .global-nav {
-                padding: 0;
+                padding: 0 12px;
             }
             
             .nav-container {
-                max-width: none;
-                padding: 0 8px;
+                height: 48px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .sub-nav {
+                position: relative;
+                padding: 0 12px;
             }
             
             .sub-nav-container {
-                max-width: none;
-                padding: 0 8px;
-                -ms-overflow-style: none;  /* IE and Edge */
-                scrollbar-width: none;  /* Firefox */
-            }
-            
-            .sub-nav-container::-webkit-scrollbar {
-                display: none; /* Chrome, Safari and Opera */
+                height: 44px;
+                padding: 0;
+                gap: 4px;
             }
             
             .sub-nav-link {
+                font-size: 11px;
+                padding: 0 10px;
+                border-left-width: 2px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sub-nav-link {
+                font-size: 10.5px;
                 padding: 0 8px;
             }
             
             .mobile-menu-btn {
+                width: 20px;
                 margin-right: 8px;
+            }
+            
+            .mobile-menu-btn span {
+                width: 16px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .sub-nav-link {
+                font-size: 10px;
+                padding: 0 6px;
+            }
+        }
+
+        /* Landscape Mobile Optimization */
+        @media (max-height: 480px) and (orientation: landscape) {
+            .global-nav {
+                padding: 0 8px;
+            }
+            
+            .nav-container {
+                height: 44px;
+            }
+            
+            .sub-nav {
+                height: 40px;
+            }
+            
+            .sub-nav-container {
+                height: 40px;
+            }
+            
+            .sub-nav-link {
+                font-size: 11px;
+                padding: 0 10px;
             }
         }
 
@@ -449,6 +501,8 @@
     <nav class="global-nav">
         <div class="nav-container">
             <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
                 <span></span>
             </button>
         </div>
