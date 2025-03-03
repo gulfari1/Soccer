@@ -8,7 +8,7 @@ team_logos = {
     "Aston Villa": "logos/AVL.png",
     "AFC Bournemouth": "logos/BOU.png",
     "Brentford": "logos/BRE.png",
-    "Brighton & Hove Albion": "logos/BHA.png.png",
+    "Brighton & Hove Albion": "logos/BHA.png",
     "Chelsea": "logos/CHE.png",
     "Crystal Palace": "logos/CRY.png",
     "Everton": "logos/EVE.png",
