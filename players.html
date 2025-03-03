@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premier League Player Stats</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            background: white;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bars */
+        .global-nav {
+            background: #121212;
+            padding: 0 16px;
+            position: relative;
+            z-index: 1000;
+            border-bottom: 1px solid #000;
+        }
+
+        .nav-container {
+            max-width: 1248px;
+            margin: 0 auto;
+            height: 47px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .sub-nav {
+            background: #1a1a1a;
+            border-bottom: 1px solid #000;
+            overflow-x: hidden;
+        }
+
+        .sub-nav-container {
+            max-width: 1248px;
+            margin: 0 auto;
+            padding: 0 16px;
+            display: flex;
+            height: 40px;
+            align-items: center;
+        }
+
+        .sub-nav-link {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+            font-size: 10.5px;
+            font-weight: 400;
+            padding: 0 12px;
+            white-space: nowrap;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            border-left: 3px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .sub-nav-link.active {
+            color: #fff;
+            background-color: rgba(255,255,255,0.05);
+        }
+
+        .sub-nav-link:hover {
+            color: #fff;
+            background-color: rgba(255,255,255,0.03);
+        }
+
+        /* Stats Container */
+        .stats-container {
+            max-width: 1248px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-box {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .stat-title {
+            font-weight: 700;
+            color: #1a2634;
+            margin: 0 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #eee;
+            font-size: 1.2rem;
+        }
+
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .stats-table th {
+            background: #f8f9fa;
+            color: #2c3e50;
+            font-weight: 600;
+            padding: 8px 12px;
+            text-align: left;
+            font-size: 0.9em;
+        }
+
+        .stats-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.95em;
+        }
+
+        .stats-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .number-cell {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .player-name {
+            font-weight: 500;
+        }
+
+        .team-name {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .stats-container {
+                grid-template-columns: 1fr;
+                padding: 0 10px;
+            }
+            
+            .stat-box {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <div class="nav-container">
+            <button class="mobile-menu-btn">
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <nav class="sub-nav">
+        <div class="sub-nav-container">
+            <a href="index.html" class="sub-nav-link">Tables</a>
+            <a href="scores.html" class="sub-nav-link">Scores & Fixtures</a>
+            <a href="players.html" class="sub-nav-link active">Player Stats</a>
+        </div>
+    </nav>
+
+    <div class="stats-container">
+        <div id="loading" class="loading">Loading player data...</div>
+        <div id="error" class="error" style="display: none;"></div>
+
+        <!-- Stats containers will be populated by JavaScript -->
+        <div class="stat-box" id="goals-container"></div>
+        <div class="stat-box" id="assists-container"></div>
+        <div class="stat-box" id="goal-assist-container"></div>
+        <div class="stat-box" id="xg-container"></div>
+        <div class="stat-box" id="xa-container"></div>
+        <div class="stat-box" id="shots-container"></div>
+        <div class="stat-box" id="key-passes-container"></div>
+        <div class="stat-box" id="cards-container"></div>
+    </div>
+
+    <script>
+        async function loadPlayerStats() {
+            try {
+                const response = await fetch('players.json');
+                if (!response.ok) throw new Error('Network response was not ok');
+                const players = await response.json();
+
+                // Process and display stats
+                displayTopStats(players, 'goals', 'Goals', '#goals-container');
+                displayTopStats(players, 'assists', 'Assists', '#assists-container');
+                displayCombinedGoalsAssists(players);
+                displayTopStats(players, 'xG', 'Expected Goals', '#xg-container', true);
+                displayTopStats(players, 'xA', 'Expected Assists', '#xa-container', true);
+                displayTopStats(players, 'shots', 'Shots', '#shots-container');
+                displayTopStats(players, 'key_passes', 'Key Passes', '#key-passes-container');
+                displayCardsStats(players);
+
+                document.getElementById('loading').style.display = 'none';
+            } catch (error) {
+                showError(`Error loading player data: ${error.message}`);
+            }
+        }
+
+        function displayTopStats(players, statKey, title, containerId, isDecimal = false) {
+            const sorted = [...players].sort((a, b) => b[statKey] - a[statKey]).slice(0, 10);
+            const container = document.querySelector(containerId);
+            
+            let html = `
+                <h3 class="stat-title">Top 10 ${title}</h3>
+                <table class="stats-table">
+                    <thead>
+                        <tr>
+                            <th>Player</th>
+                            <th>Team</th>
+                            <th>${title}</th>
+                        </tr>
+                    </thead>
+                    <tbody>`;
+
+            sorted.forEach(player => {
+                html += `
+                    <tr>
+                        <td class="player-name">${player.player_name}</td>
+                        <td class="team-name">${player.team_title}</td>
+                        <td class="number-cell">${
+                            isDecimal ? Number(player[statKey]).toFixed(2) : player[statKey]
+                        }</td>
+                    </tr>`;
+            });
+
+            html += `</tbody></table>`;
+            container.innerHTML = html;
+        }
+
+        function displayCombinedGoalsAssists(players) {
+            const combined = players.map(player => ({
+                ...player,
+                ga: Number(player.goals) + Number(player.assists)
+            })).sort((a, b) => b.ga - a.ga).slice(0, 10);
+
+            const container = document.querySelector('#goal-assist-container');
+            
+            let html = `
+                <h3 class="stat-title">Top 10 Goals + Assists</h3>
+                <table class="stats-table">
+                    <thead>
+                        <tr>
+                            <th>Player</th>
+                            <th>Team</th>
+                            <th>G+A</th>
+                            <th>G</th>
+                            <th>A</th>
+                        </tr>
+                    </thead>
+                    <tbody>`;
+
+            combined.forEach(player => {
+                html += `
+                    <tr>
+                        <td class="player-name">${player.player_name}</td>
+                        <td class="team-name">${player.team_title}</td>
+                        <td class="number-cell">${player.ga}</td>
+                        <td class="number-cell">${player.goals}</td>
+                        <td class="number-cell">${player.assists}</td>
+                    </tr>`;
+            });
+
+            html += `</tbody></table>`;
+            container.innerHTML = html;
+        }
+
+        function displayCardsStats(players) {
+            const sortedYellows = [...players].sort((a, b) => b.yellow_cards - a.yellow_cards).slice(0, 10);
+            const sortedReds = [...players].sort((a, b) => b.red_cards - a.red_cards).slice(0, 10);
+
+            const container = document.querySelector('#cards-container');
+            
+            let html = `
+                <h3 class="stat-title">Disciplinary Records</h3>
+                <div style="display: flex; gap: 20px; justify-content: space-between;">
+                    <div style="flex: 1;">
+                        <h4 style="margin: 0 0 12px 0; color: #666; font-size: 0.95em;">Yellow Cards</h4>
+                        <table class="stats-table">
+                            <tbody>`;
+
+            sortedYellows.forEach(player => {
+                html += `
+                    <tr>
+                        <td class="player-name">${player.player_name}</td>
+                        <td class="team-name">${player.team_title}</td>
+                        <td class="number-cell">${player.yellow_cards}</td>
+                    </tr>`;
+            });
+
+            html += `</tbody></table></div><div style="flex: 1;">
+                        <h4 style="margin: 0 0 12px 0; color: #666; font-size: 0.95em;">Red Cards</h4>
+                        <table class="stats-table">
+                            <tbody>`;
+
+            sortedReds.forEach(player => {
+                html += `
+                    <tr>
+                        <td class="player-name">${player.player_name}</td>
+                        <td class="team-name">${player.team_title}</td>
+                        <td class="number-cell">${player.red_cards}</td>
+                    </tr>`;
+            });
+
+            html += `</tbody></table></div></div>`;
+            container.innerHTML = html;
+        }
+
+        function showError(message) {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('error').style.display = 'block';
+            document.getElementById('error').textContent = message;
+        }
+
+        loadPlayerStats();
+    </script>
+</body>
+</html>
