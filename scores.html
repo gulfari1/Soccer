@@ -135,6 +135,7 @@
             background: #f8f9fa;
             margin-bottom: 20px;
             border-bottom: 1px solid #e0e0e0;
+            border-radius: 8px; /* Added rounded corners */
         }
 
         .gameweek-buttons {
@@ -370,16 +371,16 @@
             gameweeks.forEach(week => {
                 const button = document.createElement('button');
                 button.className = `gameweek-button ${week == currentGameweek ? 'active' : ''}`;
-                button.textContent = `Gameweek ${week}`; // Changed here
+                button.textContent = `Gameweek ${week}`;
                 button.dataset.week = week;
                 
                 button.addEventListener('click', () => {
-                    currentGameweek = parseInt(week); // Update current gameweek
+                    currentGameweek = parseInt(week);
                     document.querySelectorAll('.gameweek-button').forEach(b => b.classList.remove('active'));
                     document.querySelectorAll('.gameweek-section').forEach(s => s.classList.remove('active'));
                     button.classList.add('active');
                     document.querySelector(`.gameweek-section[data-week="${week}"]`).classList.add('active');
-                    scrollToActiveGameweek(); // Added this line
+                    scrollToActiveGameweek();
                 });
 
                 buttonsContainer.appendChild(button);
@@ -484,7 +485,7 @@
                 const buttonWidth = activeButton.offsetWidth;
                 container.scrollTo({
                     left: buttonPosition - (containerWidth / 2) + (buttonWidth / 2),
-                    behavior: 'smooth' // Changed to smooth scrolling
+                    behavior: 'smooth'
                 });
             }
         }
