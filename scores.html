@@ -341,14 +341,12 @@
                 const fixtures = await response.json();
                 const grouped = groupByGameweek(fixtures);
 
-                // Compute gameweek start and end dates
-                const gameweekData = computeGameweekDates(grouped);
-
-                // Determine today's date in UTC
+                // Get today's date in UTC
                 const today = new Date();
                 const todayUTC = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate()));
                 
-                currentGameweek = determineCurrentGameweek(gameweekData, todayUTC);
+                // Determine current gameweek
+                currentGameweek = findCurrentGameweek(grouped, todayUTC);
                 
                 renderGameweekButtons(grouped);
                 renderFixtures(grouped);
@@ -358,41 +356,29 @@
             }
         }
 
-        function computeGameweekDates(grouped) {
-            const gameweeks = Object.keys(grouped).sort((a, b) => a - b);
-            const gameweekData = [];
-            for (const week of gameweeks) {
-                const fixtures = grouped[week];
-                const dates = fixtures.map(f => {
-                    const dateParts = f.Date.split('-');
-                    return new Date(Date.UTC(dateParts[0], dateParts[1] - 1, dateParts[2]));
-                });
-                const startDate = new Date(Math.min(...dates.map(d => d.getTime())));
-                const endDate = new Date(Math.max(...dates.map(d => d.getTime())));
-                gameweekData.push({
-                    week: parseInt(week),
-                    start: startDate,
-                    end: endDate
-                });
-            }
-            return gameweekData;
-        }
+        function findCurrentGameweek(groupedFixtures, today) {
+            const gameweeks = Object.keys(groupedFixtures)
+                .map(Number)
+                .sort((a, b) => a - b);
 
-        function determineCurrentGameweek(gameweekData, today) {
-            const startedGameweeks = gameweekData.filter(gw => gw.start <= today);
-            if (startedGameweeks.length === 0) {
-                return gameweekData[0].week;
-            } else {
-                const latestStarted = startedGameweeks[startedGameweeks.length - 1];
-                if (today > latestStarted.end) {
-                    const nextIndex = gameweekData.indexOf(latestStarted) + 1;
-                    return (nextIndex < gameweekData.length) 
-                        ? gameweekData[nextIndex].week 
-                        : gameweekData[gameweekData.length - 1].week;
+            // Find the latest fully completed gameweek
+            let lastCompleted = 0;
+            for (const week of gameweeks) {
+                const allMatchesPlayed = groupedFixtures[week].every(match => {
+                    const matchDate = new Date(match.Date + 'T00:00:00Z');
+                    return matchDate < today;
+                });
+                
+                if (allMatchesPlayed) {
+                    lastCompleted = week;
                 } else {
-                    return latestStarted.week;
+                    break;
                 }
             }
+
+            // Current gameweek is next after last completed
+            const current = gameweeks.find(w => w > lastCompleted) || gameweeks[gameweeks.length - 1];
+            return current || gameweeks[0];
         }
 
         function groupByGameweek(fixtures) {
