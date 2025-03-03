@@ -333,6 +333,23 @@
             return `${parts[0]} ${day}${getOrdinal(day)} ${parts[2]}`;
         }
 
+        function formatTimeGMT5(dateStr, timeStr) {
+            try {
+                const [year, month, day] = dateStr.split('-').map(Number);
+                const [hours, minutes] = timeStr.split(':').map(Number);
+                const date = new Date(Date.UTC(year, month - 1, day, hours, minutes));
+                
+                return new Intl.DateTimeFormat('en-US', {
+                    hour: 'numeric',
+                    minute: '2-digit',
+                    timeZone: 'Asia/Karachi', // GMT+5 timezone
+                    hour12: true
+                }).format(date);
+            } catch {
+                return timeStr; // Fallback to original time
+            }
+        }
+
         async function loadFixtures() {
             try {
                 const response = await fetch('scores_fixtures.json');
@@ -491,7 +508,7 @@
                                 ${isCompleted ? 
                                     `<div class="score ${homeScoreClass}">${match.Score.split('-')[0]}</div>
                                      <div class="score ${awayScoreClass}">${match.Score.split('-')[1]}</div>` :
-                                    `<div class="match-time">${match.Time}</div>`
+                                    `<div class="match-time">${formatTimeGMT5(match.Date, match.Time)}</div>`
                                 }
                             </div>
                             
