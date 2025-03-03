@@ -253,7 +253,7 @@
             font-size: 0.9em;
         }
 
-        /* New styles for team names */
+        /* New styles for team names and scores */
         .team-code {
             font-weight: bold;
         }
@@ -263,15 +263,14 @@
         }
 
         .loser {
-            color: #808080;
+            color: #666;
+        }
+
+        .loser-score {
+            color: #666;
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 1.5rem;
-                margin: 1rem 0;
-            }
-            
             .match-item {
                 padding: 12px;
                 gap: 0px;
@@ -305,7 +304,7 @@
     </nav>
 
     <div class="fixtures-container">
-        <h1>Premier League Fixtures</h1>
+        <h1>Premier League Scores & Fixtures</h1>
         <div class="gameweek-nav">
             <div class="gameweek-buttons" id="gameweek-buttons"></div>
         </div>
@@ -420,6 +419,8 @@
                         const isCompleted = match.Score && match.Score.includes('-');
                         let homeClass = '';
                         let awayClass = '';
+                        let homeScoreClass = '';
+                        let awayScoreClass = '';
 
                         if (isCompleted) {
                             const scores = match.Score.split('-').map(Number);
@@ -429,12 +430,18 @@
                             if (homeGoals > awayGoals) {
                                 homeClass = 'winner';
                                 awayClass = 'loser';
+                                homeScoreClass = '';
+                                awayScoreClass = 'loser-score';
                             } else if (awayGoals > homeGoals) {
                                 homeClass = 'loser';
                                 awayClass = 'winner';
+                                homeScoreClass = 'loser-score';
+                                awayScoreClass = '';
                             } else {
                                 homeClass = 'winner';
                                 awayClass = 'winner';
+                                homeScoreClass = '';
+                                awayScoreClass = '';
                             }
                         }
 
@@ -446,7 +453,8 @@
                             
                             <div class="score-container">
                                 ${isCompleted ? 
-                                    `<div class="score">${match.Score}</div>` :
+                                    `<div class="score ${homeScoreClass}">${match.Score.split('-')[0]}</div>
+                                     <div class="score ${awayScoreClass}">${match.Score.split('-')[1]}</div>` :
                                     `<div class="match-time">${match.Time}</div>`
                                 }
                             </div>
