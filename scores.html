@@ -160,7 +160,6 @@
             border-color: #1a2634;
         }
 
-
         /* Fixtures Layout */
         .gameweek-section {
             display: none;
@@ -371,14 +370,16 @@
             gameweeks.forEach(week => {
                 const button = document.createElement('button');
                 button.className = `gameweek-button ${week == currentGameweek ? 'active' : ''}`;
-                button.textContent = `GW ${week}`;
+                button.textContent = `Gameweek ${week}`; // Changed here
                 button.dataset.week = week;
                 
                 button.addEventListener('click', () => {
+                    currentGameweek = parseInt(week); // Update current gameweek
                     document.querySelectorAll('.gameweek-button').forEach(b => b.classList.remove('active'));
                     document.querySelectorAll('.gameweek-section').forEach(s => s.classList.remove('active'));
                     button.classList.add('active');
                     document.querySelector(`.gameweek-section[data-week="${week}"]`).classList.add('active');
+                    scrollToActiveGameweek(); // Added this line
                 });
 
                 buttonsContainer.appendChild(button);
