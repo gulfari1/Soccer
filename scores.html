@@ -135,7 +135,7 @@
             background: #f8f9fa;
             margin-bottom: 20px;
             border-bottom: 1px solid #e0e0e0;
-            border-radius: 8px; /* Added rounded corners */
+            border-radius: 8px;
         }
 
         .gameweek-buttons {
@@ -250,7 +250,6 @@
             font-size: 0.9em;
         }
 
-        /* New styles for team names and scores */
         .team-code {
             font-weight: bold;
         }
@@ -317,7 +316,7 @@
     </div>
 
     <script>
-        let currentGameweek = 27;
+        let currentGameweek;
 
         function getOrdinal(n) {
             const s = ["th", "st", "nd", "rd"];
@@ -341,6 +340,13 @@
                 const fixtures = await response.json();
                 const grouped = groupByGameweek(fixtures);
                 
+                const gameweeksArray = Object.keys(grouped).map(week => ({
+                    week: parseInt(week),
+                    ...grouped[week]
+                })).sort((a, b) => a.week - b.week);
+                
+                currentGameweek = determineCurrentGameweek(gameweeksArray);
+                
                 renderGameweekButtons(grouped);
                 renderFixtures(grouped);
                 document.getElementById('loading').style.display = 'none';
@@ -352,19 +358,52 @@
         function groupByGameweek(fixtures) {
             return fixtures.reduce((acc, fixture) => {
                 const week = fixture.Wk;
-                if (!acc[week]) acc[week] = [];
-                acc[week].push(fixture);
+                if (!acc[week]) {
+                    acc[week] = {
+                        fixtures: [fixture],
+                        startDate: fixture.Date,
+                        endDate: fixture.Date
+                    };
+                } else {
+                    acc[week].fixtures.push(fixture);
+                    if (fixture.Date < acc[week].startDate) {
+                        acc[week].startDate = fixture.Date;
+                    }
+                    if (fixture.Date > acc[week].endDate) {
+                        acc[week].endDate = fixture.Date;
+                    }
+                }
                 return acc;
             }, {});
         }
 
-        function groupByDate(fixtures) {
-            return fixtures.reduce((acc, fixture) => {
-                const date = formatDate(fixture.Date);
-                if (!acc[date]) acc[date] = [];
-                acc[date].push(fixture);
-                return acc;
-            }, {});
+        function determineCurrentGameweek(gameweeks) {
+            const today = new Date();
+            today.setUTCHours(0, 0, 0, 0);
+
+            for (const gw of gameweeks) {
+                const start = new Date(gw.startDate + 'T00:00:00Z');
+                const end = new Date(gw.endDate + 'T00:00:00Z');
+                start.setUTCHours(0, 0, 0, 0);
+                end.setUTCHours(0, 0, 0, 0);
+
+                if (today >= start && today <= end) {
+                    return gw.week;
+                }
+            }
+
+            const firstStart = new Date(gameweeks[0].startDate + 'T00:00:00Z');
+            if (today < firstStart) return gameweeks[0].week;
+
+            const lastEnd = new Date(gameweeks[gameweeks.length - 1].endDate + 'T00:00:00Z');
+            if (today > lastEnd) return gameweeks[gameweeks.length - 1].week;
+
+            for (const gw of gameweeks) {
+                const gwStart = new Date(gw.startDate + 'T00:00:00Z');
+                if (today < gwStart) return gw.week;
+            }
+
+            return gameweeks[gameweeks.length - 1].week;
         }
 
         function renderGameweekButtons(grouped) {
@@ -397,7 +436,8 @@
         function renderFixtures(grouped) {
             const container = document.getElementById('fixtures-list');
             
-            Object.entries(grouped).forEach(([week, matches]) => {
+            Object.entries(grouped).forEach(([week, data]) => {
+                const matches = data.fixtures;
                 const section = document.createElement('div');
                 section.className = `gameweek-section ${week == currentGameweek ? 'active' : ''}`;
                 section.dataset.week = week;
