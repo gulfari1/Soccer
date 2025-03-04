@@ -141,22 +141,24 @@
 
         .stat-title {
             background: #f8f9fa;
-            padding: 12px 16px;
+            padding: 16px 20px; /* Taller header */
             border-bottom: 1px solid #e0e0e0;
-            font-weight: 600;
+            font-weight: 700; /* Bolder font */
             color: #2c3e50;
             margin: 0;
-            font-size: 0.9em;
+            font-size: 1em; /* Slightly larger */
             text-align: center;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .player-row {
             display: flex;
             align-items: center;
-            padding: 16px;
+            padding: 12px 16px; /* Reduced vertical padding */
             border-bottom: 1px solid #eee;
-            gap: 5px;
+            gap: 12px; /* Reduced gap between elements */
+            min-height: 48px; /* Fixed minimum height */
         }
 
         .player-row:nth-child(odd) {
@@ -172,30 +174,31 @@
         }
 
         .rank {
-            width: 40px;
+            width: 35px; /* Slightly narrower */
             text-align: center;
             font-weight: 600;
-            font-size: 1.1em;
+            font-size: 1em;
             color: #666;
         }
 
         .club-logo {
-            width: 30px;
-            height: 30px;
-            margin: 0 15px;
+            width: 28px; /* Slightly smaller */
+            height: 28px;
+            margin: 0 8px; /* Reduced horizontal margin */
         }
 
         .player-name {
             flex-grow: 1;
             font-weight: 500;
-            font-size: 1.1em;
+            font-size: 1em;
+            padding-right: 8px;
         }
 
         .stat-number {
-            width: 60px;
+            width: 50px; /* Narrower */
             text-align: right;
             font-weight: 700;
-            font-size: 1.2em;
+            font-size: 1.1em;
             color: #1a2634;
         }
 
