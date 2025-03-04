@@ -278,16 +278,28 @@
             <div id="xa-list"></div>
         </div>
 
+        <!-- Shots Container -->
+        <div class="stat-box">
+            <h2 class="stat-title">Shots</h2>
+            <div id="shots-list"></div>
+        </div>
+
         <!-- Key Passes Container -->
         <div class="stat-box">
             <h2 class="stat-title">Key Passes</h2>
             <div id="key-passes-list"></div>
         </div>
 
-        <!-- Shots Container -->
+        <!-- Yellow Cards Container -->
         <div class="stat-box">
-            <h2 class="stat-title">Shots</h2>
-            <div id="shots-list"></div>
+            <h2 class="stat-title">Yellow Cards</h2>
+            <div id="yellow-cards-list"></div>
+        </div>
+
+        <!-- Red Cards Container -->
+        <div class="stat-box">
+            <h2 class="stat-title">Red Cards</h2>
+            <div id="red-cards-list"></div>
         </div>
     </div>
 
@@ -334,11 +346,17 @@
                 const sortedXA = [...players].sort((a, b) => parseFloat(b.xA) - parseFloat(a.xA)).slice(0, 10);
                 displayStatList(sortedXA, 'xA', '#xa-list');
 
+                const sortedShots = [...players].sort((a, b) => parseFloat(b.shots) - parseFloat(a.shots)).slice(0, 10);
+                displayStatList(sortedShots, 'shots', '#shots-list');
+
                 const sortedKeyPasses = [...players].sort((a, b) => parseFloat(b.key_passes) - parseFloat(a.key_passes)).slice(0, 10);
                 displayStatList(sortedKeyPasses, 'key_passes', '#key-passes-list');
 
-                const sortedShots = [...players].sort((a, b) => parseFloat(b.shots) - parseFloat(a.shots)).slice(0, 10);
-                displayStatList(sortedShots, 'shots', '#shots-list');
+                const sortedYellowCards = [...players].sort((a, b) => parseFloat(b.yellow_cards) - parseFloat(a.yellow_cards)).slice(0, 10);
+                displayStatList(sortedYellowCards, 'yellow_cards', '#yellow-cards-list');
+
+                const sortedRedCards = [...players].sort((a, b) => parseFloat(b.red_cards) - parseFloat(a.red_cards)).slice(0, 10);
+                displayStatList(sortedRedCards, 'red_cards', '#red-cards-list');
 
                 document.getElementById('loading').style.display = 'none';
             } catch (error) {
