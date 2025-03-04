@@ -101,11 +101,11 @@
             border-bottom: 1px solid #eee;
         }
 
-        .position-badge {
+        .rank {
             width: 40px;
             text-align: center;
             font-weight: 600;
-            font-size: 0.9em;
+            font-size: 1.1em;
             color: #666;
         }
 
@@ -205,10 +205,10 @@
             const container = document.querySelector(containerId);
             let html = '';
             
-            players.forEach(player => {
+            players.forEach((player, index) => {
                 html += `
                     <div class="player-row">
-                        <div class="position-badge">${formatPosition(player.position)}</div>
+                        <div class="rank">${index + 1}</div>
                         <img class="club-logo" src="logos/${player.team_title.replace(/ /g, '_')}.png" alt="${player.team_title}">
                         <div class="player-name">${player.player_name}</div>
                         <div class="stat-number">${player[statType]}</div>
@@ -217,16 +217,6 @@
             });
             
             container.innerHTML = html;
-        }
-
-        function formatPosition(position) {
-            const positions = {
-                'FWD': 'FW',
-                'MID': 'MF',
-                'DEF': 'DF',
-                'GK': 'GK'
-            };
-            return positions[position] || position;
         }
 
         function showError(message) {
