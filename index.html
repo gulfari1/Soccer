@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Real-time Premier League standings, player stats, and match results">
+    <meta property="og:title" content="Premier League Table">
+    <meta property="og:description" content="Stay updated with the latest Premier League standings, team stats, and match results.">
+    <meta property="og:image" content="https://your-site.com/preview.jpg">
+    <meta property="og:url" content="https://your-site.com">
     <title>Premier League Table</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="manifest" href="/manifest.json">
     <style>
-        /* ====== Global Styles ====== */
+        /* Critical CSS (Above-the-fold styles) */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
             margin: 0;
@@ -13,9 +20,6 @@
             color: #333;
             line-height: 1.6;
         }
-
-        /* ====== Navigation Bars ====== */
-        /* Navigation Bars */
         .global-nav {
             background: #121212;
             padding: 0 16px;
@@ -23,105 +27,11 @@
             z-index: 1000;
             border-bottom: 1px solid #000;
         }
-
-        .nav-container {
-            max-width: 1248px;
-            margin: 0 auto;
-            height: 47px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-        }
-
-        .sub-nav {
-            background: #1a1a1a;
-            border-bottom: 1px solid #000;
-            overflow-x: hidden;
-        }
-
-        .sub-nav-container {
-            max-width: 1248px;
-            margin: 0 auto;
-            padding: 0 16px;
-            display: flex;
-            height: 40px;
-            align-items: center;
-        }
-
-        .sub-nav-link {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
-            font-size: 10.5px;
-            font-weight: 400;
-            padding: 0 12px;
-            white-space: nowrap;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            border-left: 3px solid transparent;
-            transition: all 0.2s ease;
-        }
-
-        .sub-nav-link.active {
-            color: #fff;
-            background-color: rgba(255,255,255,0.05);
-        }
-
-        .sub-nav-link:hover {
-            color: #fff;
-            background-color: rgba(255,255,255,0.03);
-        }
-
-        .mobile-menu-btn {
-            display: block;
-            background: none;
-            border: none;
-            color: white;
-            padding: 5px;
-            margin-right: 12px;
-            order: -1;
-            position: relative;
-            width: 20px;
-            height: 14px;
-        }
-
-        .mobile-menu-btn::before,
-        .mobile-menu-btn::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: white;
-        }
-
-        .mobile-menu-btn::before {
-            top: 0;
-        }
-
-        .mobile-menu-btn::after {
-            bottom: 0;
-        }
-
-        .mobile-menu-btn span {
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
-            height: 2px;
-            background-color: white;
-        }
-
-
-        /* ====== Table Container ====== */
         .table-container {
             max-width: 1000px;
             margin: 20px auto;
             padding: 0 20px;
         }
-
         h1 {
             font-weight: 700;
             color: #1a2634;
@@ -129,300 +39,21 @@
             font-size: 2rem;
             text-align: center;
         }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-            font-size: 0.95rem;
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: center;
-        }
-
-        th {
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            background: #f8f9fa;
-            color: #2c3e50;
-            border-bottom: 3px solid #1a2634;
-            padding: 14px 12px;
-            position: sticky;
-            top: 0;
-        }
-
-        tr {
-            border-bottom: 1px solid #ddd;
-            transition: background-color 0.2s ease;
-        }
-
-        tr:hover {
-            background-color: #f1f3f5 !important;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
-
-        .team-cell {
-            text-align: left;
-            display: flex;
-            align-items: center;
-            min-width: 220px;
-            max-width: none;
-        }
-
-        .team-logo-container {
-            width: 34px;
-            height: 34px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 12px;
-            border-radius: 50%;
-            overflow: hidden;
-            flex-shrink: 0;
-            background: #fff;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-
-        .team-logo {
-            max-width: 80%;
-            max-height: 80%;
-        }
-
-        .team-name {
-            white-space: nowrap;
-            overflow: visible;
-            text-overflow: clip;
-            font-weight: bold;
-            font-size: 1.05rem;
-            letter-spacing: -0.02em;
-        }
-
-        .team-name.short { display: none; }
-        .team-name.full { display: inline; }
-
-        .separator-row {
-            border-bottom: 2px solid #1a2634 !important;
-        }
-
-        /* ====== Form Styling ====== */
-        .form-container {
-            display: flex;
-            gap: 4px;
-            position: relative;
-            padding-right: 8px;
-        }
-
-        .form-item {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            font-weight: bold;
-            flex-shrink: 0;
-            opacity: calc(0.4 + (0.15 * var(--index)));
-            transition: transform 0.2s ease;
-        }
-
-        .form-item:hover {
-            transform: scale(1.1);
-            z-index: 1;
-            position: relative;
-        }
-
-        .form-win { background: #4CAF50; color: white; }
-        .form-draw { background: #757575; color: white; }
-        .form-loss { background: #f44336; color: white; }
-
-        /* ====== Key Container ====== */
-        .key-container {
-            background: white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
-            padding: 12px;
-            margin-top: 20px;
-            max-width: 1000px;
-            margin: 20px auto 0;
-            border-radius: 8px;
-            border: 1px solid #e9ecef;
-        }
-
-        .key-container h2 {
-            background: #f5f5f5;
-            color: #2c3e50;
-            padding: 12px;
-            margin: -12px -12px 12px -12px;
-            font-size: 1.2em;
-            font-weight: bold;
-            border-radius: 8px 8px 0 0;
-        }
-
-        .key-container ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .key-container li {
-            margin-bottom: 8px;
-            font-size: 0.75em;
-            position: relative;
-            padding-left: 20px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .key-container li::before {
-            content: '';
-            width: 12px;
-            height: 12px;
-            border-radius: 2px;
-            background: currentColor;
-            position: absolute;
-            left: 0;
-        }
-
-        /* ====== Last Updated ====== */
-        .last-updated {
-            text-align: center;
-            margin: 15px auto;
-            color: #6c757d;
-            font-size: 0.85rem;
-            font-weight: 500;
-            max-width: 1000px;
-        }
-
-        /* ====== Loading and Error States ====== */
-        .loading {
-            text-align: center;
-            padding: 20px;
-            font-size: 1.2rem;
-            color: #6c757d;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 1 }
-            50% { opacity: 0.5 }
-            100% { opacity: 1 }
-        }
-
-        .error {
-            color: red;
-            text-align: center;
-        }
-
-        /* ====== Mobile Landscape Optimizations ====== */
-        @media (max-width: 900px) and (orientation: landscape) {
-            .table-container {
-                max-width: 95vw;
-            }
-            
-            th, td {
-                padding: 8px 6px;
-                font-size: 0.9rem;
-            }
-            
-            .team-logo-container {
-                width: 28px;
-                height: 28px;
-            }
-            
-            .team-name {
-                font-size: 0.95rem;
-            }
-            
-            .form-item {
-                width: 20px;
-                height: 20px;
-            }
-        }
-        
-        /* ====== Mobile Styles ====== */
-        @media (max-width: 600px) {
-            
-            h1 {
-                font-size: 1.5rem;
-                margin: 1rem 0;
-            }
-            
-            th, td {
-                padding: 10px 6px;
-                font-size: 15px;
-            }
-            
-            .team-logo-container {
-                width: 20px;
-                height: 20px;
-                margin-right: 4px;
-            }
-            
-            .mobile-hide {
-                display: none;
-            }
-            
-            .table-container {
-                padding: 0 5px;
-            }
-            
-            .team-cell {
-                max-width: 140px;
-                min-width: unset;
-            }
-            
-            .key-container {
-                padding: 8px;
-                margin-top: 15px;
-            }
-            
-            .key-container h2 {
-                padding: 8px;
-                margin: -8px -8px 8px -8px;
-                font-size: 1em;
-            }
-            
-            .key-container li {
-                font-size: 0.75em;
-            }
-            
-            .last-updated {
-                font-size: 13px;
-            }
-            
-            .team-name.short { display: inline; }
-            .team-name.full { display: none; }
-            .team-name {
-                white-space: normal;
-                overflow: visible;
-            }
-            
-            .form-item {
-                width: 18px;
-                height: 18px;
-                font-size: 0.65rem;
-            }
-        }
+        /* Defer non-critical CSS */
+        <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
     </style>
 </head>
 <body>
     <!-- Navigation Bars -->
-    <nav class="global-nav">
+    <nav class="global-nav" aria-label="Main navigation">
         <div class="nav-container">
-            <button class="mobile-menu-btn">
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
                 <span></span>
             </button>
         </div>
     </nav>
 
-    <nav class="sub-nav">
+    <nav class="sub-nav" aria-label="Secondary navigation">
         <div class="sub-nav-container">
             <a href="index.html" class="sub-nav-link active">Tables</a>
             <a href="scores.html" class="sub-nav-link">Scores & Fixtures</a>
@@ -435,20 +66,20 @@
         <h1>Premier League Table</h1>
         <div id="loading" class="loading">Loading...</div>
         <div id="error" class="error" style="display: none;"></div>
-        <table id="leagueTable">
+        <table id="leagueTable" role="grid" aria-label="League standings">
             <thead>
                 <tr>
-                    <th>Pos</th>
-                    <th>Team</th>
-                    <th>MP</th>
-                    <th class="mobile-hide">W</th>
-                    <th class="mobile-hide">D</th>
-                    <th class="mobile-hide">L</th>
-                    <th class="mobile-hide">GF</th>
-                    <th class="mobile-hide">GA</th>
-                    <th>GD</th>
-                    <th>Pts</th>
-                    <th class="mobile-hide">Form</th>
+                    <th role="columnheader" aria-sort="none" data-sort="numeric">Pos</th>
+                    <th role="columnheader" aria-sort="none" data-sort="text">Team</th>
+                    <th role="columnheader" aria-sort="none" data-sort="numeric">MP</th>
+                    <th class="mobile-hide" role="columnheader" aria-sort="none" data-sort="numeric">W</th>
+                    <th class="mobile-hide" role="columnheader" aria-sort="none" data-sort="numeric">D</th>
+                    <th class="mobile-hide" role="columnheader" aria-sort="none" data-sort="numeric">L</th>
+                    <th class="mobile-hide" role="columnheader" aria-sort="none" data-sort="numeric">GF</th>
+                    <th class="mobile-hide" role="columnheader" aria-sort="none" data-sort="numeric">GA</th>
+                    <th role="columnheader" aria-sort="none" data-sort="numeric">GD</th>
+                    <th role="columnheader" aria-sort="none" data-sort="numeric">Pts</th>
+                    <th class="mobile-hide" role="columnheader" aria-sort="none">Form</th>
                 </tr>
             </thead>
             <tbody></tbody>
@@ -465,8 +96,19 @@
         </div>
 
         <!-- Last Updated Time -->
-        <div class="last-updated"></div>
+        <div class="last-updated" aria-live="polite"></div>
     </div>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SportsLeague",
+        "name": "Premier League",
+        "sport": "soccer",
+        "url": "https://your-site.com"
+    }
+    </script>
 
     <script>
         // Client-side team name mappings (for mobile view)
@@ -484,29 +126,27 @@
             "Ipswich Town": "Ipswich"
         };
 
-        // Function to format the date with ordinal suffix
-        function getOrdinal(n) {
-            const s = ["th", "st", "nd", "rd"];
-            const v = n % 100;
-            return (s[(v - 20) % 10] || s[v] || s[0]);
+        // Table sorting functionality
+        function sortTable(columnIndex, isNumeric) {
+            const tbody = document.querySelector('tbody');
+            const rows = Array.from(tbody.rows);
+            
+            rows.sort((a, b) => {
+                const aVal = a.cells[columnIndex].textContent;
+                const bVal = b.cells[columnIndex].textContent;
+                return isNumeric ? bVal - aVal : aVal.localeCompare(bVal);
+            });
+
+            tbody.append(...rows);
         }
 
-        // Function to format the date and time
-        function formatDateTime(date) {
-            const day = date.getDate();
-            const month = date.toLocaleString('default', { month: 'long' });
-            const year = date.getFullYear();
-            const hours = date.getHours().toString().padStart(2, '0');
-            const minutes = date.getMinutes().toString().padStart(2, '0');
-            return `${day}${getOrdinal(day)} ${month} ${year} at ${hours}:${minutes}`;
-        }
-
-        // Function to show error messages
-        function showError(message) {
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('error').style.display = 'block';
-            document.getElementById('error').textContent = message;
-        }
+        // Add sorting event listeners
+        document.querySelectorAll('th[role="columnheader"]').forEach((th, index) => {
+            th.addEventListener('click', () => {
+                const isNumeric = th.getAttribute('data-sort') === 'numeric';
+                sortTable(index, isNumeric);
+            });
+        });
 
         // Function to load data and update the table
         async function loadData() {
@@ -514,7 +154,7 @@
                 const response = await fetch('data.json');
                 if (!response.ok) throw new Error('Network response was not ok');
 
-                // Get the last modified date from the response headers
+                // Get the last modified date
                 const lastModified = response.headers.get('last-modified');
                 const updateDate = lastModified ? new Date(lastModified) : new Date();
 
@@ -531,7 +171,7 @@
                         <td>${index + 1}</td>
                         <td class="team-cell">
                             <div class="team-logo-container">
-                                <img src="${team.logo}" alt="${team.team}" class="team-logo">
+                                <img loading="lazy" src="${team.logo}" alt="${team.team}" class="team-logo">
                             </div>
                             <span class="team-name full">${team.team}</span>
                             <span class="team-name short">${clientSideMappings[team.team] || team.team}</span>
