@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Live Premier League standings, fixtures, and player statistics">
     <title>Premier League Table</title>
-    <link rel="manifest" href="/manifest.json">
     <style>
         /* ====== Global Styles ====== */
         body {
@@ -16,22 +14,8 @@
             line-height: 1.6;
         }
 
-        /* Dark mode support */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background: #121212;
-                color: #ffffff;
-            }
-            th, .key-container {
-                background: #1a1a1a;
-                color: #ffffff;
-            }
-            tr:hover {
-                background-color: #2a2a2a !important;
-            }
-        }
-
         /* ====== Navigation Bars ====== */
+        /* Navigation Bars */
         .global-nav {
             background: #121212;
             padding: 0 16px;
@@ -100,7 +84,6 @@
             position: relative;
             width: 20px;
             height: 14px;
-            cursor: pointer;
         }
 
         .mobile-menu-btn::before,
@@ -130,6 +113,7 @@
             height: 2px;
             background-color: white;
         }
+
 
         /* ====== Table Container ====== */
         .table-container {
@@ -168,7 +152,6 @@
             padding: 14px 12px;
             position: sticky;
             top: 0;
-            cursor: pointer; /* Added for sorting */
         }
 
         tr {
@@ -431,15 +414,15 @@
 </head>
 <body>
     <!-- Navigation Bars -->
-    <nav class="global-nav" aria-label="Main navigation">
+    <nav class="global-nav">
         <div class="nav-container">
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <button class="mobile-menu-btn">
                 <span></span>
             </button>
         </div>
     </nav>
 
-    <nav class="sub-nav" aria-label="Sub navigation">
+    <nav class="sub-nav">
         <div class="sub-nav-container">
             <a href="index.html" class="sub-nav-link active">Tables</a>
             <a href="scores.html" class="sub-nav-link">Scores & Fixtures</a>
@@ -522,33 +505,12 @@
         function showError(message) {
             document.getElementById('loading').style.display = 'none';
             document.getElementById('error').style.display = 'block';
-            document.getElementById('error').innerHTML = `${message} <button onclick="loadData()">Retry</button>`;
-        }
-
-        // Function to sort table
-        function sortTable(columnIndex) {
-            const table = document.getElementById('leagueTable');
-            const tbody = table.querySelector('tbody');
-            const rows = Array.from(tbody.querySelectorAll('tr'));
-            
-            rows.sort((a, b) => {
-                const aVal = a.children[columnIndex].textContent.trim();
-                const bVal = b.children[columnIndex].textContent.trim();
-                return isNaN(aVal) ? aVal.localeCompare(bVal) : aVal - bVal;
-            });
-
-            tbody.innerHTML = '';
-            rows.forEach(row => tbody.appendChild(row));
+            document.getElementById('error').textContent = message;
         }
 
         // Function to load data and update the table
         async function loadData() {
             try {
-                const cachedData = localStorage.getItem('leagueData');
-                if (cachedData) {
-                    renderTable(JSON.parse(cachedData));
-                }
-
                 const response = await fetch('data.json');
                 if (!response.ok) throw new Error('Network response was not ok');
 
@@ -561,89 +523,48 @@
                 lastUpdatedDiv.textContent = `Last Updated ${formatDateTime(updateDate)}`;
 
                 const data = await response.json();
-                localStorage.setItem('leagueData', JSON.stringify(data));
-                renderTable(data);
+
+                // Populate the table
+                const tbody = document.querySelector('#leagueTable tbody');
+                tbody.innerHTML = data.map((team, index) => `
+                    <tr class="${[3, 4, 16].includes(index) ? 'separator-row' : ''}">
+                        <td>${index + 1}</td>
+                        <td class="team-cell">
+                            <div class="team-logo-container">
+                                <img src="${team.logo}" alt="${team.team}" class="team-logo">
+                            </div>
+                            <span class="team-name full">${team.team}</span>
+                            <span class="team-name short">${clientSideMappings[team.team] || team.team}</span>
+                        </td>
+                        <td>${team.matches}</td>
+                        <td class="mobile-hide">${team.wins}</td>
+                        <td class="mobile-hide">${team.draws}</td>
+                        <td class="mobile-hide">${team.losses}</td>
+                        <td class="mobile-hide">${team.gf}</td>
+                        <td class="mobile-hide">${team.ga}</td>
+                        <td>${team.gd}</td>
+                        <td><strong>${team.points}</strong></td>
+                        <td class="mobile-hide">
+                            <div class="form-container">
+                                ${team.form.split(' ').map((match, index) => `
+                                    <div class="form-item ${match === 'W' ? 'form-win' : match === 'D' ? 'form-draw' : 'form-loss'}" 
+                                         style="--index: ${index}">
+                                        ${match}
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </td>
+                    </tr>
+                `).join('');
+
                 document.getElementById('loading').style.display = 'none';
             } catch (error) {
                 showError(`Error loading data: ${error.message}`);
             }
         }
 
-        function renderTable(data) {
-            const tbody = document.querySelector('#leagueTable tbody');
-            tbody.innerHTML = data.map((team, index) => `
-                <tr class="${[3, 4, 16].includes(index) ? 'separator-row' : ''}">
-                    <td>${index + 1}</td>
-                    <td class="team-cell">
-                        <div class="team-logo-container">
-                            <img loading="lazy" src="${team.logo}" alt="${team.team}" class="team-logo">
-                        </div>
-                        <span class="team-name full">${team.team}</span>
-                        <span class="team-name short">${clientSideMappings[team.team] || team.team}</span>
-                    </td>
-                    <td>${team.matches}</td>
-                                        <td class="mobile-hide">${team.wins}</td>
-                    <td class="mobile-hide">${team.draws}</td>
-                    <td class="mobile-hide">${team.losses}</td>
-                    <td class="mobile-hide">${team.gf}</td>
-                    <td class="mobile-hide">${team.ga}</td>
-                    <td>${team.gd}</td>
-                    <td><strong>${team.points}</strong></td>
-                    <td class="mobile-hide">
-                        <div class="form-container">
-                            ${team.form.split(' ').map((match, index) => `
-                                <div class="form-item ${match === 'W' ? 'form-win' : match === 'D' ? 'form-draw' : 'form-loss'}" 
-                                     style="--index: ${index}" data-result="${match === 'W' ? 'Win' : match === 'D' ? 'Draw' : 'Loss'}">
-                                    ${match}
-                                </div>
-                            `).join('')}
-                        </div>
-                    </td>
-                </tr>
-            `).join('');
-
-            // Add sorting functionality to table headers
-            document.querySelectorAll('#leagueTable th').forEach((th, index) => {
-                th.addEventListener('click', () => sortTable(index));
-            });
-        }
-
         // Load data when the page loads
         loadData();
-
-        // Add mobile menu functionality
-        document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
-            document.querySelector('.sub-nav').classList.toggle('active');
-        });
-
-        // Add service worker for PWA functionality
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(registration => {
-                        console.log('ServiceWorker registration successful');
-                    })
-                    .catch(err => {
-                        console.log('ServiceWorker registration failed: ', err);
-                    });
-            });
-        }
-    </script>
-
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "SportsEvent",
-        "name": "Premier League",
-        "startDate": "2024-08-17",
-        "endDate": "2025-05-25",
-        "location": {
-            "@type": "Place",
-            "name": "England"
-        },
-        "description": "Live Premier League standings, fixtures, and player statistics"
-    }
     </script>
 </body>
 </html>
