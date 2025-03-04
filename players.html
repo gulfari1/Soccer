@@ -113,6 +113,14 @@
             background-color: white;
         }
 
+        .main-heading {
+         font-weight: 700;
+         color: #1a2634;
+         margin: 1.5rem 0;
+         font-size: 2rem;
+         text-align: center;
+        }
+
         .stats-container {
             max-width: 1248px;
             margin: 20px auto;
@@ -185,6 +193,11 @@
         }
 
         @media (max-width: 768px) {
+            @media (max-width: 768px) {
+         .main-heading {
+             font-size: 1.5rem;
+             margin: 1rem 0;
+         }
             .stats-container {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -217,7 +230,8 @@
             <a href="players.html" class="sub-nav-link active">Player Stats</a>
         </div>
     </nav>
-
+    
+    <h1 class="main-heading">Premier League Player Stats</h1>
     <div class="stats-container">
         <div id="loading" class="loading">Loading player data...</div>
         <div id="error" class="error" style="display: none;"></div>
