@@ -11,6 +11,7 @@
             margin: 0;
             background: white;
             color: #333;
+            line-height: 1.6;
         }
 
         /* Navigation Bars */
@@ -66,166 +67,81 @@
             background-color: rgba(255,255,255,0.05);
         }
 
-        .sub-nav-link:hover {
-            color: #fff;
-            background-color: rgba(255,255,255,0.03);
-        }
-
-        /* Stats Page Styles */
         .stats-container {
-            max-width: 1200px;
+            max-width: 1248px;
             margin: 20px auto;
-            padding: 0 15px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
         }
 
-        .stats-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .stats-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: #1a1a1a;
-        }
-
-        .stats-filters {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .filter-select {
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
-        .stats-table {
-            width: 100%;
-            border-collapse: collapse;
+        .stat-box {
             background: white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
-        .stats-table th {
-            background: #f8f9fa;
-            color: #666;
-            font-weight: 600;
-            padding: 12px 15px;
-            text-align: left;
+        .stat-title {
+            font-weight: 700;
+            color: #1a2634;
+            margin: 0 0 20px 0;
+            padding-bottom: 12px;
             border-bottom: 2px solid #eee;
+            font-size: 1.4rem;
+            text-align: center;
         }
 
-        .stats-table td {
-            padding: 12px 15px;
+        .player-row {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
             border-bottom: 1px solid #eee;
         }
 
-        .player-cell {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .player-photo {
+        .position-badge {
             width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .player-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .player-name {
+            text-align: center;
             font-weight: 600;
-            color: #1a1a1a;
-        }
-
-        .player-team {
             font-size: 0.9em;
             color: #666;
         }
 
-        .stat-number {
-            font-weight: 600;
-            color: #1a1a1a;
+        .club-logo {
+            width: 30px;
+            height: 30px;
+            margin: 0 15px;
         }
 
-        .tabs {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #eee;
-        }
-
-        .tab {
-            padding: 10px 0;
-            cursor: pointer;
-            color: #666;
+        .player-name {
+            flex-grow: 1;
             font-weight: 500;
-            position: relative;
+            font-size: 1.1em;
         }
 
-        .tab.active {
-            color: #1a1a1a;
-        }
-
-        .tab.active::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: #1a1a1a;
-        }
-
-        .search-bar {
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            width: 200px;
-            font-size: 14px;
-        }
-
-        .cards-cell {
-            display: flex;
-            gap: 5px;
-        }
-
-        .yellow-card {
-            color: #ffd700;
-        }
-
-        .red-card {
-            color: #ff0000;
+        .stat-number {
+            width: 60px;
+            text-align: right;
+            font-weight: 700;
+            font-size: 1.2em;
+            color: #1a2634;
         }
 
         @media (max-width: 768px) {
-            .stats-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0 15px;
             }
-
-            .stats-table th, .stats-table td {
-                padding: 8px;
+            
+            .player-name {
+                font-size: 1em;
             }
-
-            .player-photo {
-                width: 30px;
-                height: 30px;
-            }
-
-            .search-bar {
-                width: 100%;
+            
+            .club-logo {
+                margin: 0 10px;
             }
         }
     </style>
@@ -248,147 +164,78 @@
     </nav>
 
     <div class="stats-container">
-        <div class="stats-header">
-            <div class="tabs">
-                <div class="tab active" data-stat="goals">Top Scorers</div>
-                <div class="tab" data-stat="assists">Top Assists</div>
-                <div class="tab" data-stat="g+a">Goals + Assists</div>
-                <div class="tab" data-stat="xg">Expected Goals</div>
-            </div>
-            
-            <div class="stats-filters">
-                <select class="filter-select" id="position-filter">
-                    <option value="all">All Positions</option>
-                    <option value="F">Forward</option>
-                    <option value="M">Midfielder</option>
-                    <option value="D">Defender</option>
-                    <option value="G">Goalkeeper</option>
-                </select>
-                <input type="text" class="search-bar" placeholder="Search players..." id="player-search">
-            </div>
+        <div id="loading" class="loading">Loading player data...</div>
+        <div id="error" class="error" style="display: none;"></div>
+
+        <!-- Top Scorers Container -->
+        <div class="stat-box">
+            <h2 class="stat-title">Top Scorers</h2>
+            <div id="goals-list"></div>
         </div>
 
-        <table class="stats-table">
-            <thead>
-                <tr>
-                    <th style="width: 50px;">Rank</th>
-                    <th>Player</th>
-                    <th>Matches</th>
-                    <th>Goals</th>
-                    <th>Assists</th>
-                    <th>G+A</th>
-                    <th>xG</th>
-                    <th>xA</th>
-                    <th>Shots</th>
-                    <th>Key Passes</th>
-                    <th>Cards</th>
-                </tr>
-            </thead>
-            <tbody id="stats-body">
-                <!-- Data will be populated here -->
-            </tbody>
-        </table>
+        <!-- Top Assists Container -->
+        <div class="stat-box">
+            <h2 class="stat-title">Top Assists</h2>
+            <div id="assists-list"></div>
+        </div>
     </div>
 
     <script>
-        async function loadPlayers() {
+        async function loadPlayerStats() {
             try {
                 const response = await fetch('players.json');
+                if (!response.ok) throw new Error('Network response was not ok');
                 const players = await response.json();
-                
-                // Process data
-                const processed = players.map(p => ({
-                    ...p,
-                    ga: parseInt(p.goals) + parseInt(p.assists),
-                    matches: parseInt(p.games),
-                    xG: parseFloat(p.xG).toFixed(2),
-                    xA: parseFloat(p.xA).toFixed(2)
-                }));
 
-                // Initial render
-                renderStats(processed, 'goals');
-                setupFilters(processed);
+                // Process and display goals
+                const sortedGoals = [...players].sort((a, b) => b.goals - a.goals).slice(0, 10);
+                displayStatList(sortedGoals, 'goals', '#goals-list');
+
+                // Process and display assists
+                const sortedAssists = [...players].sort((a, b) => b.assists - a.assists).slice(0, 10);
+                displayStatList(sortedAssists, 'assists', '#assists-list');
+
+                document.getElementById('loading').style.display = 'none';
             } catch (error) {
-                console.error('Error loading player data:', error);
+                showError(`Error loading player data: ${error.message}`);
             }
         }
 
-        function renderStats(players, statType) {
-            const tbody = document.getElementById('stats-body');
-            let sorted = [];
-
-            switch(statType) {
-                case 'goals':
-                    sorted = [...players].sort((a, b) => b.goals - a.goals);
-                    break;
-                case 'assists':
-                    sorted = [...players].sort((a, b) => b.assists - a.assists);
-                    break;
-                case 'g+a':
-                    sorted = [...players].sort((a, b) => b.ga - a.ga);
-                    break;
-                case 'xg':
-                    sorted = [...players].sort((a, b) => b.xG - a.xG);
-                    break;
-            }
-
-            tbody.innerHTML = sorted.slice(0, 20).map((player, index) => `
-                <tr>
-                    <td class="stat-number">${index + 1}</td>
-                    <td>
-                        <div class="player-cell">
-                            <img src="player_photos/${player.id}.jpg" class="player-photo" alt="${player.player_name}">
-                            <div class="player-info">
-                                <span class="player-name">${player.player_name}</span>
-                                <span class="player-team">${player.team_title}</span>
-                            </div>
-                        </div>
-                    </td>
-                    <td>${player.matches}</td>
-                    <td class="stat-number">${player.goals}</td>
-                    <td class="stat-number">${player.assists}</td>
-                    <td class="stat-number">${player.ga}</td>
-                    <td class="stat-number">${player.xG}</td>
-                    <td class="stat-number">${player.xA}</td>
-                    <td class="stat-number">${player.shots}</td>
-                    <td class="stat-number">${player.key_passes}</td>
-                    <td class="cards-cell">
-                        <span class="yellow-card">${player.yellow_cards}</span>
-                        <span class="red-card">${player.red_cards}</span>
-                    </td>
-                </tr>
-            `).join('');
+        function displayStatList(players, statType, containerId) {
+            const container = document.querySelector(containerId);
+            let html = '';
+            
+            players.forEach(player => {
+                html += `
+                    <div class="player-row">
+                        <div class="position-badge">${formatPosition(player.position)}</div>
+                        <img class="club-logo" src="logos/${player.team_title.replace(/ /g, '_')}.png" alt="${player.team_title}">
+                        <div class="player-name">${player.player_name}</div>
+                        <div class="stat-number">${player[statType]}</div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
         }
 
-        function setupFilters(players) {
-            // Tab switching
-            document.querySelectorAll('.tab').forEach(tab => {
-                tab.addEventListener('click', () => {
-                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-                    renderStats(players, tab.dataset.stat);
-                });
-            });
-
-            // Position filter
-            document.getElementById('position-filter').addEventListener('change', (e) => {
-                const filtered = players.filter(p => 
-                    e.target.value === 'all' || p.position === e.target.value
-                );
-                renderStats(filtered, document.querySelector('.tab.active').dataset.stat);
-            });
-
-            // Search filter
-            document.getElementById('player-search').addEventListener('input', (e) => {
-                const searchTerm = e.target.value.toLowerCase();
-                const filtered = players.filter(p => 
-                    p.player_name.toLowerCase().includes(searchTerm)
-                );
-                renderStats(filtered, document.querySelector('.tab.active').dataset.stat);
-            });
+        function formatPosition(position) {
+            const positions = {
+                'FWD': 'FW',
+                'MID': 'MF',
+                'DEF': 'DF',
+                'GK': 'GK'
+            };
+            return positions[position] || position;
         }
 
-        loadPlayers();
+        function showError(message) {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('error').style.display = 'block';
+            document.getElementById('error').textContent = message;
+        }
+
+        loadPlayerStats();
     </script>
 </body>
 </html>
