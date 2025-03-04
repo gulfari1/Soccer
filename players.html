@@ -141,12 +141,12 @@
 
         .stat-title {
             background: #f8f9fa;
-            padding: 16px 20px; /* Taller header */
+            padding: 16px 20px;
             border-bottom: 1px solid #e0e0e0;
-            font-weight: 700; /* Bolder font */
+            font-weight: 700;
             color: #2c3e50;
             margin: 0;
-            font-size: 1em; /* Slightly larger */
+            font-size: 1em;
             text-align: left;
             letter-spacing: 0.5px;
         }
@@ -154,10 +154,10 @@
         .player-row {
             display: flex;
             align-items: center;
-            padding: 10px 16px; /* Reduced vertical padding */
+            padding: 10px 16px;
             border-bottom: 1px solid #eee;
-            gap: 5px; /* Reduced gap between elements */
-            min-height: 20px; /* Fixed minimum height */
+            gap: 5px;
+            min-height: 20px;
         }
 
         .player-row:nth-child(odd) {
@@ -173,7 +173,7 @@
         }
 
         .rank {
-            width: 10px; /* Slightly narrower */
+            width: 10px;
             text-align: left;
             font-weight: 600;
             font-size: 1em;
@@ -182,9 +182,9 @@
         }
 
         .club-logo {
-            width: 23px; /* Slightly smaller */
+            width: 23px;
             height: 23px;
-            margin: 0 0px; /* Reduced horizontal margin */
+            margin: 0 0px;
         }
 
         .player-name {
@@ -195,7 +195,7 @@
         }
 
         .stat-number {
-            width: 50px; /* Narrower */
+            width: 50px;
             text-align: right;
             font-weight: 700;
             font-size: 1.1em;
@@ -214,12 +214,12 @@
                 margin: 1rem 0;
             }
             .rank {
-            width: 10px; /* Slightly narrower */
-            text-align: left;
-            font-weight: 600;
-            font-size: 1em;
-            margin-right: 15px;
-            color: #666;
+                width: 10px;
+                text-align: left;
+                font-weight: 600;
+                font-size: 1em;
+                margin-right: 15px;
+                color: #666;
             }
 
             .player-name {
@@ -265,6 +265,30 @@
             <h2 class="stat-title">Assists</h2>
             <div id="assists-list"></div>
         </div>
+
+        <!-- Expected Goals Container -->
+        <div class="stat-box">
+            <h2 class="stat-title">Expected Goals</h2>
+            <div id="xg-list"></div>
+        </div>
+
+        <!-- Expected Assists Container -->
+        <div class="stat-box">
+            <h2 class="stat-title">Expected Assists</h2>
+            <div id="xa-list"></div>
+        </div>
+
+        <!-- Key Passes Container -->
+        <div class="stat-box">
+            <h2 class="stat-title">Key Passes</h2>
+            <div id="key-passes-list"></div>
+        </div>
+
+        <!-- Shots Container -->
+        <div class="stat-box">
+            <h2 class="stat-title">Shots</h2>
+            <div id="shots-list"></div>
+        </div>
     </div>
 
     <script>
@@ -297,11 +321,24 @@
                 if (!response.ok) throw new Error('Network response was not ok');
                 const players = await response.json();
 
-                const sortedGoals = [...players].sort((a, b) => b.goals - a.goals).slice(0, 10);
+                // Sort and display data for each stat
+                const sortedGoals = [...players].sort((a, b) => parseFloat(b.goals) - parseFloat(a.goals)).slice(0, 10);
                 displayStatList(sortedGoals, 'goals', '#goals-list');
 
-                const sortedAssists = [...players].sort((a, b) => b.assists - a.assists).slice(0, 10);
+                const sortedAssists = [...players].sort((a, b) => parseFloat(b.assists) - parseFloat(a.assists)).slice(0, 10);
                 displayStatList(sortedAssists, 'assists', '#assists-list');
+
+                const sortedXG = [...players].sort((a, b) => parseFloat(b.xG) - parseFloat(a.xG)).slice(0, 10);
+                displayStatList(sortedXG, 'xG', '#xg-list');
+
+                const sortedXA = [...players].sort((a, b) => parseFloat(b.xA) - parseFloat(a.xA)).slice(0, 10);
+                displayStatList(sortedXA, 'xA', '#xa-list');
+
+                const sortedKeyPasses = [...players].sort((a, b) => parseFloat(b.key_passes) - parseFloat(a.key_passes)).slice(0, 10);
+                displayStatList(sortedKeyPasses, 'key_passes', '#key-passes-list');
+
+                const sortedShots = [...players].sort((a, b) => parseFloat(b.shots) - parseFloat(a.shots)).slice(0, 10);
+                displayStatList(sortedShots, 'shots', '#shots-list');
 
                 document.getElementById('loading').style.display = 'none';
             } catch (error) {
@@ -315,12 +352,16 @@
             
             players.forEach((player, index) => {
                 const logoAbbreviation = teamLogoMap[player.team_title] || 'DEF';
+                const statValue = statType === 'xG' || statType === 'xA' 
+                    ? parseFloat(player[statType]).toFixed(2)
+                    : player[statType];
+                
                 html += `
                     <div class="player-row">
                         <div class="rank">${index + 1}</div>
                         <img class="club-logo" src="logos/${logoAbbreviation}.png" alt="${player.team_title}">
                         <div class="player-name">${player.player_name}</div>
-                        <div class="stat-number">${player[statType]}</div>
+                        <div class="stat-number">${statValue}</div>
                     </div>
                 `;
             });
