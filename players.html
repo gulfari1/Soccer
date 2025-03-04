@@ -114,13 +114,14 @@
         }
 
         .main-heading {
-         font-weight: 700;
-         color: #1a2634;
-         margin: 1.5rem 0;
-         font-size: 2rem;
-         text-align: center;
+            font-weight: 700;
+            color: #1a2634;
+            margin: 1.5rem 0;
+            font-size: 2rem;
+            text-align: center;
         }
 
+        /* Stats Container */
         .stats-container {
             max-width: 1248px;
             margin: 20px auto;
@@ -134,34 +135,40 @@
             background: white;
             border: 1px solid #e0e0e0;
             border-radius: 8px;
-            padding: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow: hidden;
+            margin-bottom: 25px;
         }
 
         .stat-title {
-            font-weight: 700;
-            color: #1a2634;
-            margin: 0 0 20px 0;
-            padding-bottom: 2px;
-            border-bottom: 2px solid #eee;
-            font-size: 1.4rem;
+            background: #f8f9fa;
+            padding: 12px 16px;
+            border-bottom: 1px solid #e0e0e0;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 0;
+            font-size: 0.9em;
             text-align: center;
+            text-transform: uppercase;
         }
 
         .player-row {
             display: flex;
             align-items: center;
-            padding: 12px 0;
+            padding: 16px;
             border-bottom: 1px solid #eee;
+            gap: 20px;
         }
 
-        /* Alternating row colors */
         .player-row:nth-child(odd) {
             background-color: white;
         }
 
         .player-row:nth-child(even) {
             background-color: #f8f9fa;
+        }
+
+        .player-row:last-child {
+            border-bottom: none;
         }
 
         .rank {
@@ -193,21 +200,21 @@
         }
 
         @media (max-width: 768px) {
-            @media (max-width: 768px) {
-         .main-heading {
-             font-size: 1.5rem;
-             margin: 1rem 0;
-         }
             .stats-container {
                 grid-template-columns: 1fr;
                 gap: 20px;
                 padding: 0 15px;
             }
-            
+
+            .main-heading {
+                font-size: 1.5rem;
+                margin: 1rem 0;
+            }
+
             .player-name {
                 font-size: 1em;
             }
-            
+
             .club-logo {
                 margin: 0 10px;
             }
