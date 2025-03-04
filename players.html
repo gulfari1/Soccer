@@ -67,52 +67,6 @@
             background-color: rgba(255,255,255,0.05);
         }
 
-        .sub-nav-link:hover {
-            color: #fff;
-            background-color: rgba(255,255,255,0.03);
-        }
-
-        .mobile-menu-btn {
-            display: block;
-            background: none;
-            border: none;
-            color: white;
-            padding: 5px;
-            margin-right: 12px;
-            order: -1;
-            position: relative;
-            width: 20px;
-            height: 14px;
-        }
-
-        .mobile-menu-btn::before,
-        .mobile-menu-btn::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: white;
-        }
-
-        .mobile-menu-btn::before {
-            top: 0;
-        }
-
-        .mobile-menu-btn::after {
-            bottom: 0;
-        }
-
-        .mobile-menu-btn span {
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
-            height: 2px;
-            background-color: white;
-        }
-
         .stats-container {
             max-width: 1248px;
             margin: 20px auto;
@@ -145,6 +99,15 @@
             align-items: center;
             padding: 12px 0;
             border-bottom: 1px solid #eee;
+        }
+
+        /* Alternating row colors */
+        .player-row:nth-child(odd) {
+            background-color: white;
+        }
+
+        .player-row:nth-child(even) {
+            background-color: #f8f9fa;
         }
 
         .rank {
@@ -221,19 +184,18 @@
 
         <!-- Top Assists Container -->
         <div class="stat-box">
-            <h2 class="stat-title">Assists</h2>
+            <h2 class="stat-title">Top Assists</h2>
             <div id="assists-list"></div>
         </div>
     </div>
 
     <script>
-        // Map team titles to their logo abbreviations
         const teamLogoMap = {
             'Manchester City': 'MCI',
             'Liverpool': 'LIV',
             'Chelsea': 'CHE',
             'Manchester United': 'MUN',
-            'Tottenham': 'TOT',
+            'Tottenham Hotspur': 'TOT',
             'Arsenal': 'ARS',
             'Leicester City': 'LEI',
             'West Ham United': 'WHU',
@@ -246,7 +208,7 @@
             'Crystal Palace': 'CRY',
             'Brentford': 'BRE',
             'Leeds United': 'LEE',
-            'Nottingham Forest': 'NFO',
+            'Nottingham Forest': 'NOT',
             'Fulham': 'FUL',
             'Bournemouth': 'BOU'
         };
@@ -257,11 +219,9 @@
                 if (!response.ok) throw new Error('Network response was not ok');
                 const players = await response.json();
 
-                // Process and display goals
                 const sortedGoals = [...players].sort((a, b) => b.goals - a.goals).slice(0, 10);
                 displayStatList(sortedGoals, 'goals', '#goals-list');
 
-                // Process and display assists
                 const sortedAssists = [...players].sort((a, b) => b.assists - a.assists).slice(0, 10);
                 displayStatList(sortedAssists, 'assists', '#assists-list');
 
@@ -276,7 +236,7 @@
             let html = '';
             
             players.forEach((player, index) => {
-                const logoAbbreviation = teamLogoMap[player.team_title] || 'DEF'; // Default to 'DEF' if team not found
+                const logoAbbreviation = teamLogoMap[player.team_title] || 'DEF';
                 html += `
                     <div class="player-row">
                         <div class="rank">${index + 1}</div>
