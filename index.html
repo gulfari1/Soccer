@@ -4,25 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premier League Table</title>
-    
-    <!-- SEO & Performance -->
-    <meta name="description" content="Premier League standings, stats, and fixtures">
-    <link rel="canonical" href="https://yourusername.github.io/Soccer/index.html">
-    <meta property="og:title" content="Premier League Table">
-    <meta property="og:description" content="Current Premier League standings and team stats">
-    <meta property="og:image" content="/og-image.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    
-    <!-- Preload & Preconnect -->
-    <link rel="preload" href="styles.css" as="style">
-    <link rel="preload" href="app.js" as="script">
-    <link rel="preconnect" href="https://www.googletagmanager.com">
-    
-    <!-- PWA -->
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#1a2634">
-    
-    <!-- Styles -->
     <style>
         /* ====== Global Styles ====== */
         body {
@@ -34,6 +15,7 @@
         }
 
         /* ====== Navigation Bars ====== */
+        /* Navigation Bars */
         .global-nav {
             background: #121212;
             padding: 0 16px;
@@ -131,6 +113,7 @@
             height: 2px;
             background-color: white;
         }
+
 
         /* ====== Table Container ====== */
         .table-container {
@@ -427,47 +410,21 @@
                 font-size: 0.65rem;
             }
         }
-
-        /* ====== New Additions ====== */
-        .skeleton {
-            background: #eee;
-            background-image: linear-gradient(90deg,#eee 25%,#f5f5f5 50%,#eee 75%);
-            background-size: 200% 100%;
-            animation: skeleton 1.5s infinite;
-        }
-
-        @keyframes skeleton {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-
-        @media (max-width: 600px) {
-            .sub-nav {
-                display: none;
-                position: absolute;
-                width: 100%;
-                background: #1a1a1a;
-            }
-            
-            .sub-nav.active {
-                display: block;
-            }
-        }
     </style>
 </head>
 <body>
     <!-- Navigation Bars -->
-    <nav class="global-nav" aria-label="Main navigation">
+    <nav class="global-nav">
         <div class="nav-container">
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <button class="mobile-menu-btn">
                 <span></span>
             </button>
         </div>
     </nav>
 
-    <nav class="sub-nav" aria-label="Secondary navigation">
+    <nav class="sub-nav">
         <div class="sub-nav-container">
-            <a href="index.html" class="sub-nav-link active" aria-current="page">Tables</a>
+            <a href="index.html" class="sub-nav-link active">Tables</a>
             <a href="scores.html" class="sub-nav-link">Scores & Fixtures</a>
             <a href="players.html" class="sub-nav-link">Players Stats</a>
         </div>
@@ -476,17 +433,9 @@
     <!-- Table Container -->
     <div class="table-container">
         <h1>Premier League Table</h1>
-        
-        <!-- Loading & Error States -->
-        <div id="loading" class="loading">
-            <div class="skeleton" style="width:100%; height:40px; margin:5px 0;"></div>
-            <div class="skeleton" style="width:100%; height:40px; margin:5px 0;"></div>
-            <div class="skeleton" style="width:100%; height:40px; margin:5px 0;"></div>
-        </div>
+        <div id="loading" class="loading">Loading...</div>
         <div id="error" class="error" style="display: none;"></div>
-        
-        <!-- Table -->
-        <table id="leagueTable" aria-label="Premier League standings">
+        <table id="leagueTable">
             <thead>
                 <tr>
                     <th>Pos</th>
@@ -506,7 +455,7 @@
         </table>
 
         <!-- Key Container -->
-        <div class="key-container" aria-label="League position key">
+        <div class="key-container">
             <h2>Key</h2>
             <ul>
                 <li>Position 1 - 4 : UEFA Champions League</li>
@@ -515,34 +464,12 @@
             </ul>
         </div>
 
-        <!-- Last Updated -->
-        <div class="last-updated" aria-live="polite"></div>
+        <!-- Last Updated Time -->
+        <div class="last-updated"></div>
     </div>
 
-    <!-- Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXX"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXX');
-    </script>
-
-    <!-- Main Script -->
-    <script>
-        // Register Service Worker
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/service-worker.js')
-                .then(reg => console.log('Service Worker registered'))
-                .catch(err => console.log('Service Worker registration failed: ', err));
-        }
-
-        // Mobile Menu
-        document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
-            document.querySelector('.sub-nav').classList.toggle('active');
-        });
-
-        // Client-side team name mappings
+        // Client-side team name mappings (for mobile view)
         const clientSideMappings = {
             "Manchester United": "Man Utd",
             "Manchester City": "Man City",
@@ -584,75 +511,56 @@
         // Function to load data and update the table
         async function loadData() {
             try {
-                // Check cache first
-                const cachedData = localStorage.getItem('plTableData');
-                const cachedTimestamp = localStorage.getItem('plTableTimestamp');
-                
-                if (cachedData && cachedTimestamp && 
-                    (Date.now() - cachedTimestamp) < 3600000) { // 1 hour cache
-                    updateTable(JSON.parse(cachedData));
-                    return;
-                }
-
                 const response = await fetch('data.json');
                 if (!response.ok) throw new Error('Network response was not ok');
 
-                // Get the last modified date
+                // Get the last modified date from the response headers
                 const lastModified = response.headers.get('last-modified');
                 const updateDate = lastModified ? new Date(lastModified) : new Date();
 
-                // Update last updated time
+                // Update the last updated time
                 const lastUpdatedDiv = document.querySelector('.last-updated');
                 lastUpdatedDiv.textContent = `Last Updated ${formatDateTime(updateDate)}`;
 
                 const data = await response.json();
-                
-                // Cache data
-                localStorage.setItem('plTableData', JSON.stringify(data));
-                localStorage.setItem('plTableTimestamp', Date.now());
 
-                updateTable(data);
+                // Populate the table
+                const tbody = document.querySelector('#leagueTable tbody');
+                tbody.innerHTML = data.map((team, index) => `
+                    <tr class="${[3, 4, 16].includes(index) ? 'separator-row' : ''}">
+                        <td>${index + 1}</td>
+                        <td class="team-cell">
+                            <div class="team-logo-container">
+                                <img src="${team.logo}" alt="${team.team}" class="team-logo">
+                            </div>
+                            <span class="team-name full">${team.team}</span>
+                            <span class="team-name short">${clientSideMappings[team.team] || team.team}</span>
+                        </td>
+                        <td>${team.matches}</td>
+                        <td class="mobile-hide">${team.wins}</td>
+                        <td class="mobile-hide">${team.draws}</td>
+                        <td class="mobile-hide">${team.losses}</td>
+                        <td class="mobile-hide">${team.gf}</td>
+                        <td class="mobile-hide">${team.ga}</td>
+                        <td>${team.gd}</td>
+                        <td><strong>${team.points}</strong></td>
+                        <td class="mobile-hide">
+                            <div class="form-container">
+                                ${team.form.split(' ').map((match, index) => `
+                                    <div class="form-item ${match === 'W' ? 'form-win' : match === 'D' ? 'form-draw' : 'form-loss'}" 
+                                         style="--index: ${index}">
+                                        ${match}
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </td>
+                    </tr>
+                `).join('');
+
                 document.getElementById('loading').style.display = 'none';
             } catch (error) {
                 showError(`Error loading data: ${error.message}`);
             }
-        }
-
-        function updateTable(data) {
-            const tbody = document.querySelector('#leagueTable tbody');
-            tbody.innerHTML = data.map((team, index) => `
-                <tr class="${[3, 4, 16].includes(index) ? 'separator-row' : ''}">
-                    <td>${index + 1}</td>
-                    <td class="team-cell">
-                        <div class="team-logo-container">
-                            <picture>
-                                <source srcset="${team.logo.replace('.png', '.webp')}" type="image/webp">
-                                <img src="${team.logo}" alt="${team.team}" class="team-logo" loading="lazy">
-                            </picture>
-                        </div>
-                        <span class="team-name full">${team.team}</span>
-                        <span class="team-name short">${clientSideMappings[team.team] || team.team}</span>
-                    </td>
-                    <td>${team.matches}</td>
-                    <td class="mobile-hide">${team.wins}</td>
-                    <td class="mobile-hide">${team.draws}</td>
-                    <td class="mobile-hide">${team.losses}</td>
-                    <td class="mobile-hide">${team.gf}</td>
-                    <td class="mobile-hide">${team.ga}</td>
-                    <td>${team.gd}</td>
-                    <td><strong>${team.points}</strong></td>
-                    <td class="mobile-hide">
-                        <div class="form-container">
-                            ${team.form.split(' ').map((match, index) => `
-                                <div class="form-item ${match === 'W' ? 'form-win' : match === 'D' ? 'form-draw' : 'form-loss'}" 
-                                     style="--index: ${index}">
-                                    ${match}
-                                </div>
-                            `).join('')}
-                        </div>
-                    </td>
-                </tr>
-            `).join('');
         }
 
         // Load data when the page loads
