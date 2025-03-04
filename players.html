@@ -181,6 +181,30 @@
     </div>
 
     <script>
+        // Map team titles to their logo abbreviations
+        const teamLogoMap = {
+            'Manchester City': 'MCI',
+            'Liverpool': 'LIV',
+            'Chelsea': 'CHE',
+            'Manchester United': 'MUN',
+            'Tottenham Hotspur': 'TOT',
+            'Arsenal': 'ARS',
+            'Leicester City': 'LEI',
+            'West Ham United': 'WHU',
+            'Aston Villa': 'AVL',
+            'Everton': 'EVE',
+            'Newcastle United': 'NEW',
+            'Wolverhampton Wanderers': 'WOL',
+            'Brighton & Hove Albion': 'BHA',
+            'Southampton': 'SOU',
+            'Crystal Palace': 'CRY',
+            'Brentford': 'BRE',
+            'Leeds United': 'LEE',
+            'Nottingham Forest': 'NOT',
+            'Fulham': 'FUL',
+            'Bournemouth': 'BOU'
+        };
+
         async function loadPlayerStats() {
             try {
                 const response = await fetch('players.json');
@@ -206,10 +230,11 @@
             let html = '';
             
             players.forEach((player, index) => {
+                const logoAbbreviation = teamLogoMap[player.team_title] || 'DEF'; // Default to 'DEF' if team not found
                 html += `
                     <div class="player-row">
                         <div class="rank">${index + 1}</div>
-                        <img class="club-logo" src="logos/${player.team_title.replace(/ /g, '_')}.png" alt="${player.team_title}">
+                        <img class="club-logo" src="logos/${logoAbbreviation}.png" alt="${player.team_title}">
                         <div class="player-name">${player.player_name}</div>
                         <div class="stat-number">${player[statType]}</div>
                     </div>
