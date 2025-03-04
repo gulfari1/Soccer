@@ -11,7 +11,6 @@
             margin: 0;
             background: white;
             color: #333;
-            line-height: 1.6;
         }
 
         /* Navigation Bars */
@@ -72,79 +71,161 @@
             background-color: rgba(255,255,255,0.03);
         }
 
-        /* Stats Container */
+        /* Stats Page Styles */
         .stats-container {
-            max-width: 1248px;
+            max-width: 1200px;
             margin: 20px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-            gap: 20px;
+            padding: 0 15px;
         }
 
-        .stat-box {
-            background: white;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 16px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        .stats-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
         }
 
-        .stat-title {
+        .stats-title {
+            font-size: 24px;
             font-weight: 700;
-            color: #1a2634;
-            margin: 0 0 16px 0;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #eee;
-            font-size: 1.2rem;
+            color: #1a1a1a;
+        }
+
+        .stats-filters {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .filter-select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
         }
 
         .stats-table {
             width: 100%;
             border-collapse: collapse;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
         .stats-table th {
             background: #f8f9fa;
-            color: #2c3e50;
+            color: #666;
             font-weight: 600;
-            padding: 8px 12px;
+            padding: 12px 15px;
             text-align: left;
-            font-size: 0.9em;
+            border-bottom: 2px solid #eee;
         }
 
         .stats-table td {
-            padding: 8px 12px;
+            padding: 12px 15px;
             border-bottom: 1px solid #eee;
-            font-size: 0.95em;
         }
 
-        .stats-table tr:nth-child(even) {
-            background-color: #f8f9fa;
+        .player-cell {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .number-cell {
-            text-align: right;
-            font-variant-numeric: tabular-nums;
+        .player-photo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .player-info {
+            display: flex;
+            flex-direction: column;
         }
 
         .player-name {
-            font-weight: 500;
+            font-weight: 600;
+            color: #1a1a1a;
         }
 
-        .team-name {
-            color: #666;
+        .player-team {
             font-size: 0.9em;
+            color: #666;
+        }
+
+        .stat-number {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .tab {
+            padding: 10px 0;
+            cursor: pointer;
+            color: #666;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .tab.active {
+            color: #1a1a1a;
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #1a1a1a;
+        }
+
+        .search-bar {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 200px;
+            font-size: 14px;
+        }
+
+        .cards-cell {
+            display: flex;
+            gap: 5px;
+        }
+
+        .yellow-card {
+            color: #ffd700;
+        }
+
+        .red-card {
+            color: #ff0000;
         }
 
         @media (max-width: 768px) {
-            .stats-container {
-                grid-template-columns: 1fr;
-                padding: 0 10px;
+            .stats-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
             }
-            
-            .stat-box {
-                padding: 12px;
+
+            .stats-table th, .stats-table td {
+                padding: 8px;
+            }
+
+            .player-photo {
+                width: 30px;
+                height: 30px;
+            }
+
+            .search-bar {
+                width: 100%;
             }
         }
     </style>
@@ -167,159 +248,147 @@
     </nav>
 
     <div class="stats-container">
-        <div id="loading" class="loading">Loading player data...</div>
-        <div id="error" class="error" style="display: none;"></div>
+        <div class="stats-header">
+            <div class="tabs">
+                <div class="tab active" data-stat="goals">Top Scorers</div>
+                <div class="tab" data-stat="assists">Top Assists</div>
+                <div class="tab" data-stat="g+a">Goals + Assists</div>
+                <div class="tab" data-stat="xg">Expected Goals</div>
+            </div>
+            
+            <div class="stats-filters">
+                <select class="filter-select" id="position-filter">
+                    <option value="all">All Positions</option>
+                    <option value="F">Forward</option>
+                    <option value="M">Midfielder</option>
+                    <option value="D">Defender</option>
+                    <option value="G">Goalkeeper</option>
+                </select>
+                <input type="text" class="search-bar" placeholder="Search players..." id="player-search">
+            </div>
+        </div>
 
-        <!-- Stats containers will be populated by JavaScript -->
-        <div class="stat-box" id="goals-container"></div>
-        <div class="stat-box" id="assists-container"></div>
-        <div class="stat-box" id="goal-assist-container"></div>
-        <div class="stat-box" id="xg-container"></div>
-        <div class="stat-box" id="xa-container"></div>
-        <div class="stat-box" id="shots-container"></div>
-        <div class="stat-box" id="key-passes-container"></div>
-        <div class="stat-box" id="cards-container"></div>
+        <table class="stats-table">
+            <thead>
+                <tr>
+                    <th style="width: 50px;">Rank</th>
+                    <th>Player</th>
+                    <th>Matches</th>
+                    <th>Goals</th>
+                    <th>Assists</th>
+                    <th>G+A</th>
+                    <th>xG</th>
+                    <th>xA</th>
+                    <th>Shots</th>
+                    <th>Key Passes</th>
+                    <th>Cards</th>
+                </tr>
+            </thead>
+            <tbody id="stats-body">
+                <!-- Data will be populated here -->
+            </tbody>
+        </table>
     </div>
 
     <script>
-        async function loadPlayerStats() {
+        async function loadPlayers() {
             try {
                 const response = await fetch('players.json');
-                if (!response.ok) throw new Error('Network response was not ok');
                 const players = await response.json();
+                
+                // Process data
+                const processed = players.map(p => ({
+                    ...p,
+                    ga: parseInt(p.goals) + parseInt(p.assists),
+                    matches: parseInt(p.games),
+                    xG: parseFloat(p.xG).toFixed(2),
+                    xA: parseFloat(p.xA).toFixed(2)
+                }));
 
-                // Process and display stats
-                displayTopStats(players, 'goals', 'Goals', '#goals-container');
-                displayTopStats(players, 'assists', 'Assists', '#assists-container');
-                displayCombinedGoalsAssists(players);
-                displayTopStats(players, 'xG', 'Expected Goals', '#xg-container', true);
-                displayTopStats(players, 'xA', 'Expected Assists', '#xa-container', true);
-                displayTopStats(players, 'shots', 'Shots', '#shots-container');
-                displayTopStats(players, 'key_passes', 'Key Passes', '#key-passes-container');
-                displayCardsStats(players);
-
-                document.getElementById('loading').style.display = 'none';
+                // Initial render
+                renderStats(processed, 'goals');
+                setupFilters(processed);
             } catch (error) {
-                showError(`Error loading player data: ${error.message}`);
+                console.error('Error loading player data:', error);
             }
         }
 
-        function displayTopStats(players, statKey, title, containerId, isDecimal = false) {
-            const sorted = [...players].sort((a, b) => b[statKey] - a[statKey]).slice(0, 10);
-            const container = document.querySelector(containerId);
-            
-            let html = `
-                <h3 class="stat-title">Top 10 ${title}</h3>
-                <table class="stats-table">
-                    <thead>
-                        <tr>
-                            <th>Player</th>
-                            <th>Team</th>
-                            <th>${title}</th>
-                        </tr>
-                    </thead>
-                    <tbody>`;
+        function renderStats(players, statType) {
+            const tbody = document.getElementById('stats-body');
+            let sorted = [];
 
-            sorted.forEach(player => {
-                html += `
-                    <tr>
-                        <td class="player-name">${player.player_name}</td>
-                        <td class="team-name">${player.team_title}</td>
-                        <td class="number-cell">${
-                            isDecimal ? Number(player[statKey]).toFixed(2) : player[statKey]
-                        }</td>
-                    </tr>`;
-            });
+            switch(statType) {
+                case 'goals':
+                    sorted = [...players].sort((a, b) => b.goals - a.goals);
+                    break;
+                case 'assists':
+                    sorted = [...players].sort((a, b) => b.assists - a.assists);
+                    break;
+                case 'g+a':
+                    sorted = [...players].sort((a, b) => b.ga - a.ga);
+                    break;
+                case 'xg':
+                    sorted = [...players].sort((a, b) => b.xG - a.xG);
+                    break;
+            }
 
-            html += `</tbody></table>`;
-            container.innerHTML = html;
+            tbody.innerHTML = sorted.slice(0, 20).map((player, index) => `
+                <tr>
+                    <td class="stat-number">${index + 1}</td>
+                    <td>
+                        <div class="player-cell">
+                            <img src="player_photos/${player.id}.jpg" class="player-photo" alt="${player.player_name}">
+                            <div class="player-info">
+                                <span class="player-name">${player.player_name}</span>
+                                <span class="player-team">${player.team_title}</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>${player.matches}</td>
+                    <td class="stat-number">${player.goals}</td>
+                    <td class="stat-number">${player.assists}</td>
+                    <td class="stat-number">${player.ga}</td>
+                    <td class="stat-number">${player.xG}</td>
+                    <td class="stat-number">${player.xA}</td>
+                    <td class="stat-number">${player.shots}</td>
+                    <td class="stat-number">${player.key_passes}</td>
+                    <td class="cards-cell">
+                        <span class="yellow-card">${player.yellow_cards}</span>
+                        <span class="red-card">${player.red_cards}</span>
+                    </td>
+                </tr>
+            `).join('');
         }
 
-        function displayCombinedGoalsAssists(players) {
-            const combined = players.map(player => ({
-                ...player,
-                ga: Number(player.goals) + Number(player.assists)
-            })).sort((a, b) => b.ga - a.ga).slice(0, 10);
-
-            const container = document.querySelector('#goal-assist-container');
-            
-            let html = `
-                <h3 class="stat-title">Top 10 Goals + Assists</h3>
-                <table class="stats-table">
-                    <thead>
-                        <tr>
-                            <th>Player</th>
-                            <th>Team</th>
-                            <th>G+A</th>
-                            <th>G</th>
-                            <th>A</th>
-                        </tr>
-                    </thead>
-                    <tbody>`;
-
-            combined.forEach(player => {
-                html += `
-                    <tr>
-                        <td class="player-name">${player.player_name}</td>
-                        <td class="team-name">${player.team_title}</td>
-                        <td class="number-cell">${player.ga}</td>
-                        <td class="number-cell">${player.goals}</td>
-                        <td class="number-cell">${player.assists}</td>
-                    </tr>`;
+        function setupFilters(players) {
+            // Tab switching
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    renderStats(players, tab.dataset.stat);
+                });
             });
 
-            html += `</tbody></table>`;
-            container.innerHTML = html;
-        }
-
-        function displayCardsStats(players) {
-            const sortedYellows = [...players].sort((a, b) => b.yellow_cards - a.yellow_cards).slice(0, 10);
-            const sortedReds = [...players].sort((a, b) => b.red_cards - a.red_cards).slice(0, 10);
-
-            const container = document.querySelector('#cards-container');
-            
-            let html = `
-                <h3 class="stat-title">Disciplinary Records</h3>
-                <div style="display: flex; gap: 20px; justify-content: space-between;">
-                    <div style="flex: 1;">
-                        <h4 style="margin: 0 0 12px 0; color: #666; font-size: 0.95em;">Yellow Cards</h4>
-                        <table class="stats-table">
-                            <tbody>`;
-
-            sortedYellows.forEach(player => {
-                html += `
-                    <tr>
-                        <td class="player-name">${player.player_name}</td>
-                        <td class="team-name">${player.team_title}</td>
-                        <td class="number-cell">${player.yellow_cards}</td>
-                    </tr>`;
+            // Position filter
+            document.getElementById('position-filter').addEventListener('change', (e) => {
+                const filtered = players.filter(p => 
+                    e.target.value === 'all' || p.position === e.target.value
+                );
+                renderStats(filtered, document.querySelector('.tab.active').dataset.stat);
             });
 
-            html += `</tbody></table></div><div style="flex: 1;">
-                        <h4 style="margin: 0 0 12px 0; color: #666; font-size: 0.95em;">Red Cards</h4>
-                        <table class="stats-table">
-                            <tbody>`;
-
-            sortedReds.forEach(player => {
-                html += `
-                    <tr>
-                        <td class="player-name">${player.player_name}</td>
-                        <td class="team-name">${player.team_title}</td>
-                        <td class="number-cell">${player.red_cards}</td>
-                    </tr>`;
+            // Search filter
+            document.getElementById('player-search').addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                const filtered = players.filter(p => 
+                    p.player_name.toLowerCase().includes(searchTerm)
+                );
+                renderStats(filtered, document.querySelector('.tab.active').dataset.stat);
             });
-
-            html += `</tbody></table></div></div>`;
-            container.innerHTML = html;
         }
 
-        function showError(message) {
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('error').style.display = 'block';
-            document.getElementById('error').textContent = message;
-        }
-
-        loadPlayerStats();
+        loadPlayers();
     </script>
 </body>
 </html>
