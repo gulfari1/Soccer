@@ -7,8 +7,8 @@ from pathlib import Path
 
 # Configuration
 UNDERSTAT_URL = "https://understat.com/league/EPL"
-GAMEWEEK_FILE = Path("data/gameweek.json")
-OUTPUT_FILE = Path("data/scores_fixtures.json")
+GAMEWEEK_FILE = Path("../data/gameweek.json")
+OUTPUT_FILE = Path("../data/scores_fixtures.json")
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
 }
