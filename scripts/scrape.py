@@ -47,7 +47,7 @@ team_name_mapping = {
     "Newcastle Utd": "Newcastle United",
     "Manchester Utd": "Manchester United",
     "Nott'm Forest": "Nottingham Forest",
-    "Nottingham F": "Nottingham Forest",  # Handle truncated names if needed
+    "Nottingham F": "Nottingham Forest",
     "Manchester C": "Manchester City",
     "Wolverhampton...": "Wolverhampton Wanderers",
     "Manchester U": "Manchester United",
@@ -125,10 +125,15 @@ if table_athletic:
                 else:
                     team_part = team_str_clean.strip()
                 full_name = team_name_mapping.get(team_part, team_part)
-                # Extract form
+                
+                # Extract form and split into individual characters
                 form_cell = columns[-1]
                 form_elements = form_cell.find_all('div', class_=lambda x: x and x.startswith('sc-'))
-                form = ''.join([e.text.strip() for e in form_elements])
+                form_chars = []
+                for e in form_elements:
+                    form_chars.extend(list(e.text.strip()))  # Split into individual characters
+                form = ' '.join(form_chars)  # Join with spaces
+                
                 form_data[full_name] = form
 
 # Prepare standings with Form data
@@ -140,14 +145,14 @@ for team, stats in teams.items():
         **stats,
         'gd': stats['gf'] - stats['ga'],
         'points': (stats['wins'] * 3) + stats['draws'],
-        'form': form_data.get(team, '')
+        'form': form_data.get(team, '')  # Add formatted form data
     })
 
-# Sort standings
+# Sort standings by points, goal difference, and goals scored
 standings.sort(key=lambda x: (-x['points'], -x['gd'], -x['gf']))
 
 # Save to JSON
-with open('../data/data.json', 'w') as f:
+with open('data.json', 'w') as f:
     json.dump(standings, f, indent=2)
 
 print("Data saved to data.json")
