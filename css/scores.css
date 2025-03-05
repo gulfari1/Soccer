@@ -1,0 +1,181 @@
+/* Fixtures Container */
+.fixtures-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    font-weight: 700;
+    color: #1a2634;
+    margin: 1.5rem 0;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* Gameweek Navigation */
+.gameweek-nav {
+    overflow-x: auto;
+    padding: 12px 16px;
+    background: #f8f9fa;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.gameweek-buttons {
+    display: flex;
+    gap: 8px;
+    padding-bottom: 4px;
+}
+
+.gameweek-button {
+    padding: 8px 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    background: white;
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.gameweek-button.active {
+    background: #1a2634;
+    color: white;
+    border-color: #1a2634;
+}
+
+/* Fixtures Layout */
+.gameweek-section {
+    display: none;
+    margin-bottom: 30px;
+}
+
+.gameweek-section.active {
+    display: block;
+}
+
+.date-section {
+    margin-bottom: 25px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.date-header {
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e0e0e0;
+    font-weight: 600;
+    color: #2c3e50;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.match-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.match-item {
+    padding: 16px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.match-item:nth-child(odd) {
+    background-color: white;
+}
+
+.match-item:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.match-item:last-child {
+    border-bottom: none;
+}
+
+.team-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.home-container {
+    justify-content: flex-end;
+}
+
+.away-container {
+    justify-content: flex-start;
+}
+
+.team-logo {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+.score-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 90px;
+    justify-content: center;
+}
+
+.score {
+    font-weight: 600;
+    background: #f8f9fa;
+    padding: 6px 18px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.match-time {
+    color: #000;
+    font-size: 0.9em;
+}
+
+.team-code {
+    font-weight: bold;
+}
+
+.winner {
+    color: #000;
+}
+
+.loser {
+    color: #808080;
+}
+
+.loser-score {
+    color: #808080;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+        margin: 1rem 0;
+    }
+    
+    .match-item {
+        padding: 12px;
+        gap: 0px;
+    }
+    
+    .team-logo {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .score {
+        padding: 4px 12px;
+    }
+  }
