@@ -90,19 +90,29 @@ def load_gameweek_data():
         print(f"Error loading gameweek data: {e}")
         return []
 
-def create_gameweek_lookup(gameweek_data):
+def create_understat_lookup(understat_matches):
     """Create lookup dictionary based on date and team codes"""
     return {
-        (m['Date'], m['HomeCode'], m['AwayCode']): m['Wk']
-        for m in gameweek_data
+        (m['Date'], m['HomeCode'], m['AwayCode']): {
+            'Score': m['Score'],
+            'Played': m['Played']
+        }
+        for m in understat_matches
     }
 
-def combine_data(understat_matches, gameweek_lookup):
-    """Merge gameweek numbers into Understat data"""
-    for match in understat_matches:
+def combine_data(gameweek_data, understat_lookup):
+    """Merge Understat scores into gameweek data"""
+    for match in gameweek_data:
         key = (match['Date'], match['HomeCode'], match['AwayCode'])
-        match['Wk'] = gameweek_lookup.get(key, None)
-    return understat_matches
+        understat_info = understat_lookup.get(key)
+        if understat_info is not None:
+            match['Score'] = understat_info['Score']
+            match['Played'] = understat_info['Played']
+        else:
+            # Set default values if not found in Understat
+            match['Score'] = "TBD"
+            match['Played'] = False
+    return gameweek_data
 
 def save_data(data):
     """Save combined data to JSON file"""
@@ -122,21 +132,20 @@ def main():
     print("Loading gameweek data...")
     gameweek_data = load_gameweek_data()
     
-    # Create lookup table for gameweek numbers
-    gameweek_lookup = create_gameweek_lookup(gameweek_data)
+    # Create lookup table for Understat scores
+    understat_lookup = create_understat_lookup(understat_matches)
     
-    # Combine datasets
+    # Update gameweek data with scores from Understat
     print("Merging data...")
-    combined_data = combine_data(understat_matches, gameweek_lookup)
+    combined_data = combine_data(gameweek_data, understat_lookup)
     
     # Verify and save results
     if not combined_data:
         print("No data to save")
         return
     
-    missing_wk = sum(1 for m in combined_data if m['Wk'] is None)
-    if missing_wk > 0:
-        print(f"Warning: {missing_wk} matches missing gameweek numbers")
+    missing_score = sum(1 for m in combined_data if m['Score'] == "TBD")
+    print(f"Matches without scores: {missing_score}")
     
     save_data(combined_data)
     print("First match sample:", json.dumps(combined_data[0], indent=2))
