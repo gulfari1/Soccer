@@ -10,7 +10,7 @@
     "ga": 26,
     "gd": 40,
     "points": 67,
-    "form": "DWDWW"
+    "form": "D W D W W D W D W W"
   },
   {
     "team": "Arsenal",
@@ -23,7 +23,7 @@
     "ga": 23,
     "gd": 28,
     "points": 54,
-    "form": "WWWLDWWWLD"
+    "form": "W W W L D W W W L D"
   },
   {
     "team": "Nottingham Forest",
@@ -36,7 +36,7 @@
     "ga": 33,
     "gd": 11,
     "points": 48,
-    "form": "LWLLDLWLLD"
+    "form": "L W L L D L W L L D"
   },
   {
     "team": "Manchester City",
@@ -49,7 +49,7 @@
     "ga": 37,
     "gd": 16,
     "points": 47,
-    "form": "WLWLWWLWLW"
+    "form": "W L W L W W L W L W"
   },
   {
     "team": "Chelsea",
@@ -62,7 +62,7 @@
     "ga": 36,
     "gd": 16,
     "points": 46,
-    "form": "LWLLWLWLLW"
+    "form": "L W L L W L W L L W"
   },
   {
     "team": "Newcastle United",
@@ -75,7 +75,7 @@
     "ga": 38,
     "gd": 8,
     "points": 44,
-    "form": "WLLWLWLLWL"
+    "form": "W L L W L W L L W L"
   },
   {
     "team": "AFC Bournemouth",
@@ -88,7 +88,7 @@
     "ga": 32,
     "gd": 13,
     "points": 43,
-    "form": "WLWLLWLWLL"
+    "form": "W L W L L W L W L L"
   },
   {
     "team": "Brighton & Hove Albion",
@@ -101,7 +101,7 @@
     "ga": 39,
     "gd": 5,
     "points": 43,
-    "form": "LLWWWLLWWW"
+    "form": "L L W W W L L W W W"
   },
   {
     "team": "Fulham",
@@ -114,7 +114,7 @@
     "ga": 36,
     "gd": 4,
     "points": 42,
-    "form": "LWWLWLWWLW"
+    "form": "L W W L W L W W L W"
   },
   {
     "team": "Aston Villa",
@@ -127,7 +127,7 @@
     "ga": 45,
     "gd": -5,
     "points": 42,
-    "form": "LDDWLLDDWL"
+    "form": "L D D W L L D D W L"
   },
   {
     "team": "Brentford",
@@ -140,7 +140,7 @@
     "ga": 43,
     "gd": 5,
     "points": 38,
-    "form": "WLWWDWLWWD"
+    "form": "W L W W D W L W W D"
   },
   {
     "team": "Crystal Palace",
@@ -153,7 +153,7 @@
     "ga": 33,
     "gd": 2,
     "points": 36,
-    "form": "LWLWWLWLWW"
+    "form": "L W L W W L W L W W"
   },
   {
     "team": "Tottenham Hotspur",
@@ -166,7 +166,7 @@
     "ga": 39,
     "gd": 14,
     "points": 33,
-    "form": "LWWWLLWWWL"
+    "form": "L W W W L L W W W L"
   },
   {
     "team": "Manchester United",
@@ -179,7 +179,7 @@
     "ga": 39,
     "gd": -6,
     "points": 33,
-    "form": "WLLDWWLLDW"
+    "form": "W L L D W W L L D W"
   },
   {
     "team": "West Ham United",
@@ -192,7 +192,7 @@
     "ga": 47,
     "gd": -15,
     "points": 33,
-    "form": "DLLWWDLLWW"
+    "form": "D L L W W D L L W W"
   },
   {
     "team": "Everton",
@@ -205,7 +205,7 @@
     "ga": 34,
     "gd": -4,
     "points": 32,
-    "form": "WDWDDWDWDD"
+    "form": "W D W D D W D W D D"
   },
   {
     "team": "Wolverhampton Wanderers",
@@ -218,7 +218,7 @@
     "ga": 56,
     "gd": -19,
     "points": 22,
-    "form": "LWLWLLWLWL"
+    "form": "L W L W L L W L W L"
   },
   {
     "team": "Ipswich Town",
@@ -231,7 +231,7 @@
     "ga": 57,
     "gd": -31,
     "points": 17,
-    "form": "LLDLLLLDLL"
+    "form": "L L D L L L L D L L"
   },
   {
     "team": "Leicester City",
@@ -244,7 +244,7 @@
     "ga": 61,
     "gd": -36,
     "points": 17,
-    "form": "WLLLLWLLLL"
+    "form": "W L L L L W L L L L"
   },
   {
     "team": "Southampton",
@@ -257,6 +257,6 @@
     "ga": 65,
     "gd": -46,
     "points": 9,
-    "form": "LWLLLLWLLL"
+    "form": "L W L L L L W L L L"
   }
 ]
