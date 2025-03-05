@@ -1,0 +1,109 @@
+/* Players Page Specific Styles */
+.main-heading {
+    font-weight: 700;
+    color: #1a2634;
+    margin: 1.5rem 0;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.stats-container {
+    max-width: 1248px;
+    margin: 20px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.stat-box {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 45px;
+}
+
+.stat-title {
+    background: #f8f9fa;
+    padding: 16px 20px;
+    border-bottom: 1px solid #e0e0e0;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0;
+    font-size: 1em;
+    text-align: left;
+    letter-spacing: 0.5px;
+}
+
+.player-row {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    border-bottom: 1px solid #eee;
+    gap: 5px;
+    min-height: 20px;
+}
+
+.player-row:nth-child(odd) {
+    background-color: white;
+}
+
+.player-row:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.player-row:last-child {
+    border-bottom: none;
+}
+
+.rank {
+    width: 10px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1em;
+    margin-right: 15px;
+    color: #666;
+}
+
+.club-logo {
+    width: 23px;
+    height: 23px;
+    margin: 0 0px;
+}
+
+.player-name {
+    flex-grow: 1;
+    font-weight: 500;
+    font-size: 1em;
+    padding-right: 8px;
+}
+
+.stat-number {
+    width: 50px;
+    text-align: right;
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #1a2634;
+}
+
+@media (max-width: 768px) {
+    .stats-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+    }
+    
+    .main-heading {
+        font-size: 1.5rem;
+        margin: 1rem 0;
+    }
+    
+    .rank {
+        margin-right: 15px;
+    }
+    
+    .club-logo {
+        margin: 0 0px;
+    }
+}
