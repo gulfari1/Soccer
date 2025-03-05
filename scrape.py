@@ -137,7 +137,7 @@ for team, stats in teams.items():
 standings.sort(key=lambda x: (-x['points'], -x['gd'], -x['gf']))
 
 # Save to JSON
-with open('../data/data.json', 'w') as f:
+with open('Soccer/data/data.json', 'w') as f:
     json.dump(standings, f, indent=2)
 
 print("Data saved to data.json")
