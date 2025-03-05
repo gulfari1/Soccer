@@ -59,7 +59,7 @@ def fetch_all_players(season='2024', league='EPL'):
         print('Failed to parse player data')
         return []
 
-def save_players_to_json(players, filename='players.json'):
+def save_players_to_json(players, filename='../data/players.json'):
     """
     Saves player data to a JSON file.
     
