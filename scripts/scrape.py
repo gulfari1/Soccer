@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import json
+import re
 
 # Team logo URLs (using FULL team names as keys)
 team_logos = {
@@ -41,21 +42,21 @@ team_name_mapping = {
     "Brighton": "Brighton & Hove Albion",
     "Ipswich": "Ipswich Town",
 
-    # FBRef-specific mappings
+    # The Athletic mappings
     "Nott'ham Forest": "Nottingham Forest",
     "Newcastle Utd": "Newcastle United",
     "Manchester Utd": "Manchester United",
     "Nott'm Forest": "Nottingham Forest",
-    "Nottingham F...": "Nottingham Forest",
-    "Manchester C...": "Manchester City",
-    "Wolverhampt...": "Wolverhampton Wanderers",
-    "Manchester U...": "Manchester United",
-    "Newcastle Un...": "Newcastle United",
-    "Leicester C...": "Leicester City",
-    "Brighton &...": "Brighton & Hove Albion",
-    "AFC Bournem...": "AFC Bournemouth",
-    "Ipswich Tow...": "Ipswich Town",
-    "Tottenham H...": "Tottenham Hotspur",
+    "Nottingham F": "Nottingham Forest",  # Handle truncated names if needed
+    "Manchester C": "Manchester City",
+    "Wolverhampton...": "Wolverhampton Wanderers",
+    "Manchester U": "Manchester United",
+    "Newcastle Un": "Newcastle United",
+    "Leicester C": "Leicester City",
+    "Brighton &": "Brighton & Hove Albion",
+    "AFC Bournem": "AFC Bournemouth",
+    "Ipswich Tow": "Ipswich Town",
+    "Tottenham H": "Tottenham Hotspur",
 }
 
 # Scrape data from Understat
@@ -75,23 +76,19 @@ for script in soup.find_all('script'):
 teams = {}
 for match in data_understat:
     if match['isResult']:
-        # Map scraped names to full names
         home = team_name_mapping.get(match['h']['title'], match['h']['title'])
         away = team_name_mapping.get(match['a']['title'], match['a']['title'])
         h_goals = int(match['goals']['h'])
         a_goals = int(match['goals']['a'])
 
-        # Initialize teams
         teams.setdefault(home, {'matches': 0, 'wins': 0, 'draws': 0, 'losses': 0, 'gf': 0, 'ga': 0})
         teams.setdefault(away, {'matches': 0, 'wins': 0, 'draws': 0, 'losses': 0, 'gf': 0, 'ga': 0})
 
-        # Update stats
         for team, goals_for, goals_against in [(home, h_goals, a_goals), (away, a_goals, h_goals)]:
             teams[team]['matches'] += 1
             teams[team]['gf'] += goals_for
             teams[team]['ga'] += goals_against
 
-        # Update wins/losses/draws
         if h_goals > a_goals:
             teams[home]['wins'] += 1
             teams[away]['losses'] += 1
@@ -102,42 +99,55 @@ for match in data_understat:
             teams[home]['draws'] += 1
             teams[away]['draws'] += 1
 
-# Scrape FBRef for Form data
-url_fbref = "https://fbref.com/en/comps/9/Premier-League-Stats"
-headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
-response_fbref = requests.get(url_fbref, headers=headers)
-soup_fbref = BeautifulSoup(response_fbref.content, 'html.parser')
+# Scrape Form Data from The Athletic
+url_athletic = "https://www.nytimes.com/athletic/football/premier-league/standings/"
+headers_athletic = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+}
+response_athletic = requests.get(url_athletic, headers=headers_athletic)
+response_athletic.raise_for_status()
 
+soup_athletic = BeautifulSoup(response_athletic.content, 'html.parser')
 form_data = {}
-table_fbref = soup_fbref.find('table', id='results2024-202591_overall')
+table_athletic = soup_athletic.find('table', {'class': 'grqrjN'})
 
-if table_fbref:
-    for row in table_fbref.find('tbody').find_all('tr'):
-        squad = row.find('td', {'data-stat': 'team'}).find('a').text.strip()
-        # Map FBRef team names to full names
-        full_name = team_name_mapping.get(squad, squad)
-        last_5_cell = row.find('td', {'data-stat': 'last_5'})
-        if last_5_cell:
-            last_5_matches = [div.find('a').text.strip() for div in last_5_cell.find_all('div', class_='poptip')]
-            form_data[full_name] = ' '.join(last_5_matches)
+if table_athletic:
+    for row in table_athletic.find_all('tr')[1:]:  # Skip header row
+        columns = row.find_all('td')
+        if len(columns) >= 9:
+            team_cell = columns[0].find('a')
+            if team_cell:
+                team_str = team_cell.text.strip()
+                # Process team name
+                team_str_clean = re.sub(r'^\d+', '', team_str)  # Remove leading digits
+                if len(team_str_clean) >= 3 and team_str_clean[-3:].isupper():
+                    team_part = team_str_clean[:-3].strip()
+                else:
+                    team_part = team_str_clean.strip()
+                full_name = team_name_mapping.get(team_part, team_part)
+                # Extract form
+                form_cell = columns[-1]
+                form_elements = form_cell.find_all('div', class_=lambda x: x and x.startswith('sc-'))
+                form = ''.join([e.text.strip() for e in form_elements])
+                form_data[full_name] = form
 
 # Prepare standings with Form data
 standings = []
 for team, stats in teams.items():
     standings.append({
-        'team': team,  # Already mapped to full name
-        'logo': team_logos.get(team),  # Use full name to fetch logo
+        'team': team,
+        'logo': team_logos.get(team),
         **stats,
         'gd': stats['gf'] - stats['ga'],
         'points': (stats['wins'] * 3) + stats['draws'],
-        'form': form_data.get(team, '')  # Add Form data
+        'form': form_data.get(team, '')
     })
 
-# Sort standings by points, goal difference, and goals scored
+# Sort standings
 standings.sort(key=lambda x: (-x['points'], -x['gd'], -x['gf']))
 
 # Save to JSON
-with open('../data/data.json', 'w') as f:
+with open('data.json', 'w') as f:
     json.dump(standings, f, indent=2)
 
 print("Data saved to data.json")
