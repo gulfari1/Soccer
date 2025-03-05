@@ -27,9 +27,8 @@ team_logos = {
     "Wolverhampton Wanderers": "logos/WOL.png",
 }
 
-# Team name mapping to ensure consistency (scraped names → full names)
+# Team name mapping (scraped names → full names)
 team_name_mapping = {
-    # Understat mappings
     "Nottm Forest": "Nottingham Forest",
     "Man City": "Manchester City",
     "Man Utd": "Manchester United",
@@ -41,12 +40,9 @@ team_name_mapping = {
     "Bournemouth": "AFC Bournemouth",
     "Brighton": "Brighton & Hove Albion",
     "Ipswich": "Ipswich Town",
-
-    # The Athletic mappings
     "Nott'ham Forest": "Nottingham Forest",
     "Newcastle Utd": "Newcastle United",
     "Manchester Utd": "Manchester United",
-    "Nott'm Forest": "Nottingham Forest",
     "Nottingham F": "Nottingham Forest",
     "Manchester C": "Manchester City",
     "Wolverhampton...": "Wolverhampton Wanderers",
@@ -59,12 +55,12 @@ team_name_mapping = {
     "Tottenham H": "Tottenham Hotspur",
 }
 
-# Scrape data from Understat
+# Scrape Understat data
 url_understat = "https://understat.com/league/EPL"
 response = requests.get(url_understat)
 soup = BeautifulSoup(response.content, 'html.parser')
 
-# Extract JSON data from Understat
+# Extract Understat JSON data
 for script in soup.find_all('script'):
     if 'JSON.parse' in script.text:
         json_str = script.text.split("JSON.parse('")[1].split("')")[0]
@@ -72,7 +68,7 @@ for script in soup.find_all('script'):
         data_understat = json.loads(decoded_data)
         break
 
-# Process Understat data
+# Process match results
 teams = {}
 for match in data_understat:
     if match['isResult']:
@@ -99,12 +95,10 @@ for match in data_understat:
             teams[home]['draws'] += 1
             teams[away]['draws'] += 1
 
-# Scrape Form Data from The Athletic
+# Scrape form data from The Athletic
 url_athletic = "https://www.nytimes.com/athletic/football/premier-league/standings/"
-headers_athletic = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-}
-response_athletic = requests.get(url_athletic, headers=headers_athletic)
+headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
+response_athletic = requests.get(url_athletic, headers=headers)
 response_athletic.raise_for_status()
 
 soup_athletic = BeautifulSoup(response_athletic.content, 'html.parser')
@@ -112,31 +106,34 @@ form_data = {}
 table_athletic = soup_athletic.find('table', {'class': 'grqrjN'})
 
 if table_athletic:
-    for row in table_athletic.find_all('tr')[1:]:  # Skip header row
+    for row in table_athletic.find_all('tr')[1:]:
         columns = row.find_all('td')
         if len(columns) >= 9:
             team_cell = columns[0].find('a')
             if team_cell:
                 team_str = team_cell.text.strip()
-                # Process team name
-                team_str_clean = re.sub(r'^\d+', '', team_str)  # Remove leading digits
+                # Clean team name
+                team_str_clean = re.sub(r'^\d+', '', team_str)
                 if len(team_str_clean) >= 3 and team_str_clean[-3:].isupper():
                     team_part = team_str_clean[:-3].strip()
                 else:
                     team_part = team_str_clean.strip()
                 full_name = team_name_mapping.get(team_part, team_part)
                 
-                # Extract form and split into individual characters
+                # Extract last 5 matches
                 form_cell = columns[-1]
                 form_elements = form_cell.find_all('div', class_=lambda x: x and x.startswith('sc-'))
                 form_chars = []
                 for e in form_elements:
                     form_chars.extend(list(e.text.strip()))  # Split into individual characters
-                form = ' '.join(form_chars)  # Join with spaces
+                
+                # Keep only last 5 results and format
+                last_5 = form_chars[-5:]
+                form = ' '.join(last_5)
                 
                 form_data[full_name] = form
 
-# Prepare standings with Form data
+# Prepare final standings
 standings = []
 for team, stats in teams.items():
     standings.append({
@@ -145,14 +142,14 @@ for team, stats in teams.items():
         **stats,
         'gd': stats['gf'] - stats['ga'],
         'points': (stats['wins'] * 3) + stats['draws'],
-        'form': form_data.get(team, '')  # Add formatted form data
+        'form': form_data.get(team, '')
     })
 
-# Sort standings by points, goal difference, and goals scored
+# Sort standings
 standings.sort(key=lambda x: (-x['points'], -x['gd'], -x['gf']))
 
 # Save to JSON
-with open('../data/data.json', 'w') as f:
+with open('data.json', 'w') as f:
     json.dump(standings, f, indent=2)
 
 print("Data saved to data.json")
