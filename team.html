@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/team.css">
+    <title>Team Page</title>
+</head>
+<body>
+    <nav class="global-nav">
+        <!-- Copy navigation from index.html -->
+    </nav>
+
+    <div class="team-header">
+        <img id="team-logo" src="" alt="Team Logo" width="80">
+        <h1 id="team-name"></h1>
+    </div>
+
+    <div class="next-match-container">
+        <h2>Next Match</h2>
+        <div class="match-info">
+            <div class="team-container">
+                <img id="home-logo" class="team-logo" src="" alt="Home Team">
+                <span id="home-team" class="team-name"></span>
+            </div>
+            
+            <div class="match-details">
+                <div id="next-match-competition" class="competition"></div>
+                <div class="match-time">
+                    <span id="next-match-date"></span>
+                    <span id="next-match-time"></span>
+                </div>
+            </div>
+
+            <div class="team-container">
+                <img id="away-logo" class="team-logo" src="" alt="Away Team">
+                <span id="away-team" class="team-name"></span>
+            </div>
+        </div>
+        <a href="scores.html" class="all-matches-btn">All Matches</a>
+    </div>
+
+    <div class="team-form-container">
+        <h2>Team Form</h2>
+        <div class="form-matches" id="form-matches"></div>
+    </div>
+
+    <script src="js/team.js"></script>
+</body>
+</html>
