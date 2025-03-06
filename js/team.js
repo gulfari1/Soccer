@@ -1,92 +1,69 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const teamName = urlParams.get('team');
-    if (!teamName) return showError('Team parameter missing');
-
-    Promise.all([
-        fetch('data/data.json'),
-        fetch('data/scores_fixtures.json')
-    ]).then(([dataRes, fixturesRes]) => {
-        if (!dataRes.ok || !fixturesRes.ok) throw new Error('Data loading failed');
-        return Promise.all([dataRes.json(), fixturesRes.json()]);
-    }).then(([teams, fixtures]) => {
-        const team = teams.find(t => t.team === teamName);
-        if (!team) throw new Error('Team not found');
-
-        // Set team header
-        document.getElementById('team-logo').src = team.logo;
-        document.getElementById('team-name').textContent = team.team;
-
-        // Process matches
-        const teamFixtures = fixtures.filter(f => 
-            (f.Home === team.team || f.Away === team.team) && f.Score
-        );
-
-        renderNextMatch(team.team, fixtures);
-        renderLastMatches(team.team, teamFixtures);
-        
-        document.getElementById('loading').style.display = 'none';
-    }).catch(showError);
-});
-
 function renderNextMatch(teamName, fixtures) {
     const nextMatch = fixtures.find(f => 
         (f.Home === teamName || f.Away === teamName) && !f.Played
     );
     
-    const container = document.getElementById('next-match');
-    if (!nextMatch) return container.innerHTML = '<div>No upcoming matches</div>';
+    const container = document.querySelector('.next-match-section');
+    if (!nextMatch) {
+        container.innerHTML = '<div class="no-matches">No upcoming matches</div>';
+        return;
+    }
 
     const isHome = nextMatch.Home === teamName;
     const opponent = isHome ? nextMatch.Away : nextMatch.Home;
-    const date = new Date(nextMatch.Date);
+    const matchDate = new Date(`${nextMatch.Date}T${nextMatch.Time}`);
+    
+    // Format date display
+    const dateOptions = { weekday: 'long', month: 'short', day: 'numeric' };
+    const timeOptions = { hour: 'numeric', minute: '2-digit' };
     
     container.innerHTML = `
-        <div class="team-container">
-            <a href="team.html?team=${encodeURIComponent(opponent)}" class="team-link">
-                <img src="logos/${isHome ? nextMatch.AwayCode : nextMatch.HomeCode}.png" 
-                     alt="${opponent}" class="team-logo">
-                <span class="team-name">${opponent}</span>
-            </a>
+        <div class="match-header">
+            <div class="league-name">Premier League</div>
+            <div class="match-time">${matchDate.toLocaleTimeString('en-US', timeOptions)}</div>
         </div>
-        <div class="match-details">
-            <div>${date.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' })}</div>
-            <div>${nextMatch.Time}</div>
-            <div>${isHome ? 'Home' : 'Away'} Game</div>
+        
+        <div class="teams-container">
+            <div class="team-matchup">
+                <img src="logos/${isHome ? teamLogoMap[teamName] : teamLogoMap[opponent]}.png" 
+                     alt="${teamName}" class="team-logo-match">
+                <div class="team-name">${teamName}</div>
+            </div>
+            <div class="vs">vs</div>
+            <div class="team-matchup">
+                <img src="logos/${isHome ? teamLogoMap[opponent] : teamLogoMap[teamName]}.png" 
+                     alt="${opponent}" class="team-logo-match">
+                <div class="team-name">${opponent}</div>
+            </div>
         </div>
+        
+        <div class="match-date">${getRelativeDate(matchDate)}</div>
+        <a href="scores.html" class="all-matches-link">All matches</a>
     `;
 }
 
-function renderLastMatches(teamName, matches) {
-    const last5 = matches.slice(-5).reverse();
-    const container = document.getElementById('last-matches');
-    
-    container.innerHTML = last5.map(match => {
-        const isHome = match.Home === teamName;
+function renderFormResults(matches) {
+    const formContainer = document.querySelector('.form-results');
+    formContainer.innerHTML = matches.slice(-5).reverse().map(match => {
         const [homeGoals, awayGoals] = match.Score.split('-').map(Number);
+        const isHome = match.Home === teamName;
         const result = isHome ? 
-            homeGoals > awayGoals ? 'win' : homeGoals === awayGoals ? 'draw' : 'loss' :
-            awayGoals > homeGoals ? 'win' : homeGoals === awayGoals ? 'draw' : 'loss';
+            homeGoals > awayGoals ? 'win' : 
+            homeGoals === awayGoals ? 'draw' : 'loss' :
+            awayGoals > homeGoals ? 'win' : 
+            homeGoals === awayGoals ? 'draw' : 'loss';
         
-        return `
-            <li class="match-result ${result}">
-                <div class="opponent">
-                    <a href="team.html?team=${encodeURIComponent(isHome ? match.Away : match.Home)}" class="team-link">
-                        <img src="logos/${isHome ? match.AwayCode : match.HomeCode}.png" 
-                             alt="${isHome ? match.Away : match.Home}">
-                        <span>${isHome ? match.Away : match.Home}</span>
-                    </a>
-                </div>
-                <div class="score">${match.Score}</div>
-                <div class="date">${new Date(match.Date).toLocaleDateString()}</div>
-            </li>
-        `;
+        return `<div class="form-result ${result}">${match.Score}</div>`;
     }).join('');
 }
 
-function showError(message) {
-    document.getElementById('loading').style.display = 'none';
-    const error = document.getElementById('error');
-    error.style.display = 'block';
-    error.textContent = message;
+// Helper function for date formatting
+function getRelativeDate(date) {
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+    
+    return date.toDateString() === today.toDateString() ? 'Today' :
+           date.toDateString() === tomorrow.toDateString() ? 'Tomorrow' :
+           date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
 }
