@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderNextMatch(teamFixtures, teamName);
         renderTeamForm(teamFixtures, teamName);
         updateTeamHeader(teamData);
+        renderAllMatchesButton(teamName);
     });
 });
 
@@ -64,4 +65,12 @@ function updateTeamHeader(teamData) {
     document.title = `${teamData.team} | Soccer`;
     document.getElementById('team-name').textContent = teamData.team;
     document.getElementById('team-logo').src = teamData.logo;
-      }
+}
+
+function renderAllMatchesButton(teamName) {
+    const allMatchesBtn = document.createElement('a');
+    allMatchesBtn.href = `team_matches.html?team=${encodeURIComponent(teamName)}`;
+    allMatchesBtn.className = 'all-matches-btn';
+    allMatchesBtn.textContent = 'All Matches';
+    document.querySelector('.next-match-container').appendChild(allMatchesBtn);
+}
