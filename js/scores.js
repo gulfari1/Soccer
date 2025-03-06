@@ -180,10 +180,12 @@ function renderFixtures(grouped) {
                 }
 
                 li.innerHTML = `
-                    <div class="team-container home-container">
-                        <span class="team-code ${homeClass}">${match.HomeCode}</span>
-                        <img class="team-logo" src="logos/${match.HomeCode}.png" alt="${match.Home}">
-                    </div>
+                    <a href="team.html?team=${encodeURIComponent(match.Home)}" class="team-link">
+                        <div class="team-container home-container">
+                            <span class="team-code ${homeClass}">${match.HomeCode}</span>
+                            <img class="team-logo" src="logos/${match.HomeCode}.png" alt="${match.Home}">
+                        </div>
+                    </a>
                     
                     <div class="score-container">
                         ${isCompleted ? 
@@ -193,10 +195,12 @@ function renderFixtures(grouped) {
                         }
                     </div>
                     
-                    <div class="team-container away-container">
-                        <img class="team-logo" src="logos/${match.AwayCode}.png" alt="${match.Away}">
-                        <span class="team-code ${awayClass}">${match.AwayCode}</span>
-                    </div>
+                    <a href="team.html?team=${encodeURIComponent(match.Away)}" class="team-link">
+                        <div class="team-container away-container">
+                            <img class="team-logo" src="logos/${match.AwayCode}.png" alt="${match.Away}">
+                            <span class="team-code ${awayClass}">${match.AwayCode}</span>
+                        </div>
+                    </a>
                 `;
                 
                 list.appendChild(li);
