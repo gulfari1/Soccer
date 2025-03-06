@@ -1,124 +1,50 @@
-/* Team Page Styles */
 .team-header {
     text-align: center;
-    padding: 2rem 0;
+    margin: 2rem 0;
 }
 
-.team-header h1 {
-    font-weight: 700;
-    color: #1a2634;
-    margin: 1.5rem 0;
-    font-size: 2rem;
+.team-logo-large {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1rem;
 }
 
-.next-match-container {
-    max-width: 1248px;
-    margin: 20px auto;
-    padding: 0 20px;
-    background: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-}
-
-.match-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0;
-}
-
-.team-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.match-details {
-    text-align: center;
-    margin: 0 2rem;
-}
-
-.competition-name {
-    font-weight: 700;
-    color: #2c3e50;
-    margin-bottom: 0.5rem;
-}
-
-.match-date-time {
-    color: #666;
-    font-size: 0.9em;
-}
-
-.team-form-container {
-    max-width: 1248px;
-    margin: 20px auto;
-    padding: 0 20px;
-}
-
-.form-matches {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.form-match {
-    flex: 1;
-    text-align: center;
-    background: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
+.next-match-section, .last-matches-section {
+    max-width: 800px;
+    margin: 2rem auto;
     padding: 1rem;
 }
 
-.score-box {
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    border-radius: 4px;
-    padding: 0.25rem 0.5rem;
-    display: inline-block;
-}
-
-.win { background-color: #4CAF50; color: white; }
-.draw { background-color: #757575; color: white; }
-.loss { background-color: #f44336; color: white; }
-
-.opponent-logo {
-    width: 40px;
-    height: 40px;
-    margin: 0 auto;
-}
-
-.all-matches-container {
-    max-width: 1248px;
-    margin: 20px auto;
-    padding: 0 20px;
-}
-
-.all-matches-list {
+.match-list {
     list-style: none;
     padding: 0;
-    margin: 0;
 }
 
-.match-item {
+.match-result {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    border-bottom: 1px solid #eee;
+    margin: 0.5rem 0;
+    border-radius: 4px;
 }
 
-.match-item:nth-child(even) {
-    background-color: #f8f9fa;
+.match-result.win { background-color: #e8f5e9; }
+.match-result.draw { background-color: #fffde7; }
+.match-result.loss { background-color: #ffebee; }
+
+.opponent-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
-/* Remove link styling */
-.team-link {
-    color: inherit;
-    text-decoration: none;
-}
-
-.team-link:hover {
-    text-decoration: none;
+.next-match-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem;
+    border: 1px solid #eee;
+    border-radius: 8px;
 }
