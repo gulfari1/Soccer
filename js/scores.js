@@ -181,10 +181,8 @@ function renderFixtures(grouped) {
 
                 li.innerHTML = `
                     <div class="team-container home-container">
-                        <a href="team.html?team=${encodeURIComponent(match.Home)}" class="team-link">
-                            <span class="team-code ${homeClass}">${match.HomeCode}</span>
-                            <img class="team-logo" src="logos/${match.HomeCode}.png" alt="${match.Home}">
-                        </a>
+                        <span class="team-code ${homeClass}">${match.HomeCode}</span>
+                        <img class="team-logo" src="logos/${match.HomeCode}.png" alt="${match.Home}">
                     </div>
                     
                     <div class="score-container">
@@ -196,10 +194,8 @@ function renderFixtures(grouped) {
                     </div>
                     
                     <div class="team-container away-container">
-                        <a href="team.html?team=${encodeURIComponent(match.Away)}" class="team-link">
-                            <img class="team-logo" src="logos/${match.AwayCode}.png" alt="${match.Away}">
-                            <span class="team-code ${awayClass}">${match.AwayCode}</span>
-                        </a>
+                        <img class="team-logo" src="logos/${match.AwayCode}.png" alt="${match.Away}">
+                        <span class="team-code ${awayClass}">${match.AwayCode}</span>
                     </div>
                 `;
                 
