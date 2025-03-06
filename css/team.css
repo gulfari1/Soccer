@@ -2,23 +2,29 @@
 .team-header {
     text-align: center;
     padding: 2rem 0;
-    background: #f8f9fa;
+}
+
+.team-header h1 {
+    font-weight: 700;
+    color: #1a2634;
+    margin: 1.5rem 0;
+    font-size: 2rem;
 }
 
 .next-match-container {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 1.5rem;
+    max-width: 1248px;
+    margin: 20px auto;
+    padding: 0 20px;
+    background: white;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .match-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 1rem 0;
+    padding: 1rem 0;
 }
 
 .team-container {
@@ -33,15 +39,25 @@
     margin: 0 2rem;
 }
 
+.competition-name {
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.match-date-time {
+    color: #666;
+    font-size: 0.9em;
+}
+
 .team-form-container {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 1.5rem;
+    max-width: 1248px;
+    margin: 20px auto;
+    padding: 0 20px;
 }
 
 .form-matches {
     display: flex;
-    justify-content: space-between;
     gap: 1rem;
     margin-top: 1rem;
 }
@@ -49,13 +65,18 @@
 .form-match {
     flex: 1;
     text-align: center;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 1rem;
 }
 
 .score-box {
-    padding: 0.5rem;
-    border-radius: 4px;
     font-weight: bold;
     margin-bottom: 0.5rem;
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    display: inline-block;
 }
 
 .win { background-color: #4CAF50; color: white; }
@@ -68,13 +89,36 @@
     margin: 0 auto;
 }
 
-.all-matches-btn {
-    display: block;
-    width: fit-content;
-    margin: 1rem auto;
-    padding: 0.5rem 1rem;
-    background: #1a2634;
-    color: white;
+.all-matches-container {
+    max-width: 1248px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.all-matches-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.match-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.match-item:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* Remove link styling */
+.team-link {
+    color: inherit;
     text-decoration: none;
-    border-radius: 4px;
+}
+
+.team-link:hover {
+    text-decoration: none;
 }
