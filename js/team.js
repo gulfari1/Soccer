@@ -1,76 +1,92 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const teamName = new URLSearchParams(window.location.search).get('team');
-    if (!teamName) return;
+    const urlParams = new URLSearchParams(window.location.search);
+    const teamName = urlParams.get('team');
+    if (!teamName) return showError('Team parameter missing');
 
     Promise.all([
-        fetch('data/scores_fixtures.json').then(r => r.json()),
-        fetch('data/data.json').then(r => r.json())
-    ]).then(([fixtures, standings]) => {
-        const teamData = standings.find(t => t.team === teamName);
+        fetch('data/data.json'),
+        fetch('data/scores_fixtures.json')
+    ]).then(([dataRes, fixturesRes]) => {
+        if (!dataRes.ok || !fixturesRes.ok) throw new Error('Data loading failed');
+        return Promise.all([dataRes.json(), fixturesRes.json()]);
+    }).then(([teams, fixtures]) => {
+        const team = teams.find(t => t.team === teamName);
+        if (!team) throw new Error('Team not found');
+
+        // Set team header
+        document.getElementById('team-logo').src = team.logo;
+        document.getElementById('team-name').textContent = team.team;
+
+        // Process matches
         const teamFixtures = fixtures.filter(f => 
-            f.Home === teamName || f.Away === teamName
+            (f.Home === team.team || f.Away === team.team) && f.Score
         );
 
-        renderNextMatch(teamFixtures, teamName);
-        renderTeamForm(teamFixtures, teamName);
-        updateTeamHeader(teamData);
-        renderAllMatchesButton(teamName);
-    });
+        renderNextMatch(team.team, fixtures);
+        renderLastMatches(team.team, teamFixtures);
+        
+        document.getElementById('loading').style.display = 'none';
+    }).catch(showError);
 });
 
-function renderNextMatch(fixtures, team) {
-    const nextMatch = fixtures.find(f => !f.Played);
-    if (!nextMatch) return;
+function renderNextMatch(teamName, fixtures) {
+    const nextMatch = fixtures.find(f => 
+        (f.Home === teamName || f.Away === teamName) && !f.Played
+    );
+    
+    const container = document.getElementById('next-match');
+    if (!nextMatch) return container.innerHTML = '<div>No upcoming matches</div>';
 
-    const isHome = nextMatch.Home === team;
+    const isHome = nextMatch.Home === teamName;
     const opponent = isHome ? nextMatch.Away : nextMatch.Home;
-    const opponentCode = isHome ? nextMatch.AwayCode : nextMatch.HomeCode;
-
-    document.getElementById('next-match-competition').textContent = 'Premier League';
-    document.getElementById('next-match-date').textContent = 
-        new Date(nextMatch.Date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
-    document.getElementById('next-match-time').textContent = 
-        nextMatch.Time.replace(/:\d+$/, '');
-
-    document.getElementById('home-logo').src = `logos/${isHome ? team : opponent}.png`;
-    document.getElementById('away-logo').src = `logos/${isHome ? opponent : team}.png`;
-    document.getElementById('home-team').textContent = isHome ? team : opponent;
-    document.getElementById('away-team').textContent = isHome ? opponent : team;
+    const date = new Date(nextMatch.Date);
+    
+    container.innerHTML = `
+        <div class="team-container">
+            <a href="team.html?team=${encodeURIComponent(opponent)}" class="team-link">
+                <img src="logos/${isHome ? nextMatch.AwayCode : nextMatch.HomeCode}.png" 
+                     alt="${opponent}" class="team-logo">
+                <span class="team-name">${opponent}</span>
+            </a>
+        </div>
+        <div class="match-details">
+            <div>${date.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' })}</div>
+            <div>${nextMatch.Time}</div>
+            <div>${isHome ? 'Home' : 'Away'} Game</div>
+        </div>
+    `;
 }
 
-function renderTeamForm(fixtures, team) {
-    const formContainer = document.getElementById('form-matches');
-    const playedMatches = fixtures.filter(f => f.Played).slice(-5);
-
-    formContainer.innerHTML = playedMatches.map(match => {
-        const isHome = match.Home === team;
-        const [homeScore, awayScore] = match.Score.split('-').map(Number);
-        const teamScore = isHome ? homeScore : awayScore;
-        const opponentScore = isHome ? awayScore : homeScore;
-        const result = teamScore > opponentScore ? 'win' : 
-                       teamScore === opponentScore ? 'draw' : 'loss';
-        const opponentCode = isHome ? match.AwayCode : match.HomeCode;
-
+function renderLastMatches(teamName, matches) {
+    const last5 = matches.slice(-5).reverse();
+    const container = document.getElementById('last-matches');
+    
+    container.innerHTML = last5.map(match => {
+        const isHome = match.Home === teamName;
+        const [homeGoals, awayGoals] = match.Score.split('-').map(Number);
+        const result = isHome ? 
+            homeGoals > awayGoals ? 'win' : homeGoals === awayGoals ? 'draw' : 'loss' :
+            awayGoals > homeGoals ? 'win' : homeGoals === awayGoals ? 'draw' : 'loss';
+        
         return `
-            <div class="form-match">
-                <div class="score-box ${result}">${teamScore}-${opponentScore}</div>
-                <img src="logos/${opponentCode}.png" class="opponent-logo" 
-                     alt="${isHome ? match.Away : match.Home}">
-            </div>
+            <li class="match-result ${result}">
+                <div class="opponent">
+                    <a href="team.html?team=${encodeURIComponent(isHome ? match.Away : match.Home)}" class="team-link">
+                        <img src="logos/${isHome ? match.AwayCode : match.HomeCode}.png" 
+                             alt="${isHome ? match.Away : match.Home}">
+                        <span>${isHome ? match.Away : match.Home}</span>
+                    </a>
+                </div>
+                <div class="score">${match.Score}</div>
+                <div class="date">${new Date(match.Date).toLocaleDateString()}</div>
+            </li>
         `;
     }).join('');
 }
 
-function updateTeamHeader(teamData) {
-    document.title = `${teamData.team} | Soccer`;
-    document.getElementById('team-name').textContent = teamData.team;
-    document.getElementById('team-logo').src = teamData.logo;
-}
-
-function renderAllMatchesButton(teamName) {
-    const allMatchesBtn = document.createElement('a');
-    allMatchesBtn.href = `team_matches.html?team=${encodeURIComponent(teamName)}`;
-    allMatchesBtn.className = 'all-matches-btn';
-    allMatchesBtn.textContent = 'All Matches';
-    document.querySelector('.next-match-container').appendChild(allMatchesBtn);
+function showError(message) {
+    document.getElementById('loading').style.display = 'none';
+    const error = document.getElementById('error');
+    error.style.display = 'block';
+    error.textContent = message;
 }
