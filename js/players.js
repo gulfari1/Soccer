@@ -1,3 +1,4 @@
+// players.js
 const teamLogoMap = {
     'Manchester City': 'MCI',
     'Liverpool': 'LIV',
@@ -63,7 +64,9 @@ function displayStatList(players, statType, containerId) {
         html += `
             <div class="player-row">
                 <div class="rank">${index + 1}</div>
-                <img class="club-logo" src="logos/${logoAbbreviation}.png" alt="${player.team_title}">
+                <a href="team.html?team=${encodeURIComponent(player.team_title)}" class="team-link">
+                    <img class="club-logo" src="logos/${logoAbbreviation}.png" alt="${player.team_title}">
+                </a>
                 <div class="player-name">${player.player_name}</div>
                 <div class="stat-number">${statValue}</div>
             </div>
