@@ -1,3 +1,10 @@
+1. Create dynamic team pages accessible via `team.html?team=TeamName`
+2. Show next match information with team logos and match details
+3. Display last 5 matches with scores and opponent logos
+4. Style elements with appropriate colors for wins/draws/losses
+5. Link all team names/logos across the site to their respective pages, make sure the team name styling is preserved, don't add link blue color or underline.
+The rest of the code remains unchanged, ensuring all functionality and styling are preserved.
+
 here's the tree of my website 
 Soccer/
 ├── css/
