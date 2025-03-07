@@ -159,39 +159,6 @@ h1 {
     color: #808080;
 }
 
-/* Team Fixtures */
-.match-list {
-    display: grid;
-    gap: 16px;
-    margin-top: 20px;
-}
-
-.match-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.teams {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.team {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.bold {
-    font-weight: 600;
-}
-
 @media (max-width: 768px) {
     h1 {
         font-size: 1.5rem;
@@ -211,4 +178,4 @@ h1 {
     .score {
         padding: 4px 12px;
     }
-  }
+}
