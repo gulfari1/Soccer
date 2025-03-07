@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team Page</title>
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/team.css">
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/scores.css">
 </head>
 <body>
+    <!-- Navigation Bars -->
     <nav class="global-nav">
         <div class="nav-container">
             <button class="mobile-menu-btn">
@@ -24,23 +26,33 @@
         </div>
     </nav>
 
+    <!-- Team Info Container -->
     <div class="team-container">
-        <div id="loading" class="loading">Loading Team Data...</div>
+        <h1 id="team-name"></h1>
+        <div id="loading" class="loading">Loading...</div>
         <div id="error" class="error" style="display: none;"></div>
-        
-        <div class="team-header">
-            <img id="team-logo" class="team-logo-large">
-            <h1 id="team-name"></h1>
+
+        <!-- Schedule Container -->
+        <div class="schedule-container">
+            <h2>Schedule</h2>
+            <div id="schedule-list"></div>
         </div>
 
-        <div class="next-match-section">
-            <h2>Next Match</h2>
-            <div id="next-match"></div>
-        </div>
-
-        <div class="last-matches-section">
-            <h2>Last 5 Matches</h2>
-            <ul id="last-matches" class="match-list"></ul>
+        <!-- Standings Container -->
+        <div class="standings-container">
+            <h2>Standings</h2>
+            <table id="standings-table">
+                <thead>
+                    <tr>
+                        <th>Pos</th>
+                        <th>Team</th>
+                        <th>MP</th>
+                        <th>GD</th>
+                        <th>Pts</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
         </div>
     </div>
 
