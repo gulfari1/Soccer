@@ -270,4 +270,33 @@ tr:nth-child(even) {
         height: 18px;
         font-size: 0.65rem;
     }
+/* Team Page Specific Styles */
+.team-container {
+    max-width: 1248px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.team-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.team-logo-large {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+}
+
+.selected-team {
+    font-weight: bold;
+    background-color: #f8f9fa;
+}
+
+.team-logo-small {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
 }
