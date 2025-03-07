@@ -184,3 +184,15 @@ body {
     height: 40px;
     margin: 0 15px;
 }
+
+/* Team Links */
+.team-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+}
+
+.team-link:hover {
+    opacity: 0.8;
+}
