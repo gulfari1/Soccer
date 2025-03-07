@@ -51,14 +51,12 @@ document.addEventListener('DOMContentLoaded', function() {
             tbody.innerHTML = data.map((team, index) => `
                 <tr class="${[3, 4, 16].includes(index) ? 'separator-row' : ''}">
                     <td>${index + 1}</td>
-                    <td>
-                        <a href="team.html?team=${encodeURIComponent(team.team)}" class="team-link">
-                            <div class="team-logo-container">
-                                <img src="${team.logo}" alt="${team.team}" class="team-logo">
-                            </div>
-                            <span class="team-name full">${team.team}</span>
-                            <span class="team-name short">${clientSideMappings[team.team] || team.team}</span>
-                        </a>
+                    <td class="team-cell">
+                        <div class="team-logo-container">
+                            <img src="${team.logo}" alt="${team.team}" class="team-logo">
+                        </div>
+                        <span class="team-name full">${team.team}</span>
+                        <span class="team-name short">${clientSideMappings[team.team] || team.team}</span>
                     </td>
                     <td>${team.matches}</td>
                     <td class="mobile-hide">${team.wins}</td>
