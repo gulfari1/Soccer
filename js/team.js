@@ -8,12 +8,17 @@ document.addEventListener('DOMContentLoaded', () => {
         "Tottenham": "TOT", "West Ham": "WHU", "Wolves": "WOL"
     };
 
-    // Get team name from URL
-    const getTeamName = () => decodeURIComponent(window.location.pathname.split('/').pop());
+    // Get team name from URL hash
+    const getTeamName = () => decodeURIComponent(window.location.hash.substring(1));
 
     // Load team data
     async function loadTeamData() {
         const teamName = getTeamName();
+        if (!teamName) {
+            window.location.href = '/Soccer/index.html'; // Redirect to home if no team name
+            return;
+        }
+
         document.getElementById('team-name').textContent = teamName;
 
         try {
