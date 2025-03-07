@@ -1,32 +1,62 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const TEAM_CODES = {
-        "Arsenal": "ARS", "Aston Villa": "AVL", "Bournemouth": "BOU",
-        "Brentford": "BRE", "Brighton": "BHA", "Chelsea": "CHE",
-        "Crystal Palace": "CRY", "Everton": "EVE", "Fulham": "FUL",
-        "Liverpool": "LIV", "Manchester City": "MCI", "Manchester United": "MUN",
-        "Newcastle United": "NEW", "Nottingham Forest": "NFO", "Southampton": "SOU",
-        "Tottenham": "TOT", "West Ham": "WHU", "Wolves": "WOL"
+    const clientSideMappings = {
+        "Manchester United": "Man Utd",
+        "Manchester City": "Man City",
+        "Newcastle United": "Newcastle",
+        "Wolverhampton Wanderers": "Wolves",
+        "Tottenham Hotspur": "Tottenham",
+        "West Ham United": "West Ham",
+        "Nottingham Forest": "Nottm Forest",
+        "Leicester City": "Leicester",
+        "Brighton & Hove Albion": "Brighton",
+        "AFC Bournemouth": "Bournemouth",
+        "Ipswich Town": "Ipswich"
     };
+
+    function getOrdinal(n) {
+        const s = ["th", "st", "nd", "rd"];
+        const v = n % 100;
+        return (s[(v - 20) % 10] || s[v] || s[0]);
+    }
+
+    function formatDateTime(date) {
+        const day = date.getDate();
+        const month = date.toLocaleString('default', { month: 'long' });
+        const year = date.getFullYear();
+        const hours = date.getHours().toString().padStart(2, '0');
+        const minutes = date.getMinutes().toString().padStart(2, '0');
+        return `${day}${getOrdinal(day)} ${month} ${year} at ${hours}:${minutes}`;
+    }
+
+    function showError(message) {
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('error').style.display = 'block';
+        document.getElementById('error').textContent = message;
+    }
 
     async function loadData() {
         try {
             const response = await fetch('data/data.json');
             if (!response.ok) throw new Error('Network response was not ok');
 
-            const data = await response.json();
-            const tbody = document.querySelector('#leagueTable tbody');
+            const lastModified = response.headers.get('last-modified');
+            const updateDate = lastModified ? new Date(lastModified) : new Date();
 
+            const lastUpdatedDiv = document.querySelector('.last-updated');
+            lastUpdatedDiv.textContent = `Last Updated ${formatDateTime(updateDate)}`;
+
+            const data = await response.json();
+
+            const tbody = document.querySelector('#leagueTable tbody');
             tbody.innerHTML = data.map((team, index) => `
                 <tr class="${[3, 4, 16].includes(index) ? 'separator-row' : ''}">
                     <td>${index + 1}</td>
                     <td class="team-cell">
-                        <a href="/Soccer/team.html#${encodeURIComponent(team.team)}" style="text-decoration: none; color: inherit;">
-                            <div class="team-logo-container">
-                                <img src="${team.logo}" alt="${team.team}" class="team-logo">
-                            </div>
-                            <span class="team-name full">${team.team}</span>
-                            <span class="team-name short">${TEAM_CODES[team.team] || team.team}</span>
-                        </a>
+                        <div class="team-logo-container">
+                            <img src="${team.logo}" alt="${team.team}" class="team-logo">
+                        </div>
+                        <span class="team-name full">${team.team}</span>
+                        <span class="team-name short">${clientSideMappings[team.team] || team.team}</span>
                     </td>
                     <td>${team.matches}</td>
                     <td class="mobile-hide">${team.wins}</td>
@@ -51,9 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             document.getElementById('loading').style.display = 'none';
         } catch (error) {
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('error').style.display = 'block';
-            document.getElementById('error').textContent = `Error loading data: ${error.message}`;
+            showError(`Error loading data: ${error.message}`);
         }
     }
 
