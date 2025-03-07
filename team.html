@@ -28,45 +28,19 @@
         <div id="loading" class="loading">Loading Team Data...</div>
         <div id="error" class="error" style="display: none;"></div>
         
-        <!-- Team Header -->
         <div class="team-header">
             <img id="team-logo" class="team-logo-large">
             <h1 id="team-name"></h1>
         </div>
 
-        <!-- Next Match Section -->
         <div class="next-match-section">
-            <div class="match-header">
-                <div class="league-name">Premier League</div>
-                <div class="match-time" id="match-time">8:00 PM</div>
-            </div>
-            
-            <div class="teams-container">
-                <div class="team-matchup">
-                    <img id="home-team-logo" class="team-logo-match">
-                    <div class="team-name" id="home-team-name"></div>
-                </div>
-                <div class="vs">vs</div>
-                <div class="team-matchup">
-                    <img id="away-team-logo" class="team-logo-match">
-                    <div class="team-name" id="away-team-name"></div>
-                </div>
-            </div>
-            
-            <div class="match-date" id="match-date">Tomorrow</div>
-            <a href="scores.html" class="all-matches-link">All matches</a>
+            <h2>Next Match</h2>
+            <div id="next-match"></div>
         </div>
 
-        <!-- Team Form Section -->
-        <div class="team-form-section">
-            <h2 class="team-form-title">Team Form</h2>
-            <div class="form-results" id="form-results">
-                <div class="form-result win">2 - 1</div>
-                <div class="form-result draw">2 - 2</div>
-                <div class="form-result loss">0 - 2</div>
-                <div class="form-result win">2 - 0</div>
-                <div class="form-result loss">0 - 1</div>
-            </div>
+        <div class="last-matches-section">
+            <h2>Last 5 Matches</h2>
+            <ul id="last-matches" class="match-list"></ul>
         </div>
     </div>
 
