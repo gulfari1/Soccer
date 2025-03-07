@@ -1,84 +1,77 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
-    const teamName = urlParams.get('team');
-
-    if (!teamName) {
-        showError('No team specified in URL');
-        return;
-    }
-
-    document.getElementById('team-name').textContent = teamName;
-
-    loadTeamData(teamName);
-});
-
-async function loadTeamData(teamName) {
-    try {
-        const [standingsResponse, fixturesResponse] = await Promise.all([
-            fetch('data/data.json'),
-            fetch('data/scores_fixtures.json')
-        ]);
-
-        if (!standingsResponse.ok || !fixturesResponse.ok) {
-            throw new Error('Network response was not ok');
+    const teamName = decodeURIComponent(urlParams.get('team'));
+    
+    // Load team data
+    Promise.all([
+        fetch('data/data.json').then(r => r.json()),
+        fetch('data/scores_fixtures.json').then(r => r.json())
+    ]).then(([standings, fixtures]) => {
+        // Set team header
+        document.getElementById('team-name').textContent = teamName;
+        const teamData = standings.find(t => t.team === teamName);
+        if (teamData) {
+            document.getElementById('team-logo').src = teamData.logo;
         }
 
-        const standings = await standingsResponse.json();
-        const fixtures = await fixturesResponse.json();
+        // Show schedule
+        renderFixtures(fixtures, teamName);
+        
+        // Show condensed standings
+        renderStandings(standings, teamName);
+    });
 
-        displayStandings(standings, teamName);
-        displaySchedule(fixtures, teamName);
+    function renderFixtures(fixtures, team) {
+        const teamFixtures = fixtures.filter(f => 
+            f.Home === team || f.Away === team
+        );
 
-        document.getElementById('loading').style.display = 'none';
-    } catch (error) {
-        showError(`Error loading data: ${error.message}`);
-    }
-}
-
-function displayStandings(standings, teamName) {
-    const tbody = document.querySelector('#standings-table tbody');
-    tbody.innerHTML = standings.slice(0, 8).map((team, index) => `
-        <tr class="${team.team === teamName ? 'highlighted' : ''}">
-            <td>${index + 1}</td>
-            <td class="team-cell">
-                <div class="team-logo-container">
-                    <img src="${team.logo}" alt="${team.team}" class="team-logo">
+        const container = document.getElementById('team-fixtures');
+        container.innerHTML = teamFixtures.map(match => `
+            <div class="match-item">
+                <div class="match-date">${new Date(match.Date).toLocaleDateString()}</div>
+                <div class="teams">
+                    <div class="team ${match.Home === team ? 'bold' : ''}">
+                        <img src="logos/${match.HomeCode}.png" alt="${match.Home}">
+                        <span>${match.Home}</span>
+                    </div>
+                    <div class="vs">vs</div>
+                    <div class="team ${match.Away === team ? 'bold' : ''}">
+                        <img src="logos/${match.AwayCode}.png" alt="${match.Away}">
+                        <span>${match.Away}</span>
+                    </div>
                 </div>
-                <span class="team-name ${team.team === teamName ? 'bold' : ''}">${team.team}</span>
-            </td>
-            <td>${team.matches}</td>
-            <td>${team.gd}</td>
-            <td><strong>${team.points}</strong></td>
-        </tr>
-    `).join('');
-}
-
-function displaySchedule(fixtures, teamName) {
-    const scheduleList = document.getElementById('schedule-list');
-    const teamFixtures = fixtures.filter(fixture => 
-        fixture.Home === teamName || fixture.Away === teamName
-    );
-
-    scheduleList.innerHTML = teamFixtures.map(fixture => `
-        <div class="fixture-item">
-            <div class="fixture-date">${formatDate(fixture.Date)}</div>
-            <div class="fixture-teams">
-                <span class="team ${fixture.Home === teamName ? 'bold' : ''}">${fixture.Home}</span>
-                <span class="vs">vs</span>
-                <span class="team ${fixture.Away === teamName ? 'bold' : ''}">${fixture.Away}</span>
+                ${match.Score !== 'TBD' ? 
+                    `<div class="score">${match.Score}</div>` :
+                    `<div class="time">${match.Time}</div>`
+                }
             </div>
-            <div class="fixture-score">${fixture.Score || 'TBD'}</div>
-        </div>
-    `).join('');
-}
+        `).join('');
+    }
 
-function formatDate(dateString) {
-    const date = new Date(dateString + 'T00:00:00Z');
-    return date.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
-}
+    function renderStandings(standings, team) {
+        const sorted = [...standings].sort((a, b) => 
+            b.points - a.points || b.gd - a.gd
+        );
 
-function showError(message) {
-    document.getElementById('loading').style.display = 'none';
-    document.getElementById('error').style.display = 'block';
-    document.getElementById('error').textContent = message;
-}
+        // Get top 7 + current team
+        const relevantStandings = sorted.slice(0, 7);
+        if (!relevantStandings.find(t => t.team === team)) {
+            relevantStandings.push(sorted.find(t => t.team === team));
+        }
+
+        const tbody = document.querySelector('#team-standings tbody');
+        tbody.innerHTML = relevantStandings.map((teamData, index) => `
+            <tr class="${teamData.team === team ? 'selected-team' : ''}">
+                <td>${index + 1}</td>
+                <td>
+                    <img src="${teamData.logo}" class="team-logo-small">
+                    ${teamData.team}
+                </td>
+                <td>${teamData.matches}</td>
+                <td>${teamData.gd}</td>
+                <td><strong>${teamData.points}</strong></td>
+            </tr>
+        `).join('');
+    }
+});
