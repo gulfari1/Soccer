@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Page</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/scores.css">
+    <style>
+        .team-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .team-logo-large {
+            width: 100px;
+            height: 100px;
+        }
+        .matches-container {
+            margin-bottom: 30px;
+        }
+        .standings-container {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <div class="nav-container">
+            <button class="mobile-menu-btn">
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <nav class="sub-nav">
+        <div class="sub-nav-container">
+            <a href="index.html" class="sub-nav-link">Tables</a>
+            <a href="scores.html" class="sub-nav-link">Scores & Fixtures</a>
+            <a href="players.html" class="sub-nav-link">Players Stats</a>
+        </div>
+    </nav>
+
+    <div class="team-header">
+        <img src="" alt="" class="team-logo-large">
+        <h1></h1>
+    </div>
+
+    <div class="matches-container">
+        <h2>Matches</h2>
+        <div id="team-matches">
+            <div id="loading" class="loading">Loading...</div>
+            <div id="error" class="error" style="display: none;"></div>
+        </div>
+    </div>
+
+    <div class="standings-container">
+        <h2>Standings</h2>
+        <div id="team-standings">
+            <div id="loading" class="loading">Loading...</div>
+            <div id="error" class="error" style="display: none;"></div>
+        </div>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const teamName = urlParams.get('team');
+        const teamHeader = document.querySelector('.team-header h1');
+        const teamLogo = document.querySelector('.team-header img');
+
+        if (teamName) {
+            teamHeader.textContent = teamName;
+            teamLogo.src = `logos/${encodeURIComponent(teamName)}.png`;
+            teamLogo.alt = `${teamName} logo`;
+            loadTeamData(teamName);
+        } else {
+            teamHeader.textContent = "Team Not Found";
+        }
+
+        async function loadTeamData(teamName) {
+            try {
+                const response = await fetch('data/data.json');
+                if (!response.ok) throw new Error('Network response was not ok');
+                const teams = await response.json();
+
+                const currentTeam = teams.find(team => team.team === teamName);
+                if (!currentTeam) {
+                    showError('Team data not found.');
+                    return;
+                }
+
+                // Load matches
+                const matchesResponse = await fetch('data/scores_fixtures.json');
+                if (!matchesResponse.ok) throw new Error('Network response was not ok');
+                const matches = await matchesResponse.json();
+
+                // Filter matches for the current team
+                const teamMatches = matches.filter(match => 
+                    match.Home === teamName || match.Away === teamName
+                );
+
+                // Render matches
+                const matchesContainer = document.getElementById('team-matches');
+                matchesContainer.innerHTML = ''; // Clear loading message
+
+                teamMatches.forEach(match => {
+                    const matchDiv = document.createElement('div');
+                    matchDiv.classList.add('match');
+                    matchDiv.innerHTML = `
+                        ${match.Home} ${match.Score} ${match.Away}
+                    `;
+                    matchesContainer.appendChild(matchDiv);
+                });
+
+                // Render standings
+                const standingsContainer = document.getElementById('team-standings');
+                standingsContainer.innerHTML = ''; // Clear loading message
+
+                const currentRank = teams.indexOf(currentTeam);
+                const start = Math.max(0, currentRank - 4);
+                const end = Math.min(teams.length, currentRank + 4);
+
+                for (let i = start; i < end; i++) {
+                    const team = teams[i];
+                    const teamDiv = document.createElement('div');
+                    teamDiv.classList.add('standing');
+                    teamDiv.innerHTML = `
+                        ${i + 1}. ${team.team} - ${team.points} pts
+                    `;
+                    standingsContainer.appendChild(teamDiv);
+                }
+
+                document.getElementById('loading').style.display = 'none';
+            } catch (error) {
+                showError(\`Error loading team data: \${error.message}\`);
+            }
+        }
+
+        function showError(message) {
+            document.getElementById('loading').style.display = 'none';
+            const errorDiv = document.getElementById('error');
+            errorDiv.style.display = 'block';
+            errorDiv.textContent = message;
+        }
+    });
+    </script>
+</body>
+</html>
