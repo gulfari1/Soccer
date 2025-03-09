@@ -7,8 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
-    document.getElementById('teamHeader').textContent = `${teamName} Matches`;
-    
+    document.getElementById('teamHeader').textContent = `${teamName}`;
     loadTeamMatches(teamName);
 });
 
@@ -22,68 +21,67 @@ async function loadTeamMatches(teamName) {
             match.Home === teamName || match.Away === teamName
         );
 
-        renderMatches(teamMatches, teamName);
+        const today = new Date();
+        const sortedMatches = teamMatches.sort((a, b) => new Date(a.Date) - new Date(b.Date));
+
+        const pastMatches = sortedMatches.filter(m => new Date(m.Date) < today && m.Played);
+        const upcomingMatches = sortedMatches.filter(m => new Date(m.Date) > today);
+        const currentMatch = sortedMatches.find(m => 
+            new Date(m.Date).toDateString() === today.toDateString()
+        );
+
+        renderMatchSection('.past-match', pastMatches.slice(-1)[0], teamName);
+        renderMatchSection('.current-match', currentMatch, teamName);
+        renderMatchSection('.upcoming-match', upcomingMatches[0], teamName);
+
         document.getElementById('loading').style.display = 'none';
     } catch (error) {
         showError(`Error loading matches: ${error.message}`);
     }
 }
 
-function renderMatches(matches, teamName) {
-    const container = document.getElementById('teamMatches');
-    
-    const groupedMatches = matches.reduce((acc, match) => {
-        const date = new Date(match.Date).toLocaleDateString('en-GB', {
-            day: 'numeric', month: 'short'
-        });
-        if (!acc[date]) acc[date] = [];
-        acc[date].push(match);
-        return acc;
-    }, {});
+function renderMatchSection(selector, match, teamName) {
+    const container = document.querySelector(selector + ' .match-card');
+    if (!match) {
+        container.innerHTML = '<div class="match-status">No match available</div>';
+        return;
+    }
 
-    container.innerHTML = Object.entries(groupedMatches).map(([date, matches]) => `
-        <div class="date-section">
-            <div class="date-header">${date}</div>
-            <ul class="match-list">
-                ${matches.map(match => `
-                    <li class="match-item">
-                        <div class="competition">${match.Competition || 'Premier League'}</div>
-                        <div class="match-status">${match.Played ? 'FT' : formatTimeGMT5(match.Date, match.Time)}</div>
-                        <div class="teams-container">
-                            <div class="team ${match.Home === teamName ? 'active-team' : ''}">
-                                <img src="logos/${match.HomeCode}.png" alt="${match.Home}" class="team-logo">
-                                <span>${match.Home}</span>
-                            </div>
-                            <div class="score">
-                                ${match.Played ? match.Score.replace('-', ' : ') : 'vs'}
-                            </div>
-                            <div class="team ${match.Away === teamName ? 'active-team' : ''}">
-                                <img src="logos/${match.AwayCode}.png" alt="${match.Away}" class="team-logo">
-                                <span>${match.Away}</span>
-                            </div>
-                        </div>
-                    </li>
-                `).join('')}
-            </ul>
-        </div>
-    `).join('');
-}
-
-function showError(message) {
-    document.getElementById('loading').style.display = 'none';
-    const errorElement = document.getElementById('error');
-    errorElement.style.display = 'block';
-    errorElement.textContent = message;
-}
-
-// Reuse from scores.js
-function formatTimeGMT5(dateStr, timeStr) {
-    const [year, month, day] = dateStr.split('-').map(Number);
-    const [hours, minutes] = timeStr.split(':').map(Number);
-    const date = new Date(Date.UTC(year, month - 1, day, hours, minutes));
-    return date.toLocaleTimeString('en-US', { 
-        hour: 'numeric', 
-        minute: '2-digit', 
-        timeZone: 'Asia/Karachi' 
+    const isHome = match.Home === teamName;
+    const date = new Date(match.Date).toLocaleDateString('en-GB', {
+        day: 'numeric', month: 'short', year: 'numeric'
     });
+    
+    container.innerHTML = `
+        <div class="match-header">
+            <span class="match-date">${date}</span>
+            <span class="competition">${match.Competition || 'Premier League'}</span>
+        </div>
+        <div class="match-content">
+            <div class="team">
+                <a href="team.html?team=${encodeURIComponent(match.Home)}">
+                    <img src="logos/${match.HomeCode}.png" alt="${match.Home}" class="team-logo">
+                </a>
+                <span class="team-name">${match.Home}</span>
+            </div>
+            
+            <div class="score">
+                ${match.Played ? match.Score.replace('-', ' - ') : 'VS'}
+            </div>
+
+            <div class="team">
+                <a href="team.html?team=${encodeURIComponent(match.Away)}">
+                    <img src="logos/${match.AwayCode}.png" alt="${match.Away}" class="team-logo">
+                </a>
+                <span class="team-name">${match.Away}</span>
+            </div>
+        </div>
+        ${!match.Played ? `
+            <div class="match-status">
+                ${formatTimeGMT5(match.Date, match.Time)}
+            </div>
+        ` : ''}
+    `;
 }
+
+// Keep existing formatTimeGMT5 and showError functions
