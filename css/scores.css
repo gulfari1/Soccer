@@ -159,6 +159,70 @@ h1 {
     color: #808080;
 }
 
+/* Team Page Styles */
+.team-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.team-header {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.team-logo-large {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+}
+
+.matches-section {
+    margin-top: 2rem;
+}
+
+.matches-list {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.match-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.match-teams {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.match-teams .team {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.match-teams .team img {
+    width: 30px;
+    height: 30px;
+}
+
+.home-team {
+    font-weight: bold;
+}
+
+.match-date {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 0.5rem;
+}
+
 @media (max-width: 768px) {
     h1 {
         font-size: 1.5rem;
