@@ -159,6 +159,96 @@ h1 {
     color: #808080;
 }
 
+/* Team Page Styles */
+.team-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.matches-container {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.match-row {
+    padding: 16px;
+    border-bottom: 1px solid #eee;
+    background: white;
+}
+
+.match-row:last-child {
+    border-bottom: none;
+}
+
+.match-date {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 4px;
+}
+
+.match-competition {
+    color: #888;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.teams-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.team {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.home-team {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.away-team {
+    justify-content: flex-start;
+}
+
+.team-logo {
+    width: 32px;
+    height: 32px;
+}
+
+.score-container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 80px;
+    justify-content: center;
+}
+
+.score {
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.match-time {
+    color: #1a2634;
+    font-weight: 500;
+}
+
+.current-match {
+    background: #f8f9fa;
+}
+
+.previous-match .score {
+    opacity: 0.7;
+}
+
 @media (max-width: 768px) {
     h1 {
         font-size: 1.5rem;
