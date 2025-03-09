@@ -1,85 +1,54 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const teamName = decodeURIComponent(urlParams.get('team'));
+document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const teamName = decodeURIComponent(params.get('team'));
     
     if (!teamName) {
-        showError('Team parameter missing');
+        window.location.href = 'index.html';
         return;
     }
 
     Promise.all([
-        fetch('data/data.json'),
-        fetch('data/scores_fixtures.json')
-    ])
-    .then(async ([teamRes, fixturesRes]) => {
-        if (!teamRes.ok || !fixturesRes.ok) throw new Error('Network response error');
-        
-        const teamData = await teamRes.json();
-        const fixturesData = await fixturesRes.json();
-        
-        const team = teamData.find(t => t.team === teamName);
-        if (!team) throw new Error('Team not found');
-        
-        // Set team info
-        document.getElementById('team-name').textContent = teamName;
-        document.getElementById('team-logo').src = team.logo;
-
-        // Process matches
-        const teamFixtures = fixturesData.filter(f => 
+        fetch('data/data.json').then(r => r.json()),
+        fetch('data/scores_fixtures.json').then(r => r.json())
+    ]).then(([teamsData, fixtures]) => {
+        const team = teamsData.find(t => t.team === teamName);
+        const teamMatches = fixtures.filter(f => 
             f.Home === teamName || f.Away === teamName
         );
 
-        const now = new Date();
-        const upcoming = [];
-        const previous = [];
+        // Set header info
+        document.getElementById('team-logo').src = team.logo;
+        document.getElementById('team-name').textContent = teamName;
 
-        teamFixtures.forEach(match => {
-            const matchDate = new Date(match.Date);
-            if (matchDate > now) {
-                upcoming.push(match);
-            } else {
-                previous.push(match);
-            }
-        });
-
-        renderMatches('upcoming-matches', upcoming, teamName);
-        renderMatches('previous-matches', previous, teamName);
-        
-        document.getElementById('loading').style.display = 'none';
-    })
-    .catch(error => showError(error.message));
-
-    function renderMatches(containerId, matches, teamName) {
-        const container = document.getElementById(containerId);
-        container.innerHTML = matches.map(match => `
-            <div class="match-card">
-                <div class="match-date">${formatDate(match.Date)}</div>
+        // Render matches
+        const matchesList = document.getElementById('matches-list');
+        matchesList.innerHTML = teamMatches.map(match => `
+            <div class="match-item">
+                <div class="match-date">${new Date(match.Date).toLocaleDateString()}</div>
                 <div class="match-teams">
-                    <div class="team ${match.Home === teamName ? 'home-team' : ''}">
-                        <img src="logos/${match.HomeCode}.png" alt="${match.Home}">
-                        <span>${match.Home}</span>
-                    </div>
-                    <div class="score">${match.Played ? match.Score : formatTimeGMT5(match.Date, match.Time)}</div>
-                    <div class="team ${match.Away === teamName ? 'home-team' : ''}">
-                        <img src="logos/${match.AwayCode}.png" alt="${match.Away}">
-                        <span>${match.Away}</span>
-                    </div>
+                    <span class="${match.Home === teamName ? 'home-team' : 'away-team'}">
+                        ${match.Home === teamName ? teamName : match.Home}
+                    </span>
+                    vs
+                    <span class="${match.Away === teamName ? 'home-team' : 'away-team'}">
+                        ${match.Away === teamName ? teamName : match.Away}
+                    </span>
                 </div>
+                <div class="match-score">${match.Score}</div>
             </div>
         `).join('');
-    }
 
-    function formatDate(dateString) {
-        const date = new Date(dateString);
-        return date.toLocaleDateString('en-GB', {
-            weekday: 'short', day: 'numeric', month: 'short'
-        });
-    }
+        // Render form
+        const formContainer = document.getElementById('team-form');
+        formContainer.innerHTML = team.form.split(' ').map((result, index) => `
+            <div class="form-item ${result === 'W' ? 'form-win' : result === 'D' ? 'form-draw' : 'form-loss'}" 
+                 style="--index: ${index}">
+                ${result}
+            </div>
+        `).join('');
 
-    function showError(message) {
-        document.getElementById('loading').style.display = 'none';
-        const errorElement = document.getElementById('error');
-        errorElement.style.display = 'block';
-        errorElement.textContent = message;
-    }
+    }).catch(error => {
+        console.error('Error:', error);
+        window.location.href = 'index.html';
+    });
 });
