@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Profile</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/scores.css">
+</head>
+<body>
+    <nav class="global-nav">
+        <div class="nav-container">
+            <button class="mobile-menu-btn">
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <nav class="sub-nav">
+        <div class="sub-nav-container">
+            <a href="index.html" class="sub-nav-link">Tables</a>
+            <a href="scores.html" class="sub-nav-link">Scores & Fixtures</a>
+            <a href="players.html" class="sub-nav-link">Players Stats</a>
+        </div>
+    </nav>
+
+    <div class="fixtures-container">
+        <h1 id="teamHeader"></h1>
+        <div id="loading" class="loading">Loading...</div>
+        <div id="error" class="error" style="display: none;"></div>
+        <div id="teamMatches"></div>
+    </div>
+
+    <script src="js/team.js"></script>
+</body>
+</html>
