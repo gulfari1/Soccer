@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team Profile</title>
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/scores.css">
+    <link rel="stylesheet" href="css/team.css">
 </head>
 <body>
     <nav class="global-nav">
@@ -24,11 +24,33 @@
         </div>
     </nav>
 
-    <div class="fixtures-container">
+    <div class="team-container">
         <h1 id="teamHeader"></h1>
         <div id="loading" class="loading">Loading...</div>
         <div id="error" class="error" style="display: none;"></div>
-        <div id="teamMatches"></div>
+        
+        <div class="matches-container">
+            <div class="match-section past-match">
+                <h3>Previous Match</h3>
+                <div class="match-card">
+                    <!-- Content loaded by JS -->
+                </div>
+            </div>
+
+            <div class="match-section current-match">
+                <h3>Current Match</h3>
+                <div class="match-card">
+                    <!-- Content loaded by JS -->
+                </div>
+            </div>
+
+            <div class="match-section upcoming-match">
+                <h3>Upcoming Match</h3>
+                <div class="match-card">
+                    <!-- Content loaded by JS -->
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="js/team.js"></script>
