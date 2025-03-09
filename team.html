@@ -6,7 +6,6 @@
     <title>Team Page</title>
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/table.css">
-    <link rel="stylesheet" href="css/scores.css">
 </head>
 <body>
     <nav class="global-nav">
@@ -20,26 +19,23 @@
     <nav class="sub-nav">
         <div class="sub-nav-container">
             <a href="index.html" class="sub-nav-link">Tables</a>
-            <a href="scores.html" class="sub-nav-link">Full Matches</a>
+            <a href="scores.html" class="sub-nav-link">Scores & Fixtures</a>
             <a href="players.html" class="sub-nav-link">Players Stats</a>
         </div>
     </nav>
 
     <div class="team-container">
-        <div id="loading" class="loading">Loading...</div>
-        <div id="error" class="error" style="display: none;"></div>
-        
-        <!-- Team Header -->
-        <div class="team-header">
-            <img id="team-logo" class="team-logo-large" src="" alt="Team Logo">
+        <div id="team-header">
+            <img id="team-logo" src="" alt="Team Logo">
             <h1 id="team-name"></h1>
         </div>
-
-        <!-- Matches Section -->
-        <div class="matches-section">
-            <h2>Matches</h2>
-            <div id="upcoming-matches" class="matches-list"></div>
-            <div id="previous-matches" class="matches-list"></div>
+        
+        <h2>Matches</h2>
+        <div id="matches-list"></div>
+        
+        <div class="key-container">
+            <h3>Form Guide</h3>
+            <div id="team-form" class="form-container"></div>
         </div>
     </div>
 
