@@ -19,20 +19,29 @@ async function loadTeamMatches(teamName) {
         const allMatches = await response.json();
         const teamMatches = allMatches.filter(match => 
             match.Home === teamName || match.Away === teamName
-        );
+        ).sort((a, b) => new Date(a.Date) - new Date(b.Date));
 
-        const today = new Date();
-        const sortedMatches = teamMatches.sort((a, b) => new Date(a.Date) - new Date(b.Date));
+        const now = new Date();
+        const previousMatches = [];
+        const upcomingMatches = [];
+        let currentMatch = null;
 
-        const pastMatches = sortedMatches.filter(m => new Date(m.Date) < today && m.Played);
-        const upcomingMatches = sortedMatches.filter(m => new Date(m.Date) > today);
-        const currentMatch = sortedMatches.find(m => 
-            new Date(m.Date).toDateString() === today.toDateString()
-        );
+        teamMatches.forEach(match => {
+            const matchDate = new Date(match.Date);
+            if (matchDate < now) previousMatches.push(match);
+            else upcomingMatches.push(match);
+        });
 
-        renderMatchSection('.past-match', pastMatches.slice(-1)[0], teamName);
-        renderMatchSection('.current-match', currentMatch, teamName);
-        renderMatchSection('.upcoming-match', upcomingMatches[0], teamName);
+        // Get most recent previous match
+        const previousMatch = previousMatches.slice(-1)[0];
+        // Get next upcoming match (current)
+        currentMatch = upcomingMatches[0];
+        // Get following upcoming match
+        const upcomingMatch = upcomingMatches[1] || upcomingMatches[0];
+
+        renderMatch('previous', previousMatch, teamName);
+        renderMatch('current', currentMatch, teamName);
+        renderMatch('upcoming', upcomingMatch, teamName);
 
         document.getElementById('loading').style.display = 'none';
     } catch (error) {
@@ -40,48 +49,60 @@ async function loadTeamMatches(teamName) {
     }
 }
 
-function renderMatchSection(selector, match, teamName) {
-    const container = document.querySelector(selector + ' .match-card');
+function renderMatch(type, match, teamName) {
+    const container = document.querySelector(`.${type}-match`);
     if (!match) {
-        container.innerHTML = '<div class="match-status">No match available</div>';
+        container.style.display = 'none';
         return;
     }
 
-    const isHome = match.Home === teamName;
-    const date = new Date(match.Date).toLocaleDateString('en-GB', {
-        day: 'numeric', month: 'short', year: 'numeric'
-    });
+    const dateOptions = { day: 'numeric', month: 'short' };
+    const matchDate = new Date(match.Date).toLocaleDateString('en-GB', dateOptions);
     
-    container.innerHTML = `
-        <div class="match-header">
-            <span class="match-date">${date}</span>
-            <span class="competition">${match.Competition || 'Premier League'}</span>
-        </div>
-        <div class="match-content">
-            <div class="team">
-                <a href="team.html?team=${encodeURIComponent(match.Home)}">
-                    <img src="logos/${match.HomeCode}.png" alt="${match.Home}" class="team-logo">
-                </a>
-                <span class="team-name">${match.Home}</span>
-            </div>
-            
-            <div class="score">
-                ${match.Played ? match.Score.replace('-', ' - ') : 'VS'}
-            </div>
+    container.querySelector('.match-date').textContent = matchDate;
+    container.querySelector('.match-competition').textContent = match.Competition || 'Premier League';
 
-            <div class="team">
-                <a href="team.html?team=${encodeURIComponent(match.Away)}">
-                    <img src="logos/${match.AwayCode}.png" alt="${match.Away}" class="team-logo">
-                </a>
-                <span class="team-name">${match.Away}</span>
-            </div>
-        </div>
-        ${!match.Played ? `
-            <div class="match-status">
-                ${formatTimeGMT5(match.Date, match.Time)}
-            </div>
-        ` : ''}
+    const isHome = match.Home === teamName;
+    const homeTeam = match.Home;
+    const awayTeam = match.Away;
+
+    container.querySelector('.home-team').innerHTML = `
+        ${isHome ? `<strong>${homeTeam}</strong>` : homeTeam}
+        <img src="logos/${match.HomeCode}.png" class="team-logo">
     `;
+
+    container.querySelector('.away-team').innerHTML = `
+        <img src="logos/${match.AwayCode}.png" class="team-logo">
+        ${!isHome ? `<strong>${awayTeam}</strong>` : awayTeam}
+    `;
+
+    const scoreContainer = container.querySelector('.score-container');
+    if (match.Played) {
+        scoreContainer.innerHTML = `
+            <div class="score">${match.Score.split('-')[0]}</div>
+            <div class="divider">:</div>
+            <div class="score">${match.Score.split('-')[1]}</div>
+        `;
+    } else {
+        const matchTime = formatTimeGMT5(match.Date, match.Time);
+        scoreContainer.innerHTML = `<div class="match-time">${matchTime}</div>`;
+    }
 }
 
-// Keep existing formatTimeGMT5 and showError functions
+function showError(message) {
+    document.getElementById('loading').style.display = 'none';
+    const errorElement = document.getElementById('error');
+    errorElement.style.display = 'block';
+    errorElement.textContent = message;
+}
+
+function formatTimeGMT5(dateStr, timeStr) {
+    const [year, month, day] = dateStr.split('-');
+    const [hours, minutes] = timeStr.split(':');
+    const date = new Date(Date.UTC(year, month - 1, day, hours, minutes));
+    return date.toLocaleTimeString('en-US', { 
+        hour: 'numeric', 
+        minute: '2-digit', 
+        timeZone: 'Asia/Karachi'
+    });
+}
