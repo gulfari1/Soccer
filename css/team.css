@@ -1,8 +1,8 @@
 /* ====== Team Page Styles ====== */
 .team-container {
-    max-width: 1000px;
+    max-width: 800px;
     margin: 20px auto;
-    padding: 0 20px;
+    padding: 0 15px;
 }
 
 .matches-container {
@@ -62,30 +62,32 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 5px;
+    gap: 20px;
 }
 
 .team {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     flex: 1;
 }
 
-.home-team { 
-    justify-content: flex-end;
+.home-team {
+    flex-direction: row-reverse;
+    justify-content: flex-start;
     text-align: right;
 }
 
-.away-team { 
+.away-team {
     justify-content: flex-start;
     text-align: left;
 }
 
 .team img {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     object-fit: contain;
+    flex-shrink: 0;
 }
 
 .team-link {
@@ -93,6 +95,7 @@
     text-decoration: none;
     font-weight: 500;
     transition: opacity 0.2s;
+    white-space: nowrap;
 }
 
 .team-link:hover {
@@ -125,8 +128,68 @@
     margin-top: 4px;
 }
 
-
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .team-container {
+        padding: 0 10px;
+    }
+    
+    .matches-container {
+        border-radius: 6px;
+    }
+    
+    .match-details {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .home-team {
+        flex-direction: row;
+        justify-content: flex-end;
+        width: 100%;
+    }
+    
+    .away-team {
+        width: 100%;
+    }
+    
+    .team {
+        justify-content: space-between;
+    }
+    
+    .team-link {
+        font-size: 0.9em;
+    }
+    
+    .match-info {
+        order: -1;
+        margin-bottom: 8px;
+    }
+    
+    .score {
+        font-size: 1.1em;
+    }
+    
     .time {
         font-size: 0.85em;
+    }
+}
+
+@media (max-width: 480px) {
+    .matches-header {
+        padding: 12px;
+    }
+    
+    .match-entry {
+        padding: 12px;
+    }
+    
+    .team img {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .competition-header {
+        font-size: 0.8em;
     }
 }
