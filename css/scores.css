@@ -161,7 +161,7 @@ h1 {
 
 /* Team Page Styles */
 .team-container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 20px auto;
     padding: 0 15px;
 }
@@ -264,8 +264,8 @@ h1 {
     }
     
     .team-logo {
-        width: 28px;
-        height: 28px;
+        width: 10px;
+        height: 10px;
     }
     
     .score {
