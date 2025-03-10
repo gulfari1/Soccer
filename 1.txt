@@ -6,15 +6,18 @@
 The rest of the code remains unchanged, ensuring all functionality and styling are preserved.
 
 here's the tree of my website 
+
 Soccer/
 ├── css/
 │   ├── common.css
 │   ├── table.css
+│   ├── team.css
 │   ├── scores.css
 │   └── players.css
 ├── js/
 │   ├── table.js
 │   ├── scores.js
+│   ├── team.js
 │   └── players.js
 ├── data/
 │   ├── gameweek.json
@@ -25,6 +28,7 @@ Soccer/
 │   └── (all team logos)
 ├── index.html
 ├── scores.html
+├── team.html
 └── players.html
 
 1.index.html
