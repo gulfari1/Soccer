@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Page</title>
+    <title>Team Profile</title>
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/scores.css">
 </head>
@@ -24,176 +24,17 @@
         </div>
     </nav>
 
-    <div class="fixtures-container">
-        <h1 id="team-name"></h1>
-        <div id="loading" class="loading">Loading...</div>
-        <div id="error" class="error" style="display: none;"></div>
-        <div id="matches-list"></div>
+    <div class="fixtures-container team-container">
+        <h1 id="teamHeader"></h1>
+        <div class="matches-container">
+            <div class="section-header">
+                <span>Matches</span>
+                <a href="#" id="allMatchesLink">All Matches ></a>
+            </div>
+            <div id="teamMatches"></div>
+        </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const teamName = urlParams.get('team');
-            if (!teamName) {
-                showError('Team parameter is missing');
-                return;
-            }
-
-            document.getElementById('team-name').textContent = teamName;
-
-            async function loadMatches() {
-                try {
-                    const response = await fetch('data/scores_fixtures.json');
-                    if (!response.ok) throw new Error('Network response not ok');
-                    const fixtures = await response.json();
-
-                    const teamMatches = fixtures.filter(match => 
-                        match.Home === teamName || match.Away === teamName
-                    );
-
-                    if (teamMatches.length === 0) {
-                        showError('No matches found for this team');
-                        return;
-                    }
-
-                    const matchesByDate = groupByDate(teamMatches);
-                    renderMatches(matchesByDate);
-                    document.getElementById('loading').style.display = 'none';
-                } catch (error) {
-                    showError(`Error loading matches: ${error.message}`);
-                }
-            }
-
-            function groupByDate(matches) {
-                return matches.reduce((acc, match) => {
-                    const date = formatDate(match.Date);
-                    if (!acc[date]) acc[date] = [];
-                    acc[date].push(match);
-                    return acc;
-                }, {});
-            }
-
-            function formatDate(dateString) {
-                const date = new Date(dateString + 'T00:00:00Z');
-                const options = { weekday: 'long', day: 'numeric', month: 'long' };
-                const parts = date.toLocaleDateString('en-GB', options).split(' ');
-                const day = parseInt(parts[1]);
-                return `${parts[0]} ${day}${getOrdinal(day)} ${parts[2]}`;
-            }
-
-            function getOrdinal(n) {
-                const s = ["th", "st", "nd", "rd"];
-                const v = n % 100;
-                return s[(v - 20) % 10] || s[v] || s[0];
-            }
-
-            function renderMatches(matchesByDate) {
-                const container = document.getElementById('matches-list');
-                container.innerHTML = '';
-
-                Object.entries(matchesByDate).forEach(([date, matches]) => {
-                    const dateSection = document.createElement('div');
-                    dateSection.className = 'date-section';
-
-                    const dateHeader = document.createElement('div');
-                    dateHeader.className = 'date-header';
-                    dateHeader.textContent = date;
-                    dateSection.appendChild(dateHeader);
-
-                    const list = document.createElement('ul');
-                    list.className = 'match-list';
-
-                    matches.forEach(match => {
-                        const li = document.createElement('li');
-                        li.className = 'match-item';
-
-                        const isCompleted = match.Score && match.Score.includes('-');
-                        let homeClass = '';
-                        let awayClass = '';
-                        let homeScoreClass = '';
-                        let awayScoreClass = '';
-
-                        if (isCompleted) {
-                            const scores = match.Score.split('-').map(Number);
-                            const homeGoals = scores[0];
-                            const awayGoals = scores[1];
-
-                            if (homeGoals > awayGoals) {
-                                homeClass = 'winner';
-                                awayClass = 'loser';
-                                homeScoreClass = '';
-                                awayScoreClass = 'loser-score';
-                            } else if (awayGoals > homeGoals) {
-                                homeClass = 'loser';
-                                awayClass = 'winner';
-                                homeScoreClass = 'loser-score';
-                                awayScoreClass = '';
-                            } else {
-                                homeClass = 'winner';
-                                awayClass = 'winner';
-                                homeScoreClass = '';
-                                awayScoreClass = '';
-                            }
-                        }
-
-                        li.innerHTML = `
-                            <div class="team-container home-container">
-                                <a href="team.html?team=${encodeURIComponent(match.Home)}" class="team-link">
-                                    <span class="team-code ${homeClass}">${match.HomeCode}</span>
-                                    <img class="team-logo" src="logos/${match.HomeCode}.png" alt="${match.Home}">
-                                </a>
-                            </div>
-                            
-                            <div class="score-container">
-                                ${isCompleted ? 
-                                    `<div class="score ${homeScoreClass}">${match.Score.split('-')[0]}</div>
-                                     <div class="score ${awayScoreClass}">${match.Score.split('-')[1]}</div>` :
-                                    `<div class="match-time">${formatTimeGMT5(match.Date, match.Time)}</div>`
-                                }
-                            </div>
-                            
-                            <div class="team-container away-container">
-                                <a href="team.html?team=${encodeURIComponent(match.Away)}" class="team-link">
-                                    <img class="team-logo" src="logos/${match.AwayCode}.png" alt="${match.Away}">
-                                    <span class="team-code ${awayClass}">${match.AwayCode}</span>
-                                </a>
-                            </div>
-                        `;
-                        list.appendChild(li);
-                    });
-
-                    dateSection.appendChild(list);
-                    container.appendChild(dateSection);
-                });
-            }
-
-            function formatTimeGMT5(dateStr, timeStr) {
-                try {
-                    const [year, month, day] = dateStr.split('-').map(Number);
-                    const [hours, minutes] = timeStr.split(':').map(Number);
-                    const date = new Date(Date.UTC(year, month - 1, day, hours, minutes));
-                    
-                    return new Intl.DateTimeFormat('en-US', {
-                        hour: 'numeric',
-                        minute: '2-digit',
-                        timeZone: 'Asia/Karachi',
-                        hour12: true
-                    }).format(date);
-                } catch {
-                    return timeStr;
-                }
-            }
-
-            function showError(message) {
-                document.getElementById('loading').style.display = 'none';
-                const errorElement = document.getElementById('error');
-                errorElement.style.display = 'block';
-                errorElement.textContent = message;
-            }
-
-            loadMatches();
-        });
-    </script>
+    <script src="js/team.js"></script>
 </body>
 </html>
