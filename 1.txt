@@ -1277,6 +1277,137 @@ body {
     text-align: center;
 }"
 
+team.css
+"/* ====== Team Page Styles ====== */
+.team-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+.matches-container {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.matches-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.matches-header h2 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #1a2634;
+}
+
+#allMatchesLink {
+    color: #333;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+#allMatchesLink:hover {
+    opacity: 0.8;
+}
+
+.match-entry {
+    padding: 16px;
+    border-bottom: 1px solid #eee;
+    background: white;
+}
+
+.match-entry:last-child {
+    border-bottom: none;
+}
+
+.competition-header {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.match-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.team {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+.home-team {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.away-team {
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.team img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.team-link {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+}
+
+.team-link:hover {
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.match-info {
+    text-align: center;
+    min-width: 100px;
+}
+
+.score {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 4px 0;
+    color: #1a2634;
+}
+
+.time {
+    font-size: 0.9em;
+    color: #666;
+    font-weight: 500;
+}
+
+.match-status {
+    font-size: 0.8em;
+    color: #666;
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+"
+
 15. scores.css
 "/* Fixtures Container */
 .fixtures-container {
