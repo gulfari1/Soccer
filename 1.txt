@@ -1,7 +1,4 @@
-1. Create dynamic team pages accessible via `team.html?team=TeamName`,common.css styling should be applied to all the pages
-2. Show next match information with team logos and match details, copy the styling from view-source 
-3. Display last 5 matches played with scores and opponent logos, copy the styling from view-source 
-4. Style elements with appropriate colors for wins/draws/losses
+2.   Show all matches of the respective team in a all matches tags, redirect to the all matches url of the respective team that shows all the matches from gameweek1 to gameweek 38 
 5. Link all team names/logos across the site to their respective pages, make sure the team name styling is preserved, don't add link blue color or underline.
 The rest of the code remains unchanged, ensuring all functionality and styling are preserved.
 
