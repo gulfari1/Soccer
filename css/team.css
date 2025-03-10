@@ -162,21 +162,4 @@
     .time {
         font-size: 0.85em;
     }
-    
-    .matches-header {
-        padding: 12px;
-    }
-    
-    .match-entry {
-        padding: 12px;
-    }
-    
-    .team img {
-        width: 20px;
-        height: 20px;
-    }
-    
-    .competition-header {
-        font-size: 0.8em;
-    }
 }
