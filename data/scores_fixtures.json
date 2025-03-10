@@ -3052,10 +3052,10 @@
     "Time": "14:00",
     "Home": "Chelsea",
     "HomeCode": "CHE",
-    "Score": "TBD",
+    "Score": "1-0",
     "Away": "Leicester City",
     "AwayCode": "LEI",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 28,
@@ -3063,10 +3063,10 @@
     "Time": "14:00",
     "Home": "Tottenham",
     "HomeCode": "TOT",
-    "Score": "TBD",
+    "Score": "2-2",
     "Away": "Bournemouth",
     "AwayCode": "BOU",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 28,
@@ -3074,10 +3074,10 @@
     "Time": "16:30",
     "Home": "Manchester Utd",
     "HomeCode": "MUN",
-    "Score": "TBD",
+    "Score": "1-1",
     "Away": "Arsenal",
     "AwayCode": "ARS",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 28,
