@@ -159,6 +159,80 @@ h1 {
     color: #808080;
 }
 
+/* Team Page Styles */
+.team-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.match-section {
+    margin-bottom: 25px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.league-header {
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e0e0e0;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.match-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    gap: 20px;
+}
+
+.team-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.team-name {
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+}
+
+.match-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100px;
+}
+
+.score {
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.match-time {
+    font-weight: 500;
+    color: #1a2634;
+}
+
+.match-date {
+    font-size: 0.9em;
+    color: #666;
+}
+
 @media (max-width: 768px) {
     h1 {
         font-size: 1.5rem;
