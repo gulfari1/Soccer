@@ -38,8 +38,8 @@ function renderMatches(matches, teamName) {
             <div class="competition-header">Premier League</div>
             <div class="match-details">
                 <div class="team home-team">
+                    <a href="team.html?team=${encodeURIComponent(match.Home)}" class="team-link">${match.HomeCode}</a>
                     <img src="logos/${match.HomeCode}.png" alt="${match.Home}">
-                    <a href="team.html?team=${encodeURIComponent(match.Home)}" class="team-link">${match.Home}</a>
                 </div>
                 <div class="match-info">
                     ${match.Played ? 
@@ -50,7 +50,7 @@ function renderMatches(matches, teamName) {
                 </div>
                 <div class="team away-team">
                     <img src="logos/${match.AwayCode}.png" alt="${match.Away}">
-                    <a href="team.html?team=${encodeURIComponent(match.Away)}" class="team-link">${match.Away}</a>
+                    <a href="team.html?team=${encodeURIComponent(match.Away)}" class="team-link">${match.AwayCode}</a>
                 </div>
             </div>
         </div>
