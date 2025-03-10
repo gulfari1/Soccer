@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="team-logo-container">
                             <img src="${team.logo}" alt="${team.team}" class="team-logo">
                         </div>
-                        <span class="team-name full"><a href="team.html?team=${encodeURIComponent(team.team)}" class="team-link">${team.team}</a></span>
+                        <span class="team-name full">${team.team}</span>
                         <span class="team-name short">${clientSideMappings[team.team] || team.team}</span>
                     </td>
                     <td>${team.matches}</td>
