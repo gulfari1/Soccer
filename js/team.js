@@ -2,8 +2,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const teamName = decodeURIComponent(urlParams.get('team'));
     document.getElementById('teamHeader').textContent = teamName;
-    document.getElementById('allMatchesLink').href = `#all?team=${encodeURIComponent(teamName)}`;
 
+    // Set up the "All Matches" link
+    const allMatchesLink = document.getElementById('allMatchesLink');
+    allMatchesLink.href = `#all?team=${encodeURIComponent(teamName)}`;
+
+    // Handle hash change for showing all matches
+    window.addEventListener('hashchange', () => {
+        loadTeamMatches(teamName);
+    });
+
+    // Initial load
     loadTeamMatches(teamName);
 });
 
@@ -21,25 +30,29 @@ async function loadTeamMatches(teamName) {
             match.Home === teamName || match.Away === teamName
         ).sort((a, b) => new Date(a.Date) - new Date(b.Date));
 
-        const recentMatches = teamMatches.filter(m => m.Played).slice(-1);
-        const upcomingMatches = teamMatches.filter(m => !m.Played).slice(0, 3);
-        const displayMatches = [...recentMatches, ...upcomingMatches];
+        // Check if we're showing all matches
+        const showAll = window.location.hash === '#all';
+        const container = showAll ? document.getElementById('allMatches') : document.getElementById('teamMatches');
+        const displayMatches = showAll ? teamMatches : [...teamMatches.filter(m => m.Played).slice(-1), ...teamMatches.filter(m => !m.Played).slice(0, 3)];
 
-        renderMatches(displayMatches, teamName);
+        renderMatches(displayMatches, teamName, showAll);
+        if (showAll) document.getElementById('allMatches').style.display = 'block';
     } catch (error) {
         console.error('Error loading team data:', error);
     }
 }
 
-function renderMatches(matches, teamName) {
-    const container = document.getElementById('teamMatches');
+function renderMatches(matches, teamName, showAll = false) {
+    const container = showAll ? document.getElementById('allMatches') : document.getElementById('teamMatches');
     container.innerHTML = matches.map(match => `
         <div class="match-entry">
             <div class="competition-header">Premier League</div>
             <div class="match-details">
                 <div class="team home-team">
-                    <a href="team.html?team=${encodeURIComponent(match.Home)}" class="team-link">${match.HomeCode}</a>
-                    <img src="logos/${match.HomeCode}.png" alt="${match.Home}">
+                    <a href="team.html?team=${encodeURIComponent(match.Home)}" class="team-link">
+                        ${match.HomeCode}
+                        <img src="logos/${match.HomeCode}.png" alt="${match.Home}">
+                    </a>
                 </div>
                 <div class="match-info">
                     ${match.Played ? 
@@ -49,8 +62,10 @@ function renderMatches(matches, teamName) {
                     <div class="match-status">${match.Played ? 'FT' : formatMatchDate(match.Date)}</div>
                 </div>
                 <div class="team away-team">
-                    <img src="logos/${match.AwayCode}.png" alt="${match.Away}">
-                    <a href="team.html?team=${encodeURIComponent(match.Away)}" class="team-link">${match.AwayCode}</a>
+                    <a href="team.html?team=${encodeURIComponent(match.Away)}" class="team-link">
+                        <img src="logos/${match.AwayCode}.png" alt="${match.Away}">
+                        ${match.AwayCode}
+                    </a>
                 </div>
             </div>
         </div>
