@@ -65,6 +65,19 @@
     "form": "L W L W L"
   },
   {
+    "team": "Newcastle United",
+    "logo": "logos/NEW.png",
+    "matches": 28,
+    "wins": 14,
+    "draws": 5,
+    "losses": 9,
+    "gf": 47,
+    "ga": 38,
+    "gd": 9,
+    "points": 47,
+    "form": "L L W L W"
+  },
+  {
     "team": "Brighton & Hove Albion",
     "logo": "logos/BHA.png",
     "matches": 28,
@@ -102,19 +115,6 @@
     "gd": 13,
     "points": 44,
     "form": "L W L L D"
-  },
-  {
-    "team": "Newcastle United",
-    "logo": "logos/NEW.png",
-    "matches": 27,
-    "wins": 13,
-    "draws": 5,
-    "losses": 9,
-    "gf": 46,
-    "ga": 38,
-    "gd": 8,
-    "points": 44,
-    "form": "W L L W L"
   },
   {
     "team": "Fulham",
@@ -197,15 +197,15 @@
   {
     "team": "West Ham United",
     "logo": "logos/WHU.png",
-    "matches": 27,
+    "matches": 28,
     "wins": 9,
     "draws": 6,
-    "losses": 12,
+    "losses": 13,
     "gf": 32,
-    "ga": 47,
-    "gd": -15,
+    "ga": 48,
+    "gd": -16,
     "points": 33,
-    "form": "D L L W W"
+    "form": "L L W W L"
   },
   {
     "team": "Wolverhampton Wanderers",
