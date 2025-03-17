@@ -15,15 +15,15 @@
   {
     "team": "Arsenal",
     "logo": "logos/ARS.png",
-    "matches": 28,
-    "wins": 15,
+    "matches": 29,
+    "wins": 16,
     "draws": 10,
     "losses": 3,
-    "gf": 52,
+    "gf": 53,
     "ga": 24,
-    "gd": 28,
-    "points": 55,
-    "form": "W W L D D"
+    "gd": 29,
+    "points": 58,
+    "form": "W L D D W"
   },
   {
     "team": "Nottingham Forest",
@@ -41,15 +41,15 @@
   {
     "team": "Chelsea",
     "logo": "logos/CHE.png",
-    "matches": 28,
+    "matches": 29,
     "wins": 14,
     "draws": 7,
-    "losses": 7,
+    "losses": 8,
     "gf": 53,
-    "ga": 36,
-    "gd": 17,
+    "ga": 37,
+    "gd": 16,
     "points": 49,
-    "form": "W L L W W"
+    "form": "L L W W L"
   },
   {
     "team": "Manchester City",
@@ -91,6 +91,19 @@
     "form": "W W W W D"
   },
   {
+    "team": "Fulham",
+    "logo": "logos/FUL.png",
+    "matches": 29,
+    "wins": 12,
+    "draws": 9,
+    "losses": 8,
+    "gf": 43,
+    "ga": 38,
+    "gd": 5,
+    "points": 45,
+    "form": "W L W L W"
+  },
+  {
     "team": "Aston Villa",
     "logo": "logos/AVL.png",
     "matches": 29,
@@ -115,19 +128,6 @@
     "gd": 12,
     "points": 44,
     "form": "W L L D L"
-  },
-  {
-    "team": "Fulham",
-    "logo": "logos/FUL.png",
-    "matches": 28,
-    "wins": 11,
-    "draws": 9,
-    "losses": 8,
-    "gf": 41,
-    "ga": 38,
-    "gd": 3,
-    "points": 42,
-    "form": "W W L W L"
   },
   {
     "team": "Brentford",
@@ -156,17 +156,30 @@
     "form": "W L W W W"
   },
   {
+    "team": "Manchester United",
+    "logo": "logos/MUN.png",
+    "matches": 29,
+    "wins": 10,
+    "draws": 7,
+    "losses": 12,
+    "gf": 37,
+    "ga": 40,
+    "gd": -3,
+    "points": 37,
+    "form": "L D W D W"
+  },
+  {
     "team": "Tottenham Hotspur",
     "logo": "logos/TOT.png",
-    "matches": 28,
+    "matches": 29,
     "wins": 10,
     "draws": 4,
-    "losses": 14,
+    "losses": 15,
     "gf": 55,
-    "ga": 41,
-    "gd": 14,
+    "ga": 43,
+    "gd": 12,
     "points": 34,
-    "form": "W W W L D"
+    "form": "W W L D L"
   },
   {
     "team": "Everton",
@@ -180,19 +193,6 @@
     "gd": -4,
     "points": 34,
     "form": "W D D D D"
-  },
-  {
-    "team": "Manchester United",
-    "logo": "logos/MUN.png",
-    "matches": 28,
-    "wins": 9,
-    "draws": 7,
-    "losses": 12,
-    "gf": 34,
-    "ga": 40,
-    "gd": -6,
-    "points": 34,
-    "form": "L L D W D"
   },
   {
     "team": "West Ham United",
@@ -236,13 +236,13 @@
   {
     "team": "Leicester City",
     "logo": "logos/LEI.png",
-    "matches": 28,
+    "matches": 29,
     "wins": 4,
     "draws": 5,
-    "losses": 19,
+    "losses": 20,
     "gf": 25,
-    "ga": 62,
-    "gd": -37,
+    "ga": 65,
+    "gd": -40,
     "points": 17,
     "form": "L L L L L"
   },
