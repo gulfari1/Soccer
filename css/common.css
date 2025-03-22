@@ -126,62 +126,10 @@ body {
     text-align: center;
 }
 
-/* Team Page Styles */
-.team-container {
-    max-width: 1000px;
-    margin: 20px auto;
-    padding: 0 20px;
-}
-
-#team-header {
-    text-align: center;
-    margin: 2rem 0;
-}
-
-#team-logo {
-    width: 120px;
-    height: 120px;
-    margin-bottom: 1rem;
-}
-
-.match-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    border-bottom: 1px solid #eee;
-}
-
-.match-date {
-    width: 120px;
-}
-
-.match-teams {
-    flex-grow: 1;
-    text-align: center;
-}
-
-.match-score {
-    width: 60px;
-    text-align: right;
-    font-weight: bold;
-}
-
+/* ====== Team Link Styles ====== */
 .team-link {
-    text-decoration: none;
-    color: inherit;
     display: flex;
     align-items: center;
-}
-
-/* Team Link Styling (Common) */
-.team-link {
+    text-decoration: none;
     color: inherit;
-    text-decoration: none;
-    transition: opacity 0.2s;
-}
-
-.team-link:hover {
-    opacity: 0.8;
-    text-decoration: none;
 }
