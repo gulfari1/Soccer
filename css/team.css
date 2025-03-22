@@ -44,16 +44,29 @@
     padding: 16px;
     border-bottom: 1px solid #eee;
     background: white;
-    transition: background-color 0.2s ease;
-}
-
-.match-entry:hover {
-    background-color: #f8f9fa;
-    cursor: pointer;
 }
 
 .match-entry:last-child {
     border-bottom: none;
+}
+
+.match-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.gameweek {
+    color: #808080;
+    font-weight: bold;
+}
+
+.competition {
+    color: #333;
+    font-size: 0.9em;
 }
 
 .competition-header {
@@ -96,12 +109,11 @@
 }
 
 .team-link {
-    color: inherit;
+    color: #333;
     text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    font-weight: 500;
     transition: opacity 0.2s;
+    white-space: nowrap;
 }
 
 .team-link:hover {
