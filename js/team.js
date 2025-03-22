@@ -1,22 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const teamName = decodeURIComponent(urlParams.get('team'));
+    const view = urlParams.get('view');
     document.getElementById('teamHeader').textContent = teamName;
+    document.getElementById('allMatchesLink').href = `team.html?team=${encodeURIComponent(teamName)}&view=all`;
 
-    // Set up the "All Matches" link
-    const allMatchesLink = document.getElementById('allMatchesLink');
-    allMatchesLink.href = `#all?team=${encodeURIComponent(teamName)}`;
-
-    // Handle hash change for showing all matches
-    window.addEventListener('hashchange', () => {
-        loadTeamMatches(teamName);
-    });
-
-    // Initial load
-    loadTeamMatches(teamName);
+    loadTeamMatches(teamName, view);
 });
 
-async function loadTeamMatches(teamName) {
+async function loadTeamMatches(teamName, view) {
     try {
         const [scoresRes, dataRes] = await Promise.all([
             fetch('data/scores_fixtures.json'),
@@ -30,46 +22,61 @@ async function loadTeamMatches(teamName) {
             match.Home === teamName || match.Away === teamName
         ).sort((a, b) => new Date(a.Date) - new Date(b.Date));
 
-        // Check if we're showing all matches
-        const showAll = window.location.hash === '#all';
-        const container = showAll ? document.getElementById('allMatches') : document.getElementById('teamMatches');
-        const displayMatches = showAll ? teamMatches : [...teamMatches.filter(m => m.Played).slice(-1), ...teamMatches.filter(m => !m.Played).slice(0, 3)];
+        let displayMatches;
+        if (view === 'all') {
+            displayMatches = teamMatches; // Show all matches for the team
+        } else {
+            const recentMatches = teamMatches.filter(m => m.Played).slice(-1);
+            const upcomingMatches = teamMatches.filter(m => !m.Played).slice(0, 3);
+            displayMatches = [...recentMatches, ...upcomingMatches]; // Default view
+        }
 
-        renderMatches(displayMatches, teamName, showAll);
-        if (showAll) document.getElementById('allMatches').style.display = 'block';
+        renderMatches(displayMatches, teamName, view === 'all');
     } catch (error) {
         console.error('Error loading team data:', error);
     }
 }
 
-function renderMatches(matches, teamName, showAll = false) {
-    const container = showAll ? document.getElementById('allMatches') : document.getElementById('teamMatches');
-    container.innerHTML = matches.map(match => `
-        <div class="match-entry">
-            <div class="competition-header">Premier League</div>
-            <div class="match-details">
-                <div class="team home-team">
-                    <a href="team.html?team=${encodeURIComponent(match.Home)}" class="team-link">
-                        ${match.HomeCode}
-                        <img src="logos/${match.HomeCode}.png" alt="${match.Home}">
-                    </a>
+function renderMatches(matches, teamName, isAll = false) {
+    const container = document.getElementById('teamMatches');
+    let html = matches.map(match => {
+        let header = `<div class="competition-header">Premier League</div>`;
+        if (isAll) {
+            header = `
+                <div class="match-header">
+                    <span class="gameweek">GW ${match.Wk}</span>
+                    <span class="competition">Premier League</span>
                 </div>
-                <div class="match-info">
-                    ${match.Played ? 
-                        `<div class="score">${match.Score}</div>` :
-                        `<div class="time">${match.Time}</div>`
-                    }
-                    <div class="match-status">${match.Played ? 'FT' : formatMatchDate(match.Date)}</div>
-                </div>
-                <div class="team away-team">
-                    <a href="team.html?team=${encodeURIComponent(match.Away)}" class="team-link">
-                        <img src="logos/${match.AwayCode}.png" alt="${match.Away}">
-                        ${match.AwayCode}
-                    </a>
+            `;
+        }
+        return `
+            <div class="match-entry">
+                ${header}
+                <div class="match-details">
+                    <div class="team home-team">
+                        <a href="team.html?team=${encodeURIComponent(match.Home)}" class="team-link">
+                            <span>${match.HomeCode}</span>
+                            <img src="logos/${match.HomeCode}.png" alt="${match.Home}">
+                        </a>
+                    </div>
+                    <div class="match-info">
+                        ${match.Played ? 
+                            `<div class="score">${match.Score}</div>` :
+                            `<div class="time">${match.Time}</div>`
+                        }
+                        <div class="match-status">${match.Played ? 'FT' : formatMatchDate(match.Date)}</div>
+                    </div>
+                    <div class="team away-team">
+                        <a href="team.html?team=${encodeURIComponent(match.Away)}" class="team-link">
+                            <img src="logos/${match.AwayCode}.png" alt="${match.Away}">
+                            <span>${match.AwayCode}</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    `).join('');
+        `;
+    }).join('');
+    container.innerHTML = html;
 }
 
 function formatMatchDate(dateString) {
