@@ -3,7 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const teamName = decodeURIComponent(urlParams.get('team'));
     const view = urlParams.get('view');
     document.getElementById('teamHeader').textContent = teamName;
-    document.getElementById('allMatchesLink').href = `team.html?team=${encodeURIComponent(teamName)}&view=all`;
+
+    // Hide "All Matches" link if on "all matches" page
+    if (view === 'all') {
+        document.getElementById('allMatchesLink').style.display = 'none';
+    } else {
+        document.getElementById('allMatchesLink').href = `team.html?team=${encodeURIComponent(teamName)}&view=all`;
+    }
 
     loadTeamPage(teamName, view);
 });
@@ -22,7 +28,6 @@ async function loadTeamPage(teamName, view) {
         const currentTeamData = teamsData.find(team => team.team.toLowerCase() === teamName.toLowerCase());
         if (!currentTeamData) {
             console.error(`Team "${teamName}" not found in standings data.`);
-            document.getElementById('miniStandings').innerHTML = '<tr><td colspan="5">Team not found in standings.</td></tr>';
             document.getElementById('teamMatches').innerHTML = '<p>No data available for this team.</p>';
             return;
         }
@@ -49,23 +54,33 @@ async function loadTeamPage(teamName, view) {
             renderMatches(displayMatches, teamName, view === 'all');
         }
         
-        renderMiniStandings(teamsData, teamName);
+        // Only render mini standing table if not on "all matches" page
+        if (view !== 'all') {
+            renderMiniStandings(teamsData, teamName);
+        }
     } catch (error) {
         console.error('Error loading team data:', error);
+        document.getElementById('teamMatches').innerHTML = '<p>Error loading team data. Please try again later.</p>';
     }
 }
 
 function renderMatches(matches, teamName, isAll = false) {
     const container = document.getElementById('teamMatches');
     let html = matches.map(match => {
-        let header = `<div class="competition-header">Premier League</div>`;
+        let header;
         if (isAll) {
+            // Format date as "Wed, Mar 5"
+            const date = new Date(match.Date);
+            const day = date.toLocaleDateString('en-US', { weekday: 'short' });
+            const monthDay = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
             header = `
                 <div class="match-header">
-                    <span class="gameweek">GW ${match.Wk}</span>
+                    <span class="match-date">${day}, ${monthDay}</span>
                     <span class="competition">Premier League</span>
                 </div>
             `;
+        } else {
+            header = `<div class="competition-header">Premier League</div>`;
         }
         return `
             <div class="match-entry">
@@ -116,7 +131,7 @@ function renderMiniStandings(teamsData, teamName) {
         const isCurrent = team.team.toLowerCase() === teamName.toLowerCase();
         const code = team.logo.split('/').pop().split('.')[0].toUpperCase();
         return `
-            <tr class="${isCurrent ? 'current-team' : ''}">
+            <div class="standings-row ${isCurrent ? 'current-team' : ''}">
                 <td>${position}</td>
                 <td class="team-cell">
                     <img src="${team.logo}" alt="${team.team}" class="team-logo-small">
@@ -125,7 +140,7 @@ function renderMiniStandings(teamsData, teamName) {
                 <td>${team.matches}</td>
                 <td>${team.gd}</td>
                 <td>${team.points}</td>
-            </tr>
+            </div>
         `;
     }).join('');
 }
