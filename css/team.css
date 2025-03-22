@@ -190,7 +190,7 @@
 }
 
 .mini-standings-table th, .mini-standings-table td {
-    padding: 12px;
+    padding: 8px;
     text-align: center;
 }
 
@@ -203,6 +203,20 @@
 
 .mini-standings-table td {
     border-bottom: 1px solid #ddd;
+}
+
+.mini-standings-table th:first-child, .mini-standings-table td:first-child {
+    width: 40px; /* Narrow position column */
+}
+
+.mini-standings-table td:nth-child(2) {
+    text-align: left;
+}
+
+.team-cell {
+    display: flex;
+    align-items: center;
+    text-align: left;
 }
 
 .mini-standings-table tr:nth-child(even) {
@@ -218,7 +232,7 @@
 }
 
 .team-logo-small {
-    width: 20px; /* Reduced from 24px to address oversized logos */
+    width: 20px;
     height: 20px;
     object-fit: contain;
     margin-right: 5px;
