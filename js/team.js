@@ -18,8 +18,17 @@ async function loadTeamPage(teamName, view) {
         const allMatches = await scoresRes.json();
         const teamsData = await dataRes.json();
         
+        // Find the current team's data and extract its code
+        const currentTeamData = teamsData.find(team => team.team === teamName);
+        if (!currentTeamData) {
+            console.error(`Team "${teamName}" not found in standings data.`);
+            return;
+        }
+        const teamCode = currentTeamData.logo.split('/').pop().split('.')[0].toUpperCase();
+        
+        // Filter matches using the team code
         const teamMatches = allMatches.filter(match => 
-            match.Home === teamName || match.Away === teamName
+            match.HomeCode === teamCode || match.AwayCode === teamCode
         ).sort((a, b) => new Date(a.Date) - new Date(b.Date));
 
         let displayMatches;
@@ -83,7 +92,7 @@ function renderMatches(matches, teamName, isAll = false) {
 function renderMiniStandings(teamsData, teamName) {
     const currentTeamData = teamsData.find(team => team.team === teamName);
     if (!currentTeamData) {
-        console.error('Team not found in standings');
+        console.error(`Team "${teamName}" not found in standings data.`);
         return;
     }
     const currentIndex = teamsData.indexOf(currentTeamData);
@@ -96,11 +105,11 @@ function renderMiniStandings(teamsData, teamName) {
     tbody.innerHTML = miniStandings.map((team, mapIdx) => {
         const position = startIdx + mapIdx + 1;
         const isCurrent = team.team === teamName;
-        const code = team.logo.split('/').pop().split('.')[0];
+        const code = team.logo.split('/').pop().split('.')[0].toUpperCase();
         return `
             <tr class="${isCurrent ? 'current-team' : ''}">
                 <td>${position}</td>
-                <td>
+                <td class="team-cell">
                     <img src="${team.logo}" alt="${team.team}" class="team-logo-small">
                     <span>${code}</span>
                 </td>
