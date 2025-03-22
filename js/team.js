@@ -4,11 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const view = urlParams.get('view');
     document.getElementById('teamHeader').textContent = teamName;
 
-    // Hide "All Matches" link if on "all matches" page
+    // Set the "All Matches" link href, but hide it on the "all matches" page
+    document.getElementById('allMatchesLink').href = `team.html?team=${encodeURIComponent(teamName)}&view=all`;
     if (view === 'all') {
         document.getElementById('allMatchesLink').style.display = 'none';
-    } else {
-        document.getElementById('allMatchesLink').href = `team.html?team=${encodeURIComponent(teamName)}&view=all`;
     }
 
     loadTeamPage(teamName, view);
@@ -28,10 +27,12 @@ async function loadTeamPage(teamName, view) {
         const currentTeamData = teamsData.find(team => team.team.toLowerCase() === teamName.toLowerCase());
         if (!currentTeamData) {
             console.error(`Team "${teamName}" not found in standings data.`);
+            document.getElementById('miniStandings').innerHTML = '<tr><td colspan="5">Team not found in standings.</td></tr>';
             document.getElementById('teamMatches').innerHTML = '<p>No data available for this team.</p>';
             return;
         }
         
+        // Extract the team code from the logo filename (e.g., "logos/MUN.png" -> "MUN")
         const teamCode = currentTeamData.logo.split('/').pop().split('.')[0].toUpperCase();
         
         // Filter matches using the team code
@@ -54,13 +55,16 @@ async function loadTeamPage(teamName, view) {
             renderMatches(displayMatches, teamName, view === 'all');
         }
         
-        // Only render mini standing table if not on "all matches" page
+        // Only render mini standings if not on the "all matches" page
         if (view !== 'all') {
             renderMiniStandings(teamsData, teamName);
+        } else {
+            document.querySelector('.standings-container').style.display = 'none';
         }
     } catch (error) {
         console.error('Error loading team data:', error);
         document.getElementById('teamMatches').innerHTML = '<p>Error loading team data. Please try again later.</p>';
+        document.querySelector('.standings-container').style.display = 'none';
     }
 }
 
@@ -69,17 +73,15 @@ function renderMatches(matches, teamName, isAll = false) {
     let html = matches.map(match => {
         let header;
         if (isAll) {
-            // Format date as "Wed, Mar 5"
-            const date = new Date(match.Date);
-            const day = date.toLocaleDateString('en-US', { weekday: 'short' });
-            const monthDay = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+            // On "all matches" page, show date instead of gameweek
             header = `
                 <div class="match-header">
-                    <span class="match-date">${day}, ${monthDay}</span>
+                    <span class="date">${formatDate(match.Date)}</span>
                     <span class="competition">Premier League</span>
                 </div>
             `;
         } else {
+            // On default view, show only competition header
             header = `<div class="competition-header">Premier League</div>`;
         }
         return `
@@ -131,7 +133,7 @@ function renderMiniStandings(teamsData, teamName) {
         const isCurrent = team.team.toLowerCase() === teamName.toLowerCase();
         const code = team.logo.split('/').pop().split('.')[0].toUpperCase();
         return `
-            <div class="standings-row ${isCurrent ? 'current-team' : ''}">
+            <tr class="${isCurrent ? 'current-team' : ''}">
                 <td>${position}</td>
                 <td class="team-cell">
                     <img src="${team.logo}" alt="${team.team}" class="team-logo-small">
@@ -140,11 +142,19 @@ function renderMiniStandings(teamsData, teamName) {
                 <td>${team.matches}</td>
                 <td>${team.gd}</td>
                 <td>${team.points}</td>
-            </div>
+            </tr>
         `;
     }).join('');
 }
 
+// Format date for "all matches" page (e.g., "Wed, Mar 5")
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    const options = { weekday: 'short', month: 'short', day: 'numeric' };
+    return date.toLocaleDateString('en-US', options);
+}
+
+// Format date for match status (e.g., "Mar 5")
 function formatMatchDate(dateString) {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
