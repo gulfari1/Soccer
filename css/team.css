@@ -206,7 +206,7 @@
 }
 
 .mini-standings-table th:first-child, .mini-standings-table td:first-child {
-    width: 40px; /* Narrow position column */
+    width: 40px;
 }
 
 .mini-standings-table td:nth-child(2) {
