@@ -5,10 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('teamHeader').textContent = teamName;
     document.getElementById('allMatchesLink').href = `team.html?team=${encodeURIComponent(teamName)}&view=all`;
 
-    loadTeamMatches(teamName, view);
+    loadTeamPage(teamName, view);
 });
 
-async function loadTeamMatches(teamName, view) {
+async function loadTeamPage(teamName, view) {
     try {
         const [scoresRes, dataRes] = await Promise.all([
             fetch('data/scores_fixtures.json'),
@@ -32,6 +32,7 @@ async function loadTeamMatches(teamName, view) {
         }
 
         renderMatches(displayMatches, teamName, view === 'all');
+        renderMiniStandings(teamsData, teamName);
     } catch (error) {
         console.error('Error loading team data:', error);
     }
@@ -77,6 +78,38 @@ function renderMatches(matches, teamName, isAll = false) {
         `;
     }).join('');
     container.innerHTML = html;
+}
+
+function renderMiniStandings(teamsData, teamName) {
+    const currentTeamData = teamsData.find(team => team.team === teamName);
+    if (!currentTeamData) {
+        console.error('Team not found in standings');
+        return;
+    }
+    const currentIndex = teamsData.indexOf(currentTeamData);
+    const totalTeams = teamsData.length;
+    const startIdx = Math.max(0, currentIndex - 4);
+    const endIdx = Math.min(totalTeams - 1, currentIndex + 3);
+    const miniStandings = teamsData.slice(startIdx, endIdx + 1);
+
+    const tbody = document.getElementById('miniStandings');
+    tbody.innerHTML = miniStandings.map((team, mapIdx) => {
+        const position = startIdx + mapIdx + 1;
+        const isCurrent = team.team === teamName;
+        const code = team.logo.split('/').pop().split('.')[0];
+        return `
+            <tr class="${isCurrent ? 'current-team' : ''}">
+                <td>${position}</td>
+                <td>
+                    <img src="${team.logo}" alt="${team.team}" class="team-logo-small">
+                    <span>${code}</span>
+                </td>
+                <td>${team.matches}</td>
+                <td>${team.gd}</td>
+                <td>${team.points}</td>
+            </tr>
+        `;
+    }).join('');
 }
 
 function formatMatchDate(dateString) {
