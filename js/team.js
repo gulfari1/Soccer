@@ -18,12 +18,15 @@ async function loadTeamPage(teamName, view) {
         const allMatches = await scoresRes.json();
         const teamsData = await dataRes.json();
         
-        // Find the current team's data and extract its code
-        const currentTeamData = teamsData.find(team => team.team === teamName);
+        // Find the current team's data case-insensitively
+        const currentTeamData = teamsData.find(team => team.team.toLowerCase() === teamName.toLowerCase());
         if (!currentTeamData) {
             console.error(`Team "${teamName}" not found in standings data.`);
+            document.getElementById('miniStandings').innerHTML = '<tr><td colspan="5">Team not found in standings.</td></tr>';
+            document.getElementById('teamMatches').innerHTML = '<p>No data available for this team.</p>';
             return;
         }
+        
         const teamCode = currentTeamData.logo.split('/').pop().split('.')[0].toUpperCase();
         
         // Filter matches using the team code
@@ -31,16 +34,21 @@ async function loadTeamPage(teamName, view) {
             match.HomeCode === teamCode || match.AwayCode === teamCode
         ).sort((a, b) => new Date(a.Date) - new Date(b.Date));
 
-        let displayMatches;
-        if (view === 'all') {
-            displayMatches = teamMatches; // Show all matches for the team
+        if (teamMatches.length === 0) {
+            console.warn(`No matches found for team "${teamName}" with code "${teamCode}"`);
+            document.getElementById('teamMatches').innerHTML = '<p>No matches found for this team.</p>';
         } else {
-            const recentMatches = teamMatches.filter(m => m.Played).slice(-1);
-            const upcomingMatches = teamMatches.filter(m => !m.Played).slice(0, 3);
-            displayMatches = [...recentMatches, ...upcomingMatches]; // Default view
+            let displayMatches;
+            if (view === 'all') {
+                displayMatches = teamMatches; // Show all matches for the team
+            } else {
+                const recentMatches = teamMatches.filter(m => m.Played).slice(-1);
+                const upcomingMatches = teamMatches.filter(m => !m.Played).slice(0, 3);
+                displayMatches = [...recentMatches, ...upcomingMatches]; // Default view
+            }
+            renderMatches(displayMatches, teamName, view === 'all');
         }
-
-        renderMatches(displayMatches, teamName, view === 'all');
+        
         renderMiniStandings(teamsData, teamName);
     } catch (error) {
         console.error('Error loading team data:', error);
@@ -90,9 +98,10 @@ function renderMatches(matches, teamName, isAll = false) {
 }
 
 function renderMiniStandings(teamsData, teamName) {
-    const currentTeamData = teamsData.find(team => team.team === teamName);
+    const currentTeamData = teamsData.find(team => team.team.toLowerCase() === teamName.toLowerCase());
     if (!currentTeamData) {
         console.error(`Team "${teamName}" not found in standings data.`);
+        document.getElementById('miniStandings').innerHTML = '<tr><td colspan="5">Team not found in standings.</td></tr>';
         return;
     }
     const currentIndex = teamsData.indexOf(currentTeamData);
@@ -104,7 +113,7 @@ function renderMiniStandings(teamsData, teamName) {
     const tbody = document.getElementById('miniStandings');
     tbody.innerHTML = miniStandings.map((team, mapIdx) => {
         const position = startIdx + mapIdx + 1;
-        const isCurrent = team.team === teamName;
+        const isCurrent = team.team.toLowerCase() === teamName.toLowerCase();
         const code = team.logo.split('/').pop().split('.')[0].toUpperCase();
         return `
             <tr class="${isCurrent ? 'current-team' : ''}">
