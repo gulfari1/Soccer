@@ -186,6 +186,7 @@
 .mini-standings-table {
     width: 100%;
     border-collapse: collapse;
+    font-size: 0.95rem;
 }
 
 .mini-standings-table th, .mini-standings-table td {
@@ -197,10 +198,19 @@
     background: #f8f9fa;
     color: #2c3e50;
     font-weight: 600;
+    border-bottom: 1px solid #ddd;
+}
+
+.mini-standings-table td {
+    border-bottom: 1px solid #ddd;
 }
 
 .mini-standings-table tr:nth-child(even) {
     background-color: #f8f9fa;
+}
+
+.mini-standings-table tr:nth-child(odd) {
+    background-color: white;
 }
 
 .mini-standings-table tr.current-team {
@@ -208,8 +218,19 @@
 }
 
 .team-logo-small {
-    width: 24px;
-    height: 24px;
+    width: 20px; /* Reduced from 24px to address oversized logos */
+    height: 20px;
     object-fit: contain;
     margin-right: 5px;
+}
+
+/* Optional mobile adjustment */
+@media (max-width: 600px) {
+    .mini-standings-table th, .mini-standings-table td {
+        padding: 8px;
+    }
+    .team-logo-small {
+        width: 18px;
+        height: 18px;
+    }
 }
