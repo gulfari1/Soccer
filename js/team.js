@@ -164,7 +164,7 @@ function formatMatchDate(dateString) {
 // Define the team name mapping at the top of the file
 const teamNameMapping = {
     "Bournemouth": "AFC Bournemouth",
-    "Brighton": "Brighton & Hove Albion",
+    "Brighton": "Brighton %26 Hove Albion",
     "Ispwich Town": "Ipswich Town",
     "Leicster City": "Leicster City",
     "Liverpol": "Liverpol",
