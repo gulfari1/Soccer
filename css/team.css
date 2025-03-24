@@ -109,16 +109,37 @@
 }
 
 .team-link {
+    display: flex;
+    align-items: center;
+    width: 80px; /* Fixed width for consistency */
     color: #333;
     text-decoration: none;
     font-weight: 500;
     transition: opacity 0.2s;
-    white-space: nowrap;
+    white-space: normal;
 }
 
-.team-link:hover {
-    opacity: 0.8;
-    text-decoration: none;
+.team-logo {
+    width: 30px; /* Fixed width for logo container */
+    text-align: center;
+}
+
+.team-logo img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.team-code {
+    flex: 1; /* Take remaining space */
+    text-align: center;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.team-link > * + * {
+    margin-left: 5px; /* Add spacing between logo and code */
 }
 
 .match-info {
