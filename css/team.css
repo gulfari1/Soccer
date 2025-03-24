@@ -79,24 +79,24 @@
 
 .match_details {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around; /* Changed from space-between for equal gaps */
     align-items: center;
-    gap: 10px; /* Reduced from 20px for closer spacing */
-    height: 40px; /* Fixed height for vertical alignment */
+    gap: 10px;
+    height: 40px;
 }
 
 .team {
     display: flex;
     align-items: center;
     gap: 5px;
-    width: 100px; /* Reduced from 120px for narrower team sections */
-    height: 100%; /* Inherit height from match_details */
+    width: 100px;
+    height: 100%;
 }
 
 .team-link {
     display: flex;
     align-items: center;
-    width: 100%; /* Fill the team container */
+    width: 100%;
     color: #333;
     text-decoration: none;
     font-weight: 500;
@@ -113,7 +113,7 @@
 }
 
 .team-logo {
-    width: 30px; /* Fixed width for logo container */
+    width: 30px;
     text-align: center;
 }
 
@@ -124,7 +124,7 @@
 }
 
 .team-link > * + * {
-    margin-left: 5px; /* Add spacing between logo and code */
+    margin-left: 5px;
 }
 
 .match-info {
@@ -132,7 +132,7 @@
     flex-direction: column;
     align-items: center;
     min-width: 100px;
-    height: 100%; /* Inherit height from match_details */
+    height: 100%;
 }
 
 .score {
