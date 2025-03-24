@@ -73,7 +73,6 @@ function renderMatches(matches, teamName, isAll = false) {
     let html = matches.map(match => {
         let header;
         if (isAll) {
-            // On "all matches" page, show date instead of gameweek
             header = `
                 <div class="match-header">
                     <span class="date">${formatDate(match.Date)}</span>
@@ -81,17 +80,19 @@ function renderMatches(matches, teamName, isAll = false) {
                 </div>
             `;
         } else {
-            // On default view, show only competition header
             header = `<div class="competition-header">Premier League</div>`;
         }
+        // Use mapping to get correct team names for links and alt text
+        const homeTeamName = teamNameMapping[match.Home] || match.Home;
+        const awayTeamName = teamNameMapping[match.Away] || match.Away;
         return `
             <div class="match-entry">
                 ${header}
-                <div class="match-details">
+                <div class="match_details">
                     <div class="team home-team">
-                        <a href="team.html?team=${encodeURIComponent(match.Home)}" class="team-link">
+                        <a href="team.html?team=${encodeURI(homeTeamName)}" class="team-link">
                             <span>${match.HomeCode}</span>
-                            <img src="logos/${match.HomeCode}.png" alt="${match.Home}">
+                            <img src="logos/${match.HomeCode}.png" alt="${homeTeamName}">
                         </a>
                     </div>
                     <div class="match-info">
@@ -102,8 +103,8 @@ function renderMatches(matches, teamName, isAll = false) {
                         <div class="match-status">${match.Played ? 'FT' : formatMatchDate(match.Date)}</div>
                     </div>
                     <div class="team away-team">
-                        <a href="team.html?team=${encodeURIComponent(match.Away)}" class="team-link">
-                            <img src="logos/${match.AwayCode}.png" alt="${match.Away}">
+                        <a href="team.html?team=${encodeURI(awayTeamName)}" class="team-link">
+                            <img src="logos/${match.AwayCode}.png" alt="${awayTeamName}">
                             <span>${match.AwayCode}</span>
                         </a>
                     </div>
@@ -159,3 +160,18 @@ function formatMatchDate(dateString) {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 }
+
+// Define the team name mapping at the top of the file
+const teamNameMapping = {
+    "Bouremouth": "AFC Bouremouth",
+    "Ispwich Town": "Ipswich Town",
+    "Leicster City": "Leicster City",
+    "Liverpol": "Liverpol",
+    "Newcasle United": "Newcastle United",
+    "Newcastle Utd": "Newcastle United",
+    "Nott'ham Forest": "Nottingam Forest",
+    "Southamptn": "Southamptn",
+    "Tottenham": "Tottenham Hotspurs",
+    "Wolvers": "Wolverhampton Wanders",
+    "Manchester Utd": "Manchester United"
+};
