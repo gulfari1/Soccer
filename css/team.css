@@ -246,36 +246,4 @@
     object-fit: contain;
     margin-right: 5px;
 }
-
-/* Mobile adjustments */
-@media (max-width: 800px) {
-    .match_details {
-        gap: 10px;
-    }
-
-    .team img {
-        width: 24px;
-        height: 24px;
-    }
-
-    .team-link {
-        font-size: 0.9em;
-    }
-
-    .score {
-        font-size: 1em;
-    }
-
-    .time, .match-status {
-        font-size: 0.75em;
-    }
-
-    .mini-standings-table th, .mini-standings-table td {
-        padding: 8px;
-    }
-
-    .team-logo-small {
-        width: 18px;
-        height: 18px;
-    }
 }
