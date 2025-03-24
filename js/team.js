@@ -172,6 +172,6 @@ const teamNameMapping = {
     "Nott'ham Forest": "Nottingham Forest",
     "Southamptn": "Southamptn",
     "Tottenham": "Tottenham Hotspurs",
-    "Wolves": "Wolverhampton Wanders",
+    "Wolves": "Wolverhampton Wanderers",
     "Manchester Utd": "Manchester United"
 };
