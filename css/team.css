@@ -79,24 +79,24 @@
 
 .match_details {
     display: flex;
-    justify-content: space-around; /* Changed from space-between for equal gaps */
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
-    height: 40px;
+    gap: 10px; /* Reduced from 20px for closer spacing */
+    height: 40px; /* Fixed height for vertical alignment */
 }
 
 .team {
     display: flex;
     align-items: center;
     gap: 5px;
-    width: 100px;
-    height: 100%;
+    width: 100px; /* Reduced from 120px for narrower team sections */
+    height: 100%; /* Inherit height from match_details */
 }
 
 .team-link {
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 100%; /* Fill the team container */
     color: #333;
     text-decoration: none;
     font-weight: 500;
@@ -113,18 +113,18 @@
 }
 
 .team-logo {
-    width: 30px;
+    width: 20px; /* Fixed width for logo container */
     text-align: center;
 }
 
 .team-logo img {
-    width: 28px;
-    height: 28px;
+    width: 20px;
+    height: 20px;
     object-fit: contain;
 }
 
 .team-link > * + * {
-    margin-left: 5px;
+    margin-left: 5px; /* Add spacing between logo and code */
 }
 
 .match-info {
@@ -132,7 +132,7 @@
     flex-direction: column;
     align-items: center;
     min-width: 100px;
-    height: 100%;
+    height: 100%; /* Inherit height from match_details */
 }
 
 .score {
@@ -248,7 +248,7 @@
 }
 
 /* Mobile adjustments */
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .match_details {
         gap: 10px;
     }
