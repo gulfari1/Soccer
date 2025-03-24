@@ -163,15 +163,15 @@ function formatMatchDate(dateString) {
 
 // Define the team name mapping at the top of the file
 const teamNameMapping = {
-    "Bouremouth": "AFC Bouremouth",
+    "Bournemouth": "AFC Bournemouth",
     "Ispwich Town": "Ipswich Town",
     "Leicster City": "Leicster City",
     "Liverpol": "Liverpol",
     "Newcasle United": "Newcastle United",
     "Newcastle Utd": "Newcastle United",
-    "Nott'ham Forest": "Nottingam Forest",
+    "Nott'ham Forest": "Nottingham Forest",
     "Southamptn": "Southamptn",
     "Tottenham": "Tottenham Hotspurs",
-    "Wolvers": "Wolverhampton Wanders",
+    "Wolves": "Wolverhampton Wanders",
     "Manchester Utd": "Manchester United"
 };
