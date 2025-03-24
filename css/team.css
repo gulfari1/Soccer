@@ -10,7 +10,7 @@
     border-radius: 8px;
     overflow: hidden;
     background: white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 8px rgb(0 0 0 / 5%);
 }
 
 .matches-header {
@@ -77,28 +77,29 @@
     letter-spacing: 0.5px;
 }
 
-.match-details {
+.match_details {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
+    min-height: 40px; /* Ensure consistent height */
 }
 
 .team {
     display: flex;
     align-items: center;
-    gap: 10px;
-    flex: 1;
+    gap: 5px; /* Reduced gap for tighter spacing */
+    flex: 0 0 120px; /* Fixed width for team containers */
 }
 
 .home-team {
-    justify-content: flex-end;
-    text-align: right;
+    justify-content: flex-start;
+    text-align: left;
 }
 
 .away-team {
-    justify-content: flex-start;
-    text-align: left;
+    justify-content: flex-end;
+    text-align: right;
 }
 
 .team img {
@@ -116,7 +117,7 @@
     text-decoration: none;
     font-weight: 500;
     transition: opacity 0.2s;
-    white-space: normal;
+    white-space: nowrap;
 }
 
 .team-logo {
@@ -131,11 +132,12 @@
 }
 
 .team-code {
-    flex: 1; /* Take remaining space */
+    flex: 1;
     text-align: center;
-    white-space: normal;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    min-width: 40px; /* Ensure minimum width for code */
 }
 
 .team-link > * + * {
@@ -143,8 +145,11 @@
 }
 
 .match-info {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     min-width: 100px;
+    min-height: 40px; /* Match height with team containers */
 }
 
 .score {
@@ -173,7 +178,7 @@
     border-radius: 8px;
     overflow: hidden;
     background: white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 8px rgb(0 0 0 / 5%);
     margin-top: 20px;
 }
 
@@ -261,7 +266,7 @@
 
 /* Mobile adjustments */
 @media (max-width: 600px) {
-    .match-details {
+    .match_details {
         gap: 10px;
     }
 
