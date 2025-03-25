@@ -5,40 +5,6 @@
     padding: 0 15px;
 }
 
-.team-header {
-    display: flex;
-    align-items: center;
-    padding: 16px;
-    background: white;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.team-logo {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    margin-right: 16px;
-}
-
-.team-name-section {
-    display: flex;
-    flex-direction: column;
-}
-
-.team-name {
-    margin: 0;
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #333;
-    text-transform: uppercase;
-}
-
-.team-position {
-    font-size: 0.9em;
-    color: #808080;
-    margin-top: 4px;
-}
-
 .matches-container {
     border: 1px solid #e0e0e0;
     border-radius: 8px;
@@ -123,7 +89,7 @@
     display: flex;
     align-items: center;
     gap: 5px;
-    width: 80px;
+    width: 80px; /* Reduced from 100px for compactness */
     height: 100%;
 }
 
@@ -131,7 +97,6 @@
     display: flex;
     align-items: center;
     width: 100%;
-    min-height: 40px;
     color: #333;
     text-decoration: none;
     font-weight: 500;
@@ -148,13 +113,13 @@
 }
 
 .team-logo {
-    width: 22px;
+    width: 22px; /* Adjusted for smaller logo */
     text-align: center;
 }
 
 .team-logo img {
-    width: 20px;
-    height: 20px;
+    width: 20px; /* Reduced from 28px for smaller size */
+    height: 20px; /* Reduced from 28px for smaller size */
     object-fit: contain;
 }
 
@@ -173,7 +138,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     min-width: 100px;
     height: 100%;
 }
@@ -289,36 +253,4 @@
     object-fit: contain;
     margin-right: 5px;
 }
-
-/* Mobile adjustments */
-@media (max-width: 600px) {
-    .match_details {
-        gap: 10px;
-    }
-
-    .team img {
-        width: 24px;
-        height: 24px;
-    }
-
-    .team-link {
-        font-size: 0.9em;
-    }
-
-    .score {
-        font-size: 1em;
-    }
-
-    .time, .match-status {
-        font-size: 0.75em;
-    }
-
-    .mini-standings-table th, .mini-standings-table td {
-        padding: 8px;
-    }
-
-    .team-logo-small {
-        width: 18px;
-        height: 18px;
-    }
 }
