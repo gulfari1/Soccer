@@ -178,17 +178,20 @@ function getOrdinal(n) {
     return n + (s[(v - 20) % 10] || s[v] || s[0]);
 }
 
-// Define the team name mapping
+// Define the team name mapping at the top of the file
 const teamNameMapping = {
-    "Bouremouth": "AFC Bouremouth",
+    "Bournemouth": "AFC Bournemouth",
+    "Brighton": "Brighton %26 Hove Albion",
     "Ispwich Town": "Ipswich Town",
     "Leicster City": "Leicster City",
     "Liverpol": "Liverpol",
     "Newcasle United": "Newcastle United",
     "Newcastle Utd": "Newcastle United",
-    "Nott'ham Forest": "Nottingam Forest",
+    "Nott'ham Forest": "Nottingham Forest",
     "Southamptn": "Southamptn",
-    "Tottenham": "Tottenham Hotspurs",
-    "Wolvers": "Wolverhampton Wanders",
-    "Manchester Utd": "Manchester United"
+    "Tottenham": "Tottenham Hotspur",
+    "Tottenham Hotspurs": "Tottenham Hotspur",
+    "Wolves": "Wolverhampton Wanderers",
+    "Manchester Utd": "Manchester United",
+    "West Ham": "West Ham United"
 };
