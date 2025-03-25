@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const teamName = decodeURIComponent(urlParams.get('team'));
     const view = urlParams.get('view');
-    document.getElementById('teamHeader').textContent = teamName;
 
     // Set the "All Matches" link href, but hide it on the "all matches" page
     document.getElementById('allMatchesLink').href = `team.html?team=${encodeURIComponent(teamName)}&view=all`;
@@ -31,6 +30,13 @@ async function loadTeamPage(teamName, view) {
             document.getElementById('teamMatches').innerHTML = '<p>No data available for this team.</p>';
             return;
         }
+        
+        // Update the header with logo, name, and position
+        document.getElementById('teamLogo').src = currentTeamData.logo;
+        document.getElementById('teamName').textContent = teamName.toUpperCase();
+        const position = teamsData.indexOf(currentTeamData) + 1;
+        const positionText = getOrdinal(position) + ' in Premier League';
+        document.getElementById('teamPosition').textContent = positionText;
         
         // Extract the team code from the logo filename (e.g., "logos/MUN.png" -> "MUN")
         const teamCode = currentTeamData.logo.split('/').pop().split('.')[0].toUpperCase();
@@ -91,8 +97,10 @@ function renderMatches(matches, teamName, isAll = false) {
                 <div class="match_details">
                     <div class="team home-team">
                         <a href="team.html?team=${encodeURI(homeTeamName)}" class="team-link">
-                            <span>${match.HomeCode}</span>
-                            <img src="logos/${match.HomeCode}.png" alt="${homeTeamName}">
+                            <div class="team-code">${match.HomeCode}</div>
+                            <div class="team-logo">
+                                <img src="logos/${match.HomeCode}.png" alt="${homeTeamName}">
+                            </div>
                         </a>
                     </div>
                     <div class="match-info">
@@ -104,8 +112,10 @@ function renderMatches(matches, teamName, isAll = false) {
                     </div>
                     <div class="team away-team">
                         <a href="team.html?team=${encodeURI(awayTeamName)}" class="team-link">
-                            <img src="logos/${match.AwayCode}.png" alt="${awayTeamName}">
-                            <span>${match.AwayCode}</span>
+                            <div class="team-logo">
+                                <img src="logos/${match.AwayCode}.png" alt="${awayTeamName}">
+                            </div>
+                            <div class="team-code">${match.AwayCode}</div>
                         </a>
                     </div>
                 </div>
@@ -161,20 +171,24 @@ function formatMatchDate(dateString) {
     return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 }
 
-// Define the team name mapping at the top of the file
+// Get ordinal suffix for position (e.g., 1st, 2nd, 3rd, 4th)
+function getOrdinal(n) {
+    const s = ["th", "st", "nd", "rd"];
+    const v = n % 100;
+    return n + (s[(v - 20) % 10] || s[v] || s[0]);
+}
+
+// Define the team name mapping
 const teamNameMapping = {
-    "Bournemouth": "AFC Bournemouth",
-    "Brighton": "Brighton %26 Hove Albion",
+    "Bouremouth": "AFC Bouremouth",
     "Ispwich Town": "Ipswich Town",
     "Leicster City": "Leicster City",
     "Liverpol": "Liverpol",
     "Newcasle United": "Newcastle United",
     "Newcastle Utd": "Newcastle United",
-    "Nott'ham Forest": "Nottingham Forest",
+    "Nott'ham Forest": "Nottingam Forest",
     "Southamptn": "Southamptn",
-    "Tottenham": "Tottenham Hotspur",
-    "Tottenham Hotspurs": "Tottenham Hotspur",
-    "Wolves": "Wolverhampton Wanderers",
-    "Manchester Utd": "Manchester United",
-    "West Ham": "West Ham United"
+    "Tottenham": "Tottenham Hotspurs",
+    "Wolvers": "Wolverhampton Wanders",
+    "Manchester Utd": "Manchester United"
 };
