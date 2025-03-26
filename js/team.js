@@ -174,6 +174,60 @@ function renderMiniStandings(teamsData, teamName) {
     }).join('');
 }
 
+function renderTeamLeaders(playersData, teamName) {
+    const teamPlayers = playersData.filter(player => player.team_title === teamName);
+
+    // Find top goal scorer
+    const topGoalScorer = teamPlayers.reduce((maxPlayer, player) => {
+        if (parseInt(player.goals) > parseInt(maxPlayer.goals)) {
+            return player;
+        }
+        return maxPlayer;
+    }, { goals: -1 });
+
+    // Find top assist provider
+    const topAssistProvider = teamPlayers.reduce((maxPlayer, player) => {
+        if (parseInt(player.assists) > parseInt(maxPlayer.assists)) {
+            return player;
+        }
+        return maxPlayer;
+    }, { assists: -1 });
+
+    // Find top shot taker
+    const topShotTaker = teamPlayers.reduce((maxPlayer, player) => {
+        if (parseInt(player.shots) > parseInt(maxPlayer.shots)) {
+            return player;
+        }
+        return maxPlayer;
+    }, { shots: -1 });
+
+    // Construct HTML for team leaders
+    const leadersHtml = `
+        <div class="team-leaders">
+            <h3>Team Leaders</h3>
+            <div class="leaders-section">
+                <div class="leader-item">
+                    <span class="label">Goals</span>
+                    <span class="player-name">${topGoalScorer.player_name || 'N/A'}</span>
+                    <span class="stat">${topGoalScorer.goals || '0'}</span>
+                </div>
+                <div class="leader-item">
+                    <span class="label">Assists</span>
+                    <span class="player-name">${topAssistProvider.player_name || 'N/A'}</span>
+                    <span class="stat">${topAssistProvider.assists || '0'}</span>
+                </div>
+                <div class="leader-item">
+                    <span class="label">Shots</span>
+                    <span class="player-name">${topShotTaker.player_name || 'N/A'}</span>
+                    <span class="stat">${topShotTaker.shots || '0'}</span>
+                </div>
+            </div>
+        </div>
+    `;
+
+    document.getElementById('teamLeaders').innerHTML = leadersHtml;
+}
+
 function formatDate(dateString) {
     const date = new Date(dateString);
     const options = { weekday: 'short', month: 'short', day: 'numeric' };
