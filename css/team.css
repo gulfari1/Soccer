@@ -288,53 +288,6 @@
     margin-right: 5px;
 }
 
-/* Team Leaders Container */
-.team-leaders-container {
-    margin-top: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    overflow: hidden;
-    background: white;
-    box-shadow: 0 2px 8px rgb(0 0 0 / 5%);
-}
-
-.team-leaders {
-    padding: 16px;
-}
-
-.team-leaders h3 {
-    margin: 0 0 10px 0;
-    font-size: 1.2em;
-    color: #1a2634;
-}
-
-.leaders-section {
-    display: flex;
-    justify-content: space-between;
-}
-
-.leader-item {
-    flex: 1;
-    text-align: center;
-    margin: 0 5px;
-}
-
-.leader-item .label {
-    font-weight: bold;
-    color: #666;
-    font-size: 0.9em;
-}
-
-.leader-item .player-name {
-    font-size: 1em;
-    color: #333;
-}
-
-.leader-item .stat {
-    font-size: 1em;
-    color: #333;
-}
-
 /* Mobile adjustments */
 @media (max-width: 600px) {
     .match_details {
@@ -365,13 +318,5 @@
     .team-logo-small {
         width: 18px;
         height: 18px;
-    }
-
-    .leaders-section {
-        flex-direction: column;
-    }
-
-    .leader-item {
-        margin-bottom: 10px;
     }
 }
