@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
-    const teamName = decodeURI(urlParams.get('team'));
+    const teamName = decodeURIComponent(urlParams.get('team'));
     const view = urlParams.get('view');
-    document.getElementById('allMatchesLink').href = `team.html?team=${encodeURI(teamName)}&view=all`;
+    document.getElementById('allMatchesLink').href = `team.html?team=${encodeURIComponent(teamName)}&view=all`;
     if (view === 'all') {
         document.getElementById('allMatchesLink').style.display = 'none';
     }
@@ -27,15 +27,13 @@ function getOrdinal(n) {
 
 async function loadTeamPage(teamName, view) {
     try {
-        const [scoresRes, dataRes, playersRes] = await Promise.all([
+        const [scoresRes, dataRes] = await Promise.all([
             fetch('data/scores_fixtures.json'),
-            fetch('data/data.json'),
-            fetch('data/players.json')
+            fetch('data/data.json')
         ]);
         
         const allMatches = await scoresRes.json();
         const teamsData = await dataRes.json();
-        const playersData = await playersRes.json();
         
         const currentTeamData = teamsData.find(team => team.team.toLowerCase() === teamName.toLowerCase());
         if (!currentTeamData) {
@@ -61,7 +59,7 @@ async function loadTeamPage(teamName, view) {
         document.getElementById('teamHeader').innerHTML = headerHtml;
 
         const teamCode = currentTeamData.logo.split('/').pop().split('.')[0].toUpperCase();
-
+        
         const teamMatches = allMatches.filter(match => 
             match.HomeCode === teamCode || match.AwayCode === teamCode
         ).sort((a, b) => new Date(a.Date) - new Date(b.Date));
@@ -74,8 +72,8 @@ async function loadTeamPage(teamName, view) {
             if (view === 'all') {
                 displayMatches = teamMatches;
             } else {
-                const recentMatches = teamMatches.filter(m => m.played).slice(-1);
-                const upcomingMatches = teamMatches.filter(m => !m.played).slice(0, 3);
+                const recentMatches = teamMatches.filter(m => m.Played).slice(-1);
+                const upcomingMatches = teamMatches.filter(m => !m.Played).slice(0, 3);
                 displayMatches = [...recentMatches, ...upcomingMatches];
             }
             renderMatches(displayMatches, teamName, view === 'all');
@@ -83,16 +81,13 @@ async function loadTeamPage(teamName, view) {
         
         if (view !== 'all') {
             renderMiniStandings(teamsData, teamName);
-            renderTeamLeaders(playersData, teamName, currentTeamData.logo);
         } else {
             document.querySelector('.standings-container').style.display = 'none';
-            document.getElementById('teamLeaders').style.display = 'none';
         }
     } catch (error) {
         console.error('Error loading team data:', error);
         document.getElementById('teamMatches').innerHTML = '<p>Error loading team data. Please try again later.</p>';
         document.querySelector('.standings-container').style.display = 'none';
-        document.getElementById('teamLeaders').style.display = 'none';
     }
 }
 
@@ -125,11 +120,11 @@ function renderMatches(matches, teamName, isAll = false) {
                         </a>
                     </div>
                     <div class="match-info">
-                        ${match.played ? 
+                        ${match.Played ? 
                             `<div class="score">${match.Score}</div>` :
                             `<div class="time">${match.Time}</div>`
                         }
-                        <div class="match-status">${match.played ? 'FT' : formatMatchDate(match.Date)}</div>
+                        <div class="match-status">${match.Played ? 'FT' : formatMatchDate(match.Date)}</div>
                     </div>
                     <div class="team away-team">
                         <a href="team.html?team=${encodeURI(awayTeamName)}" class="team-link">
@@ -179,7 +174,7 @@ function renderMiniStandings(teamsData, teamName) {
     }).join('');
 }
 
-function renderTeamLeaders(playersData, teamName, teamLogo) {
+function renderTeamLeaders(playersData, teamName) {
     const teamPlayers = playersData.filter(player => player.team_title === teamName);
 
     // Find top goal scorer
@@ -206,38 +201,25 @@ function renderTeamLeaders(playersData, teamName, teamLogo) {
         return maxPlayer;
     }, { shots: -1 });
 
-    // Construct HTML for team leaders under ATTACK category
+    // Construct HTML for team leaders
     const leadersHtml = `
         <div class="team-leaders">
             <h3>Team Leaders</h3>
-            <div class="leaders-category" id="attack">
-                <h4>ATTACK</h4>
+            <div class="leaders-section">
                 <div class="leader-item">
-                    <div class="player-image-container">
-                        <img src="${teamLogo}" alt="Team Logo" class="player-image">
-                    </div>
-                    <div class="player-stats">
-                        <span class="player-name">${topGoalScorer.player_name || 'N/A'}</span>
-                        <span class="stat">${topGoalScorer.goals || '0'} Goals</span>
-                    </div>
+                    <span class="label">Goals</span>
+                    <span class="player-name">${topGoalScorer.player_name || 'N/A'}</span>
+                    <span class="stat">${topGoalScorer.goals || '0'}</span>
                 </div>
                 <div class="leader-item">
-                    <div class="player-image-container">
-                        <img src="${teamLogo}" alt="Team Logo" class="player-image">
-                    </div>
-                    <div class="player-stats">
-                        <span class="player-name">${topAssistProvider.player_name || 'N/A'}</span>
-                        <span class="stat">${topAssistProvider.assists || '0'} Assists</span>
-                    </div>
+                    <span class="label">Assists</span>
+                    <span class="player-name">${topAssistProvider.player_name || 'N/A'}</span>
+                    <span class="stat">${topAssistProvider.assists || '0'}</span>
                 </div>
                 <div class="leader-item">
-                    <div class="player-image-container">
-                        <img src="${teamLogo}" alt="Team Logo" class="player-image">
-                    </div>
-                    <div class="player-stats">
-                        <span class="player-name">${topShotTaker.player_name || 'N/A'}</span>
-                        <span class="stat">${topShotTaker.shots || '0'} Shots</span>
-                    </div>
+                    <span class="label">Shots</span>
+                    <span class="player-name">${topShotTaker.player_name || 'N/A'}</span>
+                    <span class="stat">${topShotTaker.shots || '0'}</span>
                 </div>
             </div>
         </div>
@@ -257,16 +239,20 @@ function formatMatchDate(dateString) {
     return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 }
 
+// Define the team name mapping at the top of the file
 const teamNameMapping = {
-    "Bouremouth": "AFC Bouremouth",
+    "Bournemouth": "AFC Bournemouth",
+    "Brighton": "Brighton %26 Hove Albion",
     "Ispwich Town": "Ipswich Town",
     "Leicster City": "Leicster City",
     "Liverpol": "Liverpol",
     "Newcasle United": "Newcastle United",
     "Newcastle Utd": "Newcastle United",
-    "Nott'ham Forest": "Nottingam Forest",
+    "Nott'ham Forest": "Nottingham Forest",
     "Southamptn": "Southamptn",
-    "Tottenham": "Tottenham Hotspurs",
-    "Wolvers": "Wolverhampton Wanders",
-    "Manchester Utd": "Manchester United"
+    "Tottenham": "Tottenham Hotspur",
+    "Tottenham Hotspurs": "Tottenham Hotspur",
+    "Wolves": "Wolverhampton Wanderers",
+    "Manchester Utd": "Manchester United",
+    "West Ham": "West Ham United"
 };
