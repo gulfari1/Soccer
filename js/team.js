@@ -83,7 +83,7 @@ async function loadTeamPage(teamName, view) {
         
         if (view !== 'all') {
             renderMiniStandings(teamsData, teamName);
-            renderTeamLeaders(playersData, teamName);
+            renderTeamLeaders(playersData, teamName, currentTeamData.logo);
         } else {
             document.querySelector('.standings-container').style.display = 'none';
             document.getElementById('teamLeaders').style.display = 'none';
@@ -179,7 +179,7 @@ function renderMiniStandings(teamsData, teamName) {
     }).join('');
 }
 
-function renderTeamLeaders(playersData, teamName) {
+function renderTeamLeaders(playersData, teamName, teamLogo) {
     const teamPlayers = playersData.filter(player => player.team_title === teamName);
 
     // Find top goal scorer
@@ -206,25 +206,38 @@ function renderTeamLeaders(playersData, teamName) {
         return maxPlayer;
     }, { shots: -1 });
 
-    // Construct HTML for team leaders
+    // Construct HTML for team leaders under ATTACK category
     const leadersHtml = `
         <div class="team-leaders">
             <h3>Team Leaders</h3>
-            <div class="leaders-section">
+            <div class="leaders-category" id="attack">
+                <h4>ATTACK</h4>
                 <div class="leader-item">
-                    <span class="label">Goals</span>
-                    <span class="player-name">${topGoalScorer.player_name || 'N/A'}</span>
-                    <span class="stat">${topGoalScorer.goals || '0'}</span>
+                    <div class="player-image-container">
+                        <img src="${teamLogo}" alt="Team Logo" class="player-image">
+                    </div>
+                    <div class="player-stats">
+                        <span class="player-name">${topGoalScorer.player_name || 'N/A'}</span>
+                        <span class="stat">${topGoalScorer.goals || '0'} Goals</span>
+                    </div>
                 </div>
                 <div class="leader-item">
-                    <span class="label">Assists</span>
-                    <span class="player-name">${topAssistProvider.player_name || 'N/A'}</span>
-                    <span class="stat">${topAssistProvider.assists || '0'}</span>
+                    <div class="player-image-container">
+                        <img src="${teamLogo}" alt="Team Logo" class="player-image">
+                    </div>
+                    <div class="player-stats">
+                        <span class="player-name">${topAssistProvider.player_name || 'N/A'}</span>
+                        <span class="stat">${topAssistProvider.assists || '0'} Assists</span>
+                    </div>
                 </div>
                 <div class="leader-item">
-                    <span class="label">Shots</span>
-                    <span class="player-name">${topShotTaker.player_name || 'N/A'}</span>
-                    <span class="stat">${topShotTaker.shots || '0'}</span>
+                    <div class="player-image-container">
+                        <img src="${teamLogo}" alt="Team Logo" class="player-image">
+                    </div>
+                    <div class="player-stats">
+                        <span class="player-name">${topShotTaker.player_name || 'N/A'}</span>
+                        <span class="stat">${topShotTaker.shots || '0'} Shots</span>
+                    </div>
                 </div>
             </div>
         </div>
