@@ -2,9 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const teamName = decodeURIComponent(urlParams.get('team'));
     const view = urlParams.get('view');
-    document.getElementById('teamHeader').textContent = teamName;
-
-    // Set the "All Matches" link href, but hide it on the "all matches" page
     document.getElementById('allMatchesLink').href = `team.html?team=${encodeURIComponent(teamName)}&view=all`;
     if (view === 'all') {
         document.getElementById('allMatchesLink').style.display = 'none';
@@ -12,6 +9,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadTeamPage(teamName, view);
 });
+
+function getOrdinal(n) {
+    const suffixes = ["th", "st", "nd", "rd"];
+    const lastDigit = n % 10;
+    const lastTwoDigits = n % 100;
+    if (lastTwoDigits >= 11 && lastTwoDigits <= 13) {
+        return n + "th";
+    }
+    switch (lastDigit) {
+        case 1: return n + "st";
+        case 2: return n + "nd";
+        case 3: return n + "rd";
+        default: return n + "th";
+    }
+}
 
 async function loadTeamPage(teamName, view) {
     try {
@@ -23,19 +35,31 @@ async function loadTeamPage(teamName, view) {
         const allMatches = await scoresRes.json();
         const teamsData = await dataRes.json();
         
-        // Find the current team's data case-insensitively
         const currentTeamData = teamsData.find(team => team.team.toLowerCase() === teamName.toLowerCase());
         if (!currentTeamData) {
             console.error(`Team "${teamName}" not found in standings data.`);
+            document.getElementById('teamHeader').innerHTML = `<h1>Team not found</h1>`;
             document.getElementById('miniStandings').innerHTML = '<tr><td colspan="5">Team not found in standings.</td></tr>';
             document.getElementById('teamMatches').innerHTML = '<p>No data available for this team.</p>';
             return;
         }
-        
-        // Extract the team code from the logo filename (e.g., "logos/MUN.png" -> "MUN")
+
+        // Set header with logo and position
+        const position = teamsData.indexOf(currentTeamData) + 1;
+        const positionText = getOrdinal(position) + " in Premier League";
+        const headerHtml = `
+            <div class="logo">
+                <img src="${currentTeamData.logo}" alt="${teamName}"/>
+            </div>
+            <div class="team-name-position">
+                <h1>${teamName}</h1>
+                <p>${positionText}</p>
+            </div>
+        `;
+        document.getElementById('teamHeader').innerHTML = headerHtml;
+
         const teamCode = currentTeamData.logo.split('/').pop().split('.')[0].toUpperCase();
         
-        // Filter matches using the team code
         const teamMatches = allMatches.filter(match => 
             match.HomeCode === teamCode || match.AwayCode === teamCode
         ).sort((a, b) => new Date(a.Date) - new Date(b.Date));
@@ -46,16 +70,15 @@ async function loadTeamPage(teamName, view) {
         } else {
             let displayMatches;
             if (view === 'all') {
-                displayMatches = teamMatches; // Show all matches for the team
+                displayMatches = teamMatches;
             } else {
                 const recentMatches = teamMatches.filter(m => m.Played).slice(-1);
                 const upcomingMatches = teamMatches.filter(m => !m.Played).slice(0, 3);
-                displayMatches = [...recentMatches, ...upcomingMatches]; // Default view
+                displayMatches = [...recentMatches, ...upcomingMatches];
             }
             renderMatches(displayMatches, teamName, view === 'all');
         }
         
-        // Only render mini standings if not on the "all matches" page
         if (view !== 'all') {
             renderMiniStandings(teamsData, teamName);
         } else {
@@ -82,7 +105,6 @@ function renderMatches(matches, teamName, isAll = false) {
         } else {
             header = `<div class="competition-header">Premier League</div>`;
         }
-        // Use mapping to get correct team names for links and alt text
         const homeTeamName = teamNameMapping[match.Home] || match.Home;
         const awayTeamName = teamNameMapping[match.Away] || match.Away;
         return `
@@ -91,8 +113,10 @@ function renderMatches(matches, teamName, isAll = false) {
                 <div class="match_details">
                     <div class="team home-team">
                         <a href="team.html?team=${encodeURI(homeTeamName)}" class="team-link">
-                            <span>${match.HomeCode}</span>
-                            <img src="logos/${match.HomeCode}.png" alt="${homeTeamName}">
+                            <div class="team-code">${match.HomeCode}</div>
+                            <div class="team-logo">
+                                <img src="logos/${match.HomeCode}.png" alt="${homeTeamName}"/>
+                            </div>
                         </a>
                     </div>
                     <div class="match-info">
@@ -104,8 +128,10 @@ function renderMatches(matches, teamName, isAll = false) {
                     </div>
                     <div class="team away-team">
                         <a href="team.html?team=${encodeURI(awayTeamName)}" class="team-link">
-                            <img src="logos/${match.AwayCode}.png" alt="${awayTeamName}">
-                            <span>${match.AwayCode}</span>
+                            <div class="team-logo">
+                                <img src="logos/${match.AwayCode}.png" alt="${awayTeamName}"/>
+                            </div>
+                            <div class="team-code">${match.AwayCode}</div>
                         </a>
                     </div>
                 </div>
@@ -148,33 +174,27 @@ function renderMiniStandings(teamsData, teamName) {
     }).join('');
 }
 
-// Format date for "all matches" page (e.g., "Wed, Mar 5")
 function formatDate(dateString) {
     const date = new Date(dateString);
     const options = { weekday: 'short', month: 'short', day: 'numeric' };
     return date.toLocaleDateString('en-US', options);
 }
 
-// Format date for match status (e.g., "Mar 5")
 function formatMatchDate(dateString) {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 }
 
-// Define the team name mapping at the top of the file
 const teamNameMapping = {
-    "Bournemouth": "AFC Bournemouth",
-    "Brighton": "Brighton %26 Hove Albion",
+    "Bouremouth": "AFC Bouremouth",
     "Ispwich Town": "Ipswich Town",
     "Leicster City": "Leicster City",
     "Liverpol": "Liverpol",
     "Newcasle United": "Newcastle United",
     "Newcastle Utd": "Newcastle United",
-    "Nott'ham Forest": "Nottingham Forest",
+    "Nott'ham Forest": "Nottingam Forest",
     "Southamptn": "Southamptn",
-    "Tottenham": "Tottenham Hotspur",
-    "Tottenham Hotspurs": "Tottenham Hotspur",
-    "Wolves": "Wolverhampton Wanderers",
-    "Manchester Utd": "Manchester United",
-    "West Ham": "West Ham United"
+    "Tottenham": "Tottenham Hotspurs",
+    "Wolvers": "Wolverhampton Wanders",
+    "Manchester Utd": "Manchester United"
 };
