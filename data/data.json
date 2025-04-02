@@ -15,28 +15,28 @@
   {
     "team": "Arsenal",
     "logo": "logos/ARS.png",
-    "matches": 29,
-    "wins": 16,
+    "matches": 30,
+    "wins": 17,
     "draws": 10,
     "losses": 3,
-    "gf": 53,
-    "ga": 24,
-    "gd": 29,
-    "points": 58,
-    "form": "W L D D W"
+    "gf": 55,
+    "ga": 25,
+    "gd": 30,
+    "points": 61,
+    "form": "L D D W W"
   },
   {
     "team": "Nottingham Forest",
     "logo": "logos/NFO.png",
-    "matches": 29,
-    "wins": 16,
+    "matches": 30,
+    "wins": 17,
     "draws": 6,
     "losses": 7,
-    "gf": 49,
+    "gf": 50,
     "ga": 35,
-    "gd": 14,
-    "points": 54,
-    "form": "L L D W W"
+    "gd": 15,
+    "points": 57,
+    "form": "L D W W W"
   },
   {
     "team": "Chelsea",
@@ -93,15 +93,15 @@
   {
     "team": "Fulham",
     "logo": "logos/FUL.png",
-    "matches": 29,
+    "matches": 30,
     "wins": 12,
     "draws": 9,
-    "losses": 8,
-    "gf": 43,
-    "ga": 38,
-    "gd": 5,
+    "losses": 9,
+    "gf": 44,
+    "ga": 40,
+    "gd": 4,
     "points": 45,
-    "form": "W L W L W"
+    "form": "L W L W L"
   },
   {
     "team": "Aston Villa",
@@ -158,15 +158,15 @@
   {
     "team": "Manchester United",
     "logo": "logos/MUN.png",
-    "matches": 29,
+    "matches": 30,
     "wins": 10,
     "draws": 7,
-    "losses": 12,
+    "losses": 13,
     "gf": 37,
-    "ga": 40,
-    "gd": -3,
+    "ga": 41,
+    "gd": -4,
     "points": 37,
-    "form": "L D W D W"
+    "form": "D W D W L"
   },
   {
     "team": "Tottenham Hotspur",
@@ -197,28 +197,28 @@
   {
     "team": "West Ham United",
     "logo": "logos/WHU.png",
-    "matches": 29,
+    "matches": 30,
     "wins": 9,
     "draws": 7,
-    "losses": 13,
+    "losses": 14,
     "gf": 33,
-    "ga": 49,
-    "gd": -16,
+    "ga": 50,
+    "gd": -17,
     "points": 34,
-    "form": "L W W L D"
+    "form": "W W L D L"
   },
   {
     "team": "Wolverhampton Wanderers",
     "logo": "logos/WOL.png",
-    "matches": 29,
-    "wins": 7,
+    "matches": 30,
+    "wins": 8,
     "draws": 5,
     "losses": 17,
-    "gf": 40,
+    "gf": 41,
     "ga": 58,
-    "gd": -18,
-    "points": 26,
-    "form": "L W L D W"
+    "gd": -17,
+    "points": 29,
+    "form": "W L D W W"
   },
   {
     "team": "Ipswich Town",
