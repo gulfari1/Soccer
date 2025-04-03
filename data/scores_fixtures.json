@@ -3239,10 +3239,10 @@
     "Time": "19:45",
     "Home": "Southampton",
     "HomeCode": "SOU",
-    "Score": "TBD",
+    "Score": "1-1",
     "Away": "Crystal Palace",
     "AwayCode": "CRY",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 30,
@@ -3250,10 +3250,10 @@
     "Time": "19:45",
     "Home": "Manchester City",
     "HomeCode": "MCI",
-    "Score": "TBD",
+    "Score": "2-0",
     "Away": "Leicester City",
     "AwayCode": "LEI",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 30,
@@ -3261,10 +3261,10 @@
     "Time": "19:45",
     "Home": "Newcastle Utd",
     "HomeCode": "NEW",
-    "Score": "TBD",
+    "Score": "2-1",
     "Away": "Brentford",
     "AwayCode": "BRE",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 30,
@@ -3272,10 +3272,10 @@
     "Time": "20:00",
     "Home": "Liverpool",
     "HomeCode": "LIV",
-    "Score": "TBD",
+    "Score": "1-0",
     "Away": "Everton",
     "AwayCode": "EVE",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 30,
