@@ -39,6 +39,19 @@
     "form": "L D W W W"
   },
   {
+    "team": "Chelsea",
+    "logo": "logos/CHE.png",
+    "matches": 30,
+    "wins": 15,
+    "draws": 7,
+    "losses": 8,
+    "gf": 54,
+    "ga": 37,
+    "gd": 17,
+    "points": 52,
+    "form": "L W W L W"
+  },
+  {
     "team": "Manchester City",
     "logo": "logos/MCI.png",
     "matches": 30,
@@ -63,19 +76,6 @@
     "gd": 10,
     "points": 50,
     "form": "L W L W W"
-  },
-  {
-    "team": "Chelsea",
-    "logo": "logos/CHE.png",
-    "matches": 29,
-    "wins": 14,
-    "draws": 7,
-    "losses": 8,
-    "gf": 53,
-    "ga": 37,
-    "gd": 16,
-    "points": 49,
-    "form": "L W W L W"
   },
   {
     "team": "Aston Villa",
@@ -171,13 +171,13 @@
   {
     "team": "Tottenham Hotspur",
     "logo": "logos/TOT.png",
-    "matches": 29,
+    "matches": 30,
     "wins": 10,
     "draws": 4,
-    "losses": 15,
+    "losses": 16,
     "gf": 55,
-    "ga": 43,
-    "gd": 12,
+    "ga": 44,
+    "gd": 11,
     "points": 34,
     "form": "W L D L L"
   },
