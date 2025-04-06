@@ -3294,10 +3294,10 @@
     "Time": "12:30",
     "Home": "Everton",
     "HomeCode": "EVE",
-    "Score": "TBD",
+    "Score": "1-1",
     "Away": "Arsenal",
     "AwayCode": "ARS",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 31,
@@ -3305,10 +3305,10 @@
     "Time": "15:00",
     "Home": "West Ham",
     "HomeCode": "WHU",
-    "Score": "TBD",
+    "Score": "2-2",
     "Away": "Bournemouth",
     "AwayCode": "BOU",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 31,
@@ -3316,10 +3316,10 @@
     "Time": "15:00",
     "Home": "Ipswich Town",
     "HomeCode": "IPS",
-    "Score": "TBD",
+    "Score": "1-2",
     "Away": "Wolves",
     "AwayCode": "WOL",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 31,
@@ -3327,10 +3327,10 @@
     "Time": "15:00",
     "Home": "Crystal Palace",
     "HomeCode": "CRY",
-    "Score": "TBD",
+    "Score": "2-1",
     "Away": "Brighton",
     "AwayCode": "BHA",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 31,
@@ -3338,10 +3338,10 @@
     "Time": "17:30",
     "Home": "Aston Villa",
     "HomeCode": "AVL",
-    "Score": "TBD",
+    "Score": "2-1",
     "Away": "Nott'ham Forest",
     "AwayCode": "NFO",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 31,
