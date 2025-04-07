@@ -3349,10 +3349,10 @@
     "Time": "14:00",
     "Home": "Brentford",
     "HomeCode": "BRE",
-    "Score": "TBD",
+    "Score": "0-0",
     "Away": "Chelsea",
     "AwayCode": "CHE",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 31,
@@ -3360,10 +3360,10 @@
     "Time": "14:00",
     "Home": "Fulham",
     "HomeCode": "FUL",
-    "Score": "TBD",
+    "Score": "3-2",
     "Away": "Liverpool",
     "AwayCode": "LIV",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 31,
@@ -3371,10 +3371,10 @@
     "Time": "14:00",
     "Home": "Tottenham",
     "HomeCode": "TOT",
-    "Score": "TBD",
+    "Score": "3-1",
     "Away": "Southampton",
     "AwayCode": "SOU",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 31,
@@ -3382,10 +3382,10 @@
     "Time": "16:30",
     "Home": "Manchester Utd",
     "HomeCode": "MUN",
-    "Score": "TBD",
+    "Score": "0-0",
     "Away": "Manchester City",
     "AwayCode": "MCI",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 31,
