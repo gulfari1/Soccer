@@ -52,6 +52,19 @@
     "form": "W W L W D"
   },
   {
+    "team": "Newcastle United",
+    "logo": "logos/NEW.png",
+    "matches": 30,
+    "wins": 16,
+    "draws": 5,
+    "losses": 9,
+    "gf": 52,
+    "ga": 39,
+    "gd": 13,
+    "points": 53,
+    "form": "W L W W W"
+  },
+  {
     "team": "Manchester City",
     "logo": "logos/MCI.png",
     "matches": 31,
@@ -76,19 +89,6 @@
     "gd": 0,
     "points": 51,
     "form": "W L W W W"
-  },
-  {
-    "team": "Newcastle United",
-    "logo": "logos/NEW.png",
-    "matches": 29,
-    "wins": 15,
-    "draws": 5,
-    "losses": 9,
-    "gf": 49,
-    "ga": 39,
-    "gd": 10,
-    "points": 50,
-    "form": "L W L W W"
   },
   {
     "team": "Fulham",
@@ -236,13 +236,13 @@
   {
     "team": "Leicester City",
     "logo": "logos/LEI.png",
-    "matches": 30,
+    "matches": 31,
     "wins": 4,
     "draws": 5,
-    "losses": 21,
+    "losses": 22,
     "gf": 25,
-    "ga": 67,
-    "gd": -42,
+    "ga": 70,
+    "gd": -45,
     "points": 17,
     "form": "L L L L L"
   },

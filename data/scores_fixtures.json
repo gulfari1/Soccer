@@ -3393,10 +3393,10 @@
     "Time": "20:00",
     "Home": "Leicester City",
     "HomeCode": "LEI",
-    "Score": "TBD",
+    "Score": "0-3",
     "Away": "Newcastle Utd",
     "AwayCode": "NEW",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 32,
