@@ -3481,10 +3481,10 @@
     "Time": "14:00",
     "Home": "Liverpool",
     "HomeCode": "LIV",
-    "Score": "TBD",
+    "Score": "2-1",
     "Away": "West Ham",
     "AwayCode": "WHU",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 32,
@@ -3492,10 +3492,10 @@
     "Time": "16:30",
     "Home": "Newcastle Utd",
     "HomeCode": "NEW",
-    "Score": "TBD",
+    "Score": "4-1",
     "Away": "Manchester Utd",
     "AwayCode": "MUN",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 32,
