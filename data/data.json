@@ -91,17 +91,30 @@
     "form": "L W W W W"
   },
   {
-    "team": "Fulham",
-    "logo": "logos/FUL.png",
-    "matches": 31,
+    "team": "AFC Bournemouth",
+    "logo": "logos/BOU.png",
+    "matches": 32,
     "wins": 13,
     "draws": 9,
-    "losses": 9,
-    "gf": 47,
-    "ga": 42,
-    "gd": 5,
+    "losses": 10,
+    "gf": 52,
+    "ga": 40,
+    "gd": 12,
     "points": 48,
-    "form": "W L W L W"
+    "form": "D L L D W"
+  },
+  {
+    "team": "Fulham",
+    "logo": "logos/FUL.png",
+    "matches": 32,
+    "wins": 13,
+    "draws": 9,
+    "losses": 10,
+    "gf": 47,
+    "ga": 43,
+    "gd": 4,
+    "points": 48,
+    "form": "L W L W L"
   },
   {
     "team": "Brighton & Hove Albion",
@@ -115,19 +128,6 @@
     "gd": 2,
     "points": 48,
     "form": "W D L L D"
-  },
-  {
-    "team": "AFC Bournemouth",
-    "logo": "logos/BOU.png",
-    "matches": 31,
-    "wins": 12,
-    "draws": 9,
-    "losses": 10,
-    "gf": 51,
-    "ga": 40,
-    "gd": 11,
-    "points": 45,
-    "form": "L D L L D"
   },
   {
     "team": "Brentford",
