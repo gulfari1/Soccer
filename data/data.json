@@ -26,6 +26,19 @@
     "form": "D W W D D"
   },
   {
+    "team": "Newcastle United",
+    "logo": "logos/NEW.png",
+    "matches": 32,
+    "wins": 18,
+    "draws": 5,
+    "losses": 9,
+    "gf": 61,
+    "ga": 40,
+    "gd": 21,
+    "points": 59,
+    "form": "W W W W W"
+  },
+  {
     "team": "Nottingham Forest",
     "logo": "logos/NFO.png",
     "matches": 32,
@@ -37,19 +50,6 @@
     "gd": 13,
     "points": 57,
     "form": "W W W L L"
-  },
-  {
-    "team": "Newcastle United",
-    "logo": "logos/NEW.png",
-    "matches": 31,
-    "wins": 17,
-    "draws": 5,
-    "losses": 9,
-    "gf": 56,
-    "ga": 40,
-    "gd": 16,
-    "points": 56,
-    "form": "L W W W W"
   },
   {
     "team": "Manchester City",
@@ -145,15 +145,15 @@
   {
     "team": "Crystal Palace",
     "logo": "logos/CRY.png",
-    "matches": 31,
+    "matches": 32,
     "wins": 11,
     "draws": 10,
-    "losses": 10,
+    "losses": 11,
     "gf": 41,
-    "ga": 40,
-    "gd": 1,
+    "ga": 45,
+    "gd": -4,
     "points": 43,
-    "form": "W W D W L"
+    "form": "W D W L L"
   },
   {
     "team": "Everton",
