@@ -3525,10 +3525,10 @@
     "Time": "15:00",
     "Home": "Brentford",
     "HomeCode": "BRE",
-    "Score": "TBD",
+    "Score": "4-2",
     "Away": "Brighton",
     "AwayCode": "BHA",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 33,
@@ -3536,10 +3536,10 @@
     "Time": "15:00",
     "Home": "West Ham",
     "HomeCode": "WHU",
-    "Score": "TBD",
+    "Score": "1-1",
     "Away": "Southampton",
     "AwayCode": "SOU",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 33,
@@ -3547,10 +3547,10 @@
     "Time": "15:00",
     "Home": "Crystal Palace",
     "HomeCode": "CRY",
-    "Score": "TBD",
+    "Score": "0-0",
     "Away": "Bournemouth",
     "AwayCode": "BOU",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 33,
@@ -3558,10 +3558,10 @@
     "Time": "15:00",
     "Home": "Everton",
     "HomeCode": "EVE",
-    "Score": "TBD",
+    "Score": "0-2",
     "Away": "Manchester City",
     "AwayCode": "MCI",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 33,
@@ -3591,10 +3591,10 @@
     "Time": "17:30",
     "Home": "Aston Villa",
     "HomeCode": "AVL",
-    "Score": "TBD",
+    "Score": "4-1",
     "Away": "Newcastle Utd",
     "AwayCode": "NEW",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 33,
