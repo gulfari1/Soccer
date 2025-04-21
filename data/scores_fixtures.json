@@ -3602,10 +3602,10 @@
     "Time": "14:00",
     "Home": "Ipswich Town",
     "HomeCode": "IPS",
-    "Score": "TBD",
+    "Score": "0-4",
     "Away": "Arsenal",
     "AwayCode": "ARS",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 33,
@@ -3613,10 +3613,10 @@
     "Time": "16:30",
     "Home": "Leicester City",
     "HomeCode": "LEI",
-    "Score": "TBD",
+    "Score": "0-1",
     "Away": "Liverpool",
     "AwayCode": "LIV",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 33,
