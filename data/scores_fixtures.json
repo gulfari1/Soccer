@@ -3624,10 +3624,10 @@
     "Time": "20:00",
     "Home": "Tottenham",
     "HomeCode": "TOT",
-    "Score": "TBD",
+    "Score": "1-2",
     "Away": "Nott'ham Forest",
     "AwayCode": "NFO",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 34,
