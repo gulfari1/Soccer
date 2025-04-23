@@ -26,6 +26,19 @@
     "form": "W W D D W"
   },
   {
+    "team": "Manchester City",
+    "logo": "logos/MCI.png",
+    "matches": 34,
+    "wins": 18,
+    "draws": 7,
+    "losses": 9,
+    "gf": 66,
+    "ga": 43,
+    "gd": 23,
+    "points": 61,
+    "form": "W D W W W"
+  },
+  {
     "team": "Nottingham Forest",
     "logo": "logos/NFO.png",
     "matches": 33,
@@ -52,19 +65,6 @@
     "form": "W W W W L"
   },
   {
-    "team": "Manchester City",
-    "logo": "logos/MCI.png",
-    "matches": 33,
-    "wins": 17,
-    "draws": 7,
-    "losses": 9,
-    "gf": 64,
-    "ga": 42,
-    "gd": 22,
-    "points": 58,
-    "form": "D W D W W"
-  },
-  {
     "team": "Chelsea",
     "logo": "logos/CHE.png",
     "matches": 33,
@@ -80,15 +80,15 @@
   {
     "team": "Aston Villa",
     "logo": "logos/AVL.png",
-    "matches": 33,
+    "matches": 34,
     "wins": 16,
     "draws": 9,
-    "losses": 8,
-    "gf": 53,
-    "ga": 47,
-    "gd": 6,
+    "losses": 9,
+    "gf": 54,
+    "ga": 49,
+    "gd": 5,
     "points": 57,
-    "form": "W W W W W"
+    "form": "W W W W L"
   },
   {
     "team": "AFC Bournemouth",
