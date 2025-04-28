@@ -3712,10 +3712,10 @@
     "Time": "14:00",
     "Home": "Bournemouth",
     "HomeCode": "BOU",
-    "Score": "TBD",
+    "Score": "1-1",
     "Away": "Manchester Utd",
     "AwayCode": "MUN",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 34,
@@ -3723,10 +3723,10 @@
     "Time": "16:30",
     "Home": "Liverpool",
     "HomeCode": "LIV",
-    "Score": "TBD",
+    "Score": "5-1",
     "Away": "Tottenham",
     "AwayCode": "TOT",
-    "Played": false
+    "Played": true
   },
   {
     "Wk": 34,
