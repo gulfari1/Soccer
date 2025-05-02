@@ -67,15 +67,15 @@
   {
     "team": "Nottingham Forest",
     "logo": "logos/NFO.png",
-    "matches": 33,
+    "matches": 34,
     "wins": 18,
     "draws": 6,
-    "losses": 9,
+    "losses": 10,
     "gf": 53,
-    "ga": 39,
-    "gd": 14,
+    "ga": 41,
+    "gd": 12,
     "points": 60,
-    "form": "W W L L W"
+    "form": "W L L W L"
   },
   {
     "team": "Aston Villa",
@@ -132,15 +132,15 @@
   {
     "team": "Brentford",
     "logo": "logos/BRE.png",
-    "matches": 33,
-    "wins": 13,
+    "matches": 34,
+    "wins": 14,
     "draws": 7,
     "losses": 13,
-    "gf": 56,
+    "gf": 58,
     "ga": 50,
-    "gd": 6,
-    "points": 46,
-    "form": "W L D D W"
+    "gd": 8,
+    "points": 49,
+    "form": "L D D W W"
   },
   {
     "team": "Crystal Palace",
