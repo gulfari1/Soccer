@@ -26,6 +26,19 @@
     "form": "W D D W D"
   },
   {
+    "team": "Manchester City",
+    "logo": "logos/MCI.png",
+    "matches": 35,
+    "wins": 19,
+    "draws": 7,
+    "losses": 9,
+    "gf": 67,
+    "ga": 43,
+    "gd": 24,
+    "points": 64,
+    "form": "D W W W W"
+  },
+  {
     "team": "Newcastle United",
     "logo": "logos/NEW.png",
     "matches": 34,
@@ -37,19 +50,6 @@
     "gd": 21,
     "points": 62,
     "form": "W W W L W"
-  },
-  {
-    "team": "Manchester City",
-    "logo": "logos/MCI.png",
-    "matches": 34,
-    "wins": 18,
-    "draws": 7,
-    "losses": 9,
-    "gf": 66,
-    "ga": 43,
-    "gd": 23,
-    "points": 61,
-    "form": "W D W W W"
   },
   {
     "team": "Chelsea",
@@ -158,15 +158,15 @@
   {
     "team": "Wolverhampton Wanderers",
     "logo": "logos/WOL.png",
-    "matches": 34,
+    "matches": 35,
     "wins": 12,
     "draws": 5,
-    "losses": 17,
+    "losses": 18,
     "gf": 51,
-    "ga": 61,
-    "gd": -10,
+    "ga": 62,
+    "gd": -11,
     "points": 41,
-    "form": "W W W W W"
+    "form": "W W W W L"
   },
   {
     "team": "Manchester United",
