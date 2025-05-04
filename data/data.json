@@ -15,15 +15,15 @@
   {
     "team": "Arsenal",
     "logo": "logos/ARS.png",
-    "matches": 34,
+    "matches": 35,
     "wins": 18,
     "draws": 13,
-    "losses": 3,
-    "gf": 63,
-    "ga": 29,
-    "gd": 34,
+    "losses": 4,
+    "gf": 64,
+    "ga": 31,
+    "gd": 33,
     "points": 67,
-    "form": "W D D W D"
+    "form": "D D W D L"
   },
   {
     "team": "Manchester City",
@@ -80,28 +80,41 @@
   {
     "team": "Aston Villa",
     "logo": "logos/AVL.png",
-    "matches": 34,
-    "wins": 16,
+    "matches": 35,
+    "wins": 17,
     "draws": 9,
     "losses": 9,
-    "gf": 54,
+    "gf": 55,
     "ga": 49,
-    "gd": 5,
-    "points": 57,
-    "form": "W W W W L"
+    "gd": 6,
+    "points": 60,
+    "form": "W W W L W"
+  },
+  {
+    "team": "AFC Bournemouth",
+    "logo": "logos/BOU.png",
+    "matches": 35,
+    "wins": 14,
+    "draws": 11,
+    "losses": 10,
+    "gf": 55,
+    "ga": 42,
+    "gd": 13,
+    "points": 53,
+    "form": "D W D D W"
   },
   {
     "team": "Fulham",
     "logo": "logos/FUL.png",
-    "matches": 34,
+    "matches": 35,
     "wins": 14,
     "draws": 9,
-    "losses": 11,
+    "losses": 12,
     "gf": 50,
-    "ga": 46,
-    "gd": 4,
+    "ga": 47,
+    "gd": 3,
     "points": 51,
-    "form": "L W L L W"
+    "form": "W L L W L"
   },
   {
     "team": "Brighton & Hove Albion",
@@ -115,19 +128,6 @@
     "gd": 1,
     "points": 51,
     "form": "L L D L W"
-  },
-  {
-    "team": "AFC Bournemouth",
-    "logo": "logos/BOU.png",
-    "matches": 34,
-    "wins": 13,
-    "draws": 11,
-    "losses": 10,
-    "gf": 53,
-    "ga": 41,
-    "gd": 12,
-    "points": 50,
-    "form": "L D W D D"
   },
   {
     "team": "Brentford",
@@ -169,6 +169,19 @@
     "form": "W W W W L"
   },
   {
+    "team": "Everton",
+    "logo": "logos/EVE.png",
+    "matches": 35,
+    "wins": 8,
+    "draws": 15,
+    "losses": 12,
+    "gf": 36,
+    "ga": 43,
+    "gd": -7,
+    "points": 39,
+    "form": "D W L L D"
+  },
+  {
     "team": "Manchester United",
     "logo": "logos/MUN.png",
     "matches": 34,
@@ -180,19 +193,6 @@
     "gd": -8,
     "points": 39,
     "form": "L D L L D"
-  },
-  {
-    "team": "Everton",
-    "logo": "logos/EVE.png",
-    "matches": 34,
-    "wins": 8,
-    "draws": 14,
-    "losses": 12,
-    "gf": 34,
-    "ga": 41,
-    "gd": -7,
-    "points": 38,
-    "form": "L D W L L"
   },
   {
     "team": "Tottenham Hotspur",
@@ -223,40 +223,40 @@
   {
     "team": "Ipswich Town",
     "logo": "logos/IPS.png",
-    "matches": 34,
+    "matches": 35,
     "wins": 4,
-    "draws": 9,
+    "draws": 10,
     "losses": 21,
-    "gf": 33,
-    "ga": 74,
+    "gf": 35,
+    "ga": 76,
     "gd": -41,
-    "points": 21,
-    "form": "W L D L L"
+    "points": 22,
+    "form": "L D L L D"
   },
   {
     "team": "Leicester City",
     "logo": "logos/LEI.png",
-    "matches": 34,
-    "wins": 4,
+    "matches": 35,
+    "wins": 5,
     "draws": 6,
     "losses": 24,
-    "gf": 27,
+    "gf": 29,
     "ga": 76,
-    "gd": -49,
-    "points": 18,
-    "form": "L L D L L"
+    "gd": -47,
+    "points": 21,
+    "form": "L D L L W"
   },
   {
     "team": "Southampton",
     "logo": "logos/SOU.png",
-    "matches": 34,
+    "matches": 35,
     "wins": 2,
     "draws": 5,
-    "losses": 27,
+    "losses": 28,
     "gf": 25,
-    "ga": 80,
-    "gd": -55,
+    "ga": 82,
+    "gd": -57,
     "points": 11,
-    "form": "D L L D L"
+    "form": "L L D L L"
   }
 ]
