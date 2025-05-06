@@ -67,15 +67,15 @@
   {
     "team": "Nottingham Forest",
     "logo": "logos/NFO.png",
-    "matches": 34,
+    "matches": 35,
     "wins": 18,
-    "draws": 6,
+    "draws": 7,
     "losses": 10,
-    "gf": 53,
-    "ga": 41,
+    "gf": 54,
+    "ga": 42,
     "gd": 12,
-    "points": 60,
-    "form": "W L L W L"
+    "points": 61,
+    "form": "L L W L D"
   },
   {
     "team": "Aston Villa",
@@ -145,15 +145,15 @@
   {
     "team": "Crystal Palace",
     "logo": "logos/CRY.png",
-    "matches": 34,
+    "matches": 35,
     "wins": 11,
-    "draws": 12,
+    "draws": 13,
     "losses": 11,
-    "gf": 43,
-    "ga": 47,
+    "gf": 44,
+    "ga": 48,
     "gd": -4,
-    "points": 45,
-    "form": "W L L D D"
+    "points": 46,
+    "form": "L L D D D"
   },
   {
     "team": "Wolverhampton Wanderers",
