@@ -39,6 +39,32 @@
     "form": "W L W D W"
   },
   {
+    "team": "Chelsea",
+    "logo": "logos/CHE.png",
+    "matches": 37,
+    "wins": 19,
+    "draws": 9,
+    "losses": 9,
+    "gf": 63,
+    "ga": 43,
+    "gd": 20,
+    "points": 66,
+    "form": "W W W L W"
+  },
+  {
+    "team": "Aston Villa",
+    "logo": "logos/AVL.png",
+    "matches": 37,
+    "wins": 19,
+    "draws": 9,
+    "losses": 9,
+    "gf": 58,
+    "ga": 49,
+    "gd": 9,
+    "points": 66,
+    "form": "W L W W W"
+  },
+  {
     "team": "Manchester City",
     "logo": "logos/MCI.png",
     "matches": 36,
@@ -50,32 +76,6 @@
     "gd": 24,
     "points": 65,
     "form": "W W W W D"
-  },
-  {
-    "team": "Chelsea",
-    "logo": "logos/CHE.png",
-    "matches": 36,
-    "wins": 18,
-    "draws": 9,
-    "losses": 9,
-    "gf": 62,
-    "ga": 43,
-    "gd": 19,
-    "points": 63,
-    "form": "D W W W L"
-  },
-  {
-    "team": "Aston Villa",
-    "logo": "logos/AVL.png",
-    "matches": 36,
-    "wins": 18,
-    "draws": 9,
-    "losses": 9,
-    "gf": 56,
-    "ga": 49,
-    "gd": 7,
-    "points": 63,
-    "form": "W W L W W"
   },
   {
     "team": "Nottingham Forest",
@@ -197,28 +197,28 @@
   {
     "team": "Manchester United",
     "logo": "logos/MUN.png",
-    "matches": 36,
+    "matches": 37,
     "wins": 10,
     "draws": 9,
-    "losses": 17,
+    "losses": 18,
     "gf": 42,
-    "ga": 53,
-    "gd": -11,
+    "ga": 54,
+    "gd": -12,
     "points": 39,
-    "form": "L L D L L"
+    "form": "L D L L L"
   },
   {
     "team": "Tottenham Hotspur",
     "logo": "logos/TOT.png",
-    "matches": 36,
+    "matches": 37,
     "wins": 11,
     "draws": 5,
-    "losses": 20,
+    "losses": 21,
     "gf": 63,
-    "ga": 59,
-    "gd": 4,
+    "ga": 61,
+    "gd": 2,
     "points": 38,
-    "form": "L L L D L"
+    "form": "L L D L L"
   },
   {
     "team": "Ipswich Town",
