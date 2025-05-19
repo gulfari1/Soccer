@@ -15,28 +15,28 @@
   {
     "team": "Arsenal",
     "logo": "logos/ARS.png",
-    "matches": 36,
-    "wins": 18,
+    "matches": 37,
+    "wins": 19,
     "draws": 14,
     "losses": 4,
-    "gf": 66,
+    "gf": 67,
     "ga": 33,
-    "gd": 33,
-    "points": 68,
-    "form": "D W D L D"
+    "gd": 34,
+    "points": 71,
+    "form": "W D L D W"
   },
   {
     "team": "Newcastle United",
     "logo": "logos/NEW.png",
-    "matches": 36,
+    "matches": 37,
     "wins": 20,
     "draws": 6,
-    "losses": 10,
+    "losses": 11,
     "gf": 68,
-    "ga": 45,
-    "gd": 23,
+    "ga": 46,
+    "gd": 22,
     "points": 66,
-    "form": "W L W D W"
+    "form": "L W D W L"
   },
   {
     "team": "Chelsea",
@@ -80,28 +80,28 @@
   {
     "team": "Nottingham Forest",
     "logo": "logos/NFO.png",
-    "matches": 36,
-    "wins": 18,
+    "matches": 37,
+    "wins": 19,
     "draws": 8,
     "losses": 10,
-    "gf": 56,
-    "ga": 44,
-    "gd": 12,
-    "points": 62,
-    "form": "L W L D D"
+    "gf": 58,
+    "ga": 45,
+    "gd": 13,
+    "points": 65,
+    "form": "W L D D W"
   },
   {
     "team": "Brentford",
     "logo": "logos/BRE.png",
-    "matches": 36,
+    "matches": 37,
     "wins": 16,
     "draws": 7,
-    "losses": 13,
-    "gf": 63,
-    "ga": 53,
-    "gd": 10,
+    "losses": 14,
+    "gf": 65,
+    "ga": 56,
+    "gd": 9,
     "points": 55,
-    "form": "D W W W W"
+    "form": "W W W W L"
   },
   {
     "team": "Brighton & Hove Albion",
@@ -117,6 +117,19 @@
     "form": "D L W D W"
   },
   {
+    "team": "Fulham",
+    "logo": "logos/FUL.png",
+    "matches": 37,
+    "wins": 15,
+    "draws": 9,
+    "losses": 13,
+    "gf": 54,
+    "ga": 52,
+    "gd": 2,
+    "points": 54,
+    "form": "L W L L W"
+  },
+  {
     "team": "AFC Bournemouth",
     "logo": "logos/BOU.png",
     "matches": 36,
@@ -128,19 +141,6 @@
     "gd": 12,
     "points": 53,
     "form": "W D D W L"
-  },
-  {
-    "team": "Fulham",
-    "logo": "logos/FUL.png",
-    "matches": 36,
-    "wins": 14,
-    "draws": 9,
-    "losses": 13,
-    "gf": 51,
-    "ga": 50,
-    "gd": 1,
-    "points": 51,
-    "form": "L L W L L"
   },
   {
     "team": "Crystal Palace",
@@ -158,15 +158,15 @@
   {
     "team": "Everton",
     "logo": "logos/EVE.png",
-    "matches": 36,
-    "wins": 9,
+    "matches": 37,
+    "wins": 10,
     "draws": 15,
     "losses": 12,
-    "gf": 39,
+    "gf": 41,
     "ga": 44,
-    "gd": -5,
-    "points": 42,
-    "form": "W L L D W"
+    "gd": -3,
+    "points": 45,
+    "form": "L L D W W"
   },
   {
     "team": "Wolverhampton Wanderers",
@@ -184,15 +184,15 @@
   {
     "team": "West Ham United",
     "logo": "logos/WHU.png",
-    "matches": 36,
+    "matches": 37,
     "wins": 10,
     "draws": 10,
-    "losses": 16,
-    "gf": 42,
-    "ga": 59,
-    "gd": -17,
+    "losses": 17,
+    "gf": 43,
+    "ga": 61,
+    "gd": -18,
     "points": 40,
-    "form": "L D L D W"
+    "form": "D L D W L"
   },
   {
     "team": "Manchester United",
@@ -221,42 +221,42 @@
     "form": "L L D L L"
   },
   {
-    "team": "Ipswich Town",
-    "logo": "logos/IPS.png",
-    "matches": 36,
-    "wins": 4,
-    "draws": 10,
-    "losses": 22,
-    "gf": 35,
-    "ga": 77,
-    "gd": -42,
-    "points": 22,
-    "form": "D L L D L"
-  },
-  {
     "team": "Leicester City",
     "logo": "logos/LEI.png",
-    "matches": 36,
-    "wins": 5,
+    "matches": 37,
+    "wins": 6,
     "draws": 7,
     "losses": 24,
-    "gf": 31,
+    "gf": 33,
     "ga": 78,
-    "gd": -47,
+    "gd": -45,
+    "points": 25,
+    "form": "L L W D W"
+  },
+  {
+    "team": "Ipswich Town",
+    "logo": "logos/IPS.png",
+    "matches": 37,
+    "wins": 4,
+    "draws": 10,
+    "losses": 23,
+    "gf": 35,
+    "ga": 79,
+    "gd": -44,
     "points": 22,
-    "form": "D L L W D"
+    "form": "L L D L L"
   },
   {
     "team": "Southampton",
     "logo": "logos/SOU.png",
-    "matches": 36,
+    "matches": 37,
     "wins": 2,
     "draws": 6,
-    "losses": 28,
+    "losses": 29,
     "gf": 25,
-    "ga": 82,
-    "gd": -57,
+    "ga": 84,
+    "gd": -59,
     "points": 12,
-    "form": "L D L L D"
+    "form": "D L L D L"
   }
 ]
