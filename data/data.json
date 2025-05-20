@@ -2,15 +2,15 @@
   {
     "team": "Liverpool",
     "logo": "logos/LIV.png",
-    "matches": 36,
+    "matches": 37,
     "wins": 25,
     "draws": 8,
-    "losses": 3,
-    "gf": 83,
-    "ga": 37,
-    "gd": 46,
+    "losses": 4,
+    "gf": 85,
+    "ga": 40,
+    "gd": 45,
     "points": 83,
-    "form": "W W W L D"
+    "form": "W W L D L"
   },
   {
     "team": "Arsenal",
@@ -91,6 +91,19 @@
     "form": "W L D D W"
   },
   {
+    "team": "Brighton & Hove Albion",
+    "logo": "logos/BHA.png",
+    "matches": 37,
+    "wins": 15,
+    "draws": 13,
+    "losses": 9,
+    "gf": 62,
+    "ga": 58,
+    "gd": 4,
+    "points": 58,
+    "form": "L W D W W"
+  },
+  {
     "team": "Brentford",
     "logo": "logos/BRE.png",
     "matches": 37,
@@ -102,19 +115,6 @@
     "gd": 9,
     "points": 55,
     "form": "W W W W L"
-  },
-  {
-    "team": "Brighton & Hove Albion",
-    "logo": "logos/BHA.png",
-    "matches": 36,
-    "wins": 14,
-    "draws": 13,
-    "losses": 9,
-    "gf": 59,
-    "ga": 56,
-    "gd": 3,
-    "points": 55,
-    "form": "D L W D W"
   },
   {
     "team": "Fulham",
