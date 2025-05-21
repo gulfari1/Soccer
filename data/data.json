@@ -26,6 +26,19 @@
     "form": "W D L D W"
   },
   {
+    "team": "Manchester City",
+    "logo": "logos/MCI.png",
+    "matches": 37,
+    "wins": 20,
+    "draws": 8,
+    "losses": 9,
+    "gf": 70,
+    "ga": 44,
+    "gd": 26,
+    "points": 68,
+    "form": "W W W D W"
+  },
+  {
     "team": "Newcastle United",
     "logo": "logos/NEW.png",
     "matches": 37,
@@ -63,19 +76,6 @@
     "gd": 9,
     "points": 66,
     "form": "W L W W W"
-  },
-  {
-    "team": "Manchester City",
-    "logo": "logos/MCI.png",
-    "matches": 36,
-    "wins": 19,
-    "draws": 8,
-    "losses": 9,
-    "gf": 67,
-    "ga": 43,
-    "gd": 24,
-    "points": 65,
-    "form": "W W W W D"
   },
   {
     "team": "Nottingham Forest",
@@ -132,28 +132,28 @@
   {
     "team": "AFC Bournemouth",
     "logo": "logos/BOU.png",
-    "matches": 36,
+    "matches": 37,
     "wins": 14,
     "draws": 11,
-    "losses": 11,
-    "gf": 55,
-    "ga": 43,
-    "gd": 12,
+    "losses": 12,
+    "gf": 56,
+    "ga": 46,
+    "gd": 10,
     "points": 53,
-    "form": "W D D W L"
+    "form": "D D W L L"
   },
   {
     "team": "Crystal Palace",
     "logo": "logos/CRY.png",
-    "matches": 36,
-    "wins": 12,
+    "matches": 37,
+    "wins": 13,
     "draws": 13,
     "losses": 11,
-    "gf": 46,
-    "ga": 48,
-    "gd": -2,
-    "points": 49,
-    "form": "L D D D W"
+    "gf": 50,
+    "ga": 50,
+    "gd": 0,
+    "points": 52,
+    "form": "D D D W W"
   },
   {
     "team": "Everton",
@@ -171,15 +171,15 @@
   {
     "team": "Wolverhampton Wanderers",
     "logo": "logos/WOL.png",
-    "matches": 36,
+    "matches": 37,
     "wins": 12,
     "draws": 5,
-    "losses": 19,
-    "gf": 51,
-    "ga": 64,
-    "gd": -13,
+    "losses": 20,
+    "gf": 53,
+    "ga": 68,
+    "gd": -15,
     "points": 41,
-    "form": "W W W L L"
+    "form": "W W L L L"
   },
   {
     "team": "West Ham United",
