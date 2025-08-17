@@ -1,5 +1,44 @@
 [
   {
+    "team": "Manchester City",
+    "logo": "logos/MCI.png",
+    "matches": 1,
+    "wins": 1,
+    "draws": 0,
+    "losses": 0,
+    "gf": 4,
+    "ga": 0,
+    "gd": 4,
+    "points": 3,
+    "form": "W W"
+  },
+  {
+    "team": "Sunderland",
+    "logo": null,
+    "matches": 1,
+    "wins": 1,
+    "draws": 0,
+    "losses": 0,
+    "gf": 3,
+    "ga": 0,
+    "gd": 3,
+    "points": 3,
+    "form": "W W"
+  },
+  {
+    "team": "Tottenham Hotspur",
+    "logo": "logos/TOT.png",
+    "matches": 1,
+    "wins": 1,
+    "draws": 0,
+    "losses": 0,
+    "gf": 3,
+    "ga": 0,
+    "gd": 3,
+    "points": 3,
+    "form": "W W"
+  },
+  {
     "team": "Liverpool",
     "logo": "logos/LIV.png",
     "matches": 1,
@@ -13,6 +52,58 @@
     "form": "W W"
   },
   {
+    "team": "Brighton & Hove Albion",
+    "logo": "logos/BHA.png",
+    "matches": 1,
+    "wins": 0,
+    "draws": 1,
+    "losses": 0,
+    "gf": 1,
+    "ga": 1,
+    "gd": 0,
+    "points": 1,
+    "form": "D D"
+  },
+  {
+    "team": "Wolverhampton Wanderers",
+    "logo": "logos/WOL.png",
+    "matches": 1,
+    "wins": 0,
+    "draws": 1,
+    "losses": 0,
+    "gf": 1,
+    "ga": 1,
+    "gd": 0,
+    "points": 1,
+    "form": "L L"
+  },
+  {
+    "team": "Aston Villa",
+    "logo": "logos/AVL.png",
+    "matches": 1,
+    "wins": 0,
+    "draws": 1,
+    "losses": 0,
+    "gf": 0,
+    "ga": 0,
+    "gd": 0,
+    "points": 1,
+    "form": "D D"
+  },
+  {
+    "team": "Newcastle United",
+    "logo": "logos/NEW.png",
+    "matches": 1,
+    "wins": 0,
+    "draws": 1,
+    "losses": 0,
+    "gf": 0,
+    "ga": 0,
+    "gd": 0,
+    "points": 1,
+    "form": "D D"
+  },
+  {
     "team": "AFC Bournemouth",
     "logo": "logos/BOU.png",
     "matches": 1,
@@ -24,5 +115,44 @@
     "gd": -2,
     "points": 0,
     "form": "L L"
+  },
+  {
+    "team": "West Ham United",
+    "logo": "logos/WHU.png",
+    "matches": 1,
+    "wins": 0,
+    "draws": 0,
+    "losses": 1,
+    "gf": 0,
+    "ga": 3,
+    "gd": -3,
+    "points": 0,
+    "form": "L L"
+  },
+  {
+    "team": "Burnley",
+    "logo": null,
+    "matches": 1,
+    "wins": 0,
+    "draws": 0,
+    "losses": 1,
+    "gf": 0,
+    "ga": 3,
+    "gd": -3,
+    "points": 0,
+    "form": "L L"
+  },
+  {
+    "team": "Fulham",
+    "logo": "logos/FUL.png",
+    "matches": 1,
+    "wins": 0,
+    "draws": 0,
+    "losses": 1,
+    "gf": 0,
+    "ga": 4,
+    "gd": -4,
+    "points": 0,
+    "form": "D D"
   }
 ]
