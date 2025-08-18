@@ -52,6 +52,32 @@
     "form": "W W"
   },
   {
+    "team": "Nottingham Forest",
+    "logo": "logos/NFO.png",
+    "matches": 1,
+    "wins": 1,
+    "draws": 0,
+    "losses": 0,
+    "gf": 3,
+    "ga": 1,
+    "gd": 2,
+    "points": 3,
+    "form": "W W"
+  },
+  {
+    "team": "Arsenal",
+    "logo": "logos/ARS.png",
+    "matches": 1,
+    "wins": 1,
+    "draws": 0,
+    "losses": 0,
+    "gf": 1,
+    "ga": 0,
+    "gd": 1,
+    "points": 3,
+    "form": "W W"
+  },
+  {
     "team": "Brighton & Hove Albion",
     "logo": "logos/BHA.png",
     "matches": 1,
@@ -104,6 +130,45 @@
     "form": "D D"
   },
   {
+    "team": "Chelsea",
+    "logo": "logos/CHE.png",
+    "matches": 1,
+    "wins": 0,
+    "draws": 1,
+    "losses": 0,
+    "gf": 0,
+    "ga": 0,
+    "gd": 0,
+    "points": 1,
+    "form": "D D"
+  },
+  {
+    "team": "Crystal Palace",
+    "logo": "logos/CRY.png",
+    "matches": 1,
+    "wins": 0,
+    "draws": 1,
+    "losses": 0,
+    "gf": 0,
+    "ga": 0,
+    "gd": 0,
+    "points": 1,
+    "form": "D D"
+  },
+  {
+    "team": "Manchester United",
+    "logo": "logos/MUN.png",
+    "matches": 1,
+    "wins": 0,
+    "draws": 0,
+    "losses": 1,
+    "gf": 0,
+    "ga": 1,
+    "gd": -1,
+    "points": 0,
+    "form": "L L"
+  },
+  {
     "team": "AFC Bournemouth",
     "logo": "logos/BOU.png",
     "matches": 1,
@@ -112,6 +177,19 @@
     "losses": 1,
     "gf": 2,
     "ga": 4,
+    "gd": -2,
+    "points": 0,
+    "form": "L L"
+  },
+  {
+    "team": "Brentford",
+    "logo": "logos/BRE.png",
+    "matches": 1,
+    "wins": 0,
+    "draws": 0,
+    "losses": 1,
+    "gf": 1,
+    "ga": 3,
     "gd": -2,
     "points": 0,
     "form": "L L"
