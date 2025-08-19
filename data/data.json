@@ -78,6 +78,19 @@
     "form": "W W"
   },
   {
+    "team": "Leeds",
+    "logo": null,
+    "matches": 1,
+    "wins": 1,
+    "draws": 0,
+    "losses": 0,
+    "gf": 1,
+    "ga": 0,
+    "gd": 1,
+    "points": 3,
+    "form": "W W"
+  },
+  {
     "team": "Brighton & Hove Albion",
     "logo": "logos/BHA.png",
     "matches": 1,
@@ -91,8 +104,8 @@
     "form": "D D"
   },
   {
-    "team": "Wolverhampton Wanderers",
-    "logo": "logos/WOL.png",
+    "team": "Fulham",
+    "logo": "logos/FUL.png",
     "matches": 1,
     "wins": 0,
     "draws": 1,
@@ -101,7 +114,7 @@
     "ga": 1,
     "gd": 0,
     "points": 1,
-    "form": "L L"
+    "form": "D D"
   },
   {
     "team": "Aston Villa",
@@ -169,6 +182,19 @@
     "form": "L L"
   },
   {
+    "team": "Everton",
+    "logo": "logos/EVE.png",
+    "matches": 1,
+    "wins": 0,
+    "draws": 0,
+    "losses": 1,
+    "gf": 0,
+    "ga": 1,
+    "gd": -1,
+    "points": 0,
+    "form": "L L"
+  },
+  {
     "team": "AFC Bournemouth",
     "logo": "logos/BOU.png",
     "matches": 1,
@@ -221,8 +247,8 @@
     "form": "L L"
   },
   {
-    "team": "Fulham",
-    "logo": "logos/FUL.png",
+    "team": "Wolverhampton Wanderers",
+    "logo": "logos/WOL.png",
     "matches": 1,
     "wins": 0,
     "draws": 0,
@@ -231,6 +257,6 @@
     "ga": 4,
     "gd": -4,
     "points": 0,
-    "form": "D D"
+    "form": "L L"
   }
 ]
