@@ -39,6 +39,19 @@
     "form": "D W D W"
   },
   {
+    "team": "Nottingham Forest",
+    "logo": "logos/NFO.png",
+    "matches": 2,
+    "wins": 1,
+    "draws": 1,
+    "losses": 0,
+    "gf": 4,
+    "ga": 2,
+    "gd": 2,
+    "points": 4,
+    "form": "W D W D"
+  },
+  {
     "team": "Liverpool",
     "logo": "logos/LIV.png",
     "matches": 1,
@@ -65,19 +78,6 @@
     "form": "W L W L"
   },
   {
-    "team": "Nottingham Forest",
-    "logo": "logos/NFO.png",
-    "matches": 1,
-    "wins": 1,
-    "draws": 0,
-    "losses": 0,
-    "gf": 3,
-    "ga": 1,
-    "gd": 2,
-    "points": 3,
-    "form": "W W"
-  },
-  {
     "team": "Sunderland",
     "logo": null,
     "matches": 2,
@@ -89,6 +89,19 @@
     "gd": 1,
     "points": 3,
     "form": "W L W L"
+  },
+  {
+    "team": "Everton",
+    "logo": "logos/EVE.png",
+    "matches": 2,
+    "wins": 1,
+    "draws": 0,
+    "losses": 1,
+    "gf": 2,
+    "ga": 1,
+    "gd": 1,
+    "points": 3,
+    "form": "L W L W"
   },
   {
     "team": "AFC Bournemouth",
@@ -143,30 +156,30 @@
     "form": "W L W L"
   },
   {
-    "team": "Brighton & Hove Albion",
-    "logo": "logos/BHA.png",
-    "matches": 1,
-    "wins": 0,
-    "draws": 1,
-    "losses": 0,
-    "gf": 1,
-    "ga": 1,
-    "gd": 0,
-    "points": 1,
-    "form": "D D"
-  },
-  {
     "team": "Fulham",
     "logo": "logos/FUL.png",
-    "matches": 1,
+    "matches": 2,
     "wins": 0,
-    "draws": 1,
+    "draws": 2,
+    "losses": 0,
+    "gf": 2,
+    "ga": 2,
+    "gd": 0,
+    "points": 2,
+    "form": "D D D D"
+  },
+  {
+    "team": "Crystal Palace",
+    "logo": "logos/CRY.png",
+    "matches": 2,
+    "wins": 0,
+    "draws": 2,
     "losses": 0,
     "gf": 1,
     "ga": 1,
     "gd": 0,
-    "points": 1,
-    "form": "D D"
+    "points": 2,
+    "form": "D D D D"
   },
   {
     "team": "Newcastle United",
@@ -182,17 +195,17 @@
     "form": "D D"
   },
   {
-    "team": "Crystal Palace",
-    "logo": "logos/CRY.png",
-    "matches": 1,
+    "team": "Manchester United",
+    "logo": "logos/MUN.png",
+    "matches": 2,
     "wins": 0,
     "draws": 1,
-    "losses": 0,
-    "gf": 0,
-    "ga": 0,
-    "gd": 0,
+    "losses": 1,
+    "gf": 1,
+    "ga": 2,
+    "gd": -1,
     "points": 1,
-    "form": "D D"
+    "form": "L D L D"
   },
   {
     "team": "Aston Villa",
@@ -208,30 +221,17 @@
     "form": "D L D L"
   },
   {
-    "team": "Manchester United",
-    "logo": "logos/MUN.png",
-    "matches": 1,
+    "team": "Brighton & Hove Albion",
+    "logo": "logos/BHA.png",
+    "matches": 2,
     "wins": 0,
-    "draws": 0,
+    "draws": 1,
     "losses": 1,
-    "gf": 0,
-    "ga": 1,
-    "gd": -1,
-    "points": 0,
-    "form": "L L"
-  },
-  {
-    "team": "Everton",
-    "logo": "logos/EVE.png",
-    "matches": 1,
-    "wins": 0,
-    "draws": 0,
-    "losses": 1,
-    "gf": 0,
-    "ga": 1,
-    "gd": -1,
-    "points": 0,
-    "form": "L L"
+    "gf": 1,
+    "ga": 3,
+    "gd": -2,
+    "points": 1,
+    "form": "D L D L"
   },
   {
     "team": "Wolverhampton Wanderers",
