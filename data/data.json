@@ -26,6 +26,19 @@
     "form": "W W W W"
   },
   {
+    "team": "Liverpool",
+    "logo": "logos/LIV.png",
+    "matches": 2,
+    "wins": 2,
+    "draws": 0,
+    "losses": 0,
+    "gf": 7,
+    "ga": 4,
+    "gd": 3,
+    "points": 6,
+    "form": "W W W W"
+  },
+  {
     "team": "Chelsea",
     "logo": "logos/CHE.png",
     "matches": 2,
@@ -50,19 +63,6 @@
     "gd": 2,
     "points": 4,
     "form": "W D W D"
-  },
-  {
-    "team": "Liverpool",
-    "logo": "logos/LIV.png",
-    "matches": 1,
-    "wins": 1,
-    "draws": 0,
-    "losses": 0,
-    "gf": 4,
-    "ga": 2,
-    "gd": 2,
-    "points": 3,
-    "form": "W W"
   },
   {
     "team": "Manchester City",
@@ -184,15 +184,15 @@
   {
     "team": "Newcastle United",
     "logo": "logos/NEW.png",
-    "matches": 1,
+    "matches": 2,
     "wins": 0,
     "draws": 1,
-    "losses": 0,
-    "gf": 0,
-    "ga": 0,
-    "gd": 0,
+    "losses": 1,
+    "gf": 2,
+    "ga": 3,
+    "gd": -1,
     "points": 1,
-    "form": "D D"
+    "form": "D L D L"
   },
   {
     "team": "Manchester United",
