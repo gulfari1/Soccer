@@ -1,5 +1,18 @@
 [
   {
+    "team": "Liverpool",
+    "logo": "logos/LIV.png",
+    "matches": 4,
+    "wins": 4,
+    "draws": 0,
+    "losses": 0,
+    "gf": 9,
+    "ga": 4,
+    "gd": 5,
+    "points": 12,
+    "form": "W W W W W"
+  },
+  {
     "team": "Arsenal",
     "logo": "logos/ARS.png",
     "matches": 4,
@@ -24,19 +37,6 @@
     "gd": 7,
     "points": 9,
     "form": "W W W L W"
-  },
-  {
-    "team": "Liverpool",
-    "logo": "logos/LIV.png",
-    "matches": 3,
-    "wins": 3,
-    "draws": 0,
-    "losses": 0,
-    "gf": 8,
-    "ga": 4,
-    "gd": 4,
-    "points": 9,
-    "form": "W W W W W"
   },
   {
     "team": "AFC Bournemouth",
@@ -91,6 +91,19 @@
     "form": "D L W W D"
   },
   {
+    "team": "Manchester City",
+    "logo": "logos/MCI.png",
+    "matches": 4,
+    "wins": 2,
+    "draws": 0,
+    "losses": 2,
+    "gf": 8,
+    "ga": 4,
+    "gd": 4,
+    "points": 6,
+    "form": "W W L L W"
+  },
+  {
     "team": "Crystal Palace",
     "logo": "logos/CRY.png",
     "matches": 4,
@@ -130,19 +143,6 @@
     "form": "W D D L W"
   },
   {
-    "team": "Manchester United",
-    "logo": "logos/MUN.png",
-    "matches": 3,
-    "wins": 1,
-    "draws": 1,
-    "losses": 1,
-    "gf": 4,
-    "ga": 4,
-    "gd": 0,
-    "points": 4,
-    "form": "D W L D W"
-  },
-  {
     "team": "Brentford",
     "logo": "logos/BRE.png",
     "matches": 4,
@@ -167,6 +167,19 @@
     "gd": -2,
     "points": 4,
     "form": "L D L W L"
+  },
+  {
+    "team": "Manchester United",
+    "logo": "logos/MUN.png",
+    "matches": 4,
+    "wins": 1,
+    "draws": 1,
+    "losses": 2,
+    "gf": 4,
+    "ga": 7,
+    "gd": -3,
+    "points": 4,
+    "form": "L L D W L"
   },
   {
     "team": "Nottingham Forest",
@@ -195,30 +208,17 @@
     "form": "L W L D L"
   },
   {
-    "team": "Manchester City",
-    "logo": "logos/MCI.png",
-    "matches": 3,
-    "wins": 1,
-    "draws": 0,
-    "losses": 2,
-    "gf": 5,
-    "ga": 4,
-    "gd": 1,
-    "points": 3,
-    "form": "L L W L L"
-  },
-  {
     "team": "Burnley",
     "logo": null,
-    "matches": 3,
+    "matches": 4,
     "wins": 1,
     "draws": 0,
-    "losses": 2,
+    "losses": 3,
     "gf": 4,
-    "ga": 6,
-    "gd": -2,
+    "ga": 7,
+    "gd": -3,
     "points": 3,
-    "form": "W L L W L"
+    "form": "L L W L L"
   },
   {
     "team": "West Ham United",
