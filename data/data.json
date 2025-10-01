@@ -104,6 +104,19 @@
     "form": ""
   },
   {
+    "team": "Everton",
+    "logo": "logos/EVE.png",
+    "matches": 6,
+    "wins": 2,
+    "draws": 2,
+    "losses": 2,
+    "gf": 7,
+    "ga": 6,
+    "gd": 1,
+    "points": 8,
+    "form": ""
+  },
+  {
     "team": "Brighton & Hove Albion",
     "logo": "logos/BHA.png",
     "matches": 6,
@@ -140,19 +153,6 @@
     "ga": 9,
     "gd": -3,
     "points": 8,
-    "form": ""
-  },
-  {
-    "team": "Everton",
-    "logo": "logos/EVE.png",
-    "matches": 5,
-    "wins": 2,
-    "draws": 1,
-    "losses": 2,
-    "gf": 6,
-    "ga": 5,
-    "gd": 1,
-    "points": 7,
     "form": ""
   },
   {
@@ -236,14 +236,14 @@
   {
     "team": "West Ham United",
     "logo": "logos/WHU.png",
-    "matches": 5,
+    "matches": 6,
     "wins": 1,
-    "draws": 0,
+    "draws": 1,
     "losses": 4,
-    "gf": 5,
-    "ga": 13,
+    "gf": 6,
+    "ga": 14,
     "gd": -8,
-    "points": 3,
+    "points": 4,
     "form": ""
   },
   {
