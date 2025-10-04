@@ -13,6 +13,19 @@
     "form": ""
   },
   {
+    "team": "AFC Bournemouth",
+    "logo": "logos/BOU.png",
+    "matches": 7,
+    "wins": 4,
+    "draws": 2,
+    "losses": 1,
+    "gf": 11,
+    "ga": 8,
+    "gd": 3,
+    "points": 14,
+    "form": ""
+  },
+  {
     "team": "Arsenal",
     "logo": "logos/ARS.png",
     "matches": 6,
@@ -61,19 +74,6 @@
     "gf": 7,
     "ga": 4,
     "gd": 3,
-    "points": 11,
-    "form": ""
-  },
-  {
-    "team": "AFC Bournemouth",
-    "logo": "logos/BOU.png",
-    "matches": 6,
-    "wins": 3,
-    "draws": 2,
-    "losses": 1,
-    "gf": 8,
-    "ga": 7,
-    "gd": 1,
     "points": 11,
     "form": ""
   },
@@ -132,13 +132,13 @@
   {
     "team": "Fulham",
     "logo": "logos/FUL.png",
-    "matches": 6,
+    "matches": 7,
     "wins": 2,
     "draws": 2,
-    "losses": 2,
-    "gf": 7,
-    "ga": 8,
-    "gd": -1,
+    "losses": 3,
+    "gf": 8,
+    "ga": 11,
+    "gd": -3,
     "points": 8,
     "form": ""
   },
