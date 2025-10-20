@@ -28,13 +28,13 @@
   {
     "team": "Liverpool",
     "logo": "logos/LIV.png",
-    "matches": 7,
+    "matches": 8,
     "wins": 5,
     "draws": 0,
-    "losses": 2,
-    "gf": 13,
-    "ga": 9,
-    "gd": 4,
+    "losses": 3,
+    "gf": 14,
+    "ga": 11,
+    "gd": 3,
     "points": 15,
     "form": ""
   },
@@ -52,19 +52,6 @@
     "form": ""
   },
   {
-    "team": "Tottenham Hotspur",
-    "logo": "logos/TOT.png",
-    "matches": 7,
-    "wins": 4,
-    "draws": 2,
-    "losses": 1,
-    "gf": 13,
-    "ga": 5,
-    "gd": 8,
-    "points": 14,
-    "form": ""
-  },
-  {
     "team": "Chelsea",
     "logo": "logos/CHE.png",
     "matches": 8,
@@ -73,6 +60,19 @@
     "losses": 2,
     "gf": 16,
     "ga": 9,
+    "gd": 7,
+    "points": 14,
+    "form": ""
+  },
+  {
+    "team": "Tottenham Hotspur",
+    "logo": "logos/TOT.png",
+    "matches": 8,
+    "wins": 4,
+    "draws": 2,
+    "losses": 2,
+    "gf": 14,
+    "ga": 7,
     "gd": 7,
     "points": 14,
     "form": ""
@@ -104,6 +104,19 @@
     "form": ""
   },
   {
+    "team": "Manchester United",
+    "logo": "logos/MUN.png",
+    "matches": 8,
+    "wins": 4,
+    "draws": 1,
+    "losses": 3,
+    "gf": 11,
+    "ga": 12,
+    "gd": -1,
+    "points": 13,
+    "form": ""
+  },
+  {
     "team": "Brighton & Hove Albion",
     "logo": "logos/BHA.png",
     "matches": 8,
@@ -113,6 +126,19 @@
     "gf": 12,
     "ga": 11,
     "gd": 1,
+    "points": 12,
+    "form": ""
+  },
+  {
+    "team": "Aston Villa",
+    "logo": "logos/AVL.png",
+    "matches": 8,
+    "wins": 3,
+    "draws": 3,
+    "losses": 2,
+    "gf": 8,
+    "ga": 8,
+    "gd": 0,
     "points": 12,
     "form": ""
   },
@@ -130,19 +156,6 @@
     "form": ""
   },
   {
-    "team": "Manchester United",
-    "logo": "logos/MUN.png",
-    "matches": 7,
-    "wins": 3,
-    "draws": 1,
-    "losses": 3,
-    "gf": 9,
-    "ga": 11,
-    "gd": -2,
-    "points": 10,
-    "form": ""
-  },
-  {
     "team": "Newcastle United",
     "logo": "logos/NEW.png",
     "matches": 8,
@@ -152,19 +165,6 @@
     "gf": 7,
     "ga": 7,
     "gd": 0,
-    "points": 9,
-    "form": ""
-  },
-  {
-    "team": "Aston Villa",
-    "logo": "logos/AVL.png",
-    "matches": 7,
-    "wins": 2,
-    "draws": 3,
-    "losses": 2,
-    "gf": 6,
-    "ga": 7,
-    "gd": -1,
     "points": 9,
     "form": ""
   },
