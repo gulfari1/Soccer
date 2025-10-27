@@ -2,14 +2,40 @@
   {
     "team": "Arsenal",
     "logo": "logos/ARS.png",
-    "matches": 8,
-    "wins": 6,
+    "matches": 9,
+    "wins": 7,
     "draws": 1,
     "losses": 1,
-    "gf": 15,
+    "gf": 16,
     "ga": 3,
-    "gd": 12,
-    "points": 19,
+    "gd": 13,
+    "points": 22,
+    "form": ""
+  },
+  {
+    "team": "AFC Bournemouth",
+    "logo": "logos/BOU.png",
+    "matches": 9,
+    "wins": 5,
+    "draws": 3,
+    "losses": 1,
+    "gf": 16,
+    "ga": 11,
+    "gd": 5,
+    "points": 18,
+    "form": ""
+  },
+  {
+    "team": "Tottenham Hotspur",
+    "logo": "logos/TOT.png",
+    "matches": 9,
+    "wins": 5,
+    "draws": 2,
+    "losses": 2,
+    "gf": 17,
+    "ga": 7,
+    "gd": 10,
+    "points": 17,
     "form": ""
   },
   {
@@ -28,13 +54,13 @@
   {
     "team": "Manchester City",
     "logo": "logos/MCI.png",
-    "matches": 8,
+    "matches": 9,
     "wins": 5,
     "draws": 1,
-    "losses": 2,
+    "losses": 3,
     "gf": 17,
-    "ga": 6,
-    "gd": 11,
+    "ga": 7,
+    "gd": 10,
     "points": 16,
     "form": ""
   },
@@ -52,19 +78,6 @@
     "form": ""
   },
   {
-    "team": "AFC Bournemouth",
-    "logo": "logos/BOU.png",
-    "matches": 8,
-    "wins": 4,
-    "draws": 3,
-    "losses": 1,
-    "gf": 14,
-    "ga": 11,
-    "gd": 3,
-    "points": 15,
-    "form": ""
-  },
-  {
     "team": "Liverpool",
     "logo": "logos/LIV.png",
     "matches": 9,
@@ -78,16 +91,16 @@
     "form": ""
   },
   {
-    "team": "Tottenham Hotspur",
-    "logo": "logos/TOT.png",
-    "matches": 8,
+    "team": "Aston Villa",
+    "logo": "logos/AVL.png",
+    "matches": 9,
     "wins": 4,
-    "draws": 2,
+    "draws": 3,
     "losses": 2,
-    "gf": 14,
-    "ga": 7,
-    "gd": 7,
-    "points": 14,
+    "gf": 9,
+    "ga": 8,
+    "gd": 1,
+    "points": 15,
     "form": ""
   },
   {
@@ -106,13 +119,13 @@
   {
     "team": "Crystal Palace",
     "logo": "logos/CRY.png",
-    "matches": 8,
+    "matches": 9,
     "wins": 3,
     "draws": 4,
-    "losses": 1,
+    "losses": 2,
     "gf": 12,
-    "ga": 8,
-    "gd": 4,
+    "ga": 9,
+    "gd": 3,
     "points": 13,
     "form": ""
   },
@@ -143,19 +156,6 @@
     "form": ""
   },
   {
-    "team": "Aston Villa",
-    "logo": "logos/AVL.png",
-    "matches": 8,
-    "wins": 3,
-    "draws": 3,
-    "losses": 2,
-    "gf": 8,
-    "ga": 8,
-    "gd": 0,
-    "points": 12,
-    "form": ""
-  },
-  {
     "team": "Brighton & Hove Albion",
     "logo": "logos/BHA.png",
     "matches": 9,
@@ -171,13 +171,13 @@
   {
     "team": "Everton",
     "logo": "logos/EVE.png",
-    "matches": 8,
+    "matches": 9,
     "wins": 3,
     "draws": 2,
-    "losses": 3,
+    "losses": 4,
     "gf": 9,
-    "ga": 9,
-    "gd": 0,
+    "ga": 12,
+    "gd": -3,
     "points": 11,
     "form": ""
   },
@@ -195,6 +195,19 @@
     "form": ""
   },
   {
+    "team": "Burnley",
+    "logo": null,
+    "matches": 9,
+    "wins": 3,
+    "draws": 1,
+    "losses": 5,
+    "gf": 12,
+    "ga": 17,
+    "gd": -5,
+    "points": 10,
+    "form": ""
+  },
+  {
     "team": "Fulham",
     "logo": "logos/FUL.png",
     "matches": 9,
@@ -208,28 +221,15 @@
     "form": ""
   },
   {
-    "team": "Burnley",
-    "logo": null,
-    "matches": 8,
-    "wins": 2,
-    "draws": 1,
-    "losses": 5,
-    "gf": 9,
-    "ga": 15,
-    "gd": -6,
-    "points": 7,
-    "form": ""
-  },
-  {
     "team": "Nottingham Forest",
     "logo": "logos/NFO.png",
-    "matches": 8,
+    "matches": 9,
     "wins": 1,
     "draws": 2,
-    "losses": 5,
+    "losses": 6,
     "gf": 5,
-    "ga": 15,
-    "gd": -10,
+    "ga": 17,
+    "gd": -12,
     "points": 5,
     "form": ""
   },
@@ -249,13 +249,13 @@
   {
     "team": "Wolverhampton Wanderers",
     "logo": "logos/WOL.png",
-    "matches": 8,
+    "matches": 9,
     "wins": 0,
     "draws": 2,
-    "losses": 6,
-    "gf": 5,
-    "ga": 16,
-    "gd": -11,
+    "losses": 7,
+    "gf": 7,
+    "ga": 19,
+    "gd": -12,
     "points": 2,
     "form": ""
   }
