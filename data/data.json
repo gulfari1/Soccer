@@ -39,6 +39,19 @@
     "form": ""
   },
   {
+    "team": "Sunderland",
+    "logo": null,
+    "matches": 10,
+    "wins": 5,
+    "draws": 3,
+    "losses": 2,
+    "gf": 12,
+    "ga": 8,
+    "gd": 4,
+    "points": 18,
+    "form": ""
+  },
+  {
     "team": "AFC Bournemouth",
     "logo": "logos/BOU.png",
     "matches": 10,
@@ -74,19 +87,6 @@
     "gf": 18,
     "ga": 11,
     "gd": 7,
-    "points": 17,
-    "form": ""
-  },
-  {
-    "team": "Sunderland",
-    "logo": null,
-    "matches": 9,
-    "wins": 5,
-    "draws": 2,
-    "losses": 2,
-    "gf": 11,
-    "ga": 7,
-    "gd": 4,
     "points": 17,
     "form": ""
   },
@@ -169,6 +169,19 @@
     "form": ""
   },
   {
+    "team": "Everton",
+    "logo": "logos/EVE.png",
+    "matches": 10,
+    "wins": 3,
+    "draws": 3,
+    "losses": 4,
+    "gf": 10,
+    "ga": 13,
+    "gd": -3,
+    "points": 12,
+    "form": ""
+  },
+  {
     "team": "Fulham",
     "logo": "logos/FUL.png",
     "matches": 10,
@@ -178,19 +191,6 @@
     "gf": 12,
     "ga": 14,
     "gd": -2,
-    "points": 11,
-    "form": ""
-  },
-  {
-    "team": "Everton",
-    "logo": "logos/EVE.png",
-    "matches": 9,
-    "wins": 3,
-    "draws": 2,
-    "losses": 4,
-    "gf": 9,
-    "ga": 12,
-    "gd": -3,
     "points": 11,
     "form": ""
   },
