@@ -119,13 +119,26 @@
   {
     "team": "Manchester United",
     "logo": "logos/MUN.png",
-    "matches": 11,
+    "matches": 12,
     "wins": 5,
     "draws": 3,
-    "losses": 3,
+    "losses": 4,
     "gf": 19,
-    "ga": 18,
-    "gd": 1,
+    "ga": 19,
+    "gd": 0,
+    "points": 18,
+    "form": ""
+  },
+  {
+    "team": "Everton",
+    "logo": "logos/EVE.png",
+    "matches": 12,
+    "wins": 5,
+    "draws": 3,
+    "losses": 4,
+    "gf": 13,
+    "ga": 13,
+    "gd": 0,
     "points": 18,
     "form": ""
   },
@@ -153,19 +166,6 @@
     "ga": 19,
     "gd": -1,
     "points": 16,
-    "form": ""
-  },
-  {
-    "team": "Everton",
-    "logo": "logos/EVE.png",
-    "matches": 11,
-    "wins": 4,
-    "draws": 3,
-    "losses": 4,
-    "gf": 12,
-    "ga": 13,
-    "gd": -1,
-    "points": 15,
     "form": ""
   },
   {
