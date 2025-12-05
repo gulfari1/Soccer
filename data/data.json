@@ -91,6 +91,19 @@
     "form": ""
   },
   {
+    "team": "Manchester United",
+    "logo": "logos/MUN.png",
+    "matches": 14,
+    "wins": 6,
+    "draws": 4,
+    "losses": 4,
+    "gf": 22,
+    "ga": 21,
+    "gd": 1,
+    "points": 22,
+    "form": ""
+  },
+  {
     "team": "Liverpool",
     "logo": "logos/LIV.png",
     "matches": 14,
@@ -101,19 +114,6 @@
     "ga": 21,
     "gd": 0,
     "points": 22,
-    "form": ""
-  },
-  {
-    "team": "Manchester United",
-    "logo": "logos/MUN.png",
-    "matches": 13,
-    "wins": 6,
-    "draws": 3,
-    "losses": 4,
-    "gf": 21,
-    "ga": 20,
-    "gd": 1,
-    "points": 21,
     "form": ""
   },
   {
@@ -223,14 +223,14 @@
   {
     "team": "West Ham United",
     "logo": "logos/WHU.png",
-    "matches": 13,
+    "matches": 14,
     "wins": 3,
-    "draws": 2,
+    "draws": 3,
     "losses": 8,
-    "gf": 15,
-    "ga": 27,
+    "gf": 16,
+    "ga": 28,
     "gd": -12,
-    "points": 11,
+    "points": 12,
     "form": ""
   },
   {
