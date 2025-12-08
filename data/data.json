@@ -39,6 +39,19 @@
     "form": ""
   },
   {
+    "team": "Crystal Palace",
+    "logo": "logos/CRY.png",
+    "matches": 15,
+    "wins": 7,
+    "draws": 5,
+    "losses": 3,
+    "gf": 20,
+    "ga": 12,
+    "gd": 8,
+    "points": 26,
+    "form": ""
+  },
+  {
     "team": "Chelsea",
     "logo": "logos/CHE.png",
     "matches": 15,
@@ -65,15 +78,15 @@
     "form": ""
   },
   {
-    "team": "Crystal Palace",
-    "logo": "logos/CRY.png",
-    "matches": 14,
+    "team": "Brighton & Hove Albion",
+    "logo": "logos/BHA.png",
+    "matches": 15,
     "wins": 6,
     "draws": 5,
-    "losses": 3,
-    "gf": 18,
-    "ga": 11,
-    "gd": 7,
+    "losses": 4,
+    "gf": 25,
+    "ga": 21,
+    "gd": 4,
     "points": 23,
     "form": ""
   },
@@ -113,19 +126,6 @@
     "gf": 25,
     "ga": 18,
     "gd": 7,
-    "points": 22,
-    "form": ""
-  },
-  {
-    "team": "Brighton & Hove Albion",
-    "logo": "logos/BHA.png",
-    "matches": 14,
-    "wins": 6,
-    "draws": 4,
-    "losses": 4,
-    "gf": 24,
-    "ga": 20,
-    "gd": 4,
     "points": 22,
     "form": ""
   },
@@ -184,13 +184,13 @@
   {
     "team": "Fulham",
     "logo": "logos/FUL.png",
-    "matches": 14,
+    "matches": 15,
     "wins": 5,
     "draws": 2,
-    "losses": 7,
-    "gf": 19,
-    "ga": 22,
-    "gd": -3,
+    "losses": 8,
+    "gf": 20,
+    "ga": 24,
+    "gd": -4,
     "points": 17,
     "form": ""
   },
@@ -223,14 +223,14 @@
   {
     "team": "West Ham United",
     "logo": "logos/WHU.png",
-    "matches": 14,
+    "matches": 15,
     "wins": 3,
-    "draws": 3,
+    "draws": 4,
     "losses": 8,
-    "gf": 16,
-    "ga": 28,
+    "gf": 17,
+    "ga": 29,
     "gd": -12,
-    "points": 12,
+    "points": 13,
     "form": ""
   },
   {
